@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS两张图片合并成一张图片 | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334function drawAndShareImage()&amp;#123;    var canvas &#x3D; document.createElement(&quot;canvas&quot;);    canvas.width &#x3D; 700;    canvas.height &#x3D; 700;    var co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS两张图片合并成一张图片">
+<meta property="og:url" content="http://yoursite.com/2020/05/10/js/20200511/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334function drawAndShareImage()&amp;#123;    var canvas &#x3D; document.createElement(&quot;canvas&quot;);    canvas.width &#x3D; 700;    canvas.height &#x3D; 700;    var co">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-10T12:42:04.000Z">
+<meta property="article:modified_time" content="2020-05-10T12:47:02.802Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="canvas">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-js/20200511" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS两张图片合并成一张图片
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawAndShareImage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">    canvas.width = <span class="number">700</span>;</span><br><span class="line">    canvas.height = <span class="number">700</span>;</span><br><span class="line">    <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"> </span><br><span class="line">    context.rect(<span class="number">0</span> , <span class="number">0</span> , canvas.width , canvas.height);</span><br><span class="line">    context.fillStyle = <span class="string">"#fff"</span>;</span><br><span class="line">    context.fill();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> myImage = <span class="keyword">new</span> Image();</span><br><span class="line">    myImage.src = <span class="string">"./2.png"</span>;    <span class="comment">//背景图片  你自己本地的图片或者在线图片</span></span><br><span class="line">    myImage.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line"> </span><br><span class="line">    myImage.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.drawImage(myImage , <span class="number">0</span> , <span class="number">0</span> , <span class="number">700</span> , <span class="number">700</span>);</span><br><span class="line"> </span><br><span class="line">        context.font = <span class="string">"60px Courier New"</span>;</span><br><span class="line">        context.fillText(<span class="string">"我是文字"</span>,<span class="number">350</span>,<span class="number">450</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">var</span> myImage2 = <span class="keyword">new</span> Image();</span><br><span class="line">        myImage2.src = <span class="string">"./1.png"</span>;   <span class="comment">//你自己本地的图片或者在线图片</span></span><br><span class="line">        myImage2.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line">        </span><br><span class="line">        myImage2.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            context.drawImage(myImage2 , <span class="number">175</span> , <span class="number">175</span> , <span class="number">225</span> , <span class="number">225</span>);</span><br><span class="line">            <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">"image/png"</span>);  <span class="comment">//"image/png" 这里注意一下</span></span><br><span class="line">            <span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">'avatar'</span>);</span><br><span class="line"> </span><br><span class="line">            <span class="comment">// document.getElementById('avatar').src = base64;</span></span><br><span class="line">            img.setAttribute(<span class="string">'src'</span> , base64);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/10/js/20200511/" data-id="cka1404ph00082jjddws2bg72" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/10/build/20200510/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Nginx解决前端跨域问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/10/http/20200510/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">TCP 三次握手 四次挥手</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 20px;">interview</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

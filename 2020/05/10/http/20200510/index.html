@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>TCP 三次握手 四次挥手 | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="- SYN(建立联机) - ACK(确认) - PSH(传送) - FIN(结束) - RST(重置) - URG(紧急)  第一次握手  客户端向服务器发出请求连接的报文 这时同部位SYN&#x3D;1 同时生成随机初始序列号 seq &#x3D;x 客户端进去同步已经发送的状态 SYN &#x3D; 1 不能携带数据的 但是需要消耗掉一个序列号 表示的意思是 客户端想要和服务器建立连接  第二次握手  收到请求后 如果同意">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP 三次握手 四次挥手">
+<meta property="og:url" content="http://yoursite.com/2020/05/10/http/20200510/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="- SYN(建立联机) - ACK(确认) - PSH(传送) - FIN(结束) - RST(重置) - URG(紧急)  第一次握手  客户端向服务器发出请求连接的报文 这时同部位SYN&#x3D;1 同时生成随机初始序列号 seq &#x3D;x 客户端进去同步已经发送的状态 SYN &#x3D; 1 不能携带数据的 但是需要消耗掉一个序列号 表示的意思是 客户端想要和服务器建立连接  第二次握手  收到请求后 如果同意">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://note.youdao.com/src/WEBRESOURCE72024008960bb39406abbee64a2b1005">
+<meta property="og:image" content="https://note.youdao.com/src/WEBRESOURCE67af4b09cdc9289f3564bcea4b34b8a2">
+<meta property="og:image" content="https://note.youdao.com/src/WEBRESOURCEfa4c1268e29b7f2af8f052193a94a7ae">
+<meta property="og:image" content="https://note.youdao.com/src/WEBRESOURCE7f97ca2284010e56e45e3ef3851f6f57">
+<meta property="article:published_time" content="2020-05-10T10:42:04.000Z">
+<meta property="article:modified_time" content="2020-05-10T13:22:35.224Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="https">
+<meta property="article:tag" content="TCP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/src/WEBRESOURCE72024008960bb39406abbee64a2b1005">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-http/20200510" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TCP 三次握手 四次挥手
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>- SYN(建立联机)</p>
+<p>- ACK(确认)</p>
+<p>- PSH(传送)</p>
+<p>- FIN(结束)</p>
+<p>- RST(重置)</p>
+<p>- URG(紧急)</p>
+<ol>
+<li>第一次握手</li>
+</ol>
+<p>客户端向服务器发出请求连接的报文 这时同部位SYN=1 同时生成随机初始序列号 seq =x</p>
+<p>客户端进去同步已经发送的状态 SYN = 1 不能携带数据的 但是需要消耗掉一个序列号</p>
+<p>表示的意思是 客户端想要和服务器建立连接</p>
+<ol start="2">
+<li>第二次握手</li>
+</ol>
+<p>收到请求后 如果同意连接的话 会发出确认的报文</p>
+<p>需要初始化一个序列号</p>
+<p>确认号 ack = x+1</p>
+<p>进入了一个同步收到状态 也是不能携带数据的 询问你是都准备好</p>
+<ol start="3">
+<li>第三次握手</li>
+</ol>
+<p>客户端收到确认后 还要向服务器给出确认 确认的报文 进入已经连接的状态 如果不携带数据是不需要消耗序号的 </p>
+<p>我已经准备好了</p>
+<p>* 原因？</p>
+<p>网络不好 请求没有及时到达这个服务端 直到摸个时间点才到达</p>
+<p>失效的报文 </p>
+<p>一直的等待客户端发来消息 </p>
+<p>* 建立连接传输数据</p>
+<p>Ack = Seq + 传递的字节数 + 1</p>
+<ol start="4">
+<li>第一次挥手</li>
+</ol>
+<p>客户端发出连接释放的报文 停止发送数据 也要消耗一个序号</p>
+<ol start="5">
+<li>第二次挥手</li>
+</ol>
+<p>收到连接释放的报文 发出确认的报文 ACk = 1 ack = u + 1 seq = u 服务端进去 close-wait （关闭等待的状态)</p>
+<p>服务端发送数据的话 客户端依然要接受</p>
+<ol start="6">
+<li>第三次挥手</li>
+</ol>
+<p>服务端发送一个FIN结束到客户端 服务端关闭客户端的连接</p>
+<p>服务器将最后的数据发送完毕之后 就向客户端发送连接释放的报文 </p>
+<p>服务端可能又发送了一些数据 进入一个最终确认的状态</p>
+<ol start="7">
+<li>第四次挥手</li>
+</ol>
+<p>* 原因？？？</p>
+<p>握手是可以直接发送 syn ack ack 是用来应答的  syn 是用来同步的</p>
+<p>server端收到 fin 结束的报文的时候 不会立即关闭 先回复一个ack 报文 你的分手请求我收到了 但是我还是有点不能接受 你容我伤心一会 </p>
+<p>（要把数据传输完毕）（只有等我server的所有报文斗殴传输完毕 ）</p>
+<p>* SYN 洪水攻击</p>
+<p>利用服务端超时处理 时间内 不断发送 syn的包</p>
+<p>检测？？</p>
+<p>服务端看到大量的办连接的状态 ip是随机的 Linux系统有自带的命令去检测</p>
+<p>防御？？</p>
+<p>缩短超时</p>
+<p>cookies</p>
+<p>过滤网关防护SYN</p>
+<p>白天求生存 晚上求发展</p>
+<p>不走弯路</p>
+<p>目标明确</p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCE72024008960bb39406abbee64a2b1005" alt="img"></p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCE67af4b09cdc9289f3564bcea4b34b8a2" alt="img"></p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCEfa4c1268e29b7f2af8f052193a94a7ae" alt="img"></p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCE7f97ca2284010e56e45e3ef3851f6f57" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/10/http/20200510/" data-id="cka1404p900012jjd3mqlem1i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/" rel="tag">TCP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/" rel="tag">https</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/10/js/20200511/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          JS两张图片合并成一张图片
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/10/vue/20200510/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">vue项目实现前端导出excel+样式控制</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 20px;">interview</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
