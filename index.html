@@ -52,252 +52,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-interview/react" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/interview/react/">面试React</a>
-    </h1>
-  
-
-        <a href="/2020/05/10/interview/react/" class="article-date">
-  <time datetime="2020-05-10T13:42:04.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>React组件的生命周期<br>React父子组件如何通信的<br>React层级很深的组件如何通信传值(Context API)<br>React做了哪些性能优化 PureComponent的实现原理是什么<br>React setState后都会发生什么，是否了解<br>React 1000个列表节点渲染，给出一个优化方案<br>是否了解React事件机制，如果让你实现如何来设计<br>Redux的原理及理解<br>react-redux是如何来实现的，connect是不是一个高阶函数，原理是什么<br>react与vue相比，有什么不同</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/interview/react/" data-id="cka1404pd00032jjdheb40s2q" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-interview/vue" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/interview/vue/">面试VUE</a>
-    </h1>
-  
-
-        <a href="/2020/05/10/interview/vue/" class="article-date">
-  <time datetime="2020-05-10T13:42:04.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!---->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/interview/vue/" data-id="cka1404pf00042jjdchsi3vd5" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-interview/webpack" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/interview/webpack/">面试构建打包</a>
-    </h1>
-  
-
-        <a href="/2020/05/10/interview/webpack/" class="article-date">
-  <time datetime="2020-05-10T13:42:04.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><h2 id="缩小文件的搜索范围"><a href="#缩小文件的搜索范围" class="headerlink" title="缩小文件的搜索范围"></a>缩小文件的搜索范围</h2><h3 id="1-优化Loader配置"><a href="#1-优化Loader配置" class="headerlink" title="1 - 优化Loader配置"></a>1 - 优化Loader配置</h3><p>由于Loader对文件的转换很耗时，尽可能减少文件被Loader处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rules:[</span><br><span class="line">	&#123;</span><br><span class="line">		test:&#x2F;\.js$&#x2F;,&#x2F;&#x2F; 如果只有JS文件，就不要写成.jsx$，提升正则的性能</span><br><span class="line">		user:[&#39;babel-loader?cacheDirectory&#39;],&#x2F;&#x2F; babel-loader支持缓存转换出的结果，通过cacheDirectory选项开启</span><br><span class="line">		include:path.resolve(_dirname,&#39;src&#39;)&#x2F;&#x2F; 只对项目根目录下的src采用babel-loader  通过include缩小命中范围</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-优化resolve-modules配置"><a href="#2-优化resolve-modules配置" class="headerlink" title="2 - 优化resolve.modules配置"></a>2 - 优化resolve.modules配置</h3><p>指明存放第三方模块的绝对路径，以减少寻找</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">		&#x2F;&#x2F; 使用绝对路径指明第三方模块存放的位置，以减少搜索步骤</span><br><span class="line">		&#x2F;&#x2F; __dirname 项目根目录</span><br><span class="line">    modules:[ path.resolve(__dirname,&#39;node_modules&#39;) ]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-优化resolve-mainFields配置"><a href="#3-优化resolve-mainFields配置" class="headerlink" title="3 - 优化resolve.mainFields配置"></a>3 - 优化resolve.mainFields配置</h3><p>配置第三方模块使用哪个入口文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;browser&quot;:&quot;fetch-npm-browserify.js&quot;,</span><br><span class="line">	&quot;main&quot;:&quot;fetch-npm-node.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">	&#x2F;&#x2F; mainFields:[&#39;browser&#39;,&#39;module&#39;,&#39;main&#39;]</span><br><span class="line">	&#x2F;&#x2F; 只使用main字段作为入口文件的描述字段 以减少搜索的步骤</span><br><span class="line">	mainFields:[&#39;main&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-优化resolve-alias配置"><a href="#4-优化resolve-alias配置" class="headerlink" title="4 - 优化resolve.alias配置"></a>4 - 优化resolve.alias配置</h3><p>通过别名来将原导入路么映射成一个新的导入路径<br>除了react库，大多数库都会有完整文件，对于这些库，可以单独配置alias</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">	alias: &#123;</span><br><span class="line">		&#39;react&#39;: path.resolve(_dirname, &#39;.&#x2F;node_modules&#x2F;react&#x2F;dist&#x2F;react.min.js&#39;),</span><br><span class="line">    &#39;vue$&#39;: &#39;vue&#x2F;dist&#x2F;vue.esm.js&#39;,</span><br><span class="line">    &#39;@&#39;: resolve(&#39;src&#39;),</span><br><span class="line">    &#39;src&#39;: path.resolve(__dirname, &#39;..&#x2F;src&#39;),</span><br><span class="line">    &#39;assets&#39;: path.resolve(__dirname, &#39;..&#x2F;src&#x2F;assets&#39;)</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-优化resolve-extensions配置"><a href="#5-优化resolve-extensions配置" class="headerlink" title="5 - 优化resolve.extensions配置"></a>5 - 优化resolve.extensions配置</h3><p>在导入语句没带后缀时，会自动带上后缀去尝试<br>此配置会降低构建性能，尝试次数过多<br>后缀尝试列表尽量可能小，不存在的后缀就不要设置<br>频率出现最高的后缀要优先放在最前面<br>在源码中导入语句时，尽可能的带上后缀</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">	&#x2F;&#x2F; 尽可能减少后缀尝试的可能</span><br><span class="line">	extensions: [&#39;js&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-优化module-noParse配置"><a href="#6-优化module-noParse配置" class="headerlink" title="6 - 优化module.noParse配置"></a>6 - 优化module.noParse配置</h3><p>忽略对部份没采用模块化的文件进行递归解析处理，这样做可以提高构建性能<br>比如一些jQuery Chart库 解析没有任何意义<br>被忽略的文件不应该包含import require define 等模块化语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">	noParse: [&#x2F;react\.min\.js$&#x2F;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="动态连接库-DllPlugin"><a href="#动态连接库-DllPlugin" class="headerlink" title="动态连接库 DllPlugin"></a>动态连接库 DllPlugin</h2><h2 id="分解任务-管理进程-使用HappyPack"><a href="#分解任务-管理进程-使用HappyPack" class="headerlink" title="分解任务 管理进程 使用HappyPack"></a>分解任务 管理进程 使用HappyPack</h2><ul>
-<li>webpack是单线程 HappyPack将任务分解给多个子进程去并发执行，子进程处理完后会将结果发给主进程</li>
-<li>最耗时的流程是loader对文件的转换 核心调度会将一个个任务分配给当前空闲的子进程</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const ExtractTextPlugin &#x3D; require(&#39;extract-text-webpack-plugin&#39;);</span><br><span class="line">const HappyPack &#x3D; require(&#39;happypack&#39;);</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.js$&#x2F;,</span><br><span class="line">        &#x2F;&#x2F; 把对 .js 文件的处理转交给 id 为 babel 的 HappyPack 实例</span><br><span class="line">        use: [&#39;happypack&#x2F;loader?id&#x3D;babel&#39;],</span><br><span class="line">        &#x2F;&#x2F; 排除 node_modules 目录下的文件，node_modules 目录下的文件都是采用的 ES5 语法，没必要再通过 Babel 去转换</span><br><span class="line">        exclude: path.resolve(__dirname, &#39;node_modules&#39;),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &#x2F;&#x2F; 把对 .css 文件的处理转交给 id 为 css 的 HappyPack 实例</span><br><span class="line">        test: &#x2F;\.css$&#x2F;,</span><br><span class="line">        use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">          use: [&#39;happypack&#x2F;loader?id&#x3D;css&#39;],</span><br><span class="line">        &#125;),</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new HappyPack(&#123;</span><br><span class="line">      &#x2F;&#x2F; 用唯一的标识符 id 来代表当前的 HappyPack 是用来处理一类特定的文件</span><br><span class="line">      id: &#39;babel&#39;,</span><br><span class="line">      &#x2F;&#x2F; 如何处理 .js 文件，用法和 Loader 配置中一样</span><br><span class="line">      loaders: [&#39;babel-loader?cacheDirectory&#39;],</span><br><span class="line">    &#125;),</span><br><span class="line">    new HappyPack(&#123;</span><br><span class="line">      id: &#39;css&#39;,</span><br><span class="line">      &#x2F;&#x2F; 如何处理 .css 文件，用法和 Loader 配置中一样</span><br><span class="line">      loaders: [&#39;css-loader&#39;],</span><br><span class="line">    &#125;),</span><br><span class="line">    new ExtractTextPlugin(&#123;</span><br><span class="line">      filename: &#96;[name].css&#96;,</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">  devtool: &#39;source-map&#39; &#x2F;&#x2F; 输出 source-map 方便直接调试 ES6 源码</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用ParallelUglifyPlugin"><a href="#使用ParallelUglifyPlugin" class="headerlink" title="使用ParallelUglifyPlugin"></a>使用ParallelUglifyPlugin</h2><ul>
-<li>JS代码压缩工具是UglifyJS  webpack中内置了它 一个一个压缩再输出</li>
-<li>ParallelUglifyPlugin 是开启多个子进程 并行执行</li>
-<li>UglifyES 是UglifyJS的变种，专门 处理压缩ES6，不能同时使用，一般用于较新的环境，比如RN</li>
-<li>ParallelUglifyPlugin同时内置了UglifyES和UglifyJS，支持并行压缩ES6<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const ParallelUglifyPlugin &#x3D; require(&#39;webpack-parallel-uglify-plugin&#39;);</span><br><span class="line">plugins: [</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 使用 ParallelUglifyPlugin 并行压缩输出的 JS 代码</span><br><span class="line">    new ParallelUglifyPlugin(&#123;</span><br><span class="line">      &#x2F;&#x2F; 缓存压缩后的结果，下次遇到一样的输入时直接从缓存中获取压缩后的结果返回</span><br><span class="line">      &#x2F;&#x2F; cacheDir 用于配置缓存存放的目录路径</span><br><span class="line">      cacheDir: &#39;.uglify-cache&#39;,</span><br><span class="line">      uglifyJS: &#123;</span><br><span class="line">        output: &#123;</span><br><span class="line">          &#x2F;&#x2F; 最紧凑的输出</span><br><span class="line">          beautify: false,</span><br><span class="line">          &#x2F;&#x2F; 删除所有的注释</span><br><span class="line">          comments: false,</span><br><span class="line">        &#125;,</span><br><span class="line">        compress: &#123;</span><br><span class="line">          &#x2F;&#x2F; 在UglifyJs删除没有用到的代码时不输出警告</span><br><span class="line">          warnings: false,</span><br><span class="line">          &#x2F;&#x2F; 删除所有的 &#96;console&#96; 语句，可以兼容ie浏览器</span><br><span class="line">          drop_console: true,</span><br><span class="line">          &#x2F;&#x2F; 内嵌定义了但是只用到一次的变量</span><br><span class="line">          collapse_vars: true,</span><br><span class="line">          &#x2F;&#x2F; 提取出出现多次但是没有定义成变量去引用的静态值</span><br><span class="line">          reduce_vars: true,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/interview/webpack/" data-id="cka1404pf00052jjd0tp32z2w" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-interview/basic" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/interview/basic/">面试前端基础</a>
-    </h1>
-  
-
-        <a href="/2020/05/10/interview/basic/" class="article-date">
-  <time datetime="2020-05-10T13:42:04.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<h1 id="【html】"><a href="#【html】" class="headerlink" title="【html】"></a>【html】</h1><ul>
-<li>行内元素 块级元素</li>
-<li>盒子模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）有两种， IE 盒子模型、W3C 盒子模型；</span><br><span class="line">（2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；</span><br><span class="line">（3）区  别： IE的content部分把 border 和 padding计算了进去;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="【css】"><a href="#【css】" class="headerlink" title="【css】"></a>【css】</h1><ul>
-<li>浮动的理</li>
-<li>FLEXBOX布局的理解</li>
-<li>Canvas svg的区别<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Canvas绘制出来的每一个图形的元素都是独立的DOM节点，能够方便的绑定事件或用来修改。canvas输出的是一整幅画布</span><br><span class="line">svg输出的图形是矢量图形，后期可以修改参数来自由放大缩小，不会失真和锯齿。而canvas输出标量画布，就像一张图片一样，放大会失真或者锯齿</span><br></pre></td></tr></table></figure></li>
-<li>CSS 优先级<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*   优先级就近原则，同权重情况下样式定义最近者为准;</span><br><span class="line">*   载入样式以最后载入的定位为准;</span><br><span class="line"></span><br><span class="line">优先级为:</span><br><span class="line">	同权重: 内联样式表（标签内部）&gt; 嵌入样式表（当前文件中）&gt; 外部样式表（外部文件中）。</span><br><span class="line">	!important &gt;  id &gt; class &gt; tag</span><br><span class="line">	important 比 内联优先级高</span><br></pre></td></tr></table></figure></li>
-<li>了解CSS初始化吗?为什么要这样做<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</span><br></pre></td></tr></table></figure></li>
-<li>请解释一下为什么需要清除浮动？清除浮动的方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">清除浮动是为了清除使用浮动元素产生的影响。浮动的元素，高度会塌陷，而高度的塌陷使我们页面后面的布局不能正常显示。</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h1 id="【JS】"><a href="#【JS】" class="headerlink" title="【JS】"></a>【JS】</h1><ul>
-<li>TYPEOF能区别哪几种类型？string、boolean、number、undefined、symbol和函数function</li>
-<li>== ===</li>
-<li>什么是函数柯理化？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在一个函数中，首先填充几个参数，然后再返回一个新的函数的技术，称为函数的柯里化。通常可用于在不侵入函数的前提下，为函数 预置通用参数，供多次重复调用。</span><br><span class="line">const add &#x3D; function add(x) &#123;</span><br><span class="line">return function (y) &#123;                     （1分）</span><br><span class="line">return x + y                       （1分）</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">const add1 &#x3D; add(1)                                 （1分）</span><br><span class="line"> </span><br><span class="line">add1(2) &#x3D;&#x3D;&#x3D; 3</span><br><span class="line">add1(20) &#x3D;&#x3D;&#x3D; 21</span><br></pre></td></tr></table></figure></li>
-<li>请描述jquery中$.get()提交和$.post()提交两者的区别<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">相同点：都是异步请求的方式来获取服务端的数据；</span><br><span class="line">异同点：</span><br><span class="line">1、请求方式不同：$.get() 方法使用GET方法来进行异步请求的。$.post()方法使用POST方法来进行异步请求的。</span><br><span class="line">2、参数传递方式不同：get请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给Web服务器的，这种传递是对用户不可见的。</span><br><span class="line">3、数据传输大小不同：get方式传输的数据大小不能超过2KB 而POST要大的多</span><br><span class="line">4、安全问题： GET 方式请求的数据会被浏览器缓存起来，因此有安全问题。</span><br></pre></td></tr></table></figure></li>
-<li>谈谈This对象的理解。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this总是指向函数的直接调用者（而非间接调用者）；</span><br><span class="line">如果有new关键字，this指向new出来的那个对象；</span><br><span class="line">在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window；</span><br><span class="line">this是js的一个关键字，随着函数使用场合不同，this的值会发生变化。</span><br><span class="line">但是有一个总原则，那就是this指的是调用函数的那个对象。</span><br><span class="line">this一般情况下：是全局对象Global。 作为方法调用，那么this就是指这个对象</span><br></pre></td></tr></table></figure></li>
-<li>什么是闭包（closure），为什么要用它？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> 闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。</span><br><span class="line"></span><br><span class="line">闭包的特性：</span><br><span class="line"></span><br><span class="line">1.函数内再嵌套函数</span><br><span class="line">2.内部函数可以引用外层的参数和变量</span><br><span class="line">3.参数和变量不会被垃圾回收机制回收</span><br></pre></td></tr></table></figure></li>
-<li>js延迟加载的方式有哪些？defer和async、动态创建DOM方式（用得最多）、按需异步载入js</li>
-<li>AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？AMD 是提前执行，CMD 是延迟执行。</li>
-</ul>
-<h1 id="【VUE】"><a href="#【VUE】" class="headerlink" title="【VUE】"></a>【VUE】</h1><ul>
-<li>v-show v-if</li>
-<li>父子组件如何通信</li>
-<li>v-for 你使用过程中，有遇到什么问题或者关注点吗？（避免将 v-if 和 v-for 放在同一个元素上，因为 v-for 优先级比 v-if 更高。然后使用 v-for 的话，注意下 v-bind:key，因为关系到一些代码优化了）</li>
-<li>token 失效问题遇到过么？一般会怎么处理？</li>
-</ul>
-<h1 id="【HTTP】"><a href="#【HTTP】" class="headerlink" title="【HTTP】"></a>【HTTP】</h1><ul>
-<li>http状态码有那些？分别代表是什么意思？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">简单版</span><br><span class="line">[</span><br><span class="line">	100  Continue	继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息</span><br><span class="line">	200  OK 		正常返回信息</span><br><span class="line">	201  Created  	请求成功并且服务器创建了新的资源</span><br><span class="line">	202  Accepted 	服务器已接受请求，但尚未处理</span><br><span class="line">	301  Moved Permanently  请求的网页已永久移动到新位置。</span><br><span class="line">	302 Found  		临时性重定向。</span><br><span class="line">	303 See Other  	临时性重定向，且总是使用 GET 请求新的 URI。</span><br><span class="line">	304  Not Modified 自从上次请求后，请求的网页未修改过。</span><br><span class="line"></span><br><span class="line">	400 Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。</span><br><span class="line">	401 Unauthorized 请求未授权。</span><br><span class="line">	403 Forbidden  	禁止访问。</span><br><span class="line">	404 Not Found  	找不到如何与 URI 相匹配的资源。</span><br><span class="line"></span><br><span class="line">	500 Internal Server Error  最常见的服务器端错误。</span><br><span class="line">	503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
-<li>请描述一下 cookies，sessionStorage 和 localStorage 的区别？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。</span><br><span class="line">cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。</span><br><span class="line">sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。</span><br><span class="line"></span><br><span class="line">存储大小：</span><br><span class="line">	cookie数据大小不能超过4k。</span><br><span class="line">	sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。</span><br><span class="line"></span><br><span class="line">有期时间：</span><br><span class="line">	localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；</span><br><span class="line">	sessionStorage  数据在当前浏览器窗口关闭后自动删除。</span><br><span class="line">	cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h1 id="【IE兼容性】"><a href="#【IE兼容性】" class="headerlink" title="【IE兼容性】"></a>【IE兼容性】</h1><ul>
-<li>VUE工程需要怎么处理可以兼容IE babel-polyfill</li>
-<li>VUE工程需要怎么处理可以识别ES5 ES6 babel</li>
-</ul>
-<h1 id="【优化】"><a href="#【优化】" class="headerlink" title="【优化】"></a>【优化】</h1><ul>
-<li>如何优化图片？sprite</li>
-</ul>
-<h1 id="【未来对自己的定位】"><a href="#【未来对自己的定位】" class="headerlink" title="【未来对自己的定位】"></a>【未来对自己的定位】</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="最近在学什么"><a href="#最近在学什么" class="headerlink" title="最近在学什么"></a>最近在学什么</h1><h1 id="你有什么规划？"><a href="#你有什么规划？" class="headerlink" title="你有什么规划？"></a>你有什么规划？</h1><p>react </p>
-<h1 id="你觉得前端体系应该是怎样的？"><a href="#你觉得前端体系应该是怎样的？" class="headerlink" title="你觉得前端体系应该是怎样的？"></a>你觉得前端体系应该是怎样的？</h1><h1 id="你有什么问题要问我？"><a href="#你有什么问题要问我？" class="headerlink" title="你有什么问题要问我？"></a>你有什么问题要问我？</h1><p>概念问题一：什么是webpack和grunt和gulp有什么不同<br>答案：Webpack是一个模块打包器，他可以递归的打包项目中的所有模块，最终生成几个打包后的文件。他和其他的工具最大的不同在于他支持code-splitting、模块化(AMD，ESM，CommonJs)、全局分析。</p>
-<p>概念问题二：什么是bundle,什么是chunk，什么是module?<br>答案：bundle是由webpack打包出来的文件，chunk是指webpack在进行模块的依赖分析的时候，代码分割出来的代码块。module是开发中的单个模块。</p>
-<p>概念问题三：什么是Loader?什么是Plugin?<br>答案：<br>1）Loaders是用来告诉webpack如何转化处理某一类型的文件，并且引入到打包出的文件中<br>2）Plugin是用来自定义webpack打包过程的方式，一个插件是含有apply方法的一个对象，通过这个方法可以参与到整个webpack打包的各个流程(生命周期)。<br>配置问题:如何可以自动生成webpack配置？<br>答案： webpack-cli /vue-cli /etc …脚手架工具</p>
-<p>开发问题一：webpack-dev-server和http服务器如nginx有什么区别?<br>答案：webpack-dev-server使用内存来存储webpack开发环境下的打包文件，并且可以使用模块热更新，他比传统的http服务对开发更加简单高效。</p>
-<p>开发问题二:什么 是模块热更新？<br>答案:模块热更新是webpack的一个功能，他可以使得代码修改过后不用刷新浏览器就可以更新，是高级版的自动刷新浏览器。<br>优化问题一：什么是长缓存？在webpack中如何做到长缓存优化？<br>答案：浏览器在用户访问页面的时候，为了加快加载速度，会对用户访问的静态资源进行存储，但是每一次代码升级或是更新，都需要浏览器去下载新的代码，最方便和简单的更新方式就是引入新的文件名称。在webpack中可以在output纵输出的文件指定chunkhash,并且分离经常更新的代码和框架代码。通过NameModulesPlugin或是HashedModuleIdsPlugin使再次打包文件名不变。<br>优化问题二：什么是Tree-shaking?CSS可以Tree-shaking吗<br>答案：Tree-shaking是指在打包中去除那些引入了，但是在代码中没有被用到的那些死代码。在webpack中Tree-shaking是通过uglifySPlugin来Tree-shaking<br>JS。Css需要使用Purify-CSS。</p>
-<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>对缓存的理解<br>对http2的理解<br>对https的理解<br>对原型链的理解，画一个经典的原型连接图<br>对es6了解多少<br>箭头函数与正常函数有哪些区别<br>class的实现 用原型写一个继承<br>ajax axios fetch的区别<br>如何用promise封装一个ajax<br>项目中的难点和亮点<br>对缓存的理解，需要什么设置<br>对代码构建上线流程是否了解，说一下如果让你实现的思路<br>谈谈对webpack的理解，常用哪些plugin，对webpack配置是否了解，对项目打包是否做过什么优化<br>ES6常用到哪些，对class的理解，手写一个对继承的实现</p>
-<p>Promise是否了解，如何实现一个promise<br>class继承中子类想使用父类的方法，应该用什么方式调用(super的意义)<br>箭头函数与正常函数的区别<br>css实现border渐变<br>css实现下阴影（气泡类 带箭头的阴影）<br>css对flex的理解<br>对浏览器渲染机制的理解（具体到细节，从渲染树到paint之间究竟发生了什么）<br>纯css实现一个高宽比为1：3的盒子 列举几种方式<br>浏览器的架构，bom，dom<br>对https的理解,对称、非对称加密在哪部使用<br>css布局 各种定位的方式<br>css实现水平垂直居中<br>css实现一个旋转的圆<br>cookie 跨域的处理方案<br>cookie 种在子域下能否携带发送到服务端(SSO登录)<br>写一个函数，第一次调用返回0，之后每次调用返回比之前大1<br>闭包、作用域的理解<br>用原生xhr发送一个请求<br>跨域请求可以携带cookie吗<br>axios与xhr的区别，如何用promise包装xhr<br>讲讲项目中的难点</p>
-<p>http的头部有什么字段，简要描述(缓存，content-type，cookie等等)<br>cookie跨域服务端需要如何适配(CORS头)<br>一个请求跨域是否会抵达服务端<br>对之前的项目做过什么优化，讲一讲<br>对之前的项目遇到过什么难点，讲一讲<br>对http2有哪些了解<br>对canvas有哪些性能上的优化<br>对settimeout和对setinterval的理解（涉及代码题倒计时函数，eventloop的考点）计时是否准确？如何实现较为准确的计时？<br>对一个短时间并发高的场景需要如何处理（后端设计）(开始答题获取试卷的场景)</p>
-<p>跨域的解决办法<br>原型链的理解，写一个原型继承<br>实现一个sendRequest，有最大请求并发限制<br>EventLoop的理解<br>浏览器渲染触发在EventLoop的哪个阶段，触发机制是怎么样的<br>https 建立连接的过程及通信 如何劫持，鉴别是否被劫持<br>ES module与cjs的区别<br>Tree shaking的实现原理<br>给定一个sum 检验一棵树中，是否存在一条路径和为sum，输出该路径</p>
-<p>笔试题6页<br>css优先级关系<br>eventloop的先后顺序(node内)<br>node中的垃圾收集机制<br>BFC，IFC，FFC的区别<br>a11y是什么，如何理解<br>prototype的考察<br>TDZ的考察<br>写一个数组方法，打乱整个数组顺序，并且每个数字落在各个位置的概率相同<br>one(add(two())) // 3 two(add(one())) // 3 写出 one() two() add()的实现<br>实现一个catchPromise 发同一个请求缓存data 在实际网络层相同url只会发出一个请求<br>给定 n 个 {x, y, w, h}的盒子 按需排列，左上聚拢(层叠后的max(h)*max(w)最小)，求给一个{w,h}，输出放置的位置<br>从输入一个url到呈现网页，都有哪些步骤<br>http keep—alive都解决了哪些问题 keep-alive是从c - nginx建立的还是直接到服务建立的长连接，与websocket有什么区别与联系<br>给定一个html，输出其中包含的html标签数量，可以用domapi 注意iframe<br>实现一个NumberStack，实现pop，push，max(n)方法，max(n)返回第n大的数，max(n)需要 O(1)的时间复杂度<br>实现一个bind函数<br>跨域的解决办法，jsonp的实现原理</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/interview/basic/" data-id="cka1404pq000o2jjd5cixab1m" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-build/20200510" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -333,7 +87,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/build/20200510/" data-id="cka1404p000002jjdbafg3ggt" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/10/build/20200510/" data-id="cka4lp4lm00012es6cgw495vf" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
@@ -367,11 +121,21 @@
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawAndShareImage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">    canvas.width = <span class="number">700</span>;</span><br><span class="line">    canvas.height = <span class="number">700</span>;</span><br><span class="line">    <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"> </span><br><span class="line">    context.rect(<span class="number">0</span> , <span class="number">0</span> , canvas.width , canvas.height);</span><br><span class="line">    context.fillStyle = <span class="string">"#fff"</span>;</span><br><span class="line">    context.fill();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> myImage = <span class="keyword">new</span> Image();</span><br><span class="line">    myImage.src = <span class="string">"./2.png"</span>;    <span class="comment">//背景图片  你自己本地的图片或者在线图片</span></span><br><span class="line">    myImage.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line"> </span><br><span class="line">    myImage.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.drawImage(myImage , <span class="number">0</span> , <span class="number">0</span> , <span class="number">700</span> , <span class="number">700</span>);</span><br><span class="line"> </span><br><span class="line">        context.font = <span class="string">"60px Courier New"</span>;</span><br><span class="line">        context.fillText(<span class="string">"我是文字"</span>,<span class="number">350</span>,<span class="number">450</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">var</span> myImage2 = <span class="keyword">new</span> Image();</span><br><span class="line">        myImage2.src = <span class="string">"./1.png"</span>;   <span class="comment">//你自己本地的图片或者在线图片</span></span><br><span class="line">        myImage2.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line">        </span><br><span class="line">        myImage2.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            context.drawImage(myImage2 , <span class="number">175</span> , <span class="number">175</span> , <span class="number">225</span> , <span class="number">225</span>);</span><br><span class="line">            <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">"image/png"</span>);  <span class="comment">//"image/png" 这里注意一下</span></span><br><span class="line">            <span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">'avatar'</span>);</span><br><span class="line"> </span><br><span class="line">            <span class="comment">// document.getElementById('avatar').src = base64;</span></span><br><span class="line">            img.setAttribute(<span class="string">'src'</span> , base64);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>-->
+        <!--<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawAndShareImage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">    canvas.width = <span class="number">700</span>;</span><br><span class="line">    canvas.height = <span class="number">700</span>;</span><br><span class="line">    <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"> </span><br><span class="line">    context.rect(<span class="number">0</span> , <span class="number">0</span> , canvas.width , canvas.height);</span><br><span class="line">    context.fillStyle = <span class="string">"#fff"</span>;</span><br><span class="line">    context.fill();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> myImage = <span class="keyword">new</span> Image();</span><br><span class="line">    myImage.src = <span class="string">"./2.png"</span>;    <span class="comment">//背景图片  你自己本地的图片或者在线图片</span></span><br><span class="line">    myImage.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line"> </span><br><span class="line">    myImage.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.drawImage(myImage , <span class="number">0</span> , <span class="number">0</span> , <span class="number">700</span> , <span class="number">700</span>);</span><br><span class="line"> </span><br><span class="line">        context.font = <span class="string">"60px Courier New"</span>;</span><br><span class="line">        context.fillText(<span class="string">"我是文字"</span>,<span class="number">350</span>,<span class="number">450</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">var</span> myImage2 = <span class="keyword">new</span> Image();</span><br><span class="line">        myImage2.src = <span class="string">"./1.png"</span>;   <span class="comment">//你自己本地的图片或者在线图片</span></span><br><span class="line">        myImage2.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line">        </span><br><span class="line">        myImage2.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            context.drawImage(myImage2 , <span class="number">175</span> , <span class="number">175</span> , <span class="number">225</span> , <span class="number">225</span>);</span><br><span class="line">            <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">"image/png"</span>);  <span class="comment">//"image/png" 这里注意一下</span></span><br><span class="line">            <span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">'avatar'</span>);</span><br><span class="line"> </span><br><span class="line">            <span class="comment">// document.getElementById('avatar').src = base64;</span></span><br><span class="line">            img.setAttribute(<span class="string">'src'</span> , base64);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>安卓手机 华为 小米等canvas生成不了的问题以及长按canvas保存不了图片的问题</p>
+</blockquote>
+<p>使用html2canvas domtoimg等合成图片 其中 安卓兼容性较高为html2canvas</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.getElementById(<span class="string">'posterCode'</span>), &#123; <span class="attr">useCORS</span>: <span class="literal">true</span>, <span class="attr">allowTaint</span>: <span class="literal">true</span> &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> base64_p = canvas.toDataURL(<span class="string">'image/png'</span>)</span><br><span class="line">  <span class="keyword">const</span> dom = <span class="built_in">document</span>.getElementById(<span class="string">'posterCode'</span>)</span><br><span class="line">  <span class="keyword">const</span> myImage1 = <span class="keyword">new</span> Image()</span><br><span class="line">  myImage1.src = base64_p</span><br><span class="line">  myImage1.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  dom.innerHTML = <span class="string">''</span></span><br><span class="line">  dom.appendChild(myImage1)</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  that.mergeCanvas()</span><br><span class="line">  &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+-->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/js/20200511/" data-id="cka1404ph00082jjddws2bg72" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/10/js/20200511/" data-id="cka4lp4lq00042es65k8f9i4y" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
@@ -476,10 +240,63 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/http/20200510/" data-id="cka1404p900012jjd3mqlem1i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/10/http/20200510/" data-id="cka4lp4ln00022es684j78tfv" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/" rel="tag">TCP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/" rel="tag">https</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-weeks/202005-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/10/weeks/202005-2/">前端周刊【202005-2】</a>
+    </h1>
+  
+
+        <a href="/2020/05/10/weeks/202005-2/" class="article-date">
+  <time datetime="2020-05-10T10:42:04.000Z" itemprop="datePublished">2020-05-10</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<ul>
+<li><a href="https://blog.csdn.net/qq_14993375/article/details/89547142" target="_blank" rel="noopener">koa2实现微信授权登录</a> </li>
+</ul>
+<h2 id="微前端方向"><a href="#微前端方向" class="headerlink" title="微前端方向"></a>微前端方向</h2><p><a href="https://www.jianshu.com/p/9412e91d8e13" target="_blank" rel="noopener">doc</a></p>
+<ul>
+<li>前端单页应用微服务化解决方案1 - 思考</li>
+<li>前端单页应用微服务化解决方案2 - Single-SPA</li>
+<li>前端单页应用微服务化解决方案3 - 模块加载器</li>
+<li>前端单页应用微服务化解决方案4 - 消息总线</li>
+<li>前端单页应用微服务化解决方案5 - 路由分发</li>
+<li>前端单页应用微服务化解决方案6 - 构建与部署</li>
+<li>前端单页应用微服务化解决方案7 - 静态数据共享</li>
+<li>前端单页应用微服务化解决方案8 - 二次构建</li>
+</ul>
+<p><a href="https://juejin.im/post/5dfd8a0c6fb9a0165f490004#heading-12" target="_blank" rel="noopener">Single-Spa + Vue Cli 微前端落地指南</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2020/05/10/weeks/202005-2/" data-id="cka4lp4lr00052es60z9t0x2f" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weeks/" rel="tag">weeks</a></li></ul>
 
     </footer>
   </div>
@@ -518,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/vue/20200510/" data-id="cka1404pr000p2jjdaik8eeva" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/10/vue/20200510/" data-id="cka4lp4lw000j2es6hubo7eec" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/excel/" rel="tag">excel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
@@ -869,11 +686,53 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/03/10/book/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cka1404px000v2jjd3w9z506k" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/03/10/book/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cka4lp4m2000o2es64d3519iz" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-start" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/01/start/">It has never been too late to start</a>
+    </h1>
+  
+
+        <a href="/2020/01/01/start/" class="article-date">
+  <time datetime="2020-01-01T01:00:00.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Marong</p>
+<p>UI/UX Designer and Web developer for Web and Mobile.</p>
+<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>Web: <a href="http://www.marongrong.com" target="_blank" rel="noopener">http://www.marongrong.com</a></p>
+<p>Note: <a href="https://mrr3000.github.io" target="_blank" rel="noopener">https://mrr3000.github.io</a></p>
+<p>QQ：849285229</p>
+<p>Email：<a href="mailto:marong87@sina.com">marong87@sina.com</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2020/01/01/start/" data-id="cka4lp4k800002es686wr2g02" class="article-share-link">Share</a>-->
+      
+      
     </footer>
   </div>
   
@@ -891,7 +750,7 @@
     <div class="widget-wrap">
       <h3 class="widget-title">Tag Cloud</h3>
       <div class="tagcloud" style="margin-bottom:20px;">
-        <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 20px;">interview</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
+        <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 10px;">weeks</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
       </div>
     </div>
   
