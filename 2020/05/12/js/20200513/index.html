@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>前端资源预加载 resloader.js | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="为什么需要资源预加载预加载的资源，浏览器会缓存下来 资源预加载的场景范围应该锁定单页面应用，SPA的视图一般都是一步一步来呈现的，各种资源通过异步请求来获取，为了追求原生app般的流畅体验，可以把一些资源预加载下来。当然对于一些业务相关的图片资源，也可考虑延迟加载，但延迟加载不是本文讨论的范畴。 视图&#x2F;图片较多的专题页面，或者是需要逐帧图片来完成的动画效果，最好都要做预加载。 HTML5游戏，图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端资源预加载 resloader.js">
+<meta property="og:url" content="http://yoursite.com/2020/05/12/js/20200513/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="为什么需要资源预加载预加载的资源，浏览器会缓存下来 资源预加载的场景范围应该锁定单页面应用，SPA的视图一般都是一步一步来呈现的，各种资源通过异步请求来获取，为了追求原生app般的流畅体验，可以把一些资源预加载下来。当然对于一些业务相关的图片资源，也可考虑延迟加载，但延迟加载不是本文讨论的范畴。 视图&#x2F;图片较多的专题页面，或者是需要逐帧图片来完成的动画效果，最好都要做预加载。 HTML5游戏，图片">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-12T01:42:04.000Z">
+<meta property="article:modified_time" content="2020-05-13T01:19:25.832Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="resloader">
+<meta property="article:tag" content="资源预加载">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-js/20200513" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端资源预加载 resloader.js
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="为什么需要资源预加载"><a href="#为什么需要资源预加载" class="headerlink" title="为什么需要资源预加载"></a>为什么需要资源预加载</h2><p>预加载的资源，浏览器会缓存下来</p>
+<h2 id="资源预加载的场景"><a href="#资源预加载的场景" class="headerlink" title="资源预加载的场景"></a>资源预加载的场景</h2><p>范围应该锁定单页面应用，SPA的视图一般都是一步一步来呈现的，各种资源通过异步请求来获取，为了追求原生app般的流畅体验，可以把一些资源预加载下来。当然对于一些业务相关的图片资源，也可考虑延迟加载，但延迟加载不是本文讨论的范畴。</p>
+<p>视图/图片较多的专题页面，或者是需要逐帧图片来完成的动画效果，最好都要做预加载。</p>
+<p>HTML5游戏，图片一般都比较多，而且很多逐帧动画，必须要预加载，事实上一些游戏引擎都会提供相应功能。</p>
+<h2 id="哪些资源需要预加载呢？"><a href="#哪些资源需要预加载呢？" class="headerlink" title="哪些资源需要预加载呢？"></a>哪些资源需要预加载呢？</h2><p>web中包含的资源有很多种，图片、音视频之类的媒体文件</p>
+<p>js、css文件不需进行预加载。现在写js基本都用requirejs之类的加载器，而且最后都会进行压缩合并，将请求数降到最低，最终只有一个文件，有些团队甚至还将压缩后的代码直接放在行内，这样一个多余的请求都没有了。</p>
+<p>那么需要预加载的就是媒体文件了，图片、音视频之类。这类资源也得根据实际情况来选择哪些需要预加载。比如大多数页面装饰性图片就需要预加载，而由业务动态获取的图片则无法预加载（预先不知道地址）。用作音效、小动画的音视频可以预加载，一个半小时长的视频就不能预加载了。</p>
+<h2 id="resLoader-js"><a href="#resLoader-js" class="headerlink" title="resLoader.js"></a>resLoader.js</h2><ol>
+<li>自定义资源列表，用于预加载</li>
+<li>自定义onProgress，想展示成进度条还是百分比数字还是个性的设计都可</li>
+<li>开始和结束可配置回调函数</li>
+<li>只支持图片的预加载</li>
+<li>支持amd、cmd加载器加载，同时支持直接用<script>标签引入使用</li>
+<li>不依赖其他库</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loader = <span class="keyword">new</span> resLoader(&#123;</span><br><span class="line">     resources : [</span><br><span class="line">          <span class="string">'http://p2.qhimg.com/t01ed1438874f940dc0.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p9.qhimg.com/t01b4ff03b72c7dc6c7.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p2.qhimg.com/t01dd90dfbec92074d0.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p7.qhimg.com/t01cfec6d87cde457c5.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p9.qhimg.com/t01943ced462da67833.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p0.qhimg.com/t01943ced462da67833.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p6.qhimg.com/t01aa15a7ba7ccb49a7.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p8.qhimg.com/t010f1e8badf1134376.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p8.qhimg.com/t01cf37ea915533a032.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p3.qhimg.com/t0193d8a3963e1803e9.jpg'</span>,</span><br><span class="line">          <span class="string">'http://p3.qhimg.com/t01cd6a4d4b4bd4457b.jpg'</span></span><br><span class="line">     ],</span><br><span class="line">     onStart : <span class="function"><span class="keyword">function</span>(<span class="params">total</span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'start:'</span>+total);</span><br><span class="line">     &#125;,</span><br><span class="line">     onProgress : <span class="function"><span class="keyword">function</span>(<span class="params">current, total</span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(current+<span class="string">'/'</span>+total);</span><br><span class="line">          <span class="keyword">var</span> percent = current/total*<span class="number">100</span>;</span><br><span class="line">          $(<span class="string">'.progressbar'</span>).css(<span class="string">'width'</span>, percent+<span class="string">'%'</span>);</span><br><span class="line">          $(<span class="string">'.progresstext .current'</span>).text(current);</span><br><span class="line">          $(<span class="string">'.progresstext .total'</span>).text(total);</span><br><span class="line">     &#125;,</span><br><span class="line">     onComplete : <span class="function"><span class="keyword">function</span>(<span class="params">total</span>)</span>&#123;</span><br><span class="line">          alert(<span class="string">'加载完毕:'</span>+total+<span class="string">'个资源'</span>);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">loader.start();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">root, factory</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd) &#123;</span><br><span class="line">        <span class="comment">//AMD</span></span><br><span class="line">        define(factory);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> exports === <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="comment">//Node, CommonJS之类的</span></span><br><span class="line">        <span class="built_in">module</span>.exports = factory();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//浏览器全局变量(root 即 window)</span></span><br><span class="line">        root.resLoader = factory(root);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> isFunc = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">typeof</span> f === <span class="string">'function'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//构造器函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">resLoader</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.option = &#123;</span><br><span class="line">            resourceType : <span class="string">'image'</span>, <span class="comment">//资源类型，默认为图片</span></span><br><span class="line">            baseUrl : <span class="string">'./'</span>, <span class="comment">//基准url</span></span><br><span class="line">            resources : [], <span class="comment">//资源路径数组</span></span><br><span class="line">            onStart : <span class="literal">null</span>, <span class="comment">//加载开始回调函数，传入参数total</span></span><br><span class="line">            onProgress : <span class="literal">null</span>, <span class="comment">//正在加载回调函数，传入参数currentIndex, total</span></span><br><span class="line">            onComplete : <span class="literal">null</span> <span class="comment">//加载完毕回调函数，传入参数total</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(config)&#123;</span><br><span class="line">            <span class="keyword">for</span>(i <span class="keyword">in</span> config)&#123;</span><br><span class="line">                <span class="keyword">this</span>.option[i] = config[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            alert(<span class="string">'参数错误！'</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.status = <span class="number">0</span>; <span class="comment">//加载器的状态，0：未启动   1：正在加载   2：加载完毕</span></span><br><span class="line">        <span class="keyword">this</span>.total = <span class="keyword">this</span>.option.resources.length || <span class="number">0</span>; <span class="comment">//资源总数</span></span><br><span class="line">        <span class="keyword">this</span>.currentIndex = <span class="number">0</span>; <span class="comment">//当前正在加载的资源索引</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    resLoader.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">var</span> baseUrl = <span class="keyword">this</span>.option.baseUrl;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,l=<span class="keyword">this</span>.option.resources.length; i&lt;l; i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> r = <span class="keyword">this</span>.option.resources[i], url = <span class="string">''</span>;</span><br><span class="line">            <span class="keyword">if</span>(r.indexOf(<span class="string">'http://'</span>)===<span class="number">0</span> || r.indexOf(<span class="string">'https://'</span>)===<span class="number">0</span>)&#123;</span><br><span class="line">                url = r;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                url = baseUrl + r;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">            image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;_this.loaded();&#125;;</span><br><span class="line">            image.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;_this.loaded();&#125;;</span><br><span class="line">            image.src = url;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isFunc(<span class="keyword">this</span>.option.onStart))&#123;</span><br><span class="line">            <span class="keyword">this</span>.option.onStart(<span class="keyword">this</span>.total);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    resLoader.prototype.loaded = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(isFunc(<span class="keyword">this</span>.option.onProgress))&#123;</span><br><span class="line">            <span class="keyword">this</span>.option.onProgress(++<span class="keyword">this</span>.currentIndex, <span class="keyword">this</span>.total);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//加载完毕</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.currentIndex===<span class="keyword">this</span>.total)&#123;</span><br><span class="line">            <span class="keyword">if</span>(isFunc(<span class="keyword">this</span>.option.onComplete))&#123;</span><br><span class="line">                <span class="keyword">this</span>.option.onComplete(<span class="keyword">this</span>.total);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//暴露公共方法</span></span><br><span class="line">    <span class="keyword">return</span> resLoader;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="preload-js"><a href="#preload-js" class="headerlink" title="preload.js"></a>preload.js</h2><p>使用了XHR2来提供实时的加载进度信息，如果不支持则使用标签式的简化进度来实现进度展示，支持支持多队列，多连接，暂停队列</p>
+<p>在PreloadJS中，LoadQueue是主要用来预加载内容的API，LoadQueue是一个加载管理器即：可以预先加载一个文件或者一个文件队列<br>传递的参数是boolean类型，false则强制使用标签式的加载，LoadQueue支持的相关的文件:</p>
+<p>BINARY: XHR调用的二进制文件<br>TEXT: 文本文件 - 仅支持XHR<br>CSS: CSS文件<br>IMAGE: 一般图片文件格式<br>JAVASCRIPT: JavaScript文件<br>JSON: JSON数据<br>XML: XML数据<br>JSONP: 跨域JSON文件<br>SOUND: 音频文件<br>VIDEO: 视频文件<br>SVG: SVG文件<br>MANIFEST: JSON格式的文件列表<br>LoadQueue包含了以下几个常用的监听事件：</p>
+<p>complete: 当队列完成加载所有文件时。<br>error: 当队列与任何文件遇到错误时。<br>progress: 对于整个队列进展已经改变。<br>fileload: 单个文件已完成加载。<br>fileprogress: 单个文件进度变化。注意,只有文件装载XHR(或可能通过插件)将 file 事件进展除了0或100%。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化加载管理器：（创建队列）</span></span><br><span class="line"><span class="keyword">var</span> preload = <span class="keyword">new</span> createjs.LoadQueue(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  * &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.loading</span> &#123;</span></span><br><span class="line">  display: table;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 100%;</span><br><span class="line"><span class="css">  <span class="selector-tag">background-color</span>: <span class="selector-id">#00ffb1</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.loading</span> &gt; <span class="selector-class">.progress</span> &#123;</span></span><br><span class="line">  display: table-cell;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"loading"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/ts.jpg"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.3.1.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/preloadjs.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> preload;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> mainfest;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">  <span class="comment">// 初始化预加载manifest清单</span></span></span><br><span class="line"><span class="actionscript">  <span class="function"><span class="keyword">function</span> <span class="title">setupManifest</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">    mainfest = [</span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;,</span></span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;,</span></span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;,</span></span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;,</span></span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;,</span></span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;,</span></span><br><span class="line"><span class="actionscript">      &#123; src:<span class="string">"images/ts.jpg"</span>&#125; , &#123; src:<span class="string">"images/ts.jpg"</span>&#125;</span></span><br><span class="line">    ];</span><br><span class="line">  &#125;</span><br><span class="line"><span class="actionscript">  <span class="comment">// 预加载函数</span></span></span><br><span class="line"><span class="actionscript">  <span class="function"><span class="keyword">function</span> <span class="title">startPreload</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">    preload = <span class="keyword">new</span> createjs.LoadQueue(<span class="literal">true</span>);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//注意加载音频文件需要调用如下代码行</span></span></span><br><span class="line">    preload.installPlugin(createjs.SOUND);</span><br><span class="line"><span class="actionscript">    <span class="comment">//为preloaded添加整个队列变化时展示的进度事件</span></span></span><br><span class="line"><span class="actionscript">    preload.addEventListener(<span class="string">"progress"</span>,handleFileProgress);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//为preloaded添加当队列完成全部加载后触发事件</span></span></span><br><span class="line"><span class="actionscript">    preload.addEventListener(<span class="string">"complete"</span>,loadComplete);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//设置最大并发连接数  最大值为10</span></span></span><br><span class="line">    preload.setMaxConnections(1);</span><br><span class="line">    preload.loadManifest(mainfest);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">  <span class="comment">// 当整个队列变化时展示的进度事件的处理函数</span></span></span><br><span class="line"><span class="actionscript">  <span class="function"><span class="keyword">function</span> <span class="title">handleFileProgress</span><span class="params">(event)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">".progress"</span>).text(<span class="string">"loading..."</span>+<span class="built_in">Math</span>.ceil(event.loaded * <span class="number">100</span>)+ <span class="string">"%"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(event.loaded);</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">  <span class="comment">// 处理preload添加当队列完成全部加载后触发事件</span></span></span><br><span class="line"><span class="actionscript">  <span class="function"><span class="keyword">function</span> <span class="title">loadComplete</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 设置定时器，当全部加载完毕后让100%停留0.4秒，提高用户体验，不至于让用户感觉不到</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">      $(<span class="string">".loading"</span>).remove();</span></span><br><span class="line">    &#125;,400);</span><br><span class="line">  &#125;</span><br><span class="line">  setupManifest();</span><br><span class="line">  startPreload();</span><br><span class="line"> <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/12/js/20200513/" data-id="ckaakwa8u0011k3jgapwcayv4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resloader/" rel="tag">resloader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/17/build/20200516/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          如何配置一台新的云服务器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/10/build/20200510/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Nginx解决前端跨域问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 10px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
