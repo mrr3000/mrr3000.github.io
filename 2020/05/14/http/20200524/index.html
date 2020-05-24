@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HTML状态码常规总结 | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、消息类这一类型的状态码，代表请求已被接受，需要继续处理。 123100 Continue：服务器已经接收到请求头，并且客户端应继续发送请求主体101 Switching Protocols：服务器已经理解了客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。102 Processing：服务器已经收到并正在处理请求，但无响应可用。    2、成功类这一类型的状态码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML状态码常规总结">
+<meta property="og:url" content="http://yoursite.com/2020/05/14/http/20200524/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="1、消息类这一类型的状态码，代表请求已被接受，需要继续处理。 123100 Continue：服务器已经接收到请求头，并且客户端应继续发送请求主体101 Switching Protocols：服务器已经理解了客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。102 Processing：服务器已经收到并正在处理请求，但无响应可用。    2、成功类这一类型的状态码">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-14T10:42:04.000Z">
+<meta property="article:modified_time" content="2020-05-24T03:57:09.572Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="https">
+<meta property="article:tag" content="TCP">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-http/20200524" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML状态码常规总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、消息类"><a href="#1、消息类" class="headerlink" title="1、消息类"></a>1、消息类</h3><p>这一类型的状态码，代表请求已被接受，需要继续处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">100 Continue：服务器已经接收到请求头，并且客户端应继续发送请求主体</span><br><span class="line">101 Switching Protocols：服务器已经理解了客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。</span><br><span class="line">102 Processing：服务器已经收到并正在处理请求，但无响应可用。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、成功类"><a href="#2、成功类" class="headerlink" title="2、成功类"></a>2、成功类</h3><p>这一类型的状态码，代表请求已成功被服务器接收、理解、并接受。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">200 OK：请求已成功。</span><br><span class="line">201 Created：请求已经被实现。</span><br><span class="line">202 Accepted：服务器已接受请求，但尚未处理复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、重定向"><a href="#3、重定向" class="headerlink" title="3、重定向"></a>3、重定向</h3><p>这类状态码代表需要客户端采取进一步的操作才能完成请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">301 Moved Permanently：被请求的资源已永久移动到新位置。</span><br><span class="line">302 临时移动，转为GET，跳新URL。</span><br><span class="line">304 Not Modified：表示资源未被修改复制代码</span><br><span class="line">307 与302类似，可被保确保请求主体和消息主体不改变。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、客户端错误"><a href="#4、客户端错误" class="headerlink" title="4、客户端错误"></a>4、客户端错误</h3><p>这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">400 Bad Request：由于明显的客户端错误，服务器不能或不会处理该请求。</span><br><span class="line">401 Unauthorized：401语义即“未认证”，即用户没有必要的凭据。</span><br><span class="line">403 Forbidden：服务器已经理解请求，但是拒绝执行它。</span><br><span class="line">404 Not Found：请求失败，请求所希望得到的资源未被在服务器上发现，但允许用户的后续请求。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5、服务器错误"><a href="#5、服务器错误" class="headerlink" title="5、服务器错误"></a>5、服务器错误</h3><p>表示服务器无法完成明显有效的请求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">500 Internal Server Error: 通用错误消息，服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</span><br><span class="line">501 Not Implemented: 服务器不支持当前请求所需要的某个功能。</span><br><span class="line">502 BAD GATEWAY  网关或代理服务器发起请求，无效响应。</span><br><span class="line">503 Service Unavailable: 由于临时的服务器维护或者过载，服务器当前无法处理请求。</span><br><span class="line">504 GATE TIMEOUT 超时，未能从上游收到响应。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/14/http/20200524/" data-id="ckakn2lme0007t7jg3sj3g1nl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/" rel="tag">TCP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/" rel="tag">https</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/17/build/20200516/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          如何配置一台新的云服务器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/13/build/20200523/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">nginx的location、root、alias指令用法和区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 15px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 15px;">http</a> <a href="/tags/https/" style="font-size: 15px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 15px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
