@@ -52,6 +52,164 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-http/20200510" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/10/http/20200510/">TCP 三次握手 四次挥手</a>
+    </h1>
+  
+
+        <a href="/2020/05/10/http/20200510/" class="article-date">
+  <time datetime="2020-05-10T10:42:04.000Z" itemprop="datePublished">2020-05-10</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>- SYN(建立联机)</p>
+<p>- ACK(确认)</p>
+<p>- PSH(传送)</p>
+<p>- FIN(结束)</p>
+<p>- RST(重置)</p>
+<p>- URG(紧急)</p>
+<ol>
+<li>第一次握手</li>
+</ol>
+<p>客户端向服务器发出请求连接的报文 这时同部位SYN=1 同时生成随机初始序列号 seq =x</p>
+<p>客户端进去同步已经发送的状态 SYN = 1 不能携带数据的 但是需要消耗掉一个序列号</p>
+<p>表示的意思是 客户端想要和服务器建立连接</p>
+<ol start="2">
+<li>第二次握手</li>
+</ol>
+<p>收到请求后 如果同意连接的话 会发出确认的报文</p>
+<p>需要初始化一个序列号</p>
+<p>确认号 ack = x+1</p>
+<p>进入了一个同步收到状态 也是不能携带数据的 询问你是都准备好</p>
+<ol start="3">
+<li>第三次握手</li>
+</ol>
+<p>客户端收到确认后 还要向服务器给出确认 确认的报文 进入已经连接的状态 如果不携带数据是不需要消耗序号的 </p>
+<p>我已经准备好了</p>
+<p>* 原因？</p>
+<p>网络不好 请求没有及时到达这个服务端 直到摸个时间点才到达</p>
+<p>失效的报文 </p>
+<p>一直的等待客户端发来消息 </p>
+<p>* 建立连接传输数据</p>
+<p>Ack = Seq + 传递的字节数 + 1</p>
+<ol start="4">
+<li>第一次挥手</li>
+</ol>
+<p>客户端发出连接释放的报文 停止发送数据 也要消耗一个序号</p>
+<ol start="5">
+<li>第二次挥手</li>
+</ol>
+<p>收到连接释放的报文 发出确认的报文 ACk = 1 ack = u + 1 seq = u 服务端进去 close-wait （关闭等待的状态)</p>
+<p>服务端发送数据的话 客户端依然要接受</p>
+<ol start="6">
+<li>第三次挥手</li>
+</ol>
+<p>服务端发送一个FIN结束到客户端 服务端关闭客户端的连接</p>
+<p>服务器将最后的数据发送完毕之后 就向客户端发送连接释放的报文 </p>
+<p>服务端可能又发送了一些数据 进入一个最终确认的状态</p>
+<ol start="7">
+<li>第四次挥手</li>
+</ol>
+<p>* 原因？？？</p>
+<p>握手是可以直接发送 syn ack ack 是用来应答的  syn 是用来同步的</p>
+<p>server端收到 fin 结束的报文的时候 不会立即关闭 先回复一个ack 报文 你的分手请求我收到了 但是我还是有点不能接受 你容我伤心一会 </p>
+<p>（要把数据传输完毕）（只有等我server的所有报文斗殴传输完毕 ）</p>
+<p>* SYN 洪水攻击</p>
+<p>利用服务端超时处理 时间内 不断发送 syn的包</p>
+<p>检测？？</p>
+<p>服务端看到大量的办连接的状态 ip是随机的 Linux系统有自带的命令去检测</p>
+<p>防御？？</p>
+<p>缩短超时</p>
+<p>cookies</p>
+<p>过滤网关防护SYN</p>
+<p>白天求生存 晚上求发展</p>
+<p>不走弯路</p>
+<p>目标明确</p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCE72024008960bb39406abbee64a2b1005" alt="img"></p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCE67af4b09cdc9289f3564bcea4b34b8a2" alt="img"></p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCEfa4c1268e29b7f2af8f052193a94a7ae" alt="img"></p>
+<p><img src="https:////note.youdao.com/src/WEBRESOURCE7f97ca2284010e56e45e3ef3851f6f57" alt="img"></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2020/05/10/http/20200510/" data-id="ckav2pchv00027jjdf4bh7kcj" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/" rel="tag">TCP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/" rel="tag">https</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-weeks/202005-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/10/weeks/202005-2/">前端周刊【202005-2】</a>
+    </h1>
+  
+
+        <a href="/2020/05/10/weeks/202005-2/" class="article-date">
+  <time datetime="2020-05-10T10:42:04.000Z" itemprop="datePublished">2020-05-10</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<ul>
+<li><a href="https://blog.csdn.net/qq_14993375/article/details/89547142" target="_blank" rel="noopener">koa2实现微信授权登录</a> </li>
+</ul>
+<h2 id="微前端方向"><a href="#微前端方向" class="headerlink" title="微前端方向"></a>微前端方向</h2><p><a href="https://www.jianshu.com/p/9412e91d8e13" target="_blank" rel="noopener">doc</a></p>
+<ul>
+<li>前端单页应用微服务化解决方案1 - 思考</li>
+<li>前端单页应用微服务化解决方案2 - Single-SPA</li>
+<li>前端单页应用微服务化解决方案3 - 模块加载器</li>
+<li>前端单页应用微服务化解决方案4 - 消息总线</li>
+<li>前端单页应用微服务化解决方案5 - 路由分发</li>
+<li>前端单页应用微服务化解决方案6 - 构建与部署</li>
+<li>前端单页应用微服务化解决方案7 - 静态数据共享</li>
+<li>前端单页应用微服务化解决方案8 - 二次构建</li>
+</ul>
+<p><a href="https://juejin.im/post/5dfd8a0c6fb9a0165f490004#heading-12" target="_blank" rel="noopener">Single-Spa + Vue Cli 微前端落地指南</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2020/05/10/weeks/202005-2/" data-id="ckav2pci1000b7jjdglgq3n2j" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weeks/" rel="tag">weeks</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-vue/20200510" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -82,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/vue/20200510/" data-id="ckakn6ig7001fwyjg7b9r86dp" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/10/vue/20200510/" data-id="ckav2pcik001h7jjdbzgta5zt" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/excel/" rel="tag">excel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
@@ -433,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/03/10/book/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="ckakn6igh001swyjg65oi93eg" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/03/10/book/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="ckav2pciw00207jjd9uhrfibg" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
@@ -477,7 +635,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/01/01/start/" data-id="ckakn6iey0000wyjg3nkg2ojd" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/01/01/start/" data-id="ckav2pcgy00007jjdcajkgnmy" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -502,7 +660,7 @@
     <div class="widget-wrap">
       <h3 class="widget-title">Tag Cloud</h3>
       <div class="tagcloud" style="margin-bottom:20px;">
-        <a href="/tags/TCP/" style="font-size: 15px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/http/" style="font-size: 15px;">http</a> <a href="/tags/https/" style="font-size: 15px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 15px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+        <a href="/tags/TCP/" style="font-size: 13.33px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/https/" style="font-size: 13.33px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 16.67px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
       </div>
     </div>
   
