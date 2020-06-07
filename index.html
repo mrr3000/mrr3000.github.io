@@ -52,6 +52,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-weeks/202006-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/06/weeks/202006-1/">前端周刊【202006-1】</a>
+    </h1>
+  
+
+        <a href="/2020/06/06/weeks/202006-1/" class="article-date">
+  <time datetime="2020-06-06T02:42:04.000Z" itemprop="datePublished">2020-06-06</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><a href="https://juejin.im/post/5edb3dd551882542eb3eec7d?utm_source=gold_browser_extension" target="_blank" rel="noopener">Vue项目性能优化 — 实栈指南</a></p>
+<p><a href="https://juejin.im/post/5edb5d7d6fb9a04797068720?utm_source=gold_browser_extension#heading-0" target="_blank" rel="noopener">2020你应该知道的前端知识</a></p>
+<p><a href="https://segmentfault.com/a/1190000022801063" target="_blank" rel="noopener">也许这才是你想要的微前端方案</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2020/06/06/weeks/202006-1/" data-id="ckb4n71c4000e4hs64cq8f01f" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weeks/" rel="tag">weeks</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js/20200602" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/02/js/20200602/">移动端字体适配方案</a>
+    </h1>
+  
+
+        <a href="/2020/06/02/js/20200602/" class="article-date">
+  <time datetime="2020-06-02T01:42:04.000Z" itemprop="datePublished">2020-06-02</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<blockquote>
+<p>本文主要从两方面适配</p>
+<p>1.remjs 字体适配</p>
+<p>2.postcss pxtorem 字体适配</p>
+</blockquote>
+<h1 id="1-字体适配-REM-JS"><a href="#1-字体适配-REM-JS" class="headerlink" title="1.字体适配 REM.JS"></a>1.字体适配 REM.JS</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * rem.js</span></span><br><span class="line"><span class="comment"> * 随分辨率变化设置根font-size大小</span></span><br><span class="line"><span class="comment"> * 使字体自适应变化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author <span class="variable">Maorong</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> time</span><br><span class="line">  <span class="keyword">const</span> doc = <span class="built_in">document</span></span><br><span class="line">  <span class="keyword">const</span> baseSize = <span class="number">100</span> <span class="comment">// 1rem = 100px</span></span><br><span class="line">  <span class="keyword">const</span> designWidth = <span class="number">375</span></span><br><span class="line">  <span class="keyword">const</span> maxWidth = <span class="number">750</span></span><br><span class="line">  <span class="keyword">let</span> width = doc.documentElement.getBoundingClientRect().width</span><br><span class="line">  <span class="keyword">const</span> height = doc.documentElement.clientHeight</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断横竖屏状态</span></span><br><span class="line">  <span class="keyword">let</span> screenVertical = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (width &lt;= height) &#123;</span><br><span class="line">    screenVertical = <span class="literal">true</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    screenVertical = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置根字体大小</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setRem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (width &gt; maxWidth) &#123; <span class="comment">// 最大宽度</span></span><br><span class="line">      width = maxWidth</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> rem = screenVertical</span><br><span class="line">      ? width * baseSize / designWidth <span class="comment">// 横屏</span></span><br><span class="line">      : height * baseSize / designWidth <span class="comment">// 竖屏</span></span><br><span class="line">    doc.documentElement.style.fontSize = rem + <span class="string">'px'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 浏览器缩放时</span></span><br><span class="line">  win.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(time) <span class="comment">// 防止执行两次</span></span><br><span class="line">    time = setTimeout(setRem, <span class="number">300</span>)</span><br><span class="line">  &#125;, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 浏览器后退的时候重新计算</span></span><br><span class="line">  win.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">      clearTimeout(time)<span class="comment">// 防止执行两次</span></span><br><span class="line">      time = setTimeout(setRem, <span class="number">300</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  setRem()</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-PostCss-pxtorem"><a href="#2-PostCss-pxtorem" class="headerlink" title="2.PostCss pxtorem"></a>2.PostCss pxtorem</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'lib-flexible/flexible.js'</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .postcssrc.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    autoprefixer: &#123;</span><br><span class="line">      overrideBrowserslist: [<span class="string">'Android 4.1'</span>, <span class="string">'iOS 7.1'</span>, <span class="string">'Chrome &gt; 31'</span>, <span class="string">'ff &gt; 31'</span>, <span class="string">'ie &gt;= 8'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'postcss-pxtorem'</span>: &#123;</span><br><span class="line">      rootValue: <span class="number">100</span>,</span><br><span class="line">      propList: [<span class="string">'*'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2020/06/02/js/20200602/" data-id="ckb4n71by00064hs6bqarg7a0" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postcss/" rel="tag">postcss</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/" rel="tag">rem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-weeks/202005-4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -82,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/31/weeks/202005-4/" data-id="ckav2pci4000e7jjdfnj43aeq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/31/weeks/202005-4/" data-id="ckb4n71c6000h4hs6a65c65h5" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weeks/" rel="tag">weeks</a></li></ul>
@@ -94,7 +184,7 @@
 
 
   
-    <article id="post-js/202010526" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js/20200526" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
   </div>
@@ -105,11 +195,11 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/26/js/202010526/">前端工具方法集合</a>
+      <a class="article-title" href="/2020/05/26/js/20200526/">前端工具方法集合</a>
     </h1>
   
 
-        <a href="/2020/05/26/js/202010526/" class="article-date">
+        <a href="/2020/05/26/js/20200526/" class="article-date">
   <time datetime="2020-05-26T01:42:04.000Z" itemprop="datePublished">2020-05-26</time>
 </a>
       </header>
@@ -298,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/26/js/202010526/" data-id="ckav2pcis001u7jjdfppc1wuf" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/26/js/20200526/" data-id="ckb4n71d200234hs6hql91k6l" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/function/" rel="tag">function</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/" rel="tag">tool</a></li></ul>
@@ -340,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/24/weeks/202005-3/" data-id="ckav2pci3000d7jjd8g9h6av8" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/24/weeks/202005-3/" data-id="ckb4n71c5000g4hs68anm5msn" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weeks/" rel="tag">weeks</a></li></ul>
@@ -425,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/23/vue/20200522/" data-id="ckav2pcik001j7jjdgo88dree" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/23/vue/20200522/" data-id="ckb4n71cl001q4hs6czr81b3n" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uni/" rel="tag">uni</a></li></ul>
@@ -479,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/17/build/20200516/" data-id="ckav2pchx00047jjd4w8y34uq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/17/build/20200516/" data-id="ckb4n71bx00054hs6fe1wbl15" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nimg/" rel="tag">nimg</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pm2/" rel="tag">pm2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/" rel="tag">yum</a></li></ul>
@@ -540,7 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/14/http/20200524/" data-id="ckav2pci000097jjd7d4b9a7y" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/14/http/20200524/" data-id="ckb4n71c1000a4hs6cjal2w1u" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/" rel="tag">TCP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/" rel="tag">https</a></li></ul>
@@ -599,7 +689,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/13/build/20200523/" data-id="ckav2pchz00067jjd3xee3j1e" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/13/build/20200523/" data-id="ckb4n71bt00024hs60bdle8xs" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
@@ -666,105 +756,10 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/12/js/20200513/" data-id="ckav2pcij001g7jjd2l3a4jeq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2020/05/12/js/20200513/" data-id="ckb4n71ck001p4hs61cjz18ed" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resloader/" rel="tag">resloader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-build/20200510" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/build/20200510/">Nginx解决前端跨域问题</a>
-    </h1>
-  
-
-        <a href="/2020/05/10/build/20200510/" class="article-date">
-  <time datetime="2020-05-10T12:42:04.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">location /aoda-web &#123;</span><br><span class="line">	add_header <span class="string">'Access-Control-Allow-Origin'</span> $http_origin;</span><br><span class="line">	add_header <span class="string">'Access-Control-Allow-Credentials'</span> <span class="string">'true'</span>;</span><br><span class="line">	add_header <span class="string">'Access-Control-Allow-Methods'</span> <span class="string">'GET, POST, OPTIONS'</span>;</span><br><span class="line">	add_header <span class="string">'Access-Control-Allow-Headers'</span> <span class="string">'DNT,web-token,app-token,Authorization,Accept,Origin,Keep-Alive,User-Agent,X-Mx-ReqToken,X-Data-Type,X-Auth-Token,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range'</span>;</span><br><span class="line">	add_header <span class="string">'Access-Control-Expose-Headers'</span> <span class="string">'Content-Length,Content-Range'</span>;</span><br><span class="line">	<span class="keyword">if</span> ($request_method = <span class="string">'OPTIONS'</span>) &#123;</span><br><span class="line">		add_header <span class="string">'Access-Control-Max-Age'</span> <span class="number">1728000</span>;</span><br><span class="line">		add_header <span class="string">'Content-Type'</span> <span class="string">'text/plain; charset=utf-8'</span>;</span><br><span class="line">		add_header <span class="string">'Content-Length'</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">204</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	root   html;</span><br><span class="line">	index  index.html index.htm;</span><br><span class="line">	proxy_pass http:<span class="comment">//127.0.0.1:8080;</span></span><br><span class="line">	proxy_set_header Host $host;</span><br><span class="line">	proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">	proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">	proxy_connect_timeout <span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>1、Access-Control-Allow-Origin，这里使用变量 $http_origin取得当前来源域，大家说用“*”代表允许所有，我实际使用并不成功，原因未知；</p>
-<p>2、Access-Control-Allow-Credentials，为 true 的时候指请求时可带上Cookie，自己按情况配置吧；</p>
-<p>3、Access-Control-Allow-Methods，OPTIONS一定要有的，另外一般也就GET和POST，如果你有其它的也可加进去；</p>
-<p>4、Access-Control-Allow-Headers，这个要注意，里面一定要包含自定义的http头字段（就是说前端请求接口时，如果在http头里加了自定义的字段，这里配置一定要写上相应的字段），从上面可看到我写的比较长，我在网上搜索一些常用的写进去了，里面有“web-token”和“app-token”，这个是我项目里前端请求时设置的，所以我在这里要写上；</p>
-<p>5、Access-Control-Expose-Headers，可不设置，看网上大致意思是默认只能获返回头的6个基本字段，要获取其它额外的，先在这设置才能获取它；</p>
-<p>6、语句“ if ($request_method = ‘OPTIONS’) { ”，因为浏览器判断是否允许跨域时会先往后端发一个 options 请求，然后根据返回的结果判断是否允许跨域请求，所以这里单独判断这个请求，然后直接返回；</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/build/20200510/" data-id="ckav2pcht00017jjdecmd7sdv" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js/20200511" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/js/20200511/">JS两张图片合并成一张图片</a>
-    </h1>
-  
-
-        <a href="/2020/05/10/js/20200511/" class="article-date">
-  <time datetime="2020-05-10T12:42:04.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawAndShareImage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">    canvas.width = <span class="number">700</span>;</span><br><span class="line">    canvas.height = <span class="number">700</span>;</span><br><span class="line">    <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"> </span><br><span class="line">    context.rect(<span class="number">0</span> , <span class="number">0</span> , canvas.width , canvas.height);</span><br><span class="line">    context.fillStyle = <span class="string">"#fff"</span>;</span><br><span class="line">    context.fill();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> myImage = <span class="keyword">new</span> Image();</span><br><span class="line">    myImage.src = <span class="string">"./2.png"</span>;    <span class="comment">//背景图片  你自己本地的图片或者在线图片</span></span><br><span class="line">    myImage.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line"> </span><br><span class="line">    myImage.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.drawImage(myImage , <span class="number">0</span> , <span class="number">0</span> , <span class="number">700</span> , <span class="number">700</span>);</span><br><span class="line"> </span><br><span class="line">        context.font = <span class="string">"60px Courier New"</span>;</span><br><span class="line">        context.fillText(<span class="string">"我是文字"</span>,<span class="number">350</span>,<span class="number">450</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">var</span> myImage2 = <span class="keyword">new</span> Image();</span><br><span class="line">        myImage2.src = <span class="string">"./1.png"</span>;   <span class="comment">//你自己本地的图片或者在线图片</span></span><br><span class="line">        myImage2.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line">        </span><br><span class="line">        myImage2.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            context.drawImage(myImage2 , <span class="number">175</span> , <span class="number">175</span> , <span class="number">225</span> , <span class="number">225</span>);</span><br><span class="line">            <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">"image/png"</span>);  <span class="comment">//"image/png" 这里注意一下</span></span><br><span class="line">            <span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">'avatar'</span>);</span><br><span class="line"> </span><br><span class="line">            <span class="comment">// document.getElementById('avatar').src = base64;</span></span><br><span class="line">            img.setAttribute(<span class="string">'src'</span> , base64);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>安卓手机 华为 小米等canvas生成不了的问题以及长按canvas保存不了图片的问题</p>
-</blockquote>
-<p>使用html2canvas domtoimg等合成图片 其中 安卓兼容性较高为html2canvas</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.getElementById(<span class="string">'posterCode'</span>), &#123; <span class="attr">useCORS</span>: <span class="literal">true</span>, <span class="attr">allowTaint</span>: <span class="literal">true</span> &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> base64_p = canvas.toDataURL(<span class="string">'image/png'</span>)</span><br><span class="line">  <span class="keyword">const</span> dom = <span class="built_in">document</span>.getElementById(<span class="string">'posterCode'</span>)</span><br><span class="line">  <span class="keyword">const</span> myImage1 = <span class="keyword">new</span> Image()</span><br><span class="line">  myImage1.src = base64_p</span><br><span class="line">  myImage1.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  dom.innerHTML = <span class="string">''</span></span><br><span class="line">  dom.appendChild(myImage1)</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  that.mergeCanvas()</span><br><span class="line">  &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2020/05/10/js/20200511/" data-id="ckav2pchy00057jjd60j8anq7" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -788,7 +783,7 @@
     <div class="widget-wrap">
       <h3 class="widget-title">Tag Cloud</h3>
       <div class="tagcloud" style="margin-bottom:20px;">
-        <a href="/tags/TCP/" style="font-size: 13.33px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/https/" style="font-size: 13.33px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 16.67px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+        <a href="/tags/TCP/" style="font-size: 13.33px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/https/" style="font-size: 13.33px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postcss/" style="font-size: 10px;">postcss</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 20px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
       </div>
     </div>
   

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>移动端字体适配方案 | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文主要从两方面适配 1.remjs 字体适配 2.postcss pxtorem 字体适配  1.字体适配 REM.JS123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&#x2F;** * rem.js * 随分辨率变化设置根font-size大小 * 使字体自适应变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端字体适配方案">
+<meta property="og:url" content="http://yoursite.com/2020/06/02/js/20200602/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="本文主要从两方面适配 1.remjs 字体适配 2.postcss pxtorem 字体适配  1.字体适配 REM.JS123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&#x2F;** * rem.js * 随分辨率变化设置根font-size大小 * 使字体自适应变">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-02T01:42:04.000Z">
+<meta property="article:modified_time" content="2020-06-02T15:07:40.217Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="rem">
+<meta property="article:tag" content="postcss">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-js/20200602" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端字体适配方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文主要从两方面适配</p>
+<p>1.remjs 字体适配</p>
+<p>2.postcss pxtorem 字体适配</p>
+</blockquote>
+<h1 id="1-字体适配-REM-JS"><a href="#1-字体适配-REM-JS" class="headerlink" title="1.字体适配 REM.JS"></a>1.字体适配 REM.JS</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * rem.js</span></span><br><span class="line"><span class="comment"> * 随分辨率变化设置根font-size大小</span></span><br><span class="line"><span class="comment"> * 使字体自适应变化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author <span class="variable">Maorong</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> time</span><br><span class="line">  <span class="keyword">const</span> doc = <span class="built_in">document</span></span><br><span class="line">  <span class="keyword">const</span> baseSize = <span class="number">100</span> <span class="comment">// 1rem = 100px</span></span><br><span class="line">  <span class="keyword">const</span> designWidth = <span class="number">375</span></span><br><span class="line">  <span class="keyword">const</span> maxWidth = <span class="number">750</span></span><br><span class="line">  <span class="keyword">let</span> width = doc.documentElement.getBoundingClientRect().width</span><br><span class="line">  <span class="keyword">const</span> height = doc.documentElement.clientHeight</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断横竖屏状态</span></span><br><span class="line">  <span class="keyword">let</span> screenVertical = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (width &lt;= height) &#123;</span><br><span class="line">    screenVertical = <span class="literal">true</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    screenVertical = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置根字体大小</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setRem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (width &gt; maxWidth) &#123; <span class="comment">// 最大宽度</span></span><br><span class="line">      width = maxWidth</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> rem = screenVertical</span><br><span class="line">      ? width * baseSize / designWidth <span class="comment">// 横屏</span></span><br><span class="line">      : height * baseSize / designWidth <span class="comment">// 竖屏</span></span><br><span class="line">    doc.documentElement.style.fontSize = rem + <span class="string">'px'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 浏览器缩放时</span></span><br><span class="line">  win.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(time) <span class="comment">// 防止执行两次</span></span><br><span class="line">    time = setTimeout(setRem, <span class="number">300</span>)</span><br><span class="line">  &#125;, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 浏览器后退的时候重新计算</span></span><br><span class="line">  win.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">      clearTimeout(time)<span class="comment">// 防止执行两次</span></span><br><span class="line">      time = setTimeout(setRem, <span class="number">300</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  setRem()</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-PostCss-pxtorem"><a href="#2-PostCss-pxtorem" class="headerlink" title="2.PostCss pxtorem"></a>2.PostCss pxtorem</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'lib-flexible/flexible.js'</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .postcssrc.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    autoprefixer: &#123;</span><br><span class="line">      overrideBrowserslist: [<span class="string">'Android 4.1'</span>, <span class="string">'iOS 7.1'</span>, <span class="string">'Chrome &gt; 31'</span>, <span class="string">'ff &gt; 31'</span>, <span class="string">'ie &gt;= 8'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'postcss-pxtorem'</span>: &#123;</span><br><span class="line">      rootValue: <span class="number">100</span>,</span><br><span class="line">      propList: [<span class="string">'*'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/02/js/20200602/" data-id="ckb4n71by00064hs6bqarg7a0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postcss/" rel="tag">postcss</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/" rel="tag">rem</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/06/weeks/202006-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          前端周刊【202006-1】
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/31/weeks/202005-4/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">前端周刊【202005-4】</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 13.33px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/https/" style="font-size: 13.33px;">https</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postcss/" style="font-size: 10px;">postcss</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 20px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
