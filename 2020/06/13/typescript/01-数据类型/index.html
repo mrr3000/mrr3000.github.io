@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>TS笔记 - 01数据类型 | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据类型开始使用123tsc --init  &#x2F;&#x2F;创建tsconfig.json 改&quot;outDir&quot;:&#39;.&#x2F;js&#39;tsc index.ts &#x2F;&#x2F;编译文件为index.js js目录下生成创建html 引入index.js    数据类型boolean1let flag: boolean &#x3D; true; number1let flag: number &#x3D; 123; string1let flag:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TS笔记 - 01数据类型">
+<meta property="og:url" content="http://yoursite.com/2020/06/13/typescript/01-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="数据类型开始使用123tsc --init  &#x2F;&#x2F;创建tsconfig.json 改&quot;outDir&quot;:&#39;.&#x2F;js&#39;tsc index.ts &#x2F;&#x2F;编译文件为index.js js目录下生成创建html 引入index.js    数据类型boolean1let flag: boolean &#x3D; true; number1let flag: number &#x3D; 123; string1let flag:">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-13T07:42:04.000Z">
+<meta property="article:modified_time" content="2020-06-13T11:15:10.215Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-typescript/01-数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TS笔记 - 01数据类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tsc --init  //创建tsconfig.json 改<span class="string">"outDir"</span>:<span class="string">'./js'</span></span><br><span class="line">tsc index.ts //编译文件为index.js js目录下生成</span><br><span class="line">创建html 引入index.js</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据类型-1"><a href="#数据类型-1" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flag: boolean = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flag: number = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flag: srting = <span class="string">'123'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种定义数组</span></span><br><span class="line"><span class="keyword">let</span> arr1: number[] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment">// 第二种定义数组</span></span><br><span class="line"><span class="keyword">let</span> arr2: <span class="built_in">Array</span>&lt;number&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="tuple-元祖-属于数组的一种"><a href="#tuple-元祖-属于数组的一种" class="headerlink" title="tuple 元祖 * 属于数组的一种"></a>tuple 元祖 * 属于数组的一种</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr: <span class="built_in">Array</span>&lt;number | string&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'123'</span>]</span><br><span class="line"><span class="keyword">let</span> arr: <span class="built_in">Array</span>[number,string] = [<span class="number">1</span>,<span class="string">'123'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 元组 限制类型和个数</span></span><br><span class="line"><span class="keyword">let</span> tuple: [number,string] = [<span class="number">1</span>,<span class="string">'1'</span>]</span><br><span class="line">tuple.push(<span class="number">2</span>) <span class="comment">//允许插入 </span></span><br><span class="line"><span class="comment">// console.log(tuple[2]) // 但是不可以访问</span></span><br></pre></td></tr></table></figure>
+<h3 id="enum-枚举"><a href="#enum-枚举" class="headerlink" title="enum 枚举 *"></a>enum 枚举 *</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// success 1 error 0</span></span><br><span class="line"><span class="comment">// status 1 pay 2 unpay 3 cancel</span></span><br><span class="line">enum Flag&#123;success=<span class="number">1</span>,error=<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> s:Flag = Flag.success; <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">enum Color &#123;blue,red,<span class="string">'orange'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> c:Color=Color.red; <span class="comment">//1 如果枚举没有赋值 他的值就是下标index</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// // 相关知识</span></span><br><span class="line"><span class="comment">// 数字枚举 0,1,2,3,4,5 反向映射</span></span><br><span class="line"> enum Role&#123;</span><br><span class="line">     Reporter = <span class="number">1</span>,</span><br><span class="line">     Developer,</span><br><span class="line">     Maintainer,</span><br><span class="line">     Owner,</span><br><span class="line">     Guest</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// 字符串枚举</span></span><br><span class="line"> enum Message &#123;</span><br><span class="line">     Success = <span class="string">'恭喜你，成功了'</span>,</span><br><span class="line">     Fail = <span class="string">'抱歉，失败了'</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// 异构枚举 混用 不建议使用</span></span><br><span class="line"> enum Answer &#123;</span><br><span class="line">     N,</span><br><span class="line">     Y = <span class="string">'YES'</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 枚举成员</span></span><br><span class="line"> enum Char&#123;</span><br><span class="line">    <span class="comment">// const</span></span><br><span class="line">    a,</span><br><span class="line">    b=Char.a,</span><br><span class="line">    c=<span class="number">1</span>+<span class="number">3</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// computed 编译阶段不计算 运行阶段才计算 在此后声明的常量必须初始化值</span></span><br><span class="line">    d=<span class="built_in">Math</span>.random(),</span><br><span class="line">    e=<span class="string">'123'</span>.length</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 常量枚举</span></span><br><span class="line"> <span class="keyword">const</span> enum Month &#123;</span><br><span class="line">     Jan,</span><br><span class="line">     Feb,</span><br><span class="line">     Mar</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 枚举类型</span></span><br><span class="line"> enum E &#123; a,b &#125;</span><br><span class="line"> enum F &#123; a = <span class="number">0</span>, b=<span class="number">1</span>&#125;</span><br><span class="line"> enum G &#123; a=<span class="string">'apple'</span>, b=<span class="string">'banana'</span>&#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> e:E = <span class="number">3</span></span><br><span class="line"> <span class="keyword">let</span> f:F = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> e1:E.a</span><br><span class="line"> <span class="keyword">let</span> e2:E.b</span><br><span class="line"> <span class="keyword">let</span> e3:E.a</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> g1:G</span><br><span class="line"> <span class="keyword">let</span> g2:G.a</span><br></pre></td></tr></table></figure>
+<h3 id="any-任意"><a href="#any-任意" class="headerlink" title="any 任意 *"></a>any 任意 *</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str:any=&#123;&#125;</span><br><span class="line">str=<span class="string">'123'</span>;</span><br><span class="line">str=<span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="null-undefined-其它never类型的子类型"><a href="#null-undefined-其它never类型的子类型" class="headerlink" title="null undefined 其它never类型的子类型"></a>null undefined 其它never类型的子类型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 定义没有赋值</span></span><br><span class="line"><span class="keyword">var</span> num:number;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 输出undefined 错误</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num:<span class="literal">undefined</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 输出undefined 正确</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 空类型</span></span><br><span class="line"><span class="keyword">var</span> num:<span class="literal">null</span>;</span><br><span class="line">num = <span class="literal">null</span>; <span class="comment">//正确</span></span><br><span class="line">num = <span class="number">123</span>; <span class="comment">//错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一个元素可以设置多个类型</span></span><br><span class="line"><span class="keyword">var</span> num:number | <span class="literal">null</span> | <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="void-表示没有任何类型-用于定义方法的时候方法没有返回值"><a href="#void-表示没有任何类型-用于定义方法的时候方法没有返回值" class="headerlink" title="void * 表示没有任何类型  用于定义方法的时候方法没有返回值"></a>void * 表示没有任何类型  用于定义方法的时候方法没有返回值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>):<span class="title">void</span></span>&#123;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="never-其他类型-包括null-undefined-代表不会出现的值-几乎不会使用"><a href="#never-其他类型-包括null-undefined-代表不会出现的值-几乎不会使用" class="headerlink" title="never * 其他类型 包括null undefined 代表不会出现的值  几乎不会使用"></a>never * 其他类型 包括null undefined 代表不会出现的值  几乎不会使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a:never;</span><br><span class="line">a=<span class="function">(<span class="params">(</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'error'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/13/typescript/01-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="ckbdkosh6000d8wjk4xcfh0d8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/13/typescript/02-%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          TS笔记 - 02函数 function
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/06/weeks/202006-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">前端周刊【202006-1】 性能方向</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 12px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 12px;">http</a> <a href="/tags/https/" style="font-size: 12px;">https</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postcss/" style="font-size: 10px;">postcss</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 18px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

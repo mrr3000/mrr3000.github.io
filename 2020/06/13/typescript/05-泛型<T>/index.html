@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>TS笔记 - 05泛型 &lt;T&gt; | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="泛型 不仅规范API，也要考虑可重用性。同时也能支持未来的数据类型。 一种组件可以支持多种 数据类型。 解决 类 接口方法的复用性，以及对不特定的数据类型的支持  12345&#x2F;&#x2F; 以往代码 复杂 不可复用 代码冗余function getData1(value:string)&amp;#123;return value&amp;#125;function getData2(value:number)&amp;#123;r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TS笔记 - 05泛型 &lt;T&gt;">
+<meta property="og:url" content="http://yoursite.com/2020/06/13/typescript/05-%E6%B3%9B%E5%9E%8B%3CT%3E/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="泛型 不仅规范API，也要考虑可重用性。同时也能支持未来的数据类型。 一种组件可以支持多种 数据类型。 解决 类 接口方法的复用性，以及对不特定的数据类型的支持  12345&#x2F;&#x2F; 以往代码 复杂 不可复用 代码冗余function getData1(value:string)&amp;#123;return value&amp;#125;function getData2(value:number)&amp;#123;r">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-13T11:42:04.000Z">
+<meta property="article:modified_time" content="2020-06-13T11:15:22.798Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-typescript/05-泛型&lt;T&gt;" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TS笔记 - 05泛型 &lt;T&gt;
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><blockquote>
+<p>不仅规范API，也要考虑可重用性。同时也能支持未来的数据类型。 一种组件可以支持多种 数据类型。</p>
+<p>解决 类 接口方法的复用性，以及对不特定的数据类型的支持</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以往代码 复杂 不可复用 代码冗余</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData1</span>(<span class="params">value:string</span>)</span>&#123;<span class="keyword">return</span> value&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData2</span>(<span class="params">value:number</span>)</span>&#123;<span class="keyword">return</span> value&#125;</span><br><span class="line"><span class="comment">// 以往代码 比较粗暴 放弃了类型检查</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">value:any</span>)</span>&#123;<span class="keyword">return</span> value&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型定义"><a href="#泛型定义" class="headerlink" title="泛型定义"></a>泛型定义</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T表示泛型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span></span>&#123; <span class="comment">// 最后这个T表示返回类型</span></span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getData&lt;number&gt;(<span class="number">123</span>); <span class="comment">//success</span></span><br><span class="line">getData&lt;string&gt;(<span class="string">'zhangsan'</span>); <span class="comment">//success</span></span><br><span class="line">getData&lt;number&gt;(<span class="string">'123'</span>); <span class="comment">//error</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h2><blockquote>
+<p>比如有个最小堆算法，需要同时支持返回数字和字符串两钟类型 通过类泛型来实现</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinClass</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  list:T[]=[];</span><br><span class="line">	add(num:T)&#123;</span><br><span class="line">    <span class="keyword">this</span>.list.push(num);</span><br><span class="line">  &#125;</span><br><span class="line">	min():T&#123;</span><br><span class="line">    <span class="comment">// return minNum;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实例化类 并且制定了类T代表的类型</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> MinClass&lt;number&gt;(); </span><br><span class="line">m.add(<span class="number">3</span>);</span><br><span class="line">m.add(<span class="number">32</span>);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> MinClass&lt;string&gt;();</span><br><span class="line">m.add(<span class="string">'222'</span>);</span><br><span class="line">m.add(<span class="string">'333'</span>);</span><br><span class="line"></span><br><span class="line">m.min();</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种 写法</span></span><br><span class="line">interface Config&#123;</span><br><span class="line">  &lt;T&gt;(value:T):T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> setData:Config = <span class="function"><span class="keyword">function</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line">setData&lt;string&gt;(<span class="string">'zhangsan'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种 写法</span></span><br><span class="line">interface Config&lt;T&gt;&#123;</span><br><span class="line">  (value:T):T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myGetData:Config&lt;string&gt; = getData;</span><br><span class="line">myGetData(<span class="string">'zhangsan'</span>)</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">var</span> myGetData:Config&lt;number&gt; = getData;</span><br><span class="line">myGetData(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="把类作为参数类型的泛型类"><a href="#把类作为参数类型的泛型类" class="headerlink" title="把类作为参数类型的泛型类"></a>把类作为参数类型的泛型类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">  username:string | <span class="literal">undefined</span>;</span><br><span class="line">  password:string | <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MysqlDB</span></span>&#123;</span><br><span class="line">  add(user:User):boolean&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(user);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> U = <span class="keyword">new</span> User();</span><br><span class="line">U.username = <span class="string">'zhangsan'</span>;</span><br><span class="line">U.password = <span class="string">'123456'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> D = <span class="keyword">new</span> MysqlDB()</span><br><span class="line">D.add(U);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 泛型类</span></span><br><span class="line"><span class="comment">// 1 去除重复代码 2 对于不特定类进行数据校检</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MysqlDB</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  add(info:<span class="xml"><span class="tag">&lt;<span class="name">T</span>&gt;</span>):boolean&#123;</span></span><br><span class="line"><span class="xml">    console.log(info);</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">class User&#123;</span></span><br><span class="line"><span class="xml">  username:string | undefined;</span></span><br><span class="line"><span class="xml">  password:string | undefined;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">var U = new User();</span></span><br><span class="line"><span class="xml">U.username = 'zhangsan';</span></span><br><span class="line"><span class="xml">U.password = '123456';</span></span><br><span class="line">var D = new MysqlDB&lt;User&gt;();</span><br><span class="line">D.add(U);</span><br><span class="line"></span><br><span class="line">class Article&#123;</span><br><span class="line">  title:string | undefined;</span><br><span class="line">  desc:string | undefined;</span><br><span class="line">  status:number | undefined;</span><br><span class="line">	constructor(params:&#123;</span><br><span class="line">     title:string | undefined,</span><br><span class="line">     desc:string | undefined,</span><br><span class="line">     status?:number | undefined</span><br><span class="line">  &#125;)&#123;</span><br><span class="line">    this.title = params.title</span><br><span class="line">    this.desc = params.desc</span><br><span class="line">    this.status = params.status</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var A = new Article(&#123;</span><br><span class="line">  titile:'123',</span><br><span class="line">  desc:'123'</span><br><span class="line">&#125;);</span><br><span class="line">var S = new MysqlDB&lt;Article&gt;();</span><br><span class="line">S.add(A);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="定义一个操作数据库的库"><a href="#定义一个操作数据库的库" class="headerlink" title="定义一个操作数据库的库"></a>定义一个操作数据库的库</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">indterface DBI&lt;T&gt;&#123;</span><br><span class="line">  add(info:T):boolean;</span><br><span class="line">  update(info:T,<span class="attr">id</span>:number):boolean;</span><br><span class="line">  <span class="keyword">delete</span>(id:number):boolean;</span><br><span class="line">  <span class="keyword">get</span>(id:number):any[];</span><br><span class="line">&#125;</span><br><span class="line">//定义一个操作mysql的类</span><br><span class="line">class MysqlDB&lt;T&gt; implements DBI&lt;T&gt;&#123;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    <span class="comment">// 可以在此写与数据库建立连接</span></span><br><span class="line">  &#125;</span><br><span class="line">  add(info:T):boolean&#123;</span><br><span class="line">  	</span><br><span class="line">	&#125;</span><br><span class="line">	update(info:T,<span class="attr">id</span>:number):boolean&#123;</span><br><span class="line">  </span><br><span class="line">	&#125;</span><br><span class="line">  <span class="keyword">delete</span>(id:number):boolean&#123;</span><br><span class="line">  </span><br><span class="line">	&#125;</span><br><span class="line">  <span class="keyword">get</span>(id:number):boolean&#123;</span><br><span class="line">  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 操作用户表 定义一个User类和数据库映射</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">  username:string | <span class="literal">undefined</span>;</span><br><span class="line">  password:string | <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> U = <span class="keyword">new</span> User();</span><br><span class="line">U.username = <span class="string">'zhangsan'</span>;</span><br><span class="line">U.password = <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">var</span> oMysql = <span class="keyword">new</span> MysqlDB&lt;User&gt;();</span><br><span class="line">oMysql.add(U);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/13/typescript/05-%E6%B3%9B%E5%9E%8B%3CT%3E/" data-id="ckbdkosha000j8wjk3lsw3djq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/13/typescript/06-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4namespace/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          TS笔记 - 06命名空间 namespace
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/13/typescript/04-%E6%8E%A5%E5%8F%A3interface/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">TS笔记 - 04接口 interface</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 12px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 12px;">http</a> <a href="/tags/https/" style="font-size: 12px;">https</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postcss/" style="font-size: 10px;">postcss</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 18px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

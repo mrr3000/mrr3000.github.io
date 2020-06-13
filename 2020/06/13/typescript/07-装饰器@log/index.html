@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>TS笔记 - 07泛型装饰器 @log | Marong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="装饰器是一种特殊的类型声明，它能够被附加到类声明、方法、属性和参数上，可以修改类的行为。通俗来说就是一个方法，可以注入到类、方法、属性参数上来扩展类、属性、方法、参数的功能。 常见装饰器方法：类装饰器、属性装饰器、方法装饰器、参数装饰器 写法：普通装饰器（无法传参） 装饰器工厂（可传参） 装饰器是过去几年中JS最大的成京之一，已是ES7的标准特性之一 12345678910111213141516">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TS笔记 - 07泛型装饰器 @log">
+<meta property="og:url" content="http://yoursite.com/2020/06/13/typescript/07-%E8%A3%85%E9%A5%B0%E5%99%A8@log/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="装饰器是一种特殊的类型声明，它能够被附加到类声明、方法、属性和参数上，可以修改类的行为。通俗来说就是一个方法，可以注入到类、方法、属性参数上来扩展类、属性、方法、参数的功能。 常见装饰器方法：类装饰器、属性装饰器、方法装饰器、参数装饰器 写法：普通装饰器（无法传参） 装饰器工厂（可传参） 装饰器是过去几年中JS最大的成京之一，已是ES7的标准特性之一 12345678910111213141516">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-13T13:42:04.000Z">
+<meta property="article:modified_time" content="2020-06-13T11:15:27.245Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Marong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/marong.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Marong&#39;s Note</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-typescript/07-装饰器@log" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TS笔记 - 07泛型装饰器 @log
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><p>是一种特殊的类型声明，它能够被附加到类声明、方法、属性和参数上，可以修改类的行为。通俗来说就是一个方法，可以注入到类、方法、属性参数上来扩展类、属性、方法、参数的功能。</p>
+<p>常见装饰器方法：类装饰器、属性装饰器、方法装饰器、参数装饰器</p>
+<p>写法：普通装饰器（无法传参） 装饰器工厂（可传参）</p>
+<p>装饰器是过去几年中JS最大的成京之一，已是ES7的标准特性之一</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 装饰器 就是一个方法</span></span><br><span class="line"><span class="comment">// 类装饰器 不要加分号 无参普通装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logClass</span>(<span class="params">params:any</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(params);</span><br><span class="line">  <span class="comment">//params 就是当前类</span></span><br><span class="line">  params.prototype.apiUrl=<span class="string">'http://'</span>;</span><br><span class="line">  params.prototype.run=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是一个run方法'</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">@logClass</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span>()</span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  getData()&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http:any = <span class="keyword">new</span> HttpClient();</span><br><span class="line">http.apiUrl; <span class="comment">// http://</span></span><br><span class="line">http.run();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 带参 装饰器工厂</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logClass</span>(<span class="params">params:string</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target:any</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(target); <span class="comment">// 类 HttpClient</span></span><br><span class="line">    <span class="built_in">console</span>.log(params); <span class="comment">// hello</span></span><br><span class="line">    </span><br><span class="line">    target.prototype.text=params;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@logClass(<span class="string">'hello'</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span>()</span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">  &#125;</span><br><span class="line">  getData()&#123;</span><br><span class="line">   <span class="comment">// </span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http:any = <span class="keyword">new</span> HttpClient();</span><br><span class="line">http.text; <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1、类装饰器：重截构造函数的例子"><a href="#1、类装饰器：重截构造函数的例子" class="headerlink" title="1、类装饰器：重截构造函数的例子"></a>1、类装饰器：重截构造函数的例子</h2><p>如果类装饰器返回一个值，它会使用提供的构造函数替换类的声明。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logClass</span>(<span class="params">target:any</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(target);</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span>  <span class="keyword">extends</span> <span class="title">target</span></span>&#123;  <span class="comment">// 重点！</span></span><br><span class="line">    apiUrl:any=<span class="string">"我是修改后的数据"</span>;</span><br><span class="line">  	getData()&#123;</span><br><span class="line">      <span class="keyword">this</span>.apiUrl = <span class="keyword">this</span>.apiUrl + <span class="string">'====='</span>;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="keyword">this</span>.apiUrl);       </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@logClass</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span>()</span>&#123;</span><br><span class="line">  apiUrl : string | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    <span class="keyword">this</span>.apiUrl = <span class="string">'我是构造函数里面的apiUrl'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  getData()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.apiUrl); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> http:any = <span class="keyword">new</span> HttpClient();</span><br><span class="line">http.getData();</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、属性装饰器"><a href="#2、属性装饰器" class="headerlink" title="2、属性装饰器"></a>2、属性装饰器</h2><blockquote>
+<p> 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象</p>
+</blockquote>
+<blockquote>
+<p>成员名字</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logClass</span>(<span class="params">params:any</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target:any</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 属性装饰器 target 类的原型对象  </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logProerty</span>(<span class="params">params:any</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target:any,attr:any</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(target); <span class="comment">// HttpClient</span></span><br><span class="line">    <span class="built_in">console</span>.log(attr); <span class="comment">// http://</span></span><br><span class="line">    target[attr] = params; <span class="comment">//!!重点 难点 对实例成员来说是类的原型对象</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@logClass(<span class="string">'xxx'</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span>()</span>&#123;</span><br><span class="line">  @logProerty(<span class="string">'http://'</span>)</span><br><span class="line">  public url:any|<span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;    </span><br><span class="line">  &#125;</span><br><span class="line">  getData()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.url);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http:any = <span class="keyword">new</span> HttpClient();</span><br><span class="line">http.url; <span class="comment">// http://</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、方法装饰器"><a href="#3、方法装饰器" class="headerlink" title="3、方法装饰器"></a>3、方法装饰器</h2><p>修改当前实例的属性和方法</p>
+<p>修改当前里的参数修改</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">params:any</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target:any,methodName:any,desc:any</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(target); <span class="comment">//HttpClient</span></span><br><span class="line">    <span class="built_in">console</span>.log(methodName); <span class="comment">// getData</span></span><br><span class="line">    <span class="built_in">console</span>.log(desc.value); <span class="comment">// 当前方法</span></span><br><span class="line">    </span><br><span class="line">    target.url = <span class="string">'xxx'</span>;</span><br><span class="line">    <span class="keyword">var</span> oMethod = desc.value;</span><br><span class="line">    desc.value = <span class="function"><span class="keyword">function</span>(<span class="params">...args:any[]</span>)</span>&#123;</span><br><span class="line">      args = args.map(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">String</span>(value);</span><br><span class="line">      &#125;)</span><br><span class="line">      oMethod.apply(<span class="keyword">this</span>,args);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span>()</span>&#123;</span><br><span class="line">  public url:string | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;    </span><br><span class="line">  &#125;</span><br><span class="line">  @<span class="keyword">get</span>('http://www.baidu.com') // !!重点</span><br><span class="line">  getData(...args:any[])&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是getdata里的方法'</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> HttpClient();</span><br><span class="line">http.getData(<span class="number">123</span>,<span class="string">'123123'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4、方法参数装饰器"><a href="#4、方法参数装饰器" class="headerlink" title="4、方法参数装饰器"></a>4、方法参数装饰器</h2><p>参数装饰器表达式会在运行时当作函数被调用，可以使用参数装饰器为类的原型增加一些元素数据,传入以下三个参数</p>
+<p>1、对表态成员来说是类的构造函数，对实例成员是类的原型对象</p>
+<p>2、方法的名字</p>
+<p>3、参数在函数参数列表中的索引</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logParams</span>(<span class="params">params:any</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target:any,methodName:any,paramsIndex:any</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(params); <span class="comment">// uuid</span></span><br><span class="line">    <span class="built_in">console</span>.log(target); <span class="comment">//HttpClient 当前类原型对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(methodName); <span class="comment">// getData 当前方法名称 </span></span><br><span class="line">    <span class="built_in">console</span>.log(paramsIndex); <span class="comment">// 0 当前索引</span></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span>()</span>&#123;</span><br><span class="line">  public url:string | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;    </span><br><span class="line">  &#125;</span><br><span class="line">  getData(@logParams(<span class="string">'uuid'</span>) uuid:any)&#123; <span class="comment">// !!重点</span></span><br><span class="line">    <span class="built_in">console</span>.log(uuid);   <span class="comment">// 123  </span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> http = <span class="keyword">new</span> HttpClient();</span><br><span class="line">http.getData(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p>属性 》 方法 》 方法参数 》 类</p>
+<p>如果有多个同样的装饰器，它会先执行后面的！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/13/typescript/07-%E8%A3%85%E9%A5%B0%E5%99%A8@log/" data-id="ckbdkoshe000r8wjkcwmz6vos" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/14/weeks/202006-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          前端周刊【202006-2】
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/13/typescript/06-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4namespace/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">TS笔记 - 06命名空间 namespace</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+    
+    <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div class="tagcloud" style="margin-bottom:20px;">
+        <a href="/tags/TCP/" style="font-size: 12px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 10px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/http/" style="font-size: 12px;">http</a> <a href="/tags/https/" style="font-size: 12px;">https</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/nimg/" style="font-size: 10px;">nimg</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postcss/" style="font-size: 10px;">postcss</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/resloader/" style="font-size: 10px;">resloader</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a> <a href="/tags/uni/" style="font-size: 10px;">uni</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/weeks/" style="font-size: 18px;">weeks</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">资源预加载</a>
+      </div>
+    </div>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      It has never been too late to start
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
