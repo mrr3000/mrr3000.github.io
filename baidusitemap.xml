@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2020/06/28/weeks/202006-4/</loc>
+    <lastmod>2020-06-27</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2020/06/21/weeks/202006-3/</loc>
+    <lastmod>2020-06-27</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2020/05/17/build/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E5%8F%B0%E6%96%B0%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2020-06-25</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2020/06/25/nodejs/node%20%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%AF%86/</loc>
+    <lastmod>2020-06-25</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2020/05/26/nodejs/KOA%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-06-22</lastmod>
   </url>  <url>
@@ -31,13 +43,7 @@
     <loc>http://yoursite.com/2020/05/13/build/nginx%20%E6%8C%87%E4%BB%A4%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2020-06-22</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2020/05/17/build/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E5%8F%B0%E6%96%B0%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2020-06-22</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2020/05/10/build/Nginx%E8%A7%A3%E5%86%B3%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2020-06-22</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2020/06/21/weeks/20200603/</loc>
     <lastmod>2020-06-22</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2020/06/06/weeks/202006-1/</loc>

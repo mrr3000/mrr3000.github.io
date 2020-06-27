@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/06/28/weeks/202006-4/</loc>
+    
+    <lastmod>2020-06-27T07:24:42.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/06/21/weeks/202006-3/</loc>
+    
+    <lastmod>2020-06-27T07:18:59.664Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/05/17/build/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E5%8F%B0%E6%96%B0%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    
+    <lastmod>2020-06-25T16:39:41.183Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/06/25/nodejs/node%20%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%AF%86/</loc>
+    
+    <lastmod>2020-06-25T14:12:12.596Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/05/26/nodejs/KOA%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-06-22T05:44:40.480Z</lastmod>
@@ -72,23 +100,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/17/build/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E5%8F%B0%E6%96%B0%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    
-    <lastmod>2020-06-22T05:42:09.621Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2020/05/10/build/Nginx%E8%A7%A3%E5%86%B3%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-06-22T05:41:58.449Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/06/21/weeks/20200603/</loc>
-    
-    <lastmod>2020-06-22T05:41:45.832Z</lastmod>
     
   </url>
   
