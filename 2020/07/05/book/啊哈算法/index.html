@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>啊哈算法 | Marong&#39;s Note</title>
+  <meta name="description" content="一、排序桶排序这是非常快的排序方法，从1956年就开始使用，EJ Issac和RC Singleton提出来的。但是非常浪费空间，原理是有多少个数字就有多少个桶，编号从0-10，没出现一个数，就在对应编号的桶里放一个小旗子，最后只要数数每个桶里有几个小旗子。时间复杂度O(N+M)。 冒泡排序每次比较两个相邻的元素，如果他们的顺序错误就把它们交换过来，越小的越靠后。每一趟只能确定将一个数归位。如果有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="啊哈算法">
+<meta property="og:url" content="http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="一、排序桶排序这是非常快的排序方法，从1956年就开始使用，EJ Issac和RC Singleton提出来的。但是非常浪费空间，原理是有多少个数字就有多少个桶，编号从0-10，没出现一个数，就在对应编号的桶里放一个小旗子，最后只要数数每个桶里有几个小旗子。时间复杂度O(N+M)。 冒泡排序每次比较两个相邻的元素，如果他们的顺序错误就把它们交换过来，越小的越靠后。每一趟只能确定将一个数归位。如果有">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-05T12:42:04.000Z">
+<meta property="article:modified_time" content="2020-07-05T10:40:33.102Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.2px;">TCP</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/http/" style="font-size: 13.2px;">http</a> <a href="/tags/https/" style="font-size: 13.2px;">https</a> <a href="/tags/javascript/" style="font-size: 13.6px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.2px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/typescript/" style="font-size: 13.8px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vue/" style="font-size: 13px;">vue</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/" class="title">啊哈算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-05T12:42:04.000Z" itemprop="datePublished">2020-07-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/05/weeks/202007-1/" class="title">前端周刊【202007-1】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-05T12:42:04.000Z" itemprop="datePublished">2020-07-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/05/js/Untitled/" class="title">js/Untitled</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-05T07:23:48.486Z" itemprop="datePublished">2020-07-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/28/weeks/202006-4/" class="title">前端周刊【202006-4】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-28T12:42:04.000Z" itemprop="datePublished">2020-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/28/js/JavaScript%E5%B8%B8%E7%94%A8API%E5%90%88%E9%9B%86%E6%B1%87%E6%80%BB/" class="title">js/JavaScript常用API合集汇总</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-28T01:21:57.900Z" itemprop="datePublished">2020-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-book/啊哈算法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      啊哈算法
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/" class="article-date">
+	  <time datetime="2020-07-05T12:42:04.000Z" itemprop="datePublished">2020-07-05</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="一、排序"><a href="#一、排序" class="headerlink" title="一、排序"></a>一、排序</h1><h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>这是非常快的排序方法，从1956年就开始使用，EJ Issac和RC Singleton提出来的。但是非常浪费空间，原理是有多少个数字就有多少个桶，编号从0-10，没出现一个数，就在对应编号的桶里放一个小旗子，最后只要数数每个桶里有几个小旗子。时间复杂度O(N+M)。</p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>每次比较两个相邻的元素，如果他们的顺序错误就把它们交换过来，越小的越靠后。每一趟只能确定将一个数归位。如果有n个数进行排序，只需将n-1个数归位。</p>
+<p>双重嵌套循环，时间复杂度是 O(N²)。执行效率有点低。</p>
+<p>1956年就有人使用，Donald E.Knuth高德纳 1974图灵奖获得者。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;<span class="comment">//n个数排序，只用进行n-1趟</span></span><br><span class="line">  <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)&#123;<span class="comment">//从第1位开始比较直到最后一个尚未归位的数，想一想为什么到n-i就可以了</span></span><br><span class="line">    <span class="keyword">if</span>(a[j]&lt;a[j+<span class="number">1</span>])&#123;<span class="comment">//比较大小交换</span></span><br><span class="line">      t=a[j];a[j]=a[j+<span class="number">1</span>];a[j+<span class="number">1</span>]=t;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速排序-最常用的排序"><a href="#快速排序-最常用的排序" class="headerlink" title="快速排序 - 最常用的排序"></a>快速排序 - 最常用的排序</h2><p>每次排序设置一个基准点，将小于等于基准点的数全部放到基准点的左边，将大于等于基准点的数全部放到基准点的右边。最慢的时间复杂度是 O(N²)，平均时间复杂度为O(NlogN)。</p>
+<p>由东尼霍尔(C.A.R.Hoare)在1960题出。论文Quicksort和算法导论第七章。</p>
+<h1 id="二、栈、队列、链表"><a href="#二、栈、队列、链表" class="headerlink" title="二、栈、队列、链表"></a>二、栈、队列、链表</h1><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列是一种特殊的“先进先出”线性结构，它只允许在队列首部进行删除操作，称为“出队”，而在队列的尾部进行插入操作，称为“入队”。三个基本元素（一个数组、两个变量）封装为一个整体结构。</p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈是“后进先出”的数据结构。栈限定为只能再一端进行插入和删除操作。</p>
+<p>最早由艾伦图灵Alan M. Turing 于1946年提出。</p>
+<h2 id="链表（指针概念）"><a href="#链表（指针概念）" class="headerlink" title="链表（指针概念）"></a>链表（指针概念）</h2><h2 id="模拟链表"><a href="#模拟链表" class="headerlink" title="模拟链表"></a>模拟链表</h2><p>#三、枚举 （穷举）</p>
+<h2 id="数的全排列"><a href="#数的全排列" class="headerlink" title="数的全排列"></a>数的全排列</h2><p>123的全排列 123 132 213 231 312 321</p>
+<p>三重循环嵌套即可，但是12345678全排列呢 ？ 只能靠下节万能的搜索</p>
+<h1 id="四、搜索"><a href="#四、搜索" class="headerlink" title="四、搜索"></a>四、搜索</h1><h2 id="深度优先搜索DFS"><a href="#深度优先搜索DFS" class="headerlink" title="深度优先搜索DFS"></a>深度优先搜索DFS</h2><p>关键在于解决“当下应该如何做”。</p>
+<p>由约翰 霍普克洛夫特John E.Hopcroft 罗伯特陶尔扬Robert E Tarjan发明。全排列。</p>
+<h2 id="广度（宽度）优先搜索-层层递进BFS"><a href="#广度（宽度）优先搜索-层层递进BFS" class="headerlink" title="广度（宽度）优先搜索 层层递进BFS"></a>广度（宽度）优先搜索 层层递进BFS</h2><p>1959年，Edward F. Moore率先 如何从迷宫中寻找出路 提出广度优先搜索。</p>
+<p>1961年， C.Y. Lee在电路板布线中也提出了相同算法。</p>
+<h1 id="五、图的遍历"><a href="#五、图的遍历" class="headerlink" title="五、图的遍历"></a>五、图的遍历</h1><p>图：由一些小圆点称为顶点和连接这些小圆点的直线称为边组成的。</p>
+<p>首先以一个未被访问的顶点作为起始顶点，沿当前顶点的边走到未访问过顶点。当没有未访问过的顶点时，回到上一个顶点，继续试探访问别的顶点，直到所有的顶点都被访问过。</p>
+<p>深度优先遍历是沿着图的某一条分支遍历直到未端，然后回溯，再沿着另一条进行同样的遍历，直到所有的顶点都被访问为止。</p>
+<h1 id="六、捷径"><a href="#六、捷径" class="headerlink" title="六、捷径"></a>六、捷径</h1><h2 id="Floyd-Warshall-只有五行的算法"><a href="#Floyd-Warshall-只有五行的算法" class="headerlink" title="Floyd-Warshall 只有五行的算法"></a>Floyd-Warshall 只有五行的算法</h2><p>Robert W.Floyd 罗伯特 佛洛依德 1962发表。</p>
+<h2 id="Dijkstra-单源最短路"><a href="#Dijkstra-单源最短路" class="headerlink" title="Dijkstra 单源最短路"></a>Dijkstra 单源最短路</h2><p>一个点到其余各顶点的最短路径。</p>
+<p>Edsger Wybe Dijkstra荷兰科学家 1959提出。</p>
+<h2 id="Bellman-Ford-解决负权边"><a href="#Bellman-Ford-解决负权边" class="headerlink" title="Bellman-Ford 解决负权边"></a>Bellman-Ford 解决负权边</h2><p>每次仅对最短路估计值发生变化了的顶点的所有出边执行松弛操作。</p>
+<p>Richard Bellman美国应用数学家 理查德 贝尔曼 1958发表。</p>
+<h2 id="队列优化的-Bellman-Ford"><a href="#队列优化的-Bellman-Ford" class="headerlink" title="队列优化的 Bellman-Ford"></a>队列优化的 Bellman-Ford</h2><p>关键：只有那些在前一遍松弛中改变了最短路估计值 的顶点，才可能引起它们邻接点最短路程估计值发生改变。</p>
+<h1 id="七、树"><a href="#七、树" class="headerlink" title="七、树"></a>七、树</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>特殊的树，每个结点最多有两个儿子，左边的叫做左儿子，右边的叫做右儿子。更加严格的递归定义是，要么为空，要么由根结点、左子树、右子树组成。</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>堆是一种 特殊的二叉树。一棵完全二叉树的数组对象。堆中每个节点总是不大于或不小于其父节点的值。</p>
+<p>将根节点最大的堆叫做最大堆或大根堆（或最小堆、小根堆）。常见的堆有二叉堆、斐波那契堆。非线性数据结构，相当于一堆数组。</p>
+<h2 id="并查集-擒贼先擒王"><a href="#并查集-擒贼先擒王" class="headerlink" title="并查集-擒贼先擒王"></a>并查集-擒贼先擒王</h2><p>不相交集的数据结构。</p>
+
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/" title="啊哈算法" target="_blank" rel="external">http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/07/05/weeks/202007-1/" title="前端周刊【202007-1】"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
