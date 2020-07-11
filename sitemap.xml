@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/07/05/weeks/202007-1/</loc>
+    <loc>http://yoursite.com/2020/07/12/weeks/202007-2/</loc>
     
-    <lastmod>2020-07-05T11:25:32.114Z</lastmod>
+    <lastmod>2020-07-11T06:23:15.231Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/11/nodejs/EGG%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2020-07-11T06:02:31.547Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/07/js/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-%E8%99%9A%E6%8B%9FDOM/</loc>
+    
+    <lastmod>2020-07-08T12:13:07.717Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/</loc>
     
-    <lastmod>2020-07-05T10:40:33.102Z</lastmod>
+    <lastmod>2020-07-05T11:58:31.556Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/07/05/js/Untitled/</loc>
+    <loc>http://yoursite.com/2020/07/05/weeks/202007-1/</loc>
     
-    <lastmod>2020-07-05T07:23:48.486Z</lastmod>
+    <lastmod>2020-07-05T11:25:32.114Z</lastmod>
     
   </url>
   
