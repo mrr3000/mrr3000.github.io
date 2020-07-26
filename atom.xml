@@ -92,31 +92,6 @@
   </entry>
   
   <entry>
-    <title>前端周刊【202007-2】</title>
-    <link href="http://yoursite.com/2020/07/12/weeks/202007-2/"/>
-    <id>http://yoursite.com/2020/07/12/weeks/202007-2/</id>
-    <published>2020-07-12T12:42:04.000Z</published>
-    <updated>2020-07-11T06:23:15.231Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5f05087cf265da22d466f60f" target="_blank" rel="noopener">写给前端的算法进阶指南</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5f05087cf265da22d466f60f&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;写给前端的算法进阶指南&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
-    
-  </entry>
-  
-  <entry>
     <title>学习JavaScript数据结构与算法 第2版</title>
     <link href="http://yoursite.com/2020/07/12/book/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
     <id>http://yoursite.com/2020/07/12/book/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/</id>
@@ -141,6 +116,31 @@
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="LoianeGroner" scheme="http://yoursite.com/tags/LoianeGroner/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端周刊【202007-2】</title>
+    <link href="http://yoursite.com/2020/07/12/weeks/202007-2/"/>
+    <id>http://yoursite.com/2020/07/12/weeks/202007-2/</id>
+    <published>2020-07-12T12:42:04.000Z</published>
+    <updated>2020-07-11T06:23:15.231Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5f05087cf265da22d466f60f" target="_blank" rel="noopener">写给前端的算法进阶指南</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5f05087cf265da22d466f60f&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;写给前端的算法进阶指南&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
     
   </entry>
   
