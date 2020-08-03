@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-26T06:32:03.456Z</updated>
+  <updated>2020-08-03T15:08:01.903Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>落地微前端</title>
+    <link href="http://yoursite.com/2020/08/03/js/%E8%90%BD%E5%9C%B0%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    <id>http://yoursite.com/2020/08/03/js/%E8%90%BD%E5%9C%B0%E5%BE%AE%E5%89%8D%E7%AB%AF/</id>
+    <published>2020-08-03T12:42:04.000Z</published>
+    <updated>2020-08-03T15:08:01.903Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>2018年 Single-SPA诞生了， single-spa 是一个用于前端微服务化的 JavaScript 前端解决方案 (本身没有处理样式隔离， js 执行隔离) 实现了路由劫持和应用加载。</p><p>2019年 qiankun 基于Single-SPA, 提供了更加开箱即用的 API （ single-spa + sandbox+ import-html-entry ） 做到了，技术栈无关、并且接入简单（像i frame 一样简单）</p><p>总结：子应用可以独立构建，运行时动态加载,主子应用完全解耦，技术栈无关，靠的是协议接入（子应用必须导出 bootstrap、mount、unmount方法）</p><p><strong>微前端架构核心价值</strong></p><ul><li>技术栈无关<br>主框架不限制接入应用的技术栈，微应用具备完全自主权</li><li>独立开发、独立部署<br>微应用仓库独立，前后端可独立开发，部署完成后主框架自动完成同步更新</li><li>增量升级<br>在面对各种复杂场景时，我们通常很难对一个已经存在的系统做全量的技术栈升级或重构，而微前端是一种非常好的实施渐进式重构的手段和策略</li><li>独立运行时<br>每个微应用之间状态隔离，运行时状态不共享</li></ul><p><strong>应用通信</strong>:</p><ul><li><p>基于URL来进行数据传递，但是传递消息能力弱</p></li><li><p>基于 CustomEvent 实现通信</p></li><li><p>基于props主子应用间通信</p></li><li><p>使用全局变量、 Redux 进行通信</p></li></ul><p><strong>公共依赖</strong>: </p><ul><li><p>CDN - externals</p></li><li><p>webpack 联邦模块</p></li></ul><h2 id="二、single-spa"><a href="#二、single-spa" class="headerlink" title="二、single-spa"></a>二、single-spa</h2><h2 id="三、qiankun"><a href="#三、qiankun" class="headerlink" title="三、qiankun"></a>三、qiankun</h2><h2 id="四、CSS隔离方案"><a href="#四、CSS隔离方案" class="headerlink" title="四、CSS隔离方案"></a>四、CSS隔离方案</h2><p><strong>子应用之间样式隔离</strong>： </p><ul><li>Dynamic Stylesheet 动态样式表，当应用切换时移除老应用样式，添加新应用样式</li></ul><p><strong>主应用和子应用之间的样式隔离</strong>： </p><ul><li><p>BEM (Block Element Modifier) 约定项目前缀</p></li><li><p>CSS-Modules 打包时生成不冲突的选择器名</p></li><li><p>Shadow DOM 真正意义上的隔离</p></li><li><p>css-in-js </p></li></ul><h2 id="五、沙箱机制"><a href="#五、沙箱机制" class="headerlink" title="五、沙箱机制"></a>五、沙箱机制</h2><ul><li>快照沙箱，在应用沙箱挂载或卸载时记录快照，在切换时依据快照恢复环境 (无法支持多实</li></ul><p>例)</p><ul><li>Proxy 代理沙箱,不影响全局环境</li></ul><h2 id="六、实战"><a href="#六、实战" class="headerlink" title="六、实战"></a>六、实战</h2><p>一、<strong>初始化开发环境</strong></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">初始化配置安装 rollup</span><br><span class="line">npm init -y </span><br><span class="line">npm install rollup rollup-plugin-serve</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> serve <span class="keyword">from</span> <span class="string">'rollup-plugin-serve'</span> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; </span><br><span class="line">  input:<span class="string">'./src/single-spa.js'</span>, </span><br><span class="line">  output:&#123; </span><br><span class="line">    file:<span class="string">'./lib/umd/single-spa.js'</span>, </span><br><span class="line">    format:<span class="string">"umd"</span>, </span><br><span class="line">    name:<span class="string">'singleSpa'</span>, </span><br><span class="line">    sourcemap:<span class="literal">true</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  plugins:[ </span><br><span class="line">    serve(&#123; </span><br><span class="line">      openPage:<span class="string">'/index.html'</span>, </span><br><span class="line">      contentBase:<span class="string">''</span>, <span class="attr">port</span>:<span class="number">3000</span> </span><br><span class="line">    &#125;) </span><br><span class="line">  ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>二</strong>. <strong>SignleSpa</strong> <strong>的使用方式</strong> </p><p>参数分别是: </p><p>appName : 当前注册应用的名字</p><p>loadApp : 加载函数(必须返回的是promise)，返回的结果必须包含 bootstrap 、 mount 和 </p><p>unmount 做为接入协议</p><p>activityWhen : 满足条件时调用 loadApp 方法</p><p>customProps :自定义属性可用于父子应用通信</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;2018年 Single-SPA诞生了， single-spa 是一个用于前端微服务化的 JavaScript 前端解决方案
+      
+    
+    </summary>
+    
+    
+    
+      <category term="single-spa" scheme="http://yoursite.com/tags/single-spa/"/>
+    
+      <category term="qiankun" scheme="http://yoursite.com/tags/qiankun/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端周刊【202007-5】</title>
+    <link href="http://yoursite.com/2020/07/31/weeks/202007-5/"/>
+    <id>http://yoursite.com/2020/07/31/weeks/202007-5/</id>
+    <published>2020-07-31T12:42:04.000Z</published>
+    <updated>2020-08-03T14:40:37.461Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000023471689" target="_blank" rel="noopener">10 个最佳 CSS 动画库</a></p><p><a href="https://juejin.im/post/6844904144239591431" target="_blank" rel="noopener">EggCluster 是如何解决多进程模式下相关问题的</a></p><h1 id="快手直播观后感"><a href="#快手直播观后感" class="headerlink" title="快手直播观后感"></a>快手直播观后感</h1><h2 id="《前端高可用性保障实践》"><a href="#《前端高可用性保障实践》" class="headerlink" title="《前端高可用性保障实践》"></a>《前端高可用性保障实践》</h2><h3 id="可用性方案设计"><a href="#可用性方案设计" class="headerlink" title="可用性方案设计"></a>可用性方案设计</h3><p>一、页面功能可用性保障</p><ul><li>技术选型</li><li>动态配置能力</li><li>请求压力</li><li>降级限流</li><li>埋点监控</li></ul><p>二、基础服务保障</p><p>1.Nodejs服务可用性</p><ul><li>压力评估 GPS 8020、业务模型、春晚模型</li><li>服务优化 缓存优化、连接优化、接口代理优化、日志优化</li><li>健康检查 node服务可用性检查、API可性检查、硬件配置检查、报警检查</li><li>容灾互备 多机器、异地多机房</li></ul><p>2.Nginx</p><ul><li><p>负载能力：https握手优化 ssl_session_ticket</p></li><li><p>分级限流</p></li><li><p>缓存代理 proxy_cache</p></li><li><p>预压缩 gzip实时压缩、brotli实时压缩、gzip预压缩、brotli预压缩、</p></li><li><p>容灾互备 多机器、异地多机房</p></li></ul><p>3.CDN</p><ul><li><p>压力评估</p></li><li><p>边缘节点预更新</p></li><li><p>多cdn调度</p></li><li><p>错误重试</p></li></ul><p>三、完整链路可用性</p><p>内部服务依赖：风险控制、数据统计、内容审核、帐号、支付提现</p><p>外部服务依赖：分享、短信验证、CDN、三方登录</p><h3 id="可用性验证"><a href="#可用性验证" class="headerlink" title="可用性验证"></a>可用性验证</h3><p>压力测试</p><ul><li>单功能点压测</li><li>全链路压测</li><li>功能修改后重新压测</li></ul><p>故障演练</p><ul><li>模拟真实会发生的故障</li><li>检查相关降级 熔断流程是否触发正常</li><li>是否有相关报警</li></ul><p>线上预演</p><ul><li>整体流程演练</li><li>容量推算</li></ul><h3 id="如何保障前端可用性？"><a href="#如何保障前端可用性？" class="headerlink" title="如何保障前端可用性？"></a>如何保障前端可用性？</h3><p>一、规范的开发流程</p><p>技术选项、代码准入规范、安全检查、测试上线流程、降级流程</p><p>二、完善基础服务的支持</p><ul><li>端能力：预加载、通信通道、性能优化</li><li>中台能力：分享、支付 、提现、埋点</li><li>工程架构：可扩展性 可伸缩性</li></ul><p>三、高效的监控排障能力</p><p>可用性指标体系、业务指标监控、性能指标监控、分级监控规范</p><p>四、定期总结演练</p><p>提升重视程度、团队练兵、故障操作手册、总结反思提高</p><h2 id="《点到面-如何系统化的解决工程问题》"><a href="#《点到面-如何系统化的解决工程问题》" class="headerlink" title="《点到面 如何系统化的解决工程问题》"></a>《点到面 如何系统化的解决工程问题》</h2><p>一、开发流程的提效web-ops</p><ul><li><p>泛域名打通nginx+端口自动分配</p></li><li><p>环境隔离</p><ul><li>进行BASE IMAGE的进一步隔离</li><li>类n8n式的ci组合</li><li>权限管理</li></ul></li><li><p>构建完成通知</p></li></ul><p>二、monorepo的落地实践</p><p>思考：单业务逻辑内的复用、多业务逻辑内的复用、单工程、多工程、开源</p><p>三、Open Tracing的Web化场景落地</p><p>![image-20200803211547074](/Users/marong/Library/Application Support/typora-user-images/image-20200803211547074.png)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000023471689&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;10 个最佳 CSS 动画库&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.im
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript语言精髓与编程实践 第3版 绿皮书</title>
     <link href="http://yoursite.com/2020/07/31/book/JS%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     <id>http://yoursite.com/2020/07/31/book/JS%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</id>
     <published>2020-07-31T12:42:04.000Z</published>
-    <updated>2020-07-26T06:32:03.456Z</updated>
+    <updated>2020-07-26T06:34:18.705Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第-1-章-二十年来的-JavaScript"><a href="#第-1-章-二十年来的-JavaScript" class="headerlink" title="第 1 章 二十年来的 JavaScript"></a>第 1 章 二十年来的 JavaScript</h1><p>省略…</p><h1 id="第-2-章-JavaScript-的语法"><a href="#第-2-章-JavaScript-的语法" class="headerlink" title="第 2 章 JavaScript 的语法"></a>第 2 章 JavaScript 的语法</h1><p>2.1 语法综述<br>语法：语法关键字、变量常量、绑定</p><p>2.2 JavaScript 的语法：声明</p><p>2.2.2 变量声明 45</p><p>2.2.4 其他声明 53</p><p>2.2.4.1 常量声明 ..53</p><p>2.2.4.2 符号声明 ..54</p><p>2.2.4.3 函数声明 ..55</p><p>2.3 JavaScript 的语法：表达式运算</p><p>2.3.1 一般表达式运算 …..59</p><p>2.3.2 比较运算 61</p><p>2.3.3 赋值运算 67</p><p>2.3.4 函数相关的表达式 .6</p><p>2.3.5 特殊作用的运算符 .72</p><p>2.3.6 运算优先级 …76</p><p>2.4 JavaScript 的语法：语句</p><p>2.4.1 表达式语句 …80</p><p>2.4.2 变量声明语句 ..86</p><p>2.4.3 分支语句 87</p><p>2.4.4 循环语句 89</p><p>2.4.5 流程控制：一般子句 ….91</p><p>2.4.6 流程控制：异常 …..96</p><p>2.5 JavaScript 的语法：模块</p><p>2.5.1 模块的声明与加载 .98</p><p>2.5.2 名字空间的特殊性 ……101</p><p>2.6 严格模式下的语法限制</p><p>2.6.1 语法限制</p><p>2.6.2 执行限制 …..108</p><p>2.6.3 严格模式的范围 … 110</p><p>2.7 运算符的二义性</p><p>2.7.1 加号“+”的二义性 …. 114</p><p>2.7.2 括号“( )”的二义性 … 114</p><p>2.7.3 冒号“:”与标签的二义性 116</p><p>2.7.4 大括号“{ }”的二义性 ….. 117</p><p>2.7.5 逗号“,”的二义性 …..122</p><p>2.7.6 方括号“[ ]”的二义性 ……123</p><p>2.7.7 语法设计中对二义性的处理…..127</p><h1 id="第-3-章-JavaScript-的面向对象语言特性"><a href="#第-3-章-JavaScript-的面向对象语言特性" class="headerlink" title="第 3 章 JavaScript 的面向对象语言特性"></a>第 3 章 JavaScript 的面向对象语言特性</h1><p>3.1 面向对象编程的语法概要 ……130</p><p>3.1.1 对象声明与实例创建 ..132</p><p>3.1.2 使用类继承体系 …141</p><p>3.1.3 对象成员 …..147</p><p>3.1.4 使用对象自身 157</p><p>3.1.5 符号 ……158</p><p>3.2 JavaScript 的原型继承 ……161</p><p>3.2.1 空（null）与空白对象（empty） ……161</p><p>3.2.2 原型链的维护 171</p><p>3.2.3 原型继承的实质 …175</p><p>3.3 JavaScript 的类继承 179</p><p>3.3.1 类是静态的声明 …179</p><p>3.3.2 super 是全新的语法元素 ….181</p><p>3.3.3 类是用构造器（函数）来实现的 189</p><p>3.3.4 父类的默认值与 null 值 …..192</p><p>3.4 JavaScript 的对象系统 ……196</p><p>3.4.1 封装与多态 .196</p><p>3.4.2 属性 ……201</p><p>3.4.3 构造对象系统的方法 ..206</p><p>3.4.4 内置的对象系统 …214</p><p>3.4.5 特殊效果的继承 …226</p><p>3.5 可定制的对象属性 .229</p><p>3.5.1 属性描述符 .230</p><p>3.5.2 定制对象属性 233</p><p>3.5.3 属性表的状态 239</p><p>3.6 运行期侵入与元编程系统 ……242</p><p>3.6.1 关于运行期侵入 …243</p><p>3.6.2 类类型与元类继承 ……257</p><p>3.6.3 元编程模型 .266</p><h1 id="第-4-章-JavaScript-语言的结构化"><a href="#第-4-章-JavaScript-语言的结构化" class="headerlink" title="第 4 章 JavaScript 语言的结构化"></a>第 4 章 JavaScript 语言的结构化</h1><p>4.1 概述 ….269</p><p>4.1。1 命令式语言 .270</p><p>4.1.2 面向对象语言 275</p><p>4.1.3 再论语言的分类 …281</p><p>4.1.4 JavaScript 的语源 ..283</p><p>4.2 基本的组织元素 …..284</p><p>4.2.1 标识符 ..285</p><p>4.2.2 表达式 ..286</p><p>4.2.3 语句 ……288</p><p>4.2.4 模块 ……289</p><p>4.2.5 组织的原则 .290</p><p>4.3 声明 ….294</p><p>4.3.1 声明名字 …..295</p><p>4.3.2 确定性 ..296</p><p>4.3.3 顶层声明 …..297</p><p>4.4 语句与代码分块 …..300</p><p>4.4.1 块 …301</p><p>4.4.2 块与语句的语法结构 ..303</p><p>4.4.3 块与声明语句 309</p><p>4.4.4 块与语句的值 312</p><p>4.5 组织形式分块的方法 318</p><p>4.5.1 词法作用域 .319</p><p>4.5.3 词法作用域之间的相关性 .336</p><p>4.5.4 执行流程变更的内涵 ..337</p><p>4.6 层次结构程序设计 .340</p><p>4.6.1 属性的可见性 341</p><p>4.6.2 多态的逻辑 .343</p><p>4.6.3 私有作用域的提出 ……347</p><p>4.7 历史遗产：变量作用域 …349</p><p>4.7.1 变量作用域 .350</p><p>4.7.2 变量的特殊性与变量作用域的关系 353</p><p>4.8 私有属性与私有字段的纷争356</p><p>4.8.1 私有属性的提出 357</p><p>4.8.2 从私有属性到私有成员 361</p><p>4.8.3 “类字段”提案的实现概要364</p><p>4.8.4 “私有属性”提案的设计与提议 368</p><p>4.8.5 “私有属性”提案的实现 .373</p><p>第 5 章 JavaScript 的函数式语言特性 ….. 381</p><p>5.1 概述 ….381</p><p>5.1.1 从代码风格说起 …382</p><p>5.1.2 为什么常见的语言不赞同连续求值 …383</p><p>5.1.3 函数式语言的渊源 ……384</p><p>5.2 从运算式语言到函数式语言…386</p><p>5.2.1 JavaScript 中的几种连续运算 …386</p><p>5.2.2 如何消灭语句 391</p><p>5.2.3 运算式语言 .394</p><p>5.2.4 重新认识函数 397</p><p>5.2.5 函数式语言 .401</p><p>5.3 JavaScript 中的函数 405</p><p>5.3.1 参数 ……405</p><p>5.3.2 函数 ……418</p><p>5.3.3 函数的数据性质 …431</p><p>5.3.4 函数与逻辑结构 …439</p><p>5.4 函数的行为 ……443</p><p>5.4.1 构造 ……444</p><p>5.4.2 调用 ……448</p><p>5.4.3 方法调用 …..455</p><p>5.4.4 迭代 ……461</p><p>5.4.5 生成器中的迭代 …466</p><p>5.5 闭包 ….475</p><p>5.5.1 闭包与函数实例 …476</p><p>5.5.2 闭包的使用 .481</p><p>5.5.3 与闭包类似的实例化环境 .487</p><p>5.5.4 与闭包相关的一些特性 …..496</p><h1 id="第-6-章-JavaScript-的动态语言特性"><a href="#第-6-章-JavaScript-的动态语言特性" class="headerlink" title="第 6 章 JavaScript 的动态语言特性"></a>第 6 章 JavaScript 的动态语言特性</h1><p>6.1 概述 ….506</p><p>6.1.1 动态数据类型的起源 ..507</p><p>6.1.2 动态执行系统 507</p><p>6.1.3 脚本系统的起源 …509</p><p>6.1.4 脚本只是表现形式 ……510</p><p>6.2 动态类型：对象与值类型之间的转换 .512</p><p>6.2.1 包装类：面向对象的妥协 .512</p><p>6.2.2 从对象到值 .520</p><p>6.2.3 显式的转换 .529</p><p>6.3 动态类型：值类型的转换 ……532</p><p>6.3.1 值运算：类型转换的基础 .532</p><p>6.3.2 值类型之间的转换 ……535</p><p>6.3.3 值类型之间的显式转换 …..540</p><p>6.4 动态类型：对象与数组的动态特性 …..545</p><p>6.4.1 关联数组与索引数组 ..545</p><p>6.4.2 索引数组作为对象的问题 .546</p><p>6.4.3 类数组对象：对象作为索引数组的应用 ..552</p><p>6.4.4 其他 ……554</p><p>6.5 重写 ….555</p><p>6.5.1 标识符的重写及其限制 …..555</p><p>6.5.2 原型重写 …..567</p><p>6.5.3 构造器重写 .569</p><p>6.5.4 对象成员的重写 …573</p><p>6.5.5 引擎对重写的限制 ……578</p><p>6.6 动态执行 …582</p><p>6.6.1 eval()作为函数名的特殊性 582</p><p>6.6.2 eval()在不同上下文环境中的效果 …..584</p><p>6.6.3 Eval 环境的独特性 ……586</p><p>6.6.4 动态执行过程中的语句、表达式与值 ……593</p><p>6.6.5 序列化与反序列化 ……595</p><p>6.6.6 eval 对作用域的影响 …600</p><p>6.6.7 其他的动态执行逻辑 ..601</p><p>6.7 动方法调用（call、apply 与 bind） .605</p><p>6.8 通用执行环境的实现 615</p><p>6.8.1 通用 DSL 的模型 ..616</p><p>6.8.2 实现 ECMAScript 引擎 ……624</p><p>6.8.3 与 DSL 的概念整合 …..635</p><h1 id="第-7-章-JavaScript-的并行语言特性"><a href="#第-7-章-JavaScript-的并行语言特性" class="headerlink" title="第 7 章 JavaScript 的并行语言特性"></a>第 7 章 JavaScript 的并行语言特性</h1><p>7.1 概述</p><p>7.1.1 并行计算的思想</p><p>7.1.2 并行程序设计的历史</p><p>7.1.3 并行语言特性在 JavaScript 中的历史</p><p>7.2 Promise 的核心机制</p><p>7.2.1 Promise 的核心过程</p><p>7.2.2 Promise 类与对象的基本应用</p><p>7.2.3 Promise 的子类</p><p>7.2.4 执行逻辑 …..666</p><p>7.2.4.1 任务队列 666</p><p>7.2.4.2 执行栈 ….667</p><p>7.3 与其他语言特性的交集 …668</p><p>7.3.1 与函数式特性的交集：异步的函数 …669</p><p>7.3.2 与动态特性的交集 ……677</p><p>7.3.3 对结构化特性带来的冲击 .683</p><p>7.3.3.4 异步方法与存取器 …..687</p><p>7.4 JavaScript 中对并发的支持 …..690</p><p>7.4.1 Agent、Agent Cluster 及其工作机制 ..691</p><p>7.4.2 SharedArrayBuffer 698</p><p>7.4.3 Atomics.701</p><p>7.5 在分布式网络环境中的并行执行 ..706</p><p>7.5.2 构建一个集群环境 ……709</p><p>7.5.3 使用 PEDT 执行行任务 .713</p><p>7.5.4 可参考的意义 718</p>]]></content>
     
@@ -38,7 +89,37 @@
     
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
+      <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
       <category term="基础" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue3 + vite + ts 造轮子</title>
+    <link href="http://yoursite.com/2020/07/31/vue/vue3%E9%80%A0%E8%BD%AE%E5%AD%90/"/>
+    <id>http://yoursite.com/2020/07/31/vue/vue3%E9%80%A0%E8%BD%AE%E5%AD%90/</id>
+    <published>2020-07-31T10:42:04.000Z</published>
+    <updated>2020-07-29T14:45:09.619Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm init vite-app &lt;project-name&gt;</span><br><span class="line">$ cd &lt;project-name&gt;</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure><h2 id="cli-完善"><a href="#cli-完善" class="headerlink" title="cli 完善"></a>cli 完善</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>Vue 3 Snippets</p><h3 id="定义vue解析文件"><a href="#定义vue解析文件" class="headerlink" title="定义vue解析文件"></a>定义vue解析文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config.d.ts</span></span><br><span class="line">declare <span class="built_in">module</span> <span class="string">'*.vue'</span> &#123;</span><br><span class="line">    <span class="keyword">import</span> &#123;ComponentOptions&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line">    <span class="keyword">const</span> component : ComponentOptions</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> component</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="vue-router-4"><a href="#vue-router-4" class="headerlink" title="vue-router@4"></a>vue-router@4</h3><p>yarn add <a href="mailto:vue-router@4.0.0-beta3">vue-router@4.0.0-beta3</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../assets/css/index.css'</span></span><br><span class="line"><span class="keyword">import</span> &#123;createWebHashHistory,createRouter&#125; <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> Frank <span class="keyword">from</span> <span class="string">'../components/Frank.vue'</span></span><br><span class="line"><span class="keyword">const</span> history = createWebHashHistory()</span><br><span class="line"><span class="keyword">const</span> router = createRouter(&#123;</span><br><span class="line">    history,</span><br><span class="line">    routes:[</span><br><span class="line">        &#123;</span><br><span class="line">            path:<span class="string">'/'</span>,</span><br><span class="line">            component:Frank</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> app = createApp(App)</span><br><span class="line">app.use(router)</span><br><span class="line">app.mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure><h3 id="sass"><a href="#sass" class="headerlink" title="sass"></a>sass</h3><p>yarn add <a href="mailto:sass@1.26.10">sass@1.26.10</a></p><h2 id="通信-Provide-Inject"><a href="#通信-Provide-Inject" class="headerlink" title="通信 Provide Inject"></a>通信 Provide Inject</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, provide&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup()&#123;</span><br><span class="line">    <span class="keyword">const</span> menu = ref(<span class="literal">false</span>)</span><br><span class="line">    provide(<span class="string">'xxx'</span>,menu) <span class="comment">// set</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;inject,Ref&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    setup()&#123;</span><br><span class="line">        <span class="keyword">const</span> menu = inject&lt;Ref&lt;boolean&gt;&gt;(<span class="string">'xxx'</span>) <span class="comment">// get</span></span><br><span class="line">        <span class="built_in">console</span>.log(menu)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;创建项目&quot;&gt;&lt;a href=&quot;#创建项目&quot; class=&quot;headerlink&quot; title=&quot;创建项目&quot;&gt;&lt;/a&gt;创建项目&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
+    
+      <category term="vue3" scheme="http://yoursite.com/tags/vue3/"/>
+    
+      <category term="vite" scheme="http://yoursite.com/tags/vite/"/>
     
   </entry>
   
@@ -146,6 +227,31 @@
   </entry>
   
   <entry>
+    <title>前端周刊【202007-2】</title>
+    <link href="http://yoursite.com/2020/07/12/weeks/202007-2/"/>
+    <id>http://yoursite.com/2020/07/12/weeks/202007-2/</id>
+    <published>2020-07-12T12:42:04.000Z</published>
+    <updated>2020-07-11T06:23:15.231Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5f05087cf265da22d466f60f" target="_blank" rel="noopener">写给前端的算法进阶指南</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5f05087cf265da22d466f60f&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;写给前端的算法进阶指南&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
+  
+  <entry>
     <title>学习JavaScript数据结构与算法 第2版</title>
     <link href="http://yoursite.com/2020/07/12/book/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
     <id>http://yoursite.com/2020/07/12/book/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/</id>
@@ -170,31 +276,6 @@
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="LoianeGroner" scheme="http://yoursite.com/tags/LoianeGroner/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端周刊【202007-2】</title>
-    <link href="http://yoursite.com/2020/07/12/weeks/202007-2/"/>
-    <id>http://yoursite.com/2020/07/12/weeks/202007-2/</id>
-    <published>2020-07-12T12:42:04.000Z</published>
-    <updated>2020-07-11T06:23:15.231Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5f05087cf265da22d466f60f" target="_blank" rel="noopener">写给前端的算法进阶指南</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5f05087cf265da22d466f60f&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;写给前端的算法进阶指南&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
     
   </entry>
   
@@ -255,6 +336,31 @@
   </entry>
   
   <entry>
+    <title>前端周刊【202007-1】</title>
+    <link href="http://yoursite.com/2020/07/05/weeks/202007-1/"/>
+    <id>http://yoursite.com/2020/07/05/weeks/202007-1/</id>
+    <published>2020-07-05T12:42:04.000Z</published>
+    <updated>2020-07-05T11:25:32.114Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5ea22d15e51d45470c12d074" target="_blank" rel="noopener">web 图像技术：前端引入图片的各种方式及其优缺点</a></p><p><a href="https://juejin.im/post/5ef6d1325188252e75366ab5" target="_blank" rel="noopener">前方高能，这是最新的一波Vue实战技巧，不用则已，一用惊人</a></p><p><a href="https://www.jianshu.com/p/d861c7c85cf3" target="_blank" rel="noopener">一篇文章读懂 React and redux 前端开发</a></p><p>干货吸收</p><ul><li><a href="https://juejin.im/post/5ee8e32a51882543485780d3" target="_blank" rel="noopener">《了不起的 Webpack HMR 学习指南（含源码分析）》</a></li><li><a href="https://juejin.im/post/5eeff398e51d4573e060874d" target="_blank" rel="noopener">《了不起的 Webpack 构建流程学习指南》</a></li><li><a href="https://juejin.im/post/5ee78bb7f265da76f15a0698" target="_blank" rel="noopener">《你不知道的 WeakMap》番外篇</a></li><li><a href="https://juejin.im/post/5ede5300e51d4578a6798220" target="_blank" rel="noopener">《你不知道的 Blob》番外篇</a></li><li><a href="https://juejin.im/post/5ed589a251882542e3022f44" target="_blank" rel="noopener">《了不起的 tsconfig.json 指南》</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5ea22d15e51d45470c12d074&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;web 图像技术：前端引入图片的各种方式及其优缺点&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;ht
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
+  
+  <entry>
     <title>啊哈算法</title>
     <link href="http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/"/>
     <id>http://yoursite.com/2020/07/05/book/%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95/</id>
@@ -277,31 +383,6 @@
       <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
     
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端周刊【202007-1】</title>
-    <link href="http://yoursite.com/2020/07/05/weeks/202007-1/"/>
-    <id>http://yoursite.com/2020/07/05/weeks/202007-1/</id>
-    <published>2020-07-05T12:42:04.000Z</published>
-    <updated>2020-07-05T11:25:32.114Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5ea22d15e51d45470c12d074" target="_blank" rel="noopener">web 图像技术：前端引入图片的各种方式及其优缺点</a></p><p><a href="https://juejin.im/post/5ef6d1325188252e75366ab5" target="_blank" rel="noopener">前方高能，这是最新的一波Vue实战技巧，不用则已，一用惊人</a></p><p><a href="https://www.jianshu.com/p/d861c7c85cf3" target="_blank" rel="noopener">一篇文章读懂 React and redux 前端开发</a></p><p>干货吸收</p><ul><li><a href="https://juejin.im/post/5ee8e32a51882543485780d3" target="_blank" rel="noopener">《了不起的 Webpack HMR 学习指南（含源码分析）》</a></li><li><a href="https://juejin.im/post/5eeff398e51d4573e060874d" target="_blank" rel="noopener">《了不起的 Webpack 构建流程学习指南》</a></li><li><a href="https://juejin.im/post/5ee78bb7f265da76f15a0698" target="_blank" rel="noopener">《你不知道的 WeakMap》番外篇</a></li><li><a href="https://juejin.im/post/5ede5300e51d4578a6798220" target="_blank" rel="noopener">《你不知道的 Blob》番外篇</a></li><li><a href="https://juejin.im/post/5ed589a251882542e3022f44" target="_blank" rel="noopener">《了不起的 tsconfig.json 指南》</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5ea22d15e51d45470c12d074&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;web 图像技术：前端引入图片的各种方式及其优缺点&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;ht
-      
-    
-    </summary>
-    
-    
-    
-      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
     
   </entry>
   
@@ -443,82 +524,6 @@
       
       
         &lt;h1 id=&quot;装饰器&quot;&gt;&lt;a href=&quot;#装饰器&quot; class=&quot;headerlink&quot; title=&quot;装饰器&quot;&gt;&lt;/a&gt;装饰器&lt;/h1&gt;&lt;p&gt;是一种特殊的类型声明，它能够被附加到类声明、方法、属性和参数上，可以修改类的行为。通俗来说就是一个方法，可以注入到类、方法、属性参数
-      
-    
-    </summary>
-    
-    
-    
-      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TS笔记 - 06命名空间 namespace</title>
-    <link href="http://yoursite.com/2020/06/13/typescript/06-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4namespace/"/>
-    <id>http://yoursite.com/2020/06/13/typescript/06-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4namespace/</id>
-    <published>2020-06-13T12:42:04.000Z</published>
-    <updated>2020-06-13T11:12:11.794Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="命名空间-namespace-A"><a href="#命名空间-namespace-A" class="headerlink" title="命名空间 namespace A{}"></a>命名空间 namespace A{}</h1><p>在代码量较大情况下，为了避免各种变量命名相冲突，可将相似功能的函数 类接口等放置到命名空间内。同JAVA NET的命名空间一样，如果需要向外调用 需要export</p><blockquote><p>命名空间和模块的区别</p></blockquote><p>命名空间：内部模块 主要用于组织代码 避免命名冲突</p><p>模块：TS的外部模块的简称 侧重代码的复用 一个模块 里可能会有多个命名空间</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// person.ts</span></span><br><span class="line"><span class="keyword">export</span> namespace A&#123;</span><br><span class="line">  <span class="comment">// 命名空间下的私有类 如果需要向外调用 需要export</span></span><br><span class="line">  <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    name:string;</span><br><span class="line">    <span class="keyword">constructor</span>(n:string)&#123;</span><br><span class="line">      <span class="keyword">this</span>.name = n;</span><br><span class="line">    &#125;</span><br><span class="line">    run():<span class="keyword">void</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// index.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123;A&#125; <span class="keyword">from</span> <span class="string">'./person.ts'</span></span><br><span class="line"><span class="keyword">var</span> D = <span class="keyword">new</span> A.Person();</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;命名空间-namespace-A&quot;&gt;&lt;a href=&quot;#命名空间-namespace-A&quot; class=&quot;headerlink&quot; title=&quot;命名空间 namespace A{}&quot;&gt;&lt;/a&gt;命名空间 namespace A{}&lt;/h1&gt;&lt;p&gt;在代码量较大情况下，
-      
-    
-    </summary>
-    
-    
-    
-      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TS笔记 - 05泛型 &lt;T&gt;</title>
-    <link href="http://yoursite.com/2020/06/13/typescript/05-%E6%B3%9B%E5%9E%8B%3CT%3E/"/>
-    <id>http://yoursite.com/2020/06/13/typescript/05-%E6%B3%9B%E5%9E%8B%3CT%3E/</id>
-    <published>2020-06-13T11:42:04.000Z</published>
-    <updated>2020-06-13T11:15:22.798Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><blockquote><p>不仅规范API，也要考虑可重用性。同时也能支持未来的数据类型。 一种组件可以支持多种 数据类型。</p><p>解决 类 接口方法的复用性，以及对不特定的数据类型的支持</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以往代码 复杂 不可复用 代码冗余</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData1</span>(<span class="params">value:string</span>)</span>&#123;<span class="keyword">return</span> value&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData2</span>(<span class="params">value:number</span>)</span>&#123;<span class="keyword">return</span> value&#125;</span><br><span class="line"><span class="comment">// 以往代码 比较粗暴 放弃了类型检查</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">value:any</span>)</span>&#123;<span class="keyword">return</span> value&#125;</span><br></pre></td></tr></table></figure><h2 id="泛型定义"><a href="#泛型定义" class="headerlink" title="泛型定义"></a>泛型定义</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T表示泛型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span></span>&#123; <span class="comment">// 最后这个T表示返回类型</span></span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getData&lt;number&gt;(<span class="number">123</span>); <span class="comment">//success</span></span><br><span class="line">getData&lt;string&gt;(<span class="string">'zhangsan'</span>); <span class="comment">//success</span></span><br><span class="line">getData&lt;number&gt;(<span class="string">'123'</span>); <span class="comment">//error</span></span><br></pre></td></tr></table></figure><h2 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h2><blockquote><p>比如有个最小堆算法，需要同时支持返回数字和字符串两钟类型 通过类泛型来实现</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinClass</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  list:T[]=[];</span><br><span class="line">add(num:T)&#123;</span><br><span class="line">    <span class="keyword">this</span>.list.push(num);</span><br><span class="line">  &#125;</span><br><span class="line">min():T&#123;</span><br><span class="line">    <span class="comment">// return minNum;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实例化类 并且制定了类T代表的类型</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> MinClass&lt;number&gt;(); </span><br><span class="line">m.add(<span class="number">3</span>);</span><br><span class="line">m.add(<span class="number">32</span>);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> MinClass&lt;string&gt;();</span><br><span class="line">m.add(<span class="string">'222'</span>);</span><br><span class="line">m.add(<span class="string">'333'</span>);</span><br><span class="line"></span><br><span class="line">m.min();</span><br></pre></td></tr></table></figure><h2 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种 写法</span></span><br><span class="line">interface Config&#123;</span><br><span class="line">  &lt;T&gt;(value:T):T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> setData:Config = <span class="function"><span class="keyword">function</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line">setData&lt;string&gt;(<span class="string">'zhangsan'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种 写法</span></span><br><span class="line">interface Config&lt;T&gt;&#123;</span><br><span class="line">  (value:T):T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myGetData:Config&lt;string&gt; = getData;</span><br><span class="line">myGetData(<span class="string">'zhangsan'</span>)</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">var</span> myGetData:Config&lt;number&gt; = getData;</span><br><span class="line">myGetData(<span class="number">123</span>)</span><br></pre></td></tr></table></figure><h2 id="把类作为参数类型的泛型类"><a href="#把类作为参数类型的泛型类" class="headerlink" title="把类作为参数类型的泛型类"></a>把类作为参数类型的泛型类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">  username:string | <span class="literal">undefined</span>;</span><br><span class="line">  password:string | <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MysqlDB</span></span>&#123;</span><br><span class="line">  add(user:User):boolean&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(user);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> U = <span class="keyword">new</span> User();</span><br><span class="line">U.username = <span class="string">'zhangsan'</span>;</span><br><span class="line">U.password = <span class="string">'123456'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> D = <span class="keyword">new</span> MysqlDB()</span><br><span class="line">D.add(U);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 泛型类</span></span><br><span class="line"><span class="comment">// 1 去除重复代码 2 对于不特定类进行数据校检</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MysqlDB</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  add(info:<span class="xml"><span class="tag">&lt;<span class="name">T</span>&gt;</span>):boolean&#123;</span></span><br><span class="line"><span class="xml">    console.log(info);</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">class User&#123;</span></span><br><span class="line"><span class="xml">  username:string | undefined;</span></span><br><span class="line"><span class="xml">  password:string | undefined;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">var U = new User();</span></span><br><span class="line"><span class="xml">U.username = 'zhangsan';</span></span><br><span class="line"><span class="xml">U.password = '123456';</span></span><br><span class="line">var D = new MysqlDB&lt;User&gt;();</span><br><span class="line">D.add(U);</span><br><span class="line"></span><br><span class="line">class Article&#123;</span><br><span class="line">  title:string | undefined;</span><br><span class="line">  desc:string | undefined;</span><br><span class="line">  status:number | undefined;</span><br><span class="line">constructor(params:&#123;</span><br><span class="line">     title:string | undefined,</span><br><span class="line">     desc:string | undefined,</span><br><span class="line">     status?:number | undefined</span><br><span class="line">  &#125;)&#123;</span><br><span class="line">    this.title = params.title</span><br><span class="line">    this.desc = params.desc</span><br><span class="line">    this.status = params.status</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var A = new Article(&#123;</span><br><span class="line">  titile:'123',</span><br><span class="line">  desc:'123'</span><br><span class="line">&#125;);</span><br><span class="line">var S = new MysqlDB&lt;Article&gt;();</span><br><span class="line">S.add(A);</span><br></pre></td></tr></table></figure><h2 id="定义一个操作数据库的库"><a href="#定义一个操作数据库的库" class="headerlink" title="定义一个操作数据库的库"></a>定义一个操作数据库的库</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">indterface DBI&lt;T&gt;&#123;</span><br><span class="line">  add(info:T):boolean;</span><br><span class="line">  update(info:T,<span class="attr">id</span>:number):boolean;</span><br><span class="line">  <span class="keyword">delete</span>(id:number):boolean;</span><br><span class="line">  <span class="keyword">get</span>(id:number):any[];</span><br><span class="line">&#125;</span><br><span class="line">//定义一个操作mysql的类</span><br><span class="line">class MysqlDB&lt;T&gt; implements DBI&lt;T&gt;&#123;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    <span class="comment">// 可以在此写与数据库建立连接</span></span><br><span class="line">  &#125;</span><br><span class="line">  add(info:T):boolean&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">update(info:T,<span class="attr">id</span>:number):boolean&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">delete</span>(id:number):boolean&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">get</span>(id:number):boolean&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 操作用户表 定义一个User类和数据库映射</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">  username:string | <span class="literal">undefined</span>;</span><br><span class="line">  password:string | <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> U = <span class="keyword">new</span> User();</span><br><span class="line">U.username = <span class="string">'zhangsan'</span>;</span><br><span class="line">U.password = <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">var</span> oMysql = <span class="keyword">new</span> MysqlDB&lt;User&gt;();</span><br><span class="line">oMysql.add(U);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;泛型&quot;&gt;&lt;a href=&quot;#泛型&quot; class=&quot;headerlink&quot; title=&quot;泛型&quot;&gt;&lt;/a&gt;泛型&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;不仅规范API，也要考虑可重用性。同时也能支持未来的数据类型。 一种组件可以支持多种 数据类型。&lt;/p&gt;
-&lt;p&gt;解
-      
-    
-    </summary>
-    
-    
-    
-      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TS笔记 - 04接口 interface</title>
-    <link href="http://yoursite.com/2020/06/13/typescript/04-%E6%8E%A5%E5%8F%A3interface/"/>
-    <id>http://yoursite.com/2020/06/13/typescript/04-%E6%8E%A5%E5%8F%A3interface/</id>
-    <published>2020-06-13T10:42:04.000Z</published>
-    <updated>2020-06-13T11:15:19.638Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><blockquote><p>接口是一种规范的定义，它定义了行为和动作的规范。包括属性、函数、可索引和类等。</p></blockquote><h2 id="模拟-ajax"><a href="#模拟-ajax" class="headerlink" title="模拟 ajax"></a>模拟 ajax</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">interface Config&#123;</span><br><span class="line">type:string,</span><br><span class="line">url:string,</span><br><span class="line">data?:string, <span class="comment">//可选参数</span></span><br><span class="line">dataType:string</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ajax</span>(<span class="params">config:Config</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(config.type,config.url,<span class="literal">true</span>);</span><br><span class="line">xhr.send(config.data);</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'success'</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Ajax(&#123;</span><br><span class="line">type:<span class="string">'get'</span>,</span><br><span class="line">url:<span class="string">'/test'</span>,</span><br><span class="line">dataType:<span class="string">'json'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="1、属性接口-对json约束-对批量方法进行约束"><a href="#1、属性接口-对json约束-对批量方法进行约束" class="headerlink" title="1、属性接口 对json约束 对批量方法进行约束"></a>1、属性接口 对json约束 对批量方法进行约束</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">interface FullName&#123;</span><br><span class="line">first:string;</span><br><span class="line">second:string;</span><br><span class="line">age?:number <span class="comment">// 可选参数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span>(<span class="params">name:FullName</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(name.fitst);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">first:<span class="string">'zhangsan'</span>,</span><br><span class="line">second:<span class="string">'lisi'</span></span><br><span class="line">&#125;</span><br><span class="line">printName(obj);</span><br></pre></td></tr></table></figure><h2 id="2、函数类型接口"><a href="#2、函数类型接口" class="headerlink" title="2、函数类型接口"></a>2、函数类型接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">interface encrypt&#123;</span><br><span class="line">  (key:string,<span class="attr">value</span>:string):string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> md5:encrypt=<span class="function"><span class="keyword">function</span>(<span class="params">key:string,value:string</span>):<span class="title">string</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> key+value;</span><br><span class="line">&#125;</span><br><span class="line">md5(<span class="string">'name'</span>,<span class="string">'zhangsan'</span>);</span><br></pre></td></tr></table></figure><h2 id="3、可索引接口-数组对象的约束-（不常用）"><a href="#3、可索引接口-数组对象的约束-（不常用）" class="headerlink" title="3、可索引接口 数组对象的约束 （不常用）"></a>3、可索引接口 数组对象的约束 （不常用）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr:number[]=[<span class="number">123</span>,<span class="number">123</span>]</span><br><span class="line"><span class="keyword">var</span> arr:array&lt;number&gt;=[<span class="number">123</span>,<span class="number">123</span>]</span><br><span class="line"><span class="comment">// index 索引值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数组约束</span></span><br><span class="line">interface UserArr&#123;</span><br><span class="line"> [index:number]:string</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr:UserArr=[<span class="string">'aaa'</span>,<span class="number">123</span>] <span class="comment">//error</span></span><br><span class="line"><span class="keyword">var</span> arr:UserArr=[<span class="string">'aaa'</span>,<span class="string">'123123'</span>] <span class="comment">//success</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对对象约束</span></span><br><span class="line">interface UserArr&#123;</span><br><span class="line"> [index:string]:string</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr:UserArr=&#123;<span class="attr">name</span>:<span class="string">'zhangsan'</span>&#125;</span><br></pre></td></tr></table></figure><h2 id="4、类类型接口：对类的约束-和-抽象类有点相似"><a href="#4、类类型接口：对类的约束-和-抽象类有点相似" class="headerlink" title="4、类类型接口：对类的约束 和 抽象类有点相似"></a>4、类类型接口：对类的约束 和 抽象类有点相似</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">interface Animal&#123;</span><br><span class="line"> name:string;</span><br><span class="line"> eat(str:string):<span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="title">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">name:string;</span><br><span class="line"><span class="keyword">constructor</span>(name:string)&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">eat()&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">'eat meal'</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> Dog(<span class="string">'小黑'</span>);</span><br><span class="line">d.eat();</span><br></pre></td></tr></table></figure><h2 id="5、接口扩展-接口可以继承接口"><a href="#5、接口扩展-接口可以继承接口" class="headerlink" title="5、接口扩展 接口可以继承接口"></a>5、接口扩展 接口可以继承接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">interface Animal&#123;</span><br><span class="line"> eat():<span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br><span class="line">interface Penson extends Animal&#123;</span><br><span class="line"> work():<span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br><span class="line">interface Programmer&#123;</span><br><span class="line">name:string,</span><br><span class="line"><span class="keyword">constructor</span>(name:string)&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">codding(code:string)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.name+code);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即可以继承接口也可以实现接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Programmer</span> <span class="title">implements</span> <span class="title">Person</span></span>&#123; </span><br><span class="line">name:string,</span><br><span class="line"><span class="keyword">constructor</span>(name:string)&#123;</span><br><span class="line"><span class="keyword">super</span>(name);</span><br><span class="line">&#125;</span><br><span class="line">eat()&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">'吃米饭'</span>);</span><br><span class="line">&#125;</span><br><span class="line">work()&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">'写代码'</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> Web(<span class="string">'小李'</span>);</span><br><span class="line">d.eat(); <span class="comment">//小李吃米饭  //实现</span></span><br><span class="line">d.work(); <span class="comment">//小李写代码  //实现</span></span><br><span class="line">d.codding(<span class="string">'TS'</span>); <span class="comment">//小李TS  //继承</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;接口&quot;&gt;&lt;a href=&quot;#接口&quot; class=&quot;headerlink&quot; title=&quot;接口&quot;&gt;&lt;/a&gt;接口&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;接口是一种规范的定义，它定义了行为和动作的规范。包括属性、函数、可索引和类等。&lt;/p&gt;
-&lt;/blockquote&gt;
       
     
     </summary>
