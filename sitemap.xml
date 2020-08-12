@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/08/12/js/Rollup%E6%B5%85%E6%9E%90/</loc>
+    
+    <lastmod>2020-08-12T15:35:35.512Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/20/book/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</loc>
+    
+    <lastmod>2020-08-12T00:53:38.826Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/31/vue/vue3%E9%80%A0%E8%BD%AE%E5%AD%90/</loc>
+    
+    <lastmod>2020-08-10T10:44:19.946Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/08/04/react/ToyReact/</loc>
     
     <lastmod>2020-08-08T12:07:20.135Z</lastmod>
@@ -19,13 +40,6 @@
     <loc>http://yoursite.com/2020/08/08/js/%E5%89%8D%E7%AB%AF%E5%A4%84%E7%90%86EXCEL%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E6%80%9D%E8%B7%AF/</loc>
     
     <lastmod>2020-08-08T09:13:02.594Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/07/31/vue/vue3%E9%80%A0%E8%BD%AE%E5%AD%90/</loc>
-    
-    <lastmod>2020-08-08T08:21:01.669Z</lastmod>
     
   </url>
   
