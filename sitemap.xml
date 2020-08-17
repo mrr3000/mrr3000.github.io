@@ -2,16 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/08/12/js/Rollup%E6%B5%85%E6%9E%90/</loc>
+    <loc>http://yoursite.com/2020/08/17/video/202008%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8/</loc>
     
-    <lastmod>2020-08-12T15:35:35.512Z</lastmod>
+    <lastmod>2020-08-17T12:50:28.102Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/08/20/book/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</loc>
+    <loc>http://yoursite.com/2020/01/15/video/202001Typescript%E5%9F%BA%E7%A1%80&%E5%AE%9E%E6%88%98/</loc>
     
-    <lastmod>2020-08-12T00:53:38.826Z</lastmod>
+    <lastmod>2020-08-17T07:36:09.610Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/20/video/202008%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</loc>
+    
+    <lastmod>2020-08-17T07:36:02.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/15/video/202008%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4/</loc>
+    
+    <lastmod>2020-08-17T07:35:57.641Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/15/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/</loc>
+    
+    <lastmod>2020-08-16T12:37:03.776Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/16/video/202008%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8%E4%BF%AE%E7%82%BC/</loc>
+    
+    <lastmod>2020-08-16T04:09:33.610Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/15/weeks/202008-2/</loc>
+    
+    <lastmod>2020-08-15T07:22:26.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/12/js/Rollup%E6%B5%85%E6%9E%90/</loc>
+    
+    <lastmod>2020-08-12T15:35:35.512Z</lastmod>
     
   </url>
   
