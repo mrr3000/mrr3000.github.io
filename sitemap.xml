@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/08/24/weeks/202008-3/</loc>
+    
+    <lastmod>2020-08-21T08:49:32.909Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/12/28/frame/react/ReactNative%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2020-08-21T08:48:07.842Z</lastmod>
@@ -194,13 +201,6 @@
     <loc>http://yoursite.com/2020/08/15/book/video/202008%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4/</loc>
     
     <lastmod>2020-08-20T04:59:59.980Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/08/24/weeks/202008-3/</loc>
-    
-    <lastmod>2020-08-18T14:00:40.500Z</lastmod>
     
   </url>
   
