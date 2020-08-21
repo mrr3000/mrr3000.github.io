@@ -42,30 +42,6 @@
   </entry>
   
   <entry>
-    <title>前端开发知识手册</title>
-    <link href="http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
-    <id>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</id>
-    <published>2020-08-21T01:00:00.000Z</published>
-    <updated>2020-08-21T06:47:41.707Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSS-amp-JS是这样阻塞DOM解析和渲染的"><a href="#CSS-amp-JS是这样阻塞DOM解析和渲染的" class="headerlink" title="CSS&amp;JS是这样阻塞DOM解析和渲染的"></a>CSS&amp;JS是这样阻塞DOM解析和渲染的</h2><ul><li>关于 CSS，大家肯定都知道的是<link>标签放在头部性能会高一点，少一点人知道如果<script>与<link>同时在头部的话，<script>在上可能会更好。</li><li>CSS 不会阻塞 DOM 的解析，但会阻塞 DOM 渲染。</li><li>JS 阻塞 DOM 解析，但浏览器会"偷看"DOM，预先下载相关资源。</li><li>浏览器遇到 <script>且没有 defer 或 async 属性的 标签时，会触发页面渲染，因而如果前面 CSS 资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。</li></ul><script src="script.js"></script><blockquote><p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p></blockquote><script async src="script.js"></script><blockquote><p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p></blockquote><script defer src="myscript.js"></script><blockquote><p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p></blockquote><h2 id="width-auto和width-100-的区别"><a href="#width-auto和width-100-的区别" class="headerlink" title="width_auto和width_100%的区别"></a>width_auto和width_100%的区别</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>:<span class="number">600px</span>;<span class="attribute">overflow</span>:auto;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:auto;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果是width:100%，则说明p的width会得到600px就已经充满div区域，然后自己又有padding，所以会出现滚动条。</p><p>而width:auto则比较聪明，它是总体宽度（广义，包括width，margin,padding,border这些）等于父级宽度（狭义，内容区，仅指width），所以如果padding已经左右占去20px的空间，那么width给的值就是580px。</p><p>所以，如果：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:auto;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其实最后实际的width值为560px。<br>但无论是width:100%还是auto，其计算的参照都是父级 *<em>内容区 *</em>width值，而非总宽度值。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CSS-amp-JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;a href=&quot;#CSS-amp-JS是这样阻塞DOM解析和渲染的&quot; class=&quot;headerlink&quot; title=&quot;CSS&amp;amp;JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;/a&gt;CSS&amp;amp;JS是这样阻
-      
-    
-    </summary>
-    
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>IE6789兼容性浅析</title>
     <link href="http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/"/>
     <id>http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/</id>
@@ -88,6 +64,30 @@
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
       <category term="ie" scheme="http://yoursite.com/tags/ie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端开发知识手册</title>
+    <link href="http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
+    <id>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</id>
+    <published>2020-08-21T01:00:00.000Z</published>
+    <updated>2020-08-21T06:47:41.707Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CSS-amp-JS是这样阻塞DOM解析和渲染的"><a href="#CSS-amp-JS是这样阻塞DOM解析和渲染的" class="headerlink" title="CSS&amp;JS是这样阻塞DOM解析和渲染的"></a>CSS&amp;JS是这样阻塞DOM解析和渲染的</h2><ul><li>关于 CSS，大家肯定都知道的是<link>标签放在头部性能会高一点，少一点人知道如果<script>与<link>同时在头部的话，<script>在上可能会更好。</li><li>CSS 不会阻塞 DOM 的解析，但会阻塞 DOM 渲染。</li><li>JS 阻塞 DOM 解析，但浏览器会"偷看"DOM，预先下载相关资源。</li><li>浏览器遇到 <script>且没有 defer 或 async 属性的 标签时，会触发页面渲染，因而如果前面 CSS 资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。</li></ul><script src="script.js"></script><blockquote><p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p></blockquote><script async src="script.js"></script><blockquote><p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p></blockquote><script defer src="myscript.js"></script><blockquote><p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p></blockquote><h2 id="width-auto和width-100-的区别"><a href="#width-auto和width-100-的区别" class="headerlink" title="width_auto和width_100%的区别"></a>width_auto和width_100%的区别</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>:<span class="number">600px</span>;<span class="attribute">overflow</span>:auto;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:auto;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果是width:100%，则说明p的width会得到600px就已经充满div区域，然后自己又有padding，所以会出现滚动条。</p><p>而width:auto则比较聪明，它是总体宽度（广义，包括width，margin,padding,border这些）等于父级宽度（狭义，内容区，仅指width），所以如果padding已经左右占去20px的空间，那么width给的值就是580px。</p><p>所以，如果：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:auto;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其实最后实际的width值为560px。<br>但无论是width:100%还是auto，其计算的参照都是父级 *<em>内容区 *</em>width值，而非总宽度值。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CSS-amp-JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;a href=&quot;#CSS-amp-JS是这样阻塞DOM解析和渲染的&quot; class=&quot;headerlink&quot; title=&quot;CSS&amp;amp;JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;/a&gt;CSS&amp;amp;JS是这样阻
+      
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
