@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-11-15T08:46:26.879Z</updated>
+  <updated>2020-11-30T01:52:05.531Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,90 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端周刊【202011-4】</title>
+    <link href="http://yoursite.com/2020/11/28/weeks/202011-4/"/>
+    <id>http://yoursite.com/2020/11/28/weeks/202011-4/</id>
+    <published>2020-11-28T01:00:00.000Z</published>
+    <updated>2020-11-30T01:52:05.531Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000038323430" target="_blank" rel="noopener">10 个 GitHub 上超火和超好看的管理后台模版</a></p><p><a href="https://segmentfault.com/a/1190000038263876" target="_blank" rel="noopener">10 个 GitHub 上超火的 CSS 奇技淫巧项目</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000038323430&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;10 个 GitHub 上超火和超好看的管理后台模版&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端周刊【202011-3】</title>
+    <link href="http://yoursite.com/2020/11/20/weeks/202011-3/"/>
+    <id>http://yoursite.com/2020/11/20/weeks/202011-3/</id>
+    <published>2020-11-20T01:00:00.000Z</published>
+    <updated>2020-11-30T01:46:33.232Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/9F-GYqr_QFmkkVBttZnlRw" target="_blank" rel="noopener">前端性能优化 24 条建议（2020）</a></p><p><a href="https://mp.weixin.qq.com/s/IMxxk2ntrMPQJAMr1ZjaFg" target="_blank" rel="noopener">手把手教你搭建 Vue 服务端渲染项目</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/9F-GYqr_QFmkkVBttZnlRw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前端性能优化 24 条建议（2020）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https:
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源轻社区收藏</title>
+    <link href="http://yoursite.com/2020/11/16/others/20201116%E5%BC%80%E6%BA%90%E8%BD%BB%E7%A4%BE%E5%8C%BA%E6%94%B6%E8%97%8F/"/>
+    <id>http://yoursite.com/2020/11/16/others/20201116%E5%BC%80%E6%BA%90%E8%BD%BB%E7%A4%BE%E5%8C%BA%E6%94%B6%E8%97%8F/</id>
+    <published>2020-11-16T01:00:00.000Z</published>
+    <updated>2020-11-17T03:24:59.264Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Flarum</strong></p><p>演示：<a href="https://link.zhihu.com/?target=https%3A//forum.cloudreve.org/">https://forum.cloudreve.org/</a></p><p>官网：<a href="https://link.zhihu.com/?target=https%3A//flarum.org.cn/">https://flarum.org.cn/</a></p><p><strong>Tipask</strong></p><p>演示：<a href="https://wenda.tipask.com/" target="_blank" rel="noopener">https://wenda.tipask.com/</a></p><p>官网：<a href="https://www.tipask.com/" target="_blank" rel="noopener">https://www.tipask.com/</a></p><p><strong>Xiuno BBS</strong></p><p>演示和官网：<a href="https://bbs.xiuno.com/" target="_blank" rel="noopener">https://bbs.xiuno.com/</a></p><p>开源地址：<a href="https://gitee.com/xiuno/xiunobbs" target="_blank" rel="noopener">https://gitee.com/xiuno/xiunobbs</a></p><p><strong>PHPWIND</strong></p><p><a href="http://bbs.phpwind.net.cn/" target="_blank" rel="noopener">http://bbs.phpwind.net.cn/</a></p><p><strong>DISCUZ</strong></p><p><a href="https://www.discuz.net" target="_blank" rel="noopener">https://www.discuz.net</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;Flarum&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;演示：&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//forum.cloudreve.org/&quot;&gt;https://forum.cloudreve.org/&lt;/a
+      
+    
+    </summary>
+    
+    
+    
+      <category term="bbs" scheme="http://yoursite.com/tags/bbs/"/>
+    
+      <category term="forum" scheme="http://yoursite.com/tags/forum/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端周刊【202011-2】</title>
     <link href="http://yoursite.com/2020/11/15/weeks/202011-2/"/>
     <id>http://yoursite.com/2020/11/15/weeks/202011-2/</id>
     <published>2020-11-15T01:00:00.000Z</published>
-    <updated>2020-11-15T08:46:26.879Z</updated>
+    <updated>2020-11-26T03:02:08.428Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/6844903971664953352" target="_blank" rel="noopener">CSR、SSR、Prerender 原理全解密</a></p><p><a href="https://micro-frontends.org/" target="_blank" rel="noopener">微前端官网</a></p><p><a href="https://mp.weixin.qq.com/s/YQD2W7h5WcGugIOVOd3lGg" target="_blank" rel="noopener">前端赋能业务：Node实现自动化部署平台</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://juejin.im/post/6844903971664953352" target="_blank" rel="noopener">CSR、SSR、Prerender 原理全解密</a></p><p><a href="https://micro-frontends.org/" target="_blank" rel="noopener">微前端官网</a></p><p><a href="https://mp.weixin.qq.com/s/YQD2W7h5WcGugIOVOd3lGg" target="_blank" rel="noopener">前端赋能业务：Node实现自动化部署平台</a></p><blockquote><p>扩展 VUE-SSR</p></blockquote><ol><li>SPA 缺点</li></ol><ul><li>首屏渲染速度慢</li><li>SEO不友好</li><li>浏览器性能问题</li></ul><ol start="2"><li>SSR缺点</li></ol><ul><li>开发条件受限</li><li>构建部署要求多，NODEJS</li><li>服务端负载变大</li></ul><ol start="3"><li>实现VUE SSR过程</li></ol><ul><li>创建工程 vue create ssr</li><li>安装依赖  [ 渲染器 vue-server-render ] [ 服务器express ]</li></ul>]]></content>
     
     <summary type="html">
     
@@ -211,9 +288,9 @@
     
     
     
-      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
-    
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
     
   </entry>
   
@@ -343,30 +420,6 @@
   </entry>
   
   <entry>
-    <title>前端开发知识手册</title>
-    <link href="http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
-    <id>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</id>
-    <published>2020-08-21T01:00:00.000Z</published>
-    <updated>2020-08-21T06:47:41.707Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSS-amp-JS是这样阻塞DOM解析和渲染的"><a href="#CSS-amp-JS是这样阻塞DOM解析和渲染的" class="headerlink" title="CSS&amp;JS是这样阻塞DOM解析和渲染的"></a>CSS&amp;JS是这样阻塞DOM解析和渲染的</h2><ul><li>关于 CSS，大家肯定都知道的是<link>标签放在头部性能会高一点，少一点人知道如果<script>与<link>同时在头部的话，<script>在上可能会更好。</li><li>CSS 不会阻塞 DOM 的解析，但会阻塞 DOM 渲染。</li><li>JS 阻塞 DOM 解析，但浏览器会"偷看"DOM，预先下载相关资源。</li><li>浏览器遇到 <script>且没有 defer 或 async 属性的 标签时，会触发页面渲染，因而如果前面 CSS 资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。</li></ul><script src="script.js"></script><blockquote><p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p></blockquote><script async src="script.js"></script><blockquote><p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p></blockquote><script defer src="myscript.js"></script><blockquote><p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p></blockquote><h2 id="width-auto和width-100-的区别"><a href="#width-auto和width-100-的区别" class="headerlink" title="width_auto和width_100%的区别"></a>width_auto和width_100%的区别</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>:<span class="number">600px</span>;<span class="attribute">overflow</span>:auto;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:auto;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果是width:100%，则说明p的width会得到600px就已经充满div区域，然后自己又有padding，所以会出现滚动条。</p><p>而width:auto则比较聪明，它是总体宽度（广义，包括width，margin,padding,border这些）等于父级宽度（狭义，内容区，仅指width），所以如果padding已经左右占去20px的空间，那么width给的值就是580px。</p><p>所以，如果：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:auto;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其实最后实际的width值为560px。<br>但无论是width:100%还是auto，其计算的参照都是父级 *<em>内容区 *</em>width值，而非总宽度值。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CSS-amp-JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;a href=&quot;#CSS-amp-JS是这样阻塞DOM解析和渲染的&quot; class=&quot;headerlink&quot; title=&quot;CSS&amp;amp;JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;/a&gt;CSS&amp;amp;JS是这样阻
-      
-    
-    </summary>
-    
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>IE6789兼容性浅析</title>
     <link href="http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/"/>
     <id>http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/</id>
@@ -389,6 +442,30 @@
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
       <category term="ie" scheme="http://yoursite.com/tags/ie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端开发知识手册</title>
+    <link href="http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
+    <id>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</id>
+    <published>2020-08-21T01:00:00.000Z</published>
+    <updated>2020-08-21T06:47:41.707Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CSS-amp-JS是这样阻塞DOM解析和渲染的"><a href="#CSS-amp-JS是这样阻塞DOM解析和渲染的" class="headerlink" title="CSS&amp;JS是这样阻塞DOM解析和渲染的"></a>CSS&amp;JS是这样阻塞DOM解析和渲染的</h2><ul><li>关于 CSS，大家肯定都知道的是<link>标签放在头部性能会高一点，少一点人知道如果<script>与<link>同时在头部的话，<script>在上可能会更好。</li><li>CSS 不会阻塞 DOM 的解析，但会阻塞 DOM 渲染。</li><li>JS 阻塞 DOM 解析，但浏览器会"偷看"DOM，预先下载相关资源。</li><li>浏览器遇到 <script>且没有 defer 或 async 属性的 标签时，会触发页面渲染，因而如果前面 CSS 资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。</li></ul><script src="script.js"></script><blockquote><p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p></blockquote><script async src="script.js"></script><blockquote><p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p></blockquote><script defer src="myscript.js"></script><blockquote><p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p></blockquote><h2 id="width-auto和width-100-的区别"><a href="#width-auto和width-100-的区别" class="headerlink" title="width_auto和width_100%的区别"></a>width_auto和width_100%的区别</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>:<span class="number">600px</span>;<span class="attribute">overflow</span>:auto;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:auto;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果是width:100%，则说明p的width会得到600px就已经充满div区域，然后自己又有padding，所以会出现滚动条。</p><p>而width:auto则比较聪明，它是总体宽度（广义，包括width，margin,padding,border这些）等于父级宽度（狭义，内容区，仅指width），所以如果padding已经左右占去20px的空间，那么width给的值就是580px。</p><p>所以，如果：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:auto;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其实最后实际的width值为560px。<br>但无论是width:100%还是auto，其计算的参照都是父级 *<em>内容区 *</em>width值，而非总宽度值。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CSS-amp-JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;a href=&quot;#CSS-amp-JS是这样阻塞DOM解析和渲染的&quot; class=&quot;headerlink&quot; title=&quot;CSS&amp;amp;JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;/a&gt;CSS&amp;amp;JS是这样阻
+      
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -444,108 +521,6 @@
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="覃超" scheme="http://yoursite.com/tags/%E8%A6%83%E8%B6%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>漫谈设计模式-从面向对象开始</title>
-    <link href="http://yoursite.com/2020/08/20/book/2020/%E6%BC%AB%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2020/08/20/book/2020/%E6%BC%AB%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
-    <published>2020-08-20T12:00:00.000Z</published>
-    <updated>2020-08-20T15:12:01.110Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、模式介绍"><a href="#一、模式介绍" class="headerlink" title="一、模式介绍"></a>一、模式介绍</h1><h2 id="1-面向对象和模式"><a href="#1-面向对象和模式" class="headerlink" title="1. 面向对象和模式"></a>1. 面向对象和模式</h2><h3 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h3><p>任何事物，不管有形无形，都是对象。包含一些行为和属性。</p><ul><li>封装：封装其实就是指隐藏，隐藏了数据，隐藏了实现细节。</li><li>继承：使不同对象具有相同的行为。</li><li>多态：以相同的方式处理不同类型的对象。</li></ul><h3 id="重用"><a href="#重用" class="headerlink" title="重用"></a>重用</h3><p>重用从方法、结构体、类的重用，从而上升软件的重用。</p><p>模式就是能够让我们从思想上重有有经验的开发人员的解决方案来解决问题。</p><h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>每个模式都描述了一个在我们周转不断发生的问题，以及该问题的解决方案的核心，这样，你就能无数次地使用该解决方案而不用按照同样的方式重做一遍。</p><p>模式是某一上下文环境中一个问题的解决方案。</p><p>设计模式，描述了在一个特定上下文环境，如何定制这些互相通信的对象和类来解决一个常见设计问题。</p><h2 id="2-模板方法"><a href="#2-模板方法" class="headerlink" title="2.模板方法"></a>2.模板方法</h2><p>世界上唯独不变的就是变化本身。</p><p>DRY - 不要复制自己、复制即魔鬼。</p><p>OAOO - 仅此一次 避免代码重复、应该整洁、不要坏味道</p><h3 id="模板方法模式-Template-Method"><a href="#模板方法模式-Template-Method" class="headerlink" title="模板方法模式 Template Method"></a>模板方法模式 Template Method</h3><ul><li>使用继承</li><li>使用回调</li></ul><h1 id="二、创建对象"><a href="#二、创建对象" class="headerlink" title="二、创建对象"></a>二、创建对象</h1><ol><li>单例模式</li><li>工厂模式、静态工厂模式：把对象实例化的过程进行了封闭客户对象再也不必为实例化而考虑太多。正是分离了实例化的逻辑，使得对象间耦合性大大降低。</li><li>原型模式：克隆以方便复制使用。深拷贝、浅拷贝。</li><li>控制反转IOC</li></ol><ul><li>好莱坞原则：不要找我们，我们会找你。</li><li>外部逻辑负责调用客户化的逻辑。</li></ul><h1 id="三、构建复杂结构"><a href="#三、构建复杂结构" class="headerlink" title="三、构建复杂结构"></a>三、构建复杂结构</h1><h1 id="四、行为模式"><a href="#四、行为模式" class="headerlink" title="四、行为模式"></a>四、行为模式</h1><h1 id="五、终点还是起点"><a href="#五、终点还是起点" class="headerlink" title="五、终点还是起点"></a>五、终点还是起点</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;一、模式介绍&quot;&gt;&lt;a href=&quot;#一、模式介绍&quot; class=&quot;headerlink&quot; title=&quot;一、模式介绍&quot;&gt;&lt;/a&gt;一、模式介绍&lt;/h1&gt;&lt;h2 id=&quot;1-面向对象和模式&quot;&gt;&lt;a href=&quot;#1-面向对象和模式&quot; class=&quot;headerlink
-      
-    
-    </summary>
-    
-    
-    
-      <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
-    
-      <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>运维知识入门修炼</title>
-    <link href="http://yoursite.com/2020/08/17/book/video/202008%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2020/08/17/book/video/202008%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8/</id>
-    <published>2020-08-17T01:00:00.000Z</published>
-    <updated>2020-08-18T13:29:08.490Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>牧客Jeson</p></blockquote><h1 id="一、Shell命令合集"><a href="#一、Shell命令合集" class="headerlink" title="一、Shell命令合集"></a>一、Shell命令合集</h1><p>操作快捷键</p><ul><li>ctrl + r 可以快速查找历史命令</li><li>ctrl + l  可以清空控制台屏幕</li><li>ctrl + a \ ctrl + e 移动光标到命令行首、尾部</li><li>ctrl + w \ ctrl + k 删除光标之前、之后的内容</li></ul><p>VIM</p><ul><li>shift + zz 文件保存并退出</li></ul><p>进程操作快捷键</p><ul><li>ctrl + c 强行终止程序的执行</li><li>ctrl + z 挂起一个进程</li><li>ctrl + d 终端中输入exit后回车</li></ul><p>linux命令中快捷键</p><ul><li>shift + p 根据cpu使用率排序</li><li>shift + m 根据内存占有用排序</li></ul><h3 id="空间分析"><a href="#空间分析" class="headerlink" title="空间分析"></a>空间分析</h3><blockquote><p>硬盘空间不足，需快速定位日志目录</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -x --max-depth=1 /|sort -k1 -nr</span><br></pre></td></tr></table></figure><ul><li>du命令<ul><li>-x 表示跳过其他文件系统</li><li>–max-depth=1 可以统计出根目录下第一级目录中所有文件大小</li></ul></li><li>sort命令<ul><li>-k 参数致命具体按照哪一列</li><li>-n 只对数值进行排序</li><li>-r 表示反向排序</li></ul></li><li>整体指 第一列并按照数据大小做反序排列</li></ul><blockquote><p>系统产生很多碎片文件，导致inode资源不足</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -<span class="built_in">type</span> f|awk -F/-v OFS=/<span class="string">'&#123;$NF="";dir[$0]++&#125;END&#123;or(i in dir)print dir[i]""i&#125;'</span>|sort -k1 -nr|head</span><br></pre></td></tr></table></figure><ul><li>find -type -f 查找指定类型的文件，然后将结果通过管道传递给awk</li><li>-F/ 指定处理文件时字符串之间以/进行分割 -v OPS=/表示文件显示结果以/进行分割展示</li><li>awk命令整体规则而言有个{}END{}格式，前面{}表示行处理操作，后面表示行处理后需要进行整体结果展示 </li></ul><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><blockquote><p>批量查找文件作内容替换</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./-<span class="built_in">type</span> f -name consumer.xml -<span class="built_in">exec</span> sed -i<span class="string">"s/aaaaaa/bbbbbb/g"</span>&#123;&#125;\;</span><br></pre></td></tr></table></figure><ul><li>-name指定查找的文件名</li><li>-exec参数将查找到内容传递给下一个命令去继续执行相关逻辑</li><li>sed命令主要对文件内容进行替换，这里会将consumer文件中的aaaaaa替换成bbbbbb</li></ul><blockquote><p>批量查找文件作拷贝打包</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(find .-name <span class="string">"*.txt"</span>|xargs tar -cvf test.tar)&amp;&amp;cp -f test.tar /home/.</span><br></pre></td></tr></table></figure><ul><li>括号中 包含两条命令 他们使用管道符进行连接</li><li>括号外 通过&amp;&amp; 与第三条命令连接 最终再拷贝</li></ul><blockquote><p>网络连接状态分析</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -n|awk <span class="string">'/^tcp/&#123;++$[$NE]END&#123;for (a in S)print a,S[a]&#125;'</span></span><br></pre></td></tr></table></figure><ul><li>netstat -n负责查看主机上所有TCP UDP连接信息</li><li>awk 负责对这些 信息进行进一步处理</li><li>/ 括起来的正则表达式</li></ul><blockquote><p>IP信息提取</p></blockquote><p>提取主机上的IP信息</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a|grep <span class="string">"gobal"</span>|awk<span class="string">'&#123;print $2&#125;'</span> |awk -F/<span class="string">'&#123;print $1&#125;'</span></span><br></pre></td></tr></table></figure><ul><li>ip a 查看主机上所有网卡信息</li><li>通过grep进行条件过滤</li><li>再通过awk实现第二列内容输出</li><li>最后通过awk指定/作为分隔符来打印第一列信息</li></ul><h1 id="二、nginx"><a href="#二、nginx" class="headerlink" title="二、nginx"></a>二、nginx</h1><h3 id="基础配置优化"><a href="#基础配置优化" class="headerlink" title="基础配置优化"></a>基础配置优化</h3><ul><li>gzip</li></ul><h3 id="缓存配置优化"><a href="#缓存配置优化" class="headerlink" title="缓存配置优化"></a>缓存配置优化</h3><ul><li><p>浏览器缓存</p><ul><li>静态文件设置 expires</li></ul></li><li><p>代理缓存（动静分离）</p><ul><li>proxy_cache_path</li><li>cache levels</li><li>my_cache:10m max_size</li></ul></li><li><p>https ssl</p><ul><li>ssl_session_cache shared-SSL:10m;</li><li>ssl_session_timeout 10m;</li></ul></li><li><p>后端缓存 redis memcache</p></li><li><p>打开文件缓存 元数据jpg </p><ul><li>open_file_cache max=1000 inactive=20s;</li><li>open_file_cache_valid 30s;</li><li>open_file_cache_min_uses 2;</li><li>open_file_cache_errors on;</li></ul></li></ul><blockquote><p>经验</p></blockquote><ul><li><p>能放在客户端就放客户端</p></li><li><p>能缓存越多越好</p></li><li><p>命中率越高越好</p></li></ul><h1 id="三、nginx负载均衡"><a href="#三、nginx负载均衡" class="headerlink" title="三、nginx负载均衡"></a>三、nginx负载均衡</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">upstream app_servers&#123;</span><br><span class="line">server ip1:port1;</span><br><span class="line">server ip2:port2;</span><br><span class="line">server ip3:port3;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">location /&#123;</span><br><span class="line">proxy_pass http:<span class="comment">//app_servers;</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ul><li>客户端IP地址获取问题：服务端获取不到用户的IP</li><li>域名挟带问题 proxy_set_header Host $host</li><li>负载均衡导致session丢失问题<ul><li>session保持ip_hash,url_hash</li><li>session复制</li><li>session共享</li></ul></li><li>动态负载均衡问题</li><li>真实的realserver状态检测 nginx_upstream_check_module 淘宝技术</li></ul><h1 id="四、入口网关服务注册发现"><a href="#四、入口网关服务注册发现" class="headerlink" title="四、入口网关服务注册发现"></a>四、入口网关服务注册发现</h1><p>openresty 动态upstream</p><p>开源组件方案confd nginx-upsync-module</p><p>开源AP网关方案</p><h1 id="五、curl命令最常见使用方式"><a href="#五、curl命令最常见使用方式" class="headerlink" title="五、curl命令最常见使用方式"></a>五、curl命令最常见使用方式</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">查看body</span><br><span class="line">curl http://www.baidu.com</span><br><span class="line">查看头部</span><br><span class="line">curl -I http://www.baidu.com</span><br><span class="line">重定向到文件里</span><br><span class="line">curl -I http://www.baidu.com -o output.txt</span><br><span class="line">查看请求服务端是否已经发送出去</span><br><span class="line">curl -v http://www.baidu.com</span><br><span class="line">文件下载</span><br><span class="line">curl -O -u user:password ftp://...</span><br><span class="line">curl -O http://...sh</span><br><span class="line">断点续传</span><br><span class="line">curl -C http://...sh </span><br><span class="line">GET</span><br><span class="line">curl -v http://</span><br><span class="line">POST</span><br><span class="line">curl -v -X POST http://</span><br><span class="line">PUT</span><br><span class="line">curl -v -X PUT http://</span><br><span class="line">DELETE</span><br><span class="line">curl -v -X DELETE http://</span><br></pre></td></tr></table></figure><h1 id="六、系统性能验收"><a href="#六、系统性能验收" class="headerlink" title="六、系统性能验收"></a>六、系统性能验收</h1><p>Unixbench基于linux unix基准测试工具。</p><p>FIO性能压测是一个开源的主流的LINUX磁盘IO测试工具。</p><p>devops(开发测试部署- 持续集成、运维)</p><p>自动化</p><p>各项流程需要无缝打通</p><p>交给统一平台进行可视化管理</p><h1 id="七、持续集成"><a href="#七、持续集成" class="headerlink" title="七、持续集成"></a>七、持续集成</h1><p>gitlab docker jenins ansible</p><h1 id="八、CMDB平台"><a href="#八、CMDB平台" class="headerlink" title="八、CMDB平台"></a>八、CMDB平台</h1><p>自动化资产管理：物理资产、虚拟资产、信息资产</p><p>IMOOCC.OPS</p><p>Python + ansible + django</p><h1 id="九、自动化任务平台"><a href="#九、自动化任务平台" class="headerlink" title="九、自动化任务平台"></a>九、自动化任务平台</h1><h1 id="八、K8S打造ci-cd核心思路"><a href="#八、K8S打造ci-cd核心思路" class="headerlink" title="八、K8S打造ci/cd核心思路"></a>八、K8S打造ci/cd核心思路</h1><ul><li>jenkins部署高可用<ul><li>主从架构、部署到K8S中</li></ul></li><li>通过pipeline创建管理job</li><li>通过API接口创建管理job</li></ul><h1 id="十、割接"><a href="#十、割接" class="headerlink" title="十、割接"></a>十、割接</h1><blockquote><p>服务内容</p></blockquote><ul><li><p>同构割接：对同构服务进行升级，主体结构是不变的，只是进行例行性的升级，或内容版本修改。</p></li><li><p>异构割接：整个主体结构做了改变</p></li></ul><blockquote><p>分类</p></blockquote><ul><li><p>局部割接：只操作了其中的一小部份内容，只对一小部分产生影响</p></li><li><p>全局割接：影响 整体功能，大部份内容需要做检查。</p></li></ul><blockquote><p>关键思路：停机维护、无缝升级如何设计</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;牧客Jeson&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;一、Shell命令合集&quot;&gt;&lt;a href=&quot;#一、Shell命令合集&quot; class=&quot;headerlink&quot; title=&quot;一、Shell命令合集&quot;&gt;&lt;/a&gt;一、Shell命令合集
-      
-    
-    </summary>
-    
-    
-    
-      <category term="nginx" scheme="http://yoursite.com/tags/nginx/"/>
-    
-      <category term="运维" scheme="http://yoursite.com/tags/%E8%BF%90%E7%BB%B4/"/>
-    
-      <category term="curl" scheme="http://yoursite.com/tags/curl/"/>
-    
-      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
-    
-      <category term="CMDB" scheme="http://yoursite.com/tags/CMDB/"/>
-    
-      <category term="K8S" scheme="http://yoursite.com/tags/K8S/"/>
-    
-      <category term="CICD" scheme="http://yoursite.com/tags/CICD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>架构知识入门修炼</title>
-    <link href="http://yoursite.com/2020/08/16/book/video/202008%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8%E4%BF%AE%E7%82%BC/"/>
-    <id>http://yoursite.com/2020/08/16/book/video/202008%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8%E4%BF%AE%E7%82%BC/</id>
-    <published>2020-08-16T01:00:00.000Z</published>
-    <updated>2020-08-16T04:09:33.610Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>阿里巴巴技术专家李智慧</p></blockquote><h2 id="一、架构"><a href="#一、架构" class="headerlink" title="一、架构"></a>一、架构</h2><p>强烈的好奇心、敏锐业务嗅觉、扎实技术基础、出色编程能力、深刻领悟主流技术产品和模式</p><ul><li>基础<ul><li>数据结构</li><li>操作系统</li><li>算法</li><li>设计模式</li></ul></li><li>技术<ul><li>缓存</li><li>异步</li><li>分布式存储</li><li>微服务</li></ul></li><li>架构<ul><li>高可用</li><li>高性能</li><li>安全</li></ul></li></ul><h2 id="二、大型架构演进之路-amp-系统处理能力提升"><a href="#二、大型架构演进之路-amp-系统处理能力提升" class="headerlink" title="二、大型架构演进之路 &amp; 系统处理能力提升"></a>二、大型架构演进之路 &amp; 系统处理能力提升</h2><h4 id="性能提升"><a href="#性能提升" class="headerlink" title="性能提升"></a>性能提升</h4><ul><li>垂直伸缩（传统企业 银行等）<ul><li>硬件升级 费用 、硬件有物理极限、操作系统也有限制</li></ul></li><li>水平伸缩（互联网企业）</li></ul><h4 id="演进之路"><a href="#演进之路" class="headerlink" title="演进之路"></a>演进之路</h4><ul><li>少量用户：单机系统</li><li>万级用户：数据库与应用分离</li><li>十万级用户：使用缓存改善性能应用服务集群化</li><li>百万级用户：使用反向代理和CDN加速响应、数据库读写分离</li><li>千万级用户：使用分布式文件系统和分布式数据库系统</li><li>亿级用户：使用搜索引擎、NOSQL、消息队列、分布式服务</li></ul><h2 id="三、分布式缓存"><a href="#三、分布式缓存" class="headerlink" title="三、分布式缓存"></a>三、分布式缓存</h2><ul><li><p>缓存特点</p><ul><li>技术简单</li><li>性能提升显著</li></ul></li><li><p>缓存关键指标</p><ul><li>缓存键集合</li><li>缓存空间</li><li>缓存寿命</li></ul></li><li><p>缓存类型</p><ul><li>代理缓存 （通读缓存 read-through）</li><li>反向代理缓存（通读缓存 read-through）</li><li>cdn缓存（通读缓存 read-through）</li><li>对象缓存（旁路缓存cache-aside）</li></ul></li><li><p>分布式缓存</p><ul><li>分布式缓存架构</li><li>分布式缓存模型</li><li>一致性HASH算法</li></ul></li><li><p>缓存注意事项</p><ul><li>频繁修改的数据</li><li>没有热点的数据</li><li>数据不一致</li><li>缓存雪崩</li></ul></li></ul><blockquote><p>通读缓存：给客户端返回缓存资源，或在请求未命中缓存 时获取实际数据</p><p>旁路缓存：通常是一个独立的键值对存储 key-value</p></blockquote><h2 id="四、分布式消息队列"><a href="#四、分布式消息队列" class="headerlink" title="四、分布式消息队列"></a>四、分布式消息队列</h2><ul><li>同步与异步<ul><li>同步调用</li><li>异步调用（2个重要模型）<ul><li>点对点模型</li><li>发布订阅模型</li></ul></li></ul></li><li>异步架构<ul><li>异步调用实现架构</li><li>消息生产者：消息生产者是客户端的一部份代码，用来初始化异步处理</li><li>消息消费者：消息消费者，由应用开发者实现，主要职责是从消息队列中接收并处理消息。</li><li>分布式消息队列：消息队列是消息发送的目的地和发给消费者的缓冲。</li><li>点对点架构模型</li><li>发布订阅模型</li></ul></li><li>消息队列异步架构好处<ul><li>异步处理</li><li>易于伸缩</li><li>消峰填谷，使峰值变平缓</li><li>隔离失败机器 及自我修复</li><li>解耦（发布者视角、消费这视角）</li></ul></li><li>常用消息队列产品<ul><li>RabbitMQ *</li><li>ActiveMQ</li><li>RocketMQ</li><li>Kafka **</li></ul></li><li>消息队列异步架构的反模式<ul><li>阻塞式调用 （同步）</li><li>生产者消费显式依赖 耦合消息生产者和消费者</li><li>缺乏坏消息处理机制</li></ul></li><li>消息队列异步架构的挑战<ul><li>消息无序</li><li>消息重入队列</li><li>竞态条件</li><li>复杂度</li></ul></li></ul><h2 id="五、分布式数据存储"><a href="#五、分布式数据存储" class="headerlink" title="五、分布式数据存储"></a>五、分布式数据存储</h2><ul><li>mysql复制<ul><li>主从复制：<ul><li>一主一从</li><li>一主多从：分摊负载、专机专用、便于冷备、高可用</li></ul></li><li>主主复制</li></ul></li><li>数据分片<ul><li>分片原理</li><li>分片方案</li><li>分片扩容</li></ul></li><li>数据库部署<ul><li>单一部署：主从复制实现伸缩</li><li>分库：两个web服务器和两个数据库</li><li>分片<ul><li>将数据集切分成较小的分片，以便 于将它们分散存储在多台服务器上，避免一台机器处理整个数据集</li><li>数据库之间互相独立，不共享任何信息，通过分片键定位分片</li><li>将数据以某种方式切分，以便每台服务器都只存储一部份数据</li></ul></li><li>综合部署都使用以上方案</li></ul></li><li>NOSQL<ul><li>CAP原理<ul><li>A数据可用性：任何时候任何应用程序 都可以读写访问</li><li>P分区耐受性 系统可以跨网络分区线性伸缩</li><li>C数据一致性 数据的多个备份任何时候都是一致性的</li></ul></li><li>最终一致性的数据存储</li></ul></li></ul><h2 id="六、微服务"><a href="#六、微服务" class="headerlink" title="六、微服务"></a>六、微服务</h2><ul><li>单体系统的困难<ul><li>编译部署困难</li><li>数据库连接耗尽</li><li>服务复用困难</li><li>新增业务困难</li></ul></li><li>微服务框架<ul><li>架构<ul><li>服务消费者</li><li>服务提供者</li><li>注册中心</li></ul></li><li>dubbo 阿里</li><li>spring cloud</li></ul></li><li><h2 id="微服务最佳实践"><a href="#微服务最佳实践" class="headerlink" title="微服务最佳实践"></a>微服务最佳实践</h2></li><li>微服务模式<ul><li>事件溯源</li><li>CQRS 命令与查询职责隔离</li><li>断路器：关闭 打开 半开  hystrix</li><li>超时</li></ul></li></ul><h2 id="七、高性能系统架构"><a href="#七、高性能系统架构" class="headerlink" title="七、高性能系统架构"></a>七、高性能系统架构</h2><ul><li>性能测试（主观视角 使用者体验上的快慢 ；客观视角 性能指标优劣）<ul><li>性能指标：响应时间、并发数、性能计数器、吞吐量</li><li>测试方法：性能测试、负载测试、压力测试、稳定性测试</li><li>性能曲线：吞吐量、响应用时间性能特性</li></ul></li><li>硬件优化<ul><li>机房与骨干网络优化<ul><li>异地多活的多机房架构</li><li>专线网络与自主CDN建设</li></ul></li><li>服务器与硬件配置优化<ul><li>使用SSD、网卡等</li></ul></li></ul></li><li>中间件优化<ul><li>操作系统优化</li><li>虚拟机优化：垃圾回收器</li><li>基础组件优化：tomcat等</li></ul></li><li>代码优化<ul><li>多线程：并发编程，多线程与锁</li><li>数据结构：数组、链表、HASH表、树、图等</li><li>设计模式：遵循编码规范 面向对象 避免烂代码</li><li>资源复用：线程池和对象池</li></ul></li><li>架构优化<ul><li>缓存：缓存结果为对象、优化读操作、减少数据库访问，降低存储设备负载压力</li><li>集群</li><li>异步：优化写操作，控制消费速度，合适的负载压力，即时响应，更好用户体验</li></ul></li></ul><h2 id="八、高可用系统架构"><a href="#八、高可用系统架构" class="headerlink" title="八、高可用系统架构"></a>八、高可用系统架构</h2><ul><li>可用性度量<ul><li>可用性指标<ul><li>年度可用性指标 =（1-不可用时间/年度总时间）*100%</li><li>通常用N个9来说明互联网应用可用性</li></ul></li><li>故障分<ul><li>事故级故障：严重故障，整体不可用：权重100</li><li>A类故障：网站访问不顺畅或核心功能不可用：权重20</li><li>B类故障：非核心功能不可用或核心功能少数用户不可用：权重5</li><li>C类故障 ：以上故障以外的其它故障：权重1</li><li>故障分 = 故障时间 * 故障权重</li></ul></li></ul></li><li>高可用架构<ul><li>负载均衡：HTTP、DNS、反向代理、IP层、数据链路层</li><li>备份与失效转移</li><li>消息队列隔离</li><li>限流降级：通过对并发访问进行限流，降低并发的请求数据来保护系统；关闭部份非核心功能，降低对系统的资源消耗，保证系统在高并发的情况下仍然保持可用。</li><li>异地多活多机房</li></ul></li><li>高可用运维<ul><li>自动化部署</li><li>自动化监控</li><li>自动化测试</li><li>预发布测试</li></ul></li></ul><h2 id="九、系统的安全架构"><a href="#九、系统的安全架构" class="headerlink" title="九、系统的安全架构"></a>九、系统的安全架构</h2><ul><li>WEB攻击<ul><li>XXS攻击</li><li>SQL注入攻击</li><li>CSRF攻击</li></ul></li><li>WEB防护<ul><li>过滤消毒</li><li>SQL参数绑定：防御SQL注入</li><li>验证码 ：防御CSRF</li><li>WEB防火墙：modsecurity</li></ul></li><li>加密<ul><li>单项散列加密：明文转密文 不可以解密的 加密是单项的</li><li>对称加密：密钥</li><li>非对称加密：公钥、私钥</li></ul></li><li>信息过滤反垃圾<ul><li>分类算法</li><li>布隆过滤器</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;阿里巴巴技术专家李智慧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、架构&quot;&gt;&lt;a href=&quot;#一、架构&quot; class=&quot;headerlink&quot; title=&quot;一、架构&quot;&gt;&lt;/a&gt;一、架构&lt;/h2&gt;&lt;p&gt;强烈的好奇心、敏锐业务嗅觉、扎实
-      
-    
-    </summary>
-    
-    
-    
-      <category term="架构" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-      <category term="分布式" scheme="http://yoursite.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-      <category term="缓存" scheme="http://yoursite.com/tags/%E7%BC%93%E5%AD%98/"/>
-    
-      <category term="消息队列" scheme="http://yoursite.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
-    
-      <category term="数据存储" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
     
   </entry>
   
