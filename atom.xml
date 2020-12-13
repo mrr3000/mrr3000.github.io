@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-12-04T08:10:37.192Z</updated>
+  <updated>2020-12-13T05:34:29.409Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>weeks/Untitled</title>
+    <link href="http://yoursite.com/2020/12/13/weeks/Untitled/"/>
+    <id>http://yoursite.com/2020/12/13/weeks/Untitled/</id>
+    <published>2020-12-13T05:34:19.678Z</published>
+    <updated>2020-12-13T05:34:29.409Z</updated>
+    
+    <content type="html"><![CDATA[<p>2</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端周刊【202012-2】</title>
+    <link href="http://yoursite.com/2020/12/13/weeks/202012-2/"/>
+    <id>http://yoursite.com/2020/12/13/weeks/202012-2/</id>
+    <published>2020-12-13T01:00:00.000Z</published>
+    <updated>2020-12-13T05:35:37.091Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://louiszhai.github.io/2019/01/04/webpack4/" target="_blank" rel="noopener">使用webpack4提升180%编译速度</a><br><a href="https://mp.weixin.qq.com/s/B7bg0ggzGg4-k-M95-evaA" target="_blank" rel="noopener">18 张图彻底弄懂 HTTPS 的原理！</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://louiszhai.github.io/2019/01/04/webpack4/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;使用webpack4提升180%编译速度&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://mp.
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
   
   <entry>
     <title>前端周刊【202012-1】</title>
@@ -337,9 +384,9 @@
     
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
       <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
@@ -443,46 +490,19 @@
   </entry>
   
   <entry>
-    <title>Vue2事件修饰符浅析</title>
-    <link href="http://yoursite.com/2020/08/21/frame/vue/Vue2%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%B5%85%E6%9E%90/"/>
-    <id>http://yoursite.com/2020/08/21/frame/vue/Vue2%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%B5%85%E6%9E%90/</id>
+    <title>JavaScript运行机制 &amp; 节流防抖</title>
+    <link href="http://yoursite.com/2020/08/21/basic/js/JS%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6&amp;%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
+    <id>http://yoursite.com/2020/08/21/basic/js/JS%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6&amp;%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</id>
     <published>2020-08-21T01:00:00.000Z</published>
-    <updated>2020-08-21T06:14:15.426Z</updated>
+    <updated>2020-08-21T06:16:09.852Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="capture"><a href="#capture" class="headerlink" title="capture"></a>capture</h1><p>实现捕获触发事件的机制；各自触发各自的作用域</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> @<span class="attr">click.capture</span>=<span class="string">"divHandel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> @<span class="attr">click.capture</span>=<span class="string">"btnHandel"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="prevent"><a href="#prevent" class="headerlink" title="prevent"></a>prevent</h1><p>阻止默认行为，无论多少次都只触发进入方法 不会触发跳转href</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span> @<span class="attr">click.prevent</span>=<span class="string">"linkClick"</span>&gt;</span>有问题去百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="prevent-once"><a href="#prevent-once" class="headerlink" title="prevent.once"></a>prevent.once</h1><p>第一次触发进入方法 第二次触发跳转href</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span> @<span class="attr">click.prevent.once</span>=<span class="string">"linkClick"</span>&gt;</span>有问题去百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="stop"><a href="#stop" class="headerlink" title="stop"></a>stop</h1><p>阻止冒泡，触发后，btnHandler该函数执行完成后，阻止会触发div的函数 divHandler</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> @<span class="attr">click</span>=<span class="string">"divHandler"</span>&gt;</span> </span><br><span class="line">      <span class="comment">&lt;!-- 使用 .stop 阻止冒泡 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"戳他"</span> @<span class="attr">click.stop</span>=<span class="string">"btnHandler"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="self"><a href="#self" class="headerlink" title="self"></a>self</h1><p>触发后，btnHandler该函数执行完成后，阻止会触发div的函数 divHandler</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> @<span class="attr">click.self</span>=<span class="string">"divHandel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> @<span class="attr">click</span>=<span class="string">"btnHandel"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="self-stop-区别"><a href="#self-stop-区别" class="headerlink" title="self stop 区别"></a>self stop 区别</h1><p> .self 只会阻止自己身上冒泡行为的触发，并不会真正阻止 冒泡的行为<br>  .stop 会阻止所有的冒泡的行为</p>  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!--点击【戳他】后只执行【戳他】对应的函数，往上的两个div中的函数不执行。--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer"</span> @<span class="attr">click</span>=<span class="string">"div2Handler"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> @<span class="attr">click</span>=<span class="string">"divHandler"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"戳他"</span> @<span class="attr">click.stop</span>=<span class="string">"btnHandler"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">  <span class="comment">&lt;!--点击【戳他】后，会执行 btnHandler和div2Handler函数，而不执行divHandler函数。--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer"</span> @<span class="attr">click</span>=<span class="string">"div2Handler"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> @<span class="attr">click.self</span>=<span class="string">"divHandler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"戳他"</span> @<span class="attr">click</span>=<span class="string">"btnHandler"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="JS运行机制"><a href="#JS运行机制" class="headerlink" title="JS运行机制"></a>JS运行机制</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'settimeout'</span>);</span><br><span class="line">    </span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">    resolve()</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">    </span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise3'</span>);</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行环境 执行环境会被顺序的加入到执行栈中 如果遇到异步的代码 会被挂起并且加入到Task队列当中</span></span><br><span class="line"><span class="comment">// 一旦执行栈为空 Event loop 就会从task队列当中 拿出需要执行的代码并放入到执行栈中执行 </span></span><br><span class="line"><span class="comment">// js的异步行为也是同步行为</span></span><br><span class="line"><span class="comment">// 不同的任务源 会被分配到不同的Task队列当中 任务源可以分为 微任务(microtask)  宏任务 (macrotask)</span></span><br><span class="line"><span class="comment">// 微任务 promise</span></span><br><span class="line"><span class="comment">// 宏任务 setTimeout script</span></span><br><span class="line"><span class="comment">// 1 执行同步代码 属于宏任务 2 执行栈为空 需要查询是否有微任务需要执行 3 执行所有的微任务 4 必要的话渲染ui 5 执行宏任务中的异步代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 宏任当中 大量的需要操作dom 为了更快的页面响应 可以把操作dom放到微任务中</span></span><br></pre></td></tr></table></figure><h1 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="comment">// 当我们连续触发事件的时候 一定时间段没有触发事件  事件处理函数才会执行一次</span></span><br><span class="line"><span class="comment">// 如果设定的时间内又触发了事件 会重新开始计时 计时的点是在你最后一次点击开始</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deb</span>(<span class="params">fn,wait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timeout = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timeout !== <span class="literal">null</span>)</span><br><span class="line">        clearTimeout(timeout)</span><br><span class="line">        </span><br><span class="line">        timeout = setTimeout(fn,wait)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handel</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 发送ajax请求</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.random());</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).onclick= deb(handel,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发事件保证一段时间内只调用一次 休息时间5秒  5秒内就是休息 一旦过了5秒开始营业</span></span><br><span class="line"><span class="comment">// 滚动条</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handeler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.random());</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">thr</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">            <span class="comment">// 休息</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 营业</span></span><br><span class="line">        flag = <span class="literal">false</span></span><br><span class="line">        fn()</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            flag = <span class="literal">true</span></span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).onclick= thr(handeler,<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;capture&quot;&gt;&lt;a href=&quot;#capture&quot; class=&quot;headerlink&quot; title=&quot;capture&quot;&gt;&lt;/a&gt;capture&lt;/h1&gt;&lt;p&gt;实现捕获触发事件的机制；各自触发各自的作用域&lt;/p&gt;
-&lt;figure class=&quot;highligh
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue2" scheme="http://yoursite.com/tags/vue2/"/>
-    
-      <category term="修饰符" scheme="http://yoursite.com/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端开发知识手册</title>
-    <link href="http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
-    <id>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</id>
-    <published>2020-08-21T01:00:00.000Z</published>
-    <updated>2020-08-21T06:47:41.707Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSS-amp-JS是这样阻塞DOM解析和渲染的"><a href="#CSS-amp-JS是这样阻塞DOM解析和渲染的" class="headerlink" title="CSS&amp;JS是这样阻塞DOM解析和渲染的"></a>CSS&amp;JS是这样阻塞DOM解析和渲染的</h2><ul><li>关于 CSS，大家肯定都知道的是<link>标签放在头部性能会高一点，少一点人知道如果<script>与<link>同时在头部的话，<script>在上可能会更好。</li><li>CSS 不会阻塞 DOM 的解析，但会阻塞 DOM 渲染。</li><li>JS 阻塞 DOM 解析，但浏览器会"偷看"DOM，预先下载相关资源。</li><li>浏览器遇到 <script>且没有 defer 或 async 属性的 标签时，会触发页面渲染，因而如果前面 CSS 资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。</li></ul><script src="script.js"></script><blockquote><p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p></blockquote><script async src="script.js"></script><blockquote><p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p></blockquote><script defer src="myscript.js"></script><blockquote><p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p></blockquote><h2 id="width-auto和width-100-的区别"><a href="#width-auto和width-100-的区别" class="headerlink" title="width_auto和width_100%的区别"></a>width_auto和width_100%的区别</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>:<span class="number">600px</span>;<span class="attribute">overflow</span>:auto;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span>&#123;<span class="attribute">width</span>:auto;<span class="attribute">padding</span>:<span class="number">10px</span>;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果是width:100%，则说明p的width会得到600px就已经充满div区域，然后自己又有padding，所以会出现滚动条。</p><p>而width:auto则比较聪明，它是总体宽度（广义，包括width，margin,padding,border这些）等于父级宽度（狭义，内容区，仅指width），所以如果padding已经左右占去20px的空间，那么width给的值就是580px。</p><p>所以，如果：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:auto;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其实最后实际的width值为560px。<br>但无论是width:100%还是auto，其计算的参照都是父级 *<em>内容区 *</em>width值，而非总宽度值。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CSS-amp-JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;a href=&quot;#CSS-amp-JS是这样阻塞DOM解析和渲染的&quot; class=&quot;headerlink&quot; title=&quot;CSS&amp;amp;JS是这样阻塞DOM解析和渲染的&quot;&gt;&lt;/a&gt;CSS&amp;amp;JS是这样阻
+        &lt;h1 id=&quot;JS运行机制&quot;&gt;&lt;a href=&quot;#JS运行机制&quot; class=&quot;headerlink&quot; title=&quot;JS运行机制&quot;&gt;&lt;/a&gt;JS运行机制&lt;/h1&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
       
     
     </summary>
@@ -491,31 +511,7 @@
     
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
-  </entry>
-  
-  <entry>
-    <title>IE6789兼容性浅析</title>
-    <link href="http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/"/>
-    <id>http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/</id>
-    <published>2020-08-21T01:00:00.000Z</published>
-    <updated>2020-08-21T06:42:17.517Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-IE11下-文字溢出…变成方框"><a href="#1-IE11下-文字溢出…变成方框" class="headerlink" title="1. IE11下 文字溢出…变成方框"></a>1. IE11下 文字溢出…变成方框</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 解决方案：添加字体</span><br><span class="line"><span class="selector-tag">font-family</span><span class="selector-pseudo">:microsoft</span> <span class="selector-tag">yahei</span>;</span><br><span class="line"><span class="selector-tag">max-width</span>: 100%;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>; </span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>; </span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br></pre></td></tr></table></figure><h3 id="2-placeholder-IE8解决方案"><a href="#2-placeholder-IE8解决方案" class="headerlink" title="2. placeholder IE8解决方案"></a>2. placeholder IE8解决方案</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onblur</span>=<span class="string">"if (this.value == '') &#123;this.value = 'Search';&#125;"</span> <span class="attr">onfocus</span>=<span class="string">"if (this.value == 'Search') &#123;this.value = '';&#125;"</span> <span class="attr">value</span>=<span class="string">"Search"</span> &gt;</span></span><br></pre></td></tr></table></figure><h3 id="3-css-zoom-ie-hack-写法"><a href="#3-css-zoom-ie-hack-写法" class="headerlink" title="3. css zoom ie hack 写法"></a>3. css zoom ie hack 写法</h3><blockquote><p>zoom是为了兼容IE6 而写的 其实Zoom属性是IE浏览器的专有属性，Firefox等浏览器不支持。它可以设置或检索对象的缩放比例。除此之外，它还有其他一些小作用，比如触发ie的hasLayout属性，清除浮动、清除margin的重叠等。</p></blockquote><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 所有IE浏览器(ie6+)支持 ；但是IE8不能识别“*”和“_”的css hack；所以我们可以这样写hack */</span> </span><br><span class="line"><span class="selector-tag">color</span>:<span class="selector-id">#0000FF</span>\9; </span><br><span class="line">[color:#000000;color:#00FF00;   /* SF,CH支持 */ </span><br><span class="line">*<span class="selector-tag">color</span>:<span class="selector-id">#FFFF00</span>;                 <span class="comment">/* IE7支持 */</span> </span><br><span class="line">_<span class="selector-tag">color</span>:<span class="selector-id">#FF0000</span>;                 <span class="comment">/* IE6支持 */</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">background-color</span>:<span class="selector-id">#0ff</span>\0;<span class="comment">/* ie 8/9 */</span> </span><br><span class="line"><span class="selector-tag">background-color</span>:<span class="selector-id">#0f0</span>\9\0;<span class="comment">/* ie9 */</span> </span><br><span class="line">*<span class="selector-tag">background-color</span>:<span class="selector-id">#00f</span>;<span class="comment">/*ie7*/</span> </span><br><span class="line">_<span class="selector-tag">background-color</span>:<span class="selector-id">#ff0</span>;<span class="comment">/*ie6*/</span> </span><br><span class="line">background-color//:#090;/*非IE*/ </span><br><span class="line"><span class="selector-tag">background-color</span>:<span class="selector-id">#900</span>\9;<span class="comment">/*所有ie*/</span></span><br></pre></td></tr></table></figure><ol start="4"><li>…</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-IE11下-文字溢出…变成方框&quot;&gt;&lt;a href=&quot;#1-IE11下-文字溢出…变成方框&quot; class=&quot;headerlink&quot; title=&quot;1. IE11下 文字溢出…变成方框&quot;&gt;&lt;/a&gt;1. IE11下 文字溢出…变成方框&lt;/h3&gt;&lt;figure cla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-      <category term="ie" scheme="http://yoursite.com/tags/ie/"/>
+      <category term="节流防抖" scheme="http://yoursite.com/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/"/>
     
   </entry>
   
