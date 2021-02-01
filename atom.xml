@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-01-07T06:38:00.475Z</updated>
+  <updated>2021-02-01T03:41:47.140Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,49 @@
     <link href="http://yoursite.com/2021/01/30/weeks/2021-01/"/>
     <id>http://yoursite.com/2021/01/30/weeks/2021-01/</id>
     <published>2021-01-30T01:00:00.000Z</published>
-    <updated>2021-01-07T06:38:00.475Z</updated>
+    <updated>2021-02-01T03:41:47.140Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="23-个非常有用的-NodeJs-库"><a href="#23-个非常有用的-NodeJs-库" class="headerlink" title="23 个非常有用的 NodeJs 库"></a><a href="https://segmentfault.com/a/1190000039138765" target="_blank" rel="noopener">23 个非常有用的 NodeJs 库</a></h2><h2 id="您必须知道的-Git-分支开发规范"><a href="#您必须知道的-Git-分支开发规范" class="headerlink" title="您必须知道的 Git 分支开发规范"></a><a href="https://juejin.cn/post/6844903635533594632" target="_blank" rel="noopener">您必须知道的 Git 分支开发规范</a></h2><h2 id="Vue-项目性能优化-—-实践指南（网上最全-详细"><a href="#Vue-项目性能优化-—-实践指南（网上最全-详细" class="headerlink" title="Vue 项目性能优化 — 实践指南（网上最全 / 详细"></a><a href="https://juejin.cn/post/6844903913410314247" target="_blank" rel="noopener">Vue 项目性能优化 — 实践指南（网上最全 / 详细</a></h2>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;23-个非常有用的-NodeJs-库&quot;&gt;&lt;a href=&quot;#23-个非常有用的-NodeJs-库&quot; class=&quot;headerlink&quot; title=&quot;23 个非常有用的 NodeJs 库&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://segmentfault.co
+      
     
     </summary>
     
     
     
       <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Effective Java</title>
+    <link href="http://yoursite.com/2021/01/10/book/2021/EffectiveJava/"/>
+    <id>http://yoursite.com/2021/01/10/book/2021/EffectiveJava/</id>
+    <published>2021-01-10T02:00:00.000Z</published>
+    <updated>2021-01-10T06:06:40.985Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h1><p>目的：高效实用java.lang、java.util、java.io等库。</p><h1 id="二-创建和销毁对象"><a href="#二-创建和销毁对象" class="headerlink" title="二 创建和销毁对象"></a>二 创建和销毁对象</h1><h3 id="第一条-考虑用表态工厂方法代替构造器"><a href="#第一条-考虑用表态工厂方法代替构造器" class="headerlink" title="第一条 考虑用表态工厂方法代替构造器"></a>第一条 考虑用表态工厂方法代替构造器</h3><blockquote><p>静态工厂方法与构造器的不同</p></blockquote><p>第一大优势在于，<strong>它们有名称。</strong></p><p>第二大优势在于，<strong>不必在每次调用它们的时候都创建一个新对象。</strong></p><p>第三大优势在于，<strong>它们可以返回原返回类型的任何子类型的对象。</strong></p><p>第四大优势在于，<strong>在创建参数化类型实例的时候，它们使代码变得更加简洁。</strong></p><blockquote><p>静态工厂方法的主要缺点</p></blockquote><p>第一，<strong>类如果不含公有的或者受保护的构造器，就不能被子类化。</strong></p><p>第二，<strong>它们与其它的静态方法实际上没有任何区别。</strong></p><h3 id="第二条-遇到多个构造器参数时要考虑用构建器"><a href="#第二条-遇到多个构造器参数时要考虑用构建器" class="headerlink" title="第二条 遇到多个构造器参数时要考虑用构建器"></a>第二条 遇到多个构造器参数时要考虑用构建器</h3><ul><li>1、telescoping constructor （又称为重叠构造器）</li><li>2、JavaBeans模式</li><li>3、Builder模式 兼容以上两种</li></ul><h3 id="第三条-用私有构造器或者枚举类型强化singleton属性"><a href="#第三条-用私有构造器或者枚举类型强化singleton属性" class="headerlink" title="第三条 用私有构造器或者枚举类型强化singleton属性"></a>第三条 用私有构造器或者枚举类型强化singleton属性</h3><p>仅仅被实例化一次的类。把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。</p><ul><li>1、私有构造器仅被调用一次，用来实例化公有的静态final域Elvis.INSTANCE</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Evlis</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis();</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Elvis</span><span class="params">()</span></span>&#123;...&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> voide <span class="title">leaveTheBuilding</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>2、静态方法Elvis.getInstance的所有调用，都会返回同一个对象引用，所以永远不会创建其它的Elvis实例</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Evlis</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis();</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Elvis</span><span class="params">()</span></span>&#123;...&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Elvis <span class="title">getInstance</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> Instance;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> voide <span class="title">leaveTheBuilding</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="第四条-通过私有构造器强化不可实例化的能力"><a href="#第四条-通过私有构造器强化不可实例化的能力" class="headerlink" title="第四条 通过私有构造器强化不可实例化的能力"></a>第四条 通过私有构造器强化不可实例化的能力</h3><h3 id="第五条-避免创建不必要的对象"><a href="#第五条-避免创建不必要的对象" class="headerlink" title="第五条 避免创建不必要的对象"></a>第五条 避免创建不必要的对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">"stringette"</span>);<span class="comment">// no!!</span></span><br><span class="line">String s = <span class="string">"stringette"</span>;<span class="comment">// yes !!</span></span><br></pre></td></tr></table></figure><p>自动装箱（autoboxing）允许程序员将基本类型和装箱基本类型混用，按需要自动装箱和拆箱。</p><p>要先使用基本类型而不是装箱 基本类型，要当心无意识的自动装箱。</p><p>也不是一味的不能创建对象，小对象的创建和回收动作是非常廉价的。通过创建附加的对象，提升程序清晰性，简洁性，功能性，是件好事。</p><p>反之，通过维护自己的对象池object pool来避免创建对象并不是一种 好的做法，除非对象池中的对象 是非常重量级的。（真正正确使用对象池的典型对象示例就是数据库连接池）</p><p>保护性拷贝（defensive copying）当你应该重用现有对象的时候，请不要创建新的对象；当你应该创建新对象的时候，请不要重用现有的对象。</p><h3 id="第六条-消除过期的对象引用"><a href="#第六条-消除过期的对象引用" class="headerlink" title="第六条 消除过期的对象引用"></a>第六条 消除过期的对象引用</h3><p>需要时刻考虑内存管理的工作，防止内存泄漏。</p><p>栈先是增长，后收缩，从栈中出来的对象将不会被当做垃圾回收，栈内部维护着对这些对象的过期引用obsolete reference。</p><ul><li>对象引用过期，清空引用。</li><li>只要类是自己管理内存，程序员就应该警惕内存泄漏问题</li><li>一理把对象引用 放到缓存，就容易忘记，也会导致内存泄漏</li><li>监听器和其它回调也会导致</li></ul><h3 id="第七条-避免使用终结方法"><a href="#第七条-避免使用终结方法" class="headerlink" title="第七条 避免使用终结方法"></a>第七条 避免使用终结方法</h3><p>终结方法通常是不可预测的，也是很危险的，一般情况下是不必要的。</p><h1 id="三-对于所有对象都通用的方法"><a href="#三-对于所有对象都通用的方法" class="headerlink" title="三 对于所有对象都通用的方法"></a>三 对于所有对象都通用的方法</h1><h3 id="第八条-覆盖equals时请遵守通用约定"><a href="#第八条-覆盖equals时请遵守通用约定" class="headerlink" title="第八条 覆盖equals时请遵守通用约定"></a>第八条 覆盖equals时请遵守通用约定</h3><blockquote><p>什么情况下需要覆盖？</p></blockquote><ul><li>类的每个实例本质上都是唯一的</li><li>不关心类是否提供了逻辑相等的测试功能</li><li>超类已覆盖了equals，从超类继承过来的行为对于子类也是合适的</li><li>类是私有的或是包级私有的，可以确定它的equals方法永远 不会被调用</li></ul><blockquote><p>equals的约定 ***</p></blockquote><ul><li>自反性</li><li>对称性</li><li>传递性</li><li>一致性</li><li>对于任何非Null的引用值x。x.equals(null)必须返回false</li></ul><h3 id="第九条-覆盖equals时总要覆盖hashCode"><a href="#第九条-覆盖equals时总要覆盖hashCode" class="headerlink" title="第九条 覆盖equals时总要覆盖hashCode"></a>第九条 覆盖equals时总要覆盖hashCode</h3><p>没有覆盖hasCode而违反的关键约定是第二条，相等的对象必须具有相等的数列码。</p><h3 id="第十条-始终要覆盖toString"><a href="#第十条-始终要覆盖toString" class="headerlink" title="第十条 始终要覆盖toString"></a>第十条 始终要覆盖toString</h3><p>java.lang.Object提供了toString方法的一个实现，但它的返回字符串通常并不是类的用户所期望看到的，包含了一个@符号，接着是散列码的无符号十六进制表示法。</p><p>虽然没有equals hasCode重要，但是一旦被广泛使用，<strong>提供好的toString实现可以使类使用起来更加舒适。</strong>toString也时常会被其它方法所自动调用，因为覆盖toString很有必要，返回对象中包含的所值得关注的信息。</p><h3 id="第十一条-谨慎地覆盖clone"><a href="#第十一条-谨慎地覆盖clone" class="headerlink" title="第十一条 谨慎地覆盖clone"></a>第十一条 谨慎地覆盖clone</h3><p>Cloneable接口的目的是作为对象的一个mixin接口，表明这样的对象允许克隆。遗憾的是，并没有成功的达到这个目的，主要缺陷在于它缺少一个cone方法。object的clone是受保护的。</p><blockquote><p>解决方法</p></blockquote><ul><li>拷贝构造器copy constructor或拷贝工厂copy factory</li></ul><h3 id="第十二条-考虑实现comparable接口"><a href="#第十二条-考虑实现comparable接口" class="headerlink" title="第十二条 考虑实现comparable接口"></a>第十二条 考虑实现comparable接口</h3><p>类实现了Comparable接口，就表明它的实例具有内在的排序关系natural ordering。</p><h1 id="四-类和接口"><a href="#四-类和接口" class="headerlink" title="四 类和接口"></a>四 类和接口</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一-引言&quot;&gt;&lt;a href=&quot;#一-引言&quot; class=&quot;headerlink&quot; title=&quot;一 引言&quot;&gt;&lt;/a&gt;一 引言&lt;/h1&gt;&lt;p&gt;目的：高效实用java.lang、java.util、java.io等库。&lt;/p&gt;
+&lt;h1 id=&quot;二-创建和销毁对象&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
     
   </entry>
   
@@ -454,31 +488,6 @@
       
         &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/uwA5JryExOpUtQ_5AF7bBQ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;一位架构师的感悟：过度忙碌使你落后&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://
-      
-    
-    </summary>
-    
-    
-    
-      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端周刊【202009-3】</title>
-    <link href="http://yoursite.com/2020/09/20/weeks/2020/202009-3/"/>
-    <id>http://yoursite.com/2020/09/20/weeks/2020/202009-3/</id>
-    <published>2020-09-20T01:00:00.000Z</published>
-    <updated>2020-09-19T01:33:52.112Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/I9ZrCsoNo7jrOHj8a9UW1A" target="_blank" rel="noopener">JavaScript错误处理完全指南</a></p><p><a href="https://github.com/iamkun/dayjs/blob/dev/docs/zh-cn/README.zh-CN.md" target="_blank" rel="noopener">Moment.js 的 <strong>2kB</strong> 轻量化方案，拥有同样强大的 API</a></p><p><a href="https://blog.csdn.net/frontend_frank/article/details/102460092" target="_blank" rel="noopener">领域驱动设计在前端中的应用</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/I9ZrCsoNo7jrOHj8a9UW1A&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JavaScript错误处理完全指南&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https:/
       
     
     </summary>
