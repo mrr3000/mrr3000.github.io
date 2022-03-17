@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Java基础编程 - 2、基础语法 | Marong&#39;s Note</title>
+  <meta name="description" content="1 关键字与保留字关键字(keyword)的定义和特点 定义：被Java语言赋予了特殊含义，用做专门用途的字符串（单词） 特点：关键字中所有字母都为小写123456789101112131415161718192021222324用于定义数据类型的关键字class interface enum byte shortint long float double charboolean void用于定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础编程 - 2、基础语法">
+<meta property="og:url" content="http://yoursite.com/2020/12/28/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/2.%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="1 关键字与保留字关键字(keyword)的定义和特点 定义：被Java语言赋予了特殊含义，用做专门用途的字符串（单词） 特点：关键字中所有字母都为小写123456789101112131415161718192021222324用于定义数据类型的关键字class interface enum byte shortint long float double charboolean void用于定义">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-28T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-17T14:41:15.684Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/12/28/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/2.%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMDB/" rel="tag">CMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E4%B8%96%E7%95%8C/" rel="tag">CSS世界</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSX/" rel="tag">JSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/" rel="tag">K8S</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LoianeGroner/" rel="tag">LoianeGroner</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UED/" rel="tag">UED</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UX/" rel="tag">UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">WEB前端开发最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbs/" rel="tag">bbs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/" rel="tag">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diff/" rel="tag">diff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/egg/" rel="tag">egg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/" rel="tag">forum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gzip/" rel="tag">gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/" rel="tag">ie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qiankun/" rel="tag">qiankun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react-hooks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-redux/" rel="tag">react-redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactnative/" rel="tag">reactnative</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rollup/" rel="tag">rollup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-spa/" rel="tag">single-spa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snabbdom/" rel="tag">snabbdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/treeshaking/" rel="tag">treeshaking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vdom/" rel="tag">vdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualDom/" rel="tag">virtualDom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vite/" rel="tag">vite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/" rel="tag">webgl</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" rel="tag">你不知道的</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" rel="tag">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" rel="tag">大前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" rel="tag">张鑫旭</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag">敏捷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" rel="tag">数据平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" rel="tag">深入理解ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="tag">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" rel="tag">编写可维护的JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" rel="tag">节流防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A6%83%E8%B6%85/" rel="tag">覃超</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E7%AB%AF/" rel="tag">跨端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" rel="tag">阮一峰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" rel="tag">高性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%88/" rel="tag">高效</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CICD/" style="font-size: 13px;">CICD</a> <a href="/tags/CMDB/" style="font-size: 13px;">CMDB</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS%E4%B8%96%E7%95%8C/" style="font-size: 13px;">CSS世界</a> <a href="/tags/ES/" style="font-size: 13.2px;">ES</a> <a href="/tags/Flutter/" style="font-size: 13px;">Flutter</a> <a href="/tags/HTTP/" style="font-size: 13.1px;">HTTP</a> <a href="/tags/JAVA/" style="font-size: 13px;">JAVA</a> <a href="/tags/JSX/" style="font-size: 13px;">JSX</a> <a href="/tags/K8S/" style="font-size: 13px;">K8S</a> <a href="/tags/LoianeGroner/" style="font-size: 13px;">LoianeGroner</a> <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.1px;">TCP</a> <a href="/tags/UED/" style="font-size: 13px;">UED</a> <a href="/tags/UI/" style="font-size: 13px;">UI</a> <a href="/tags/UX/" style="font-size: 13px;">UX</a> <a href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">WEB前端开发最佳实践</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/bbs/" style="font-size: 13px;">bbs</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/css/" style="font-size: 13.1px;">css</a> <a href="/tags/curl/" style="font-size: 13px;">curl</a> <a href="/tags/diff/" style="font-size: 13px;">diff</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/egg/" style="font-size: 13px;">egg</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/forum/" style="font-size: 13px;">forum</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/go/" style="font-size: 13px;">go</a> <a href="/tags/gzip/" style="font-size: 13px;">gzip</a> <a href="/tags/http/" style="font-size: 13.1px;">http</a> <a href="/tags/https/" style="font-size: 13.1px;">https</a> <a href="/tags/ie/" style="font-size: 13px;">ie</a> <a href="/tags/java/" style="font-size: 13.5px;">java</a> <a href="/tags/javascript/" style="font-size: 13.8px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13.1px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13.1px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.3px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/proxy/" style="font-size: 13px;">proxy</a> <a href="/tags/qiankun/" style="font-size: 13px;">qiankun</a> <a href="/tags/react/" style="font-size: 13.6px;">react</a> <a href="/tags/react-hooks/" style="font-size: 13px;">react-hooks</a> <a href="/tags/react-redux/" style="font-size: 13px;">react-redux</a> <a href="/tags/reactnative/" style="font-size: 13.1px;">reactnative</a> <a href="/tags/redux/" style="font-size: 13px;">redux</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/rollup/" style="font-size: 13px;">rollup</a> <a href="/tags/rust/" style="font-size: 13.1px;">rust</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/single-spa/" style="font-size: 13px;">single-spa</a> <a href="/tags/snabbdom/" style="font-size: 13px;">snabbdom</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/treeshaking/" style="font-size: 13px;">treeshaking</a> <a href="/tags/typescript/" style="font-size: 13.7px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vdom/" style="font-size: 13px;">vdom</a> <a href="/tags/virtualDom/" style="font-size: 13px;">virtualDom</a> <a href="/tags/vite/" style="font-size: 13px;">vite</a> <a href="/tags/vue/" style="font-size: 13.3px;">vue</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/vue3/" style="font-size: 13.1px;">vue3</a> <a href="/tags/webgl/" style="font-size: 13.2px;">webgl</a> <a href="/tags/webpack/" style="font-size: 13.3px;">webpack</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/xlsx/" style="font-size: 13px;">xlsx</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 13.9px;">书籍</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.1px;">优化</a> <a href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" style="font-size: 13px;">你不知道的</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">修饰符</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13px;">分布式</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 13px;">响应式</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">基础</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">大前端</a> <a href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" style="font-size: 13px;">张鑫旭</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 13.3px;">微前端</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.1px;">性能</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 13px;">抓包</a> <a href="/tags/%E6%95%8F%E6%8D%B7/" style="font-size: 13px;">敏捷</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" style="font-size: 13px;">数据平台</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">架构</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" style="font-size: 13px;">深入理解ES6</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 13px;">移动端</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.3px;">算法</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 13px;">组件</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a> <a href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" style="font-size: 13px;">编写可维护的JS</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">自动化测试</a> <a href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" style="font-size: 13px;">节流防抖</a> <a href="/tags/%E8%A6%83%E8%B6%85/" style="font-size: 13px;">覃超</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">设计</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.2px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 13px;">跨端</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">运维</a> <a href="/tags/%E8%BF%9B%E9%98%B6/" style="font-size: 13px;">进阶</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 13.1px;">部署</a> <a href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" style="font-size: 13px;">阮一峰</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">领域模型</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 13px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 13.1px;">高效</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/30/weeks/2022/2022-03/" class="title">前端月刊【2022-03】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-30T01:00:00.000Z" itemprop="datePublished">2022-03-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/" class="title">构建高性能WEB站点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-10T02:00:00.000Z" itemprop="datePublished">2022-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/28/weeks/2022/2022-02/" class="title">前端月刊【2022-02】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-28T01:00:00.000Z" itemprop="datePublished">2022-02-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/01/30/weeks/2022/2022-01/" class="title">前端月刊【2022-01】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-01-30T01:00:00.000Z" itemprop="datePublished">2022-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/30/weeks/2021/2021-12/" class="title">前端月刊【2021-12】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-30T01:00:00.000Z" itemprop="datePublished">2021-12-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-frame/java/Java基础编程/2. 基本语法/基本语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础编程 - 2、基础语法
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/12/28/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/2.%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
+	  <time datetime="2020-12-28T01:00:00.000Z" itemprop="datePublished">2020-12-28</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/12/28/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/2.%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="1-关键字与保留字"><a href="#1-关键字与保留字" class="headerlink" title="1 关键字与保留字"></a>1 关键字与保留字</h1><h2 id="关键字-keyword-的定义和特点"><a href="#关键字-keyword-的定义和特点" class="headerlink" title="关键字(keyword)的定义和特点"></a>关键字(keyword)的定义和特点</h2><ul>
+<li>定义：被Java语言赋予了特殊含义，用做专门用途的字符串（单词）</li>
+<li>特点：关键字中所有字母都为小写<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">用于定义数据类型的关键字</span><br><span class="line">class interface enum byte short</span><br><span class="line">int long float double char</span><br><span class="line">boolean void</span><br><span class="line">用于定义流程控制的关键字</span><br><span class="line">if else switch case default</span><br><span class="line">while do for break continue</span><br><span class="line">return</span><br><span class="line">用于定义访问权限修饰符的关键字</span><br><span class="line">private protected public</span><br><span class="line">用于定义类，函数，变量修饰符的关键字</span><br><span class="line">abstract final static synchronized</span><br><span class="line">用于定义类与类之间关系的关键字</span><br><span class="line">extends implements</span><br><span class="line">用于定义建立实例及引用实例，判断实例的关键字</span><br><span class="line">new this super instanceof</span><br><span class="line">用于异常处理的关键字</span><br><span class="line">try catch finally throw throws</span><br><span class="line">用于包的关键字</span><br><span class="line">package import</span><br><span class="line">其他修饰符关键字</span><br><span class="line">native strictfp transient volatile assert</span><br><span class="line">* 用于定义数据类型值的字面值</span><br><span class="line">true false null</span><br></pre></td></tr></table></figure>
+<h2 id="保留字-reserved-word"><a href="#保留字-reserved-word" class="headerlink" title="保留字(reserved word)"></a>保留字(reserved word)</h2></li>
+<li>Java保留字：现有Java版本尚未使用，但以后版本可能会作为关键字使<br>用。自己命名标识符时要避免使用这些保留字  goto 、const</li>
+</ul>
+<h1 id="2-标识符-Identifier"><a href="#2-标识符-Identifier" class="headerlink" title="2 标识符(Identifier)"></a>2 标识符(Identifier)</h1><h2 id="标识符："><a href="#标识符：" class="headerlink" title="标识符："></a>标识符：</h2><ul>
+<li>Java 对各种变量、方法和类等要素命名时使用的字符序列称为标识符</li>
+<li>技巧：凡是自己可以起名字的地方都叫标识符。 <h2 id="定义合法标识符规则："><a href="#定义合法标识符规则：" class="headerlink" title="定义合法标识符规则："></a>定义合法标识符规则：</h2></li>
+<li>由26个英文字母大小写，0-9 ，_或 $ 组成</li>
+<li>数字不可以开头。</li>
+<li>不可以使用关键字和保留字，但能包含关键字和保留字。</li>
+<li>Java中严格区分大小写，长度无限制。</li>
+<li>标识符不能包含空格。<h2 id="Java中的名称命名规范："><a href="#Java中的名称命名规范：" class="headerlink" title="Java中的名称命名规范："></a>Java中的名称命名规范：</h2></li>
+<li>包名：多单词组成时所有字母都小写：xxxyyyzzz</li>
+<li>类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz</li>
+<li>变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz</li>
+<li>常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ</li>
+</ul>
+<h1 id="3-变量"><a href="#3-变量" class="headerlink" title="3 变量"></a>3 变量</h1><h2 id="变量的概念："><a href="#变量的概念：" class="headerlink" title="变量的概念："></a>变量的概念：</h2><ul>
+<li>内存中的一个存储区域</li>
+<li>该区域的数据可以在同一类型范围内不断变化</li>
+<li>变量是程序中最基本的存储单元。包含变量类型、变量名和存储的值<h2 id="变量的作用："><a href="#变量的作用：" class="headerlink" title="变量的作用："></a>变量的作用：</h2></li>
+<li>用于在内存中保存数据<h2 id="使用变量注意："><a href="#使用变量注意：" class="headerlink" title="使用变量注意："></a>使用变量注意：</h2></li>
+<li>Java中每个变量必须先声明，后使用</li>
+<li>使用变量名来访问这块区域的数据</li>
+<li>变量的作用域：其定义所在的一对{ }内 </li>
+<li>变量只有在其作用域内才有效</li>
+<li>同一个作用域内，不能定义重名的变量</li>
+</ul>
+<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><ul>
+<li>语法：&lt;数据类型&gt; &lt;变量名称&gt;  例如：int var;<br>  ① 变量必须先声明，后使用<br>  ② 变量都定义在其作用域内。在作用域内，它是有效的。换句话说，出了作用域，就失效了<br>  ③ 同一个作用域内，不可以声明两个同名的变量<h2 id="变量的赋值"><a href="#变量的赋值" class="headerlink" title="变量的赋值"></a>变量的赋值</h2></li>
+<li>语法：&lt;变量名称&gt; = &lt;值&gt;  例如：var = 10;<h2 id="声明和赋值变量"><a href="#声明和赋值变量" class="headerlink" title="声明和赋值变量"></a>声明和赋值变量</h2></li>
+<li>语法： &lt;数据类型&gt; &lt;变量名&gt; = &lt;初始化值&gt;  例如：int var = 10;</li>
+</ul>
+<h2 id="变量的分类-按数据类型"><a href="#变量的分类-按数据类型" class="headerlink" title="变量的分类-按数据类型"></a>变量的分类-按数据类型</h2><ul>
+<li>基本数据类型：<pre><code>整型：byte \ short \ int \ long
+浮点型：float \ double
+字符型：char
+布尔型：boolean</code></pre></li>
+<li>引用数据类型：<pre><code>类(class)
+接口(interface)
+数组(array)</code></pre></li>
+</ul>
+<h2 id="变量的分类-按声明的位置的不同"><a href="#变量的分类-按声明的位置的不同" class="headerlink" title="变量的分类-按声明的位置的不同"></a>变量的分类-按声明的位置的不同</h2><ul>
+<li>在方法体外，类体内声明的变量称为成员变量。</li>
+<li>在方法体内部声明的变量称为局部变量。</li>
+</ul>
+<h2 id="基本数据类型之间的运算规则"><a href="#基本数据类型之间的运算规则" class="headerlink" title="基本数据类型之间的运算规则"></a>基本数据类型之间的运算规则</h2><p>前提：这里讨论只是7种基本数据类型变量间的运算。不包含boolean类型的。</p>
+<ol>
+<li>自动类型提升：<br> 结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。<br> byte 、char 、short –&gt; int –&gt; long –&gt; float –&gt; double<br> 特别的：当byte、char、short三种类型的变量做运算时，结果为int型    </li>
+<li>强制类型转换：见VariableTest3.java<br>说明：此时的容量大小指的是，表示数的范围的大和小。比如：float容量要大于long的容量</li>
+</ol>
+<h2 id="强制类型转换：自动类型提升运算的逆运算。"><a href="#强制类型转换：自动类型提升运算的逆运算。" class="headerlink" title="强制类型转换：自动类型提升运算的逆运算。"></a>强制类型转换：自动类型提升运算的逆运算。</h2><p>1.需要使用强转符：()<br>2.注意点：强制类型转换，可能导致精度损失。</p>
+<p>计算机中不同进制的使用说明</p>
+<h2 id="对于整数，有四种表示方式："><a href="#对于整数，有四种表示方式：" class="headerlink" title="对于整数，有四种表示方式："></a>对于整数，有四种表示方式：</h2><blockquote>
+<p>二进制(binary)：0,1 ，满2进1.以0b或0B开头。<br>十进制(decimal)：0-9 ，满10进1。<br>八进制(octal)：0-7 ，满8进1. 以数字0开头表示。<br>十六进制(hex)：0-9及A-F，满16进1. 以0x或0X开头表示。此处的A-F不区分大小写。<br>    如：0x21AF +1= 0X21B0</p>
+</blockquote>
+<h1 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4 运算符"></a>4 运算符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>/ % (前)++ (后)++ (前)– (后)– +<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2>=  +=  -=  *=  /=  %= <h2 id="比较运算符（关系运算符）"><a href="#比较运算符（关系运算符）" class="headerlink" title="比较运算符（关系运算符）"></a>比较运算符（关系运算符）</h2>==  !=  &gt;  &lt;  &gt;= &lt;=  instanceof<br>结论：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>1.比较运算符的结果是boolean类型<br>2.区分 ==  和  = </p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>&amp;  &amp;&amp; |  || ! ^<br>说明：<br>1.逻辑运算符操作的都是boolean类型的变量</p>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><ol>
+<li><p>位运算符操作的都是整型的数据</p>
+</li>
+<li><p>&lt;&lt; ：在一定范围内，每向左移1位，相当于 * 2</p>
+<blockquote>
+<blockquote>
+<p>:在一定范围内，每向右移1位，相当于 / 2</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h2 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h2><p>1.结构：(条件表达式)? 表达式1 : 表达式2<br>2. 说明<br>① 条件表达式的结果为boolean类型<br>② 根据条件表达式真或假，决定执行表达式1，还是表达式2.<br>  如果表达式为true，则执行表达式1。<br>  如果表达式为false，则执行表达式2。<br>③ 表达式1 和表达式2要求是一致的。<br>④ 三元运算符可以嵌套使用</p>
+<ol start="3">
+<li><p>凡是可以使用三元运算符的地方，都可以改写为if-else<br>反之，不成立。</p>
+</li>
+<li><p>如果程序既可以使用三元运算符，又可以使用if-else结构，那么优先选择三元运算符。原因：简洁、执行效率高。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">基本数据类型之间的运算规则：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">前提：这里讨论只是7种基本数据类型变量间的运算。不包含boolean类型的。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">1. 自动类型提升：</span></span><br><span class="line"><span class="comment">    结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。</span></span><br><span class="line"><span class="comment">	byte 、char 、short --&gt; int --&gt; long --&gt; float --&gt; double </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	特别的：当byte、char、short三种类型的变量做运算时，结果为int型</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">2. 强制类型转换：见VariableTest3.java</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">说明：此时的容量大小指的是，表示数的范围的大和小。比如：float容量要大于long的容量</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="5-流程控制"><a href="#5-流程控制" class="headerlink" title="5 流程控制"></a>5 流程控制</h1><h2 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h2><p>程序从上到下逐行地执行，中间没有任何判断和跳转。</p>
+<h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><p>根据条件，选择性地执行某段代码。<br>有if…else和switch-case两种分支语句。</p>
+<h3 id="分支结构之一-if…else-（条件判断结构）"><a href="#分支结构之一-if…else-（条件判断结构）" class="headerlink" title="分支结构之一 if…else （条件判断结构）"></a>分支结构之一 if…else （条件判断结构）</h3><ul>
+<li>第一种：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">	执行表达式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二种：二选一</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">	执行表达式<span class="number">1</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	执行表达式<span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三种：n选一</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">	执行表达式<span class="number">1</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">	执行表达式<span class="number">2</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">	执行表达式<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	执行表达式n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分支结构之二：switch-case"><a href="#分支结构之二：switch-case" class="headerlink" title="分支结构之二：switch-case"></a>分支结构之二：switch-case</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(表达式)&#123;</span><br><span class="line"><span class="keyword">case</span> 常量<span class="number">1</span>:</span><br><span class="line">	执行语句<span class="number">1</span>;</span><br><span class="line">	<span class="comment">//break;</span></span><br><span class="line"><span class="keyword">case</span> 常量<span class="number">2</span>:</span><br><span class="line">	执行语句<span class="number">2</span>;</span><br><span class="line">	<span class="comment">//break;</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">	执行语句n;</span><br><span class="line">	<span class="comment">//break;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>① 根据switch表达式中的值，依次匹配各个case中的常量。一旦匹配成功，则进入相应case结构中，调用其执行语句。 当调用完执行语句以后，则仍然继续向下执行其他case结构中的执行语句，直到遇到break关键字或此switch-case结构末尾结束为止。</p>
+<p>② break,可以使用在switch-case结构中，表示一旦执行到此关键字，就跳出switch-case结构</p>
+<p>③ switch结构中的表达式，只能是如下的6种数据类型之一：byte 、short、char、int、枚举类型(JDK5.0新增)、String类型(JDK7.0新增)</p>
+<p>④ case 之后只能声明常量。不能声明范围。</p>
+<p>⑤ break关键字是可选的。</p>
+<p>⑥ default:相当于if-else结构中的else.   default结构是可选的，而且位置是灵活的。</p>
+<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>根据循环条件，重复性的执行某段代码。<br>有while、do…while、for三种循环语句。<br>注：JDK1.5提供了foreach循环，方便的遍历集合、数组元素。</p>
+<h3 id="循环结构：for"><a href="#循环结构：for" class="headerlink" title="循环结构：for"></a>循环结构：for</h3><p>For循环结构的使用<br>一、循环结构的4个要素<br>① 初始化条件<br>② 循环条件  —&gt;是boolean类型<br>③ 循环体<br>④ 迭代条件</p>
+<p>二、for循环的结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(①;②;④)&#123;</span><br><span class="line">	③</span><br><span class="line">&#125;</span><br><span class="line">执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ... - ②</span><br></pre></td></tr></table></figure>
+<h3 id="循环结构-While-循环的使用"><a href="#循环结构-While-循环的使用" class="headerlink" title="循环结构 - While 循环的使用"></a>循环结构 - While 循环的使用</h3><p>While 循环的使用<br>一、循环结构的4个要素<br>① 初始化条件<br>② 循环条件  —&gt;是boolean类型<br>③ 循环体<br>④ 迭代条件</p>
+<p>二、while循环的结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">①</span><br><span class="line"><span class="keyword">while</span>(②)&#123;</span><br><span class="line">	③;</span><br><span class="line">	④;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ... - ②</span><br></pre></td></tr></table></figure>
+<p>1.写while循环千万小心不要丢了迭代条件。一旦丢了，就可能导致死循环！<br>2.我们写程序，要避免出现死循环。<br>3.for循环和while循环是可以相互转换的！  区别：for循环和while循环的初始化条件部分的作用范围不同。</p>
+<h3 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h3><ol>
+<li>嵌套循环：将一个循环结构A声明在另一个循环结构B的循环体中,就构成了嵌套循环</li>
+<li>外层循环：循环结构B  内层循环：循环结构A</li>
+<li>说明<br>① 内层循环结构遍历一遍，只相当于外层循环循环体执行了一次<br>② 假设外层循环需要执行m次，内层循环需要执行n次。此时内层循环的循环体一共执行了m * n次</li>
+<li>技巧：   外层循环控制行数，内层循环控制列数</li>
+</ol>
+<h3 id="do-while循环的使用"><a href="#do-while循环的使用" class="headerlink" title="do-while循环的使用"></a>do-while循环的使用</h3><p>一、循环结构的4个要素<br>① 初始化条件<br>② 循环条件  —&gt;是boolean类型<br>③ 循环体<br>④ 迭代条件</p>
+<p>二、do-while循环结构：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">①</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	③;</span><br><span class="line">	④;</span><br><span class="line">&#125;<span class="keyword">while</span>(②);</span><br><span class="line">执行过程：① - ③ - ④ - ② - ③ - ④ - ... - ②</span><br></pre></td></tr></table></figure>
+<p>说明：<br>1.do-while循环至少会执行一次循环体！<br>2.开发中，使用for和while更多一些。较少使用do-while</p>
+<h3 id="break和continue关键字的使用"><a href="#break和continue关键字的使用" class="headerlink" title="break和continue关键字的使用"></a>break和continue关键字的使用</h3><p>使用范围            循环中使用的作用(不同点)        相同点<br>break:           switch-case循环结构中            结束当前循环                    关键字后面不能声明执行语句<br>continue:        循环结构中            结束当次循环                    关键字后面不能声明执行语句</p>
+
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/12/28/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/2.%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Java基础编程 - 2、基础语法" target="_blank" rel="external">http://yoursite.com/2020/12/28/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/2.%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/01/06/frame/java/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/3.%20%E6%95%B0%E7%BB%84/%E6%95%B0%E7%BB%84/" title="Java基础编程 - 3、数组"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/12/27/weeks/2020/202012-4/" title="前端周刊【202012-4】"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

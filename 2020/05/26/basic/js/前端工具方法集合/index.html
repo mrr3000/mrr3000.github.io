@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>前端工具方法集合 | Marong&#39;s Note</title>
+  <meta name="description" content="1.邮箱 123export const isEmail &#x3D; (s) &#x3D;&gt; &amp;#123;    return &#x2F;^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&amp;#123;2,3&amp;#125;)&amp;#123;1,2&amp;#125;)$&#x2F;.test(s)&amp;#125;  2.手机号码 123export cons">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端工具方法集合">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/basic/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="1.邮箱 123export const isEmail &#x3D; (s) &#x3D;&gt; &amp;#123;    return &#x2F;^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&amp;#123;2,3&amp;#125;)&amp;#123;1,2&amp;#125;)$&#x2F;.test(s)&amp;#125;  2.手机号码 123export cons">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-26T01:42:04.000Z">
+<meta property="article:modified_time" content="2022-03-17T14:41:15.677Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="tool">
+<meta property="article:tag" content="function">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/05/26/basic/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMDB/" rel="tag">CMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E4%B8%96%E7%95%8C/" rel="tag">CSS世界</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSX/" rel="tag">JSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/" rel="tag">K8S</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LoianeGroner/" rel="tag">LoianeGroner</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UED/" rel="tag">UED</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UX/" rel="tag">UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">WEB前端开发最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbs/" rel="tag">bbs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/" rel="tag">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diff/" rel="tag">diff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/egg/" rel="tag">egg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/" rel="tag">forum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gzip/" rel="tag">gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/" rel="tag">ie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qiankun/" rel="tag">qiankun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react-hooks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-redux/" rel="tag">react-redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactnative/" rel="tag">reactnative</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rollup/" rel="tag">rollup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-spa/" rel="tag">single-spa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snabbdom/" rel="tag">snabbdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/treeshaking/" rel="tag">treeshaking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vdom/" rel="tag">vdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualDom/" rel="tag">virtualDom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vite/" rel="tag">vite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/" rel="tag">webgl</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" rel="tag">你不知道的</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" rel="tag">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" rel="tag">大前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" rel="tag">张鑫旭</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag">敏捷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" rel="tag">数据平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" rel="tag">深入理解ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="tag">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" rel="tag">编写可维护的JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" rel="tag">节流防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A6%83%E8%B6%85/" rel="tag">覃超</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E7%AB%AF/" rel="tag">跨端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" rel="tag">阮一峰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" rel="tag">高性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%88/" rel="tag">高效</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CICD/" style="font-size: 13px;">CICD</a> <a href="/tags/CMDB/" style="font-size: 13px;">CMDB</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS%E4%B8%96%E7%95%8C/" style="font-size: 13px;">CSS世界</a> <a href="/tags/ES/" style="font-size: 13.2px;">ES</a> <a href="/tags/Flutter/" style="font-size: 13px;">Flutter</a> <a href="/tags/HTTP/" style="font-size: 13.1px;">HTTP</a> <a href="/tags/JAVA/" style="font-size: 13px;">JAVA</a> <a href="/tags/JSX/" style="font-size: 13px;">JSX</a> <a href="/tags/K8S/" style="font-size: 13px;">K8S</a> <a href="/tags/LoianeGroner/" style="font-size: 13px;">LoianeGroner</a> <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.1px;">TCP</a> <a href="/tags/UED/" style="font-size: 13px;">UED</a> <a href="/tags/UI/" style="font-size: 13px;">UI</a> <a href="/tags/UX/" style="font-size: 13px;">UX</a> <a href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">WEB前端开发最佳实践</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/bbs/" style="font-size: 13px;">bbs</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/css/" style="font-size: 13.1px;">css</a> <a href="/tags/curl/" style="font-size: 13px;">curl</a> <a href="/tags/diff/" style="font-size: 13px;">diff</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/egg/" style="font-size: 13px;">egg</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/forum/" style="font-size: 13px;">forum</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/go/" style="font-size: 13px;">go</a> <a href="/tags/gzip/" style="font-size: 13px;">gzip</a> <a href="/tags/http/" style="font-size: 13.1px;">http</a> <a href="/tags/https/" style="font-size: 13.1px;">https</a> <a href="/tags/ie/" style="font-size: 13px;">ie</a> <a href="/tags/java/" style="font-size: 13.5px;">java</a> <a href="/tags/javascript/" style="font-size: 13.8px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13.1px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13.1px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.3px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/proxy/" style="font-size: 13px;">proxy</a> <a href="/tags/qiankun/" style="font-size: 13px;">qiankun</a> <a href="/tags/react/" style="font-size: 13.6px;">react</a> <a href="/tags/react-hooks/" style="font-size: 13px;">react-hooks</a> <a href="/tags/react-redux/" style="font-size: 13px;">react-redux</a> <a href="/tags/reactnative/" style="font-size: 13.1px;">reactnative</a> <a href="/tags/redux/" style="font-size: 13px;">redux</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/rollup/" style="font-size: 13px;">rollup</a> <a href="/tags/rust/" style="font-size: 13.1px;">rust</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/single-spa/" style="font-size: 13px;">single-spa</a> <a href="/tags/snabbdom/" style="font-size: 13px;">snabbdom</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/treeshaking/" style="font-size: 13px;">treeshaking</a> <a href="/tags/typescript/" style="font-size: 13.7px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vdom/" style="font-size: 13px;">vdom</a> <a href="/tags/virtualDom/" style="font-size: 13px;">virtualDom</a> <a href="/tags/vite/" style="font-size: 13px;">vite</a> <a href="/tags/vue/" style="font-size: 13.3px;">vue</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/vue3/" style="font-size: 13.1px;">vue3</a> <a href="/tags/webgl/" style="font-size: 13.2px;">webgl</a> <a href="/tags/webpack/" style="font-size: 13.3px;">webpack</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/xlsx/" style="font-size: 13px;">xlsx</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 13.9px;">书籍</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.1px;">优化</a> <a href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" style="font-size: 13px;">你不知道的</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">修饰符</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13px;">分布式</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 13px;">响应式</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">基础</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">大前端</a> <a href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" style="font-size: 13px;">张鑫旭</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 13.3px;">微前端</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.1px;">性能</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 13px;">抓包</a> <a href="/tags/%E6%95%8F%E6%8D%B7/" style="font-size: 13px;">敏捷</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" style="font-size: 13px;">数据平台</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">架构</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" style="font-size: 13px;">深入理解ES6</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 13px;">移动端</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.3px;">算法</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 13px;">组件</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a> <a href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" style="font-size: 13px;">编写可维护的JS</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">自动化测试</a> <a href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" style="font-size: 13px;">节流防抖</a> <a href="/tags/%E8%A6%83%E8%B6%85/" style="font-size: 13px;">覃超</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">设计</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.2px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 13px;">跨端</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">运维</a> <a href="/tags/%E8%BF%9B%E9%98%B6/" style="font-size: 13px;">进阶</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 13.1px;">部署</a> <a href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" style="font-size: 13px;">阮一峰</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">领域模型</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 13px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 13.1px;">高效</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/30/weeks/2022/2022-03/" class="title">前端月刊【2022-03】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-30T01:00:00.000Z" itemprop="datePublished">2022-03-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/" class="title">构建高性能WEB站点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-10T02:00:00.000Z" itemprop="datePublished">2022-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/28/weeks/2022/2022-02/" class="title">前端月刊【2022-02】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-28T01:00:00.000Z" itemprop="datePublished">2022-02-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/01/30/weeks/2022/2022-01/" class="title">前端月刊【2022-01】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-01-30T01:00:00.000Z" itemprop="datePublished">2022-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/30/weeks/2021/2021-12/" class="title">前端月刊【2021-12】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-30T01:00:00.000Z" itemprop="datePublished">2021-12-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-basic/js/前端工具方法集合" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端工具方法集合
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/26/basic/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88/" class="article-date">
+	  <time datetime="2020-05-26T01:42:04.000Z" itemprop="datePublished">2020-05-26</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/function/" rel="tag">function</a>, <a class="article-tag-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link" href="/tags/tool/" rel="tag">tool</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/26/basic/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>1.邮箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isEmail &#x3D; (s) &#x3D;&gt; &#123;</span><br><span class="line">    return &#x2F;^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&#123;2,3&#125;)&#123;1,2&#125;)$&#x2F;.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.手机号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isMobile &#x3D; (s) &#x3D;&gt; &#123;</span><br><span class="line">    return &#x2F;^1[0-9]&#123;10&#125;$&#x2F;.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.电话号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isPhone &#x3D; (s) &#x3D;&gt; &#123;</span><br><span class="line">    return &#x2F;^([0-9]&#123;3,4&#125;-)?[0-9]&#123;7,8&#125;$&#x2F;.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.是否url地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isURL &#x3D; (s) &#x3D;&gt; &#123;</span><br><span class="line">    return &#x2F;^http[s]?:\&#x2F;\&#x2F;.*&#x2F;.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.是否字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isString &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;String&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.是否数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isNumber &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Number&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>7.是否boolean</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isBoolean &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Boolean&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>8.是否函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isFunction &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Function&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>9.是否为null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isNull &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Null&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>10.是否undefined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isUndefined &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Undefined&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>11.是否对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isObj &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Object&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>12.是否数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isArray &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Array&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>13.是否时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isDate &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Date&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>14.是否正则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isRegExp &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;RegExp&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>15.是否错误对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isError &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Error&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>16.是否Symbol函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isSymbol &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Symbol&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>17.是否Promise对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isPromise &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Promise&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>18.是否Set对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export const isSet &#x3D; (o) &#x3D;&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) &#x3D;&#x3D;&#x3D; &#39;Set&#39;</span><br><span class="line">&#125;</span><br><span class="line">export const ua &#x3D; navigator.userAgent.toLowerCase();</span><br></pre></td></tr></table></figure>
+
+<p>19.是否是微信浏览器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isWeiXin &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    return ua.match(&#x2F;microMessenger&#x2F;i) &#x3D;&#x3D; &#39;micromessenger&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>20.是否是移动端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isDeviceMobile &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    return &#x2F;android|webos|iphone|ipod|balckberry&#x2F;i.test(ua)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>21.是否是QQ浏览器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isQQBrowser &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    return !!ua.match(&#x2F;mqqbrowser|qzone|qqbrowser|qbwebviewtype&#x2F;i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>22.是否是爬虫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const isSpider &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    return &#x2F;adsbot|googlebot|bingbot|msnbot|yandexbot|baidubot|robot|careerbot|seznambot|bot|baiduspider|jikespider|symantecspider|scannerlwebcrawler|crawler|360spider|sosospider|sogou web sprider|sogou orion spider&#x2F;.test(ua)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>23.是否ios</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export const whichDevice &#x3D; (device) &#x3D;&gt; &#123;</span><br><span class="line">    var u &#x3D; navigator.userAgent;</span><br><span class="line">    return u.indexOf(device) &gt; -1</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; iPhone  Android  Linux  iPad  Windows Phone</span><br></pre></td></tr></table></figure>
+
+<p>24.是否为PC端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export const isPC &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    var userAgentInfo &#x3D; navigator.userAgent;</span><br><span class="line">    var Agents &#x3D; [&quot;Android&quot;, &quot;iPhone&quot;,</span><br><span class="line">        &quot;SymbianOS&quot;, &quot;Windows Phone&quot;,</span><br><span class="line">        &quot;iPad&quot;, &quot;iPod&quot;];</span><br><span class="line">    var flag &#x3D; true;</span><br><span class="line">    for (var v &#x3D; 0; v &lt; Agents.length; v++) &#123;</span><br><span class="line">        if (userAgentInfo.indexOf(Agents[v]) &gt; 0) &#123;</span><br><span class="line">            flag &#x3D; false;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>25.去除html标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const removeHtmltag &#x3D; (str) &#x3D;&gt; &#123;</span><br><span class="line">    return str.replace(&#x2F;&lt;[^&gt;]+&gt;&#x2F;g, &#39;&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>26.获取url参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export const getQueryString &#x3D; (name) &#x3D;&gt; &#123;</span><br><span class="line">    const reg &#x3D; new RegExp(&#39;(^|&amp;)&#39; + name + &#39;&#x3D;([^&amp;]*)(&amp;|$)&#39;, &#39;i&#39;);</span><br><span class="line">    const search &#x3D; window.location.search.split(&#39;?&#39;)[1] || &#39;&#39;;</span><br><span class="line">    const r &#x3D; search.match(reg) || [];</span><br><span class="line">    return r[2];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>27.动态引入js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export const injectScript &#x3D; (src) &#x3D;&gt; &#123;</span><br><span class="line">    const s &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">    s.type &#x3D; &#39;text&#x2F;javascript&#39;;</span><br><span class="line">    s.async &#x3D; true;</span><br><span class="line">    s.src &#x3D; src;</span><br><span class="line">    const t &#x3D; document.getElementsByTagName(&#39;script&#39;)[0];</span><br><span class="line">    t.parentNode.insertBefore(s, t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>28.根据url地址下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export const download &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">    var isChrome &#x3D; navigator.userAgent.toLowerCase().indexOf(&#39;chrome&#39;) &gt; -1;</span><br><span class="line">    var isSafari &#x3D; navigator.userAgent.toLowerCase().indexOf(&#39;safari&#39;) &gt; -1;</span><br><span class="line">    if (isChrome || isSafari) &#123;</span><br><span class="line">        var link &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">        link.href &#x3D; url;</span><br><span class="line">        if (link.download !&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">            var fileName &#x3D; url.substring(url.lastIndexOf(&#39;&#x2F;&#39;) + 1, url.length);</span><br><span class="line">            link.download &#x3D; fileName;</span><br><span class="line">        &#125;</span><br><span class="line">        if (document.createEvent) &#123;</span><br><span class="line">            var e &#x3D; document.createEvent(&#39;MouseEvents&#39;);</span><br><span class="line">            e.initEvent(&#39;click&#39;, true, true);</span><br><span class="line">            link.dispatchEvent(e);</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (url.indexOf(&#39;?&#39;) &#x3D;&#x3D;&#x3D; -1) &#123;</span><br><span class="line">        url +&#x3D; &#39;?download&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    window.open(url, &#39;_self&#39;);</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>29.el是否包含某个class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export const hasClass &#x3D; (el, className) &#x3D;&gt; &#123;</span><br><span class="line">    let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + className + &#39;(\\s|$)&#39;)</span><br><span class="line">    return reg.test(el.className)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>30.el添加某个class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export const addClass &#x3D; (el, className) &#x3D;&gt; &#123;</span><br><span class="line">    if (hasClass(el, className)) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    let newClass &#x3D; el.className.split(&#39; &#39;)</span><br><span class="line">    newClass.push(className)</span><br><span class="line">    el.className &#x3D; newClass.join(&#39; &#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>31.el去除某个class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export const removeClass &#x3D; (el, className) &#x3D;&gt; &#123;</span><br><span class="line">    if (!hasClass(el, className)) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + className + &#39;(\\s|$)&#39;, &#39;g&#39;)</span><br><span class="line">    el.className &#x3D; el.className.replace(reg, &#39; &#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>32.获取滚动的坐标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export const getScrollPosition &#x3D; (el &#x3D; window) &#x3D;&gt; (&#123;</span><br><span class="line">    x: el.pageXOffset !&#x3D;&#x3D; undefined ? el.pageXOffset : el.scrollLeft,</span><br><span class="line">    y: el.pageYOffset !&#x3D;&#x3D; undefined ? el.pageYOffset : el.scrollTop</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>33.滚动到顶部</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export const scrollToTop &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const c &#x3D; document.documentElement.scrollTop || document.body.scrollTop;</span><br><span class="line">    if (c &gt; 0) &#123;</span><br><span class="line">        window.requestAnimationFrame(scrollToTop);</span><br><span class="line">        window.scrollTo(0, c - c &#x2F; 8);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>34.el是否在视口范围内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export const elementIsVisibleInViewport &#x3D; (el, partiallyVisible &#x3D; false) &#x3D;&gt; &#123;</span><br><span class="line">    const &#123; top, left, bottom, right &#125; &#x3D; el.getBoundingClientRect();</span><br><span class="line">    const &#123; innerHeight, innerWidth &#125; &#x3D; window;</span><br><span class="line">    return partiallyVisible</span><br><span class="line">        ? ((top &gt; 0 &amp;&amp; top &lt; innerHeight) || (bottom &gt; 0 &amp;&amp; bottom &lt; innerHeight)) &amp;&amp;</span><br><span class="line">        ((left &gt; 0 &amp;&amp; left &lt; innerWidth) || (right &gt; 0 &amp;&amp; right &lt; innerWidth))</span><br><span class="line">        : top &gt;&#x3D; 0 &amp;&amp; left &gt;&#x3D; 0 &amp;&amp; bottom &lt;&#x3D; innerHeight &amp;&amp; right &lt;&#x3D; innerWidth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>35.洗牌算法随机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export const shuffle &#x3D; (arr) &#x3D;&gt; &#123;</span><br><span class="line">    var result &#x3D; [],</span><br><span class="line">        random;</span><br><span class="line">    while (arr.length &gt; 0) &#123;</span><br><span class="line">        random &#x3D; Math.floor(Math.random() * arr.length);</span><br><span class="line">        result.push(arr[random])</span><br><span class="line">        arr.splice(random, 1)</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>36.劫持粘贴板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export const copyTextToClipboard &#x3D; (value) &#x3D;&gt; &#123;</span><br><span class="line">    var textArea &#x3D; document.createElement(&quot;textarea&quot;);</span><br><span class="line">    textArea.style.background &#x3D; &#39;transparent&#39;;</span><br><span class="line">    textArea.value &#x3D; value;</span><br><span class="line">    document.body.appendChild(textArea);</span><br><span class="line">    textArea.select();</span><br><span class="line">    try &#123;</span><br><span class="line">        var successful &#x3D; document.execCommand(&#39;copy&#39;);</span><br><span class="line">    &#125; catch (err) &#123;</span><br><span class="line">        console.log(&#39;Oops, unable to copy&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">    document.body.removeChild(textArea);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>37.判断类型集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">export const checkStr &#x3D; (str, type) &#x3D;&gt; &#123;</span><br><span class="line">    switch (type) &#123;</span><br><span class="line">        case &#39;phone&#39;:   &#x2F;&#x2F;手机号码</span><br><span class="line">            return &#x2F;^1[3|4|5|6|7|8|9][0-9]&#123;9&#125;$&#x2F;.test(str);</span><br><span class="line">        case &#39;tel&#39;:     &#x2F;&#x2F;座机</span><br><span class="line">            return &#x2F;^(0\d&#123;2,3&#125;-\d&#123;7,8&#125;)(-\d&#123;1,4&#125;)?$&#x2F;.test(str);</span><br><span class="line">        case &#39;card&#39;:    &#x2F;&#x2F;身份证</span><br><span class="line">            return &#x2F;(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)&#x2F;.test(str);</span><br><span class="line">        case &#39;pwd&#39;:     &#x2F;&#x2F;密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线</span><br><span class="line">            return &#x2F;^[a-zA-Z]\w&#123;5,17&#125;$&#x2F;.test(str)</span><br><span class="line">        case &#39;postal&#39;:  &#x2F;&#x2F;邮政编码</span><br><span class="line">            return &#x2F;[1-9]\d&#123;5&#125;(?!\d)&#x2F;.test(str);</span><br><span class="line">        case &#39;QQ&#39;:      &#x2F;&#x2F;QQ号</span><br><span class="line">            return &#x2F;^[1-9][0-9]&#123;4,9&#125;$&#x2F;.test(str);</span><br><span class="line">        case &#39;email&#39;:   &#x2F;&#x2F;邮箱</span><br><span class="line">            return &#x2F;^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$&#x2F;.test(str);</span><br><span class="line">        case &#39;money&#39;:   &#x2F;&#x2F;金额(小数点2位)</span><br><span class="line">            return &#x2F;^\d*(?:\.\d&#123;0,2&#125;)?$&#x2F;.test(str);</span><br><span class="line">        case &#39;URL&#39;:     &#x2F;&#x2F;网址</span><br><span class="line">            return &#x2F;(http|ftp|https):\&#x2F;\&#x2F;[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^&#x3D;%&amp;:&#x2F;~\+#]*[\w\-\@?^&#x3D;%&amp;&#x2F;~\+#])?&#x2F;.test(str)</span><br><span class="line">        case &#39;IP&#39;:      &#x2F;&#x2F;IP</span><br><span class="line">            return &#x2F;((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))&#x2F;.test(str);</span><br><span class="line">        case &#39;date&#39;:    &#x2F;&#x2F;日期时间</span><br><span class="line">            return &#x2F;^(\d&#123;4&#125;)\-(\d&#123;2&#125;)\-(\d&#123;2&#125;) (\d&#123;2&#125;)(?:\:\d&#123;2&#125;|:(\d&#123;2&#125;):(\d&#123;2&#125;))$&#x2F;.test(str) || &#x2F;^(\d&#123;4&#125;)\-(\d&#123;2&#125;)\-(\d&#123;2&#125;)$&#x2F;.test(str)</span><br><span class="line">        case &#39;number&#39;:  &#x2F;&#x2F;数字</span><br><span class="line">            return &#x2F;^[0-9]$&#x2F;.test(str);</span><br><span class="line">        case &#39;english&#39;: &#x2F;&#x2F;英文</span><br><span class="line">            return &#x2F;^[a-zA-Z]+$&#x2F;.test(str);</span><br><span class="line">        case &#39;chinese&#39;: &#x2F;&#x2F;中文</span><br><span class="line">            return &#x2F;^[\\u4E00-\\u9FA5]+$&#x2F;.test(str);</span><br><span class="line">        case &#39;lower&#39;:   &#x2F;&#x2F;小写</span><br><span class="line">            return &#x2F;^[a-z]+$&#x2F;.test(str);</span><br><span class="line">        case &#39;upper&#39;:   &#x2F;&#x2F;大写</span><br><span class="line">            return &#x2F;^[A-Z]+$&#x2F;.test(str);</span><br><span class="line">        case &#39;HTML&#39;:    &#x2F;&#x2F;HTML标记</span><br><span class="line">            return &#x2F;&lt;(&quot;[^&quot;]*&quot;|&#39;[^&#39;]*&#39;|[^&#39;&quot;&gt;])*&gt;&#x2F;.test(str);</span><br><span class="line">        default:</span><br><span class="line">            return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>38.严格的身份证校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">export const isCardID &#x3D; (sId) &#x3D;&gt; &#123;</span><br><span class="line">    if (!&#x2F;(^\d&#123;15&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)&#x2F;.test(sId)) &#123;</span><br><span class="line">        console.log(&#39;你输入的身份证长度或格式错误&#39;)</span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;身份证城市</span><br><span class="line">    var aCity &#x3D; &#123; 11: &quot;北京&quot;, 12: &quot;天津&quot;, 13: &quot;河北&quot;, 14: &quot;山西&quot;, 15: &quot;内蒙古&quot;, 21: &quot;辽宁&quot;, 22: &quot;吉林&quot;, 23: &quot;黑龙江&quot;, 31: &quot;上海&quot;, 32: &quot;江苏&quot;, 33: &quot;浙江&quot;, 34: &quot;安徽&quot;, 35: &quot;福建&quot;, 36: &quot;江西&quot;, 37: &quot;山东&quot;, 41: &quot;河南&quot;, 42: &quot;湖北&quot;, 43: &quot;湖南&quot;, 44: &quot;广东&quot;, 45: &quot;广西&quot;, 46: &quot;海南&quot;, 50: &quot;重庆&quot;, 51: &quot;四川&quot;, 52: &quot;贵州&quot;, 53: &quot;云南&quot;, 54: &quot;西藏&quot;, 61: &quot;陕西&quot;, 62: &quot;甘肃&quot;, 63: &quot;青海&quot;, 64: &quot;宁夏&quot;, 65: &quot;新疆&quot;, 71: &quot;台湾&quot;, 81: &quot;香港&quot;, 82: &quot;澳门&quot;, 91: &quot;国外&quot; &#125;;</span><br><span class="line">    if (!aCity[parseInt(sId.substr(0, 2))]) &#123;</span><br><span class="line">        console.log(&#39;你的身份证地区非法&#39;)</span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 出生日期验证</span><br><span class="line">    var sBirthday &#x3D; (sId.substr(6, 4) + &quot;-&quot; + Number(sId.substr(10, 2)) + &quot;-&quot; + Number(sId.substr(12, 2))).replace(&#x2F;-&#x2F;g, &quot;&#x2F;&quot;),</span><br><span class="line">        d &#x3D; new Date(sBirthday)</span><br><span class="line">    if (sBirthday !&#x3D; (d.getFullYear() + &quot;&#x2F;&quot; + (d.getMonth() + 1) + &quot;&#x2F;&quot; + d.getDate())) &#123;</span><br><span class="line">        console.log(&#39;身份证上的出生日期非法&#39;)</span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 身份证号码校验</span><br><span class="line">    var sum &#x3D; 0,</span><br><span class="line">        weights &#x3D; [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],</span><br><span class="line">        codes &#x3D; &quot;10X98765432&quot;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; sId.length - 1; i++) &#123;</span><br><span class="line">        sum +&#x3D; sId[i] * weights[i];</span><br><span class="line">    &#125;</span><br><span class="line">    var last &#x3D; codes[sum % 11]; &#x2F;&#x2F;计算出来的最后一位身份证号码</span><br><span class="line">    if (sId[sId.length - 1] !&#x3D; last) &#123;</span><br><span class="line">        console.log(&#39;你输入的身份证号非法&#39;)</span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>39.随机数范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export const random &#x3D; (min, max) &#x3D;&gt; &#123;</span><br><span class="line">    if (arguments.length &#x3D;&#x3D;&#x3D; 2) &#123;</span><br><span class="line">        return Math.floor(min + Math.random() * ((max + 1) - min))</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>40.将阿拉伯数字翻译成中文的大写数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">export const numberToChinese &#x3D; (num) &#x3D;&gt; &#123;</span><br><span class="line">    var AA &#x3D; new Array(&quot;零&quot;, &quot;一&quot;, &quot;二&quot;, &quot;三&quot;, &quot;四&quot;, &quot;五&quot;, &quot;六&quot;, &quot;七&quot;, &quot;八&quot;, &quot;九&quot;, &quot;十&quot;);</span><br><span class="line">    var BB &#x3D; new Array(&quot;&quot;, &quot;十&quot;, &quot;百&quot;, &quot;仟&quot;, &quot;萬&quot;, &quot;億&quot;, &quot;点&quot;, &quot;&quot;);</span><br><span class="line">    var a &#x3D; (&quot;&quot; + num).replace(&#x2F;(^0*)&#x2F;g, &quot;&quot;).split(&quot;.&quot;),</span><br><span class="line">        k &#x3D; 0,</span><br><span class="line">        re &#x3D; &quot;&quot;;</span><br><span class="line">    for (var i &#x3D; a[0].length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">        switch (k) &#123;</span><br><span class="line">            case 0:</span><br><span class="line">                re &#x3D; BB[7] + re;</span><br><span class="line">                break;</span><br><span class="line">            case 4:</span><br><span class="line">                if (!new RegExp(&quot;0&#123;4&#125;&#x2F;&#x2F;d&#123;&quot; + (a[0].length - i - 1) + &quot;&#125;$&quot;)</span><br><span class="line">                    .test(a[0]))</span><br><span class="line">                    re &#x3D; BB[4] + re;</span><br><span class="line">                break;</span><br><span class="line">            case 8:</span><br><span class="line">                re &#x3D; BB[5] + re;</span><br><span class="line">                BB[7] &#x3D; BB[5];</span><br><span class="line">                k &#x3D; 0;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        if (k % 4 &#x3D;&#x3D; 2 &amp;&amp; a[0].charAt(i + 2) !&#x3D; 0 &amp;&amp; a[0].charAt(i + 1) &#x3D;&#x3D; 0)</span><br><span class="line">            re &#x3D; AA[0] + re;</span><br><span class="line">        if (a[0].charAt(i) !&#x3D; 0)</span><br><span class="line">            re &#x3D; AA[a[0].charAt(i)] + BB[k % 4] + re;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (a.length &gt; 1) &#x2F;&#x2F; 加上小数部分(如果有小数部分)</span><br><span class="line">    &#123;</span><br><span class="line">        re +&#x3D; BB[6];</span><br><span class="line">        for (var i &#x3D; 0; i &lt; a[1].length; i++)</span><br><span class="line">            re +&#x3D; AA[a[1].charAt(i)];</span><br><span class="line">    &#125;</span><br><span class="line">    if (re &#x3D;&#x3D; &#39;一十&#39;)</span><br><span class="line">        re &#x3D; &quot;十&quot;;</span><br><span class="line">    if (re.match(&#x2F;^一&#x2F;) &amp;&amp; re.length &#x3D;&#x3D; 3)</span><br><span class="line">        re &#x3D; re.replace(&quot;一&quot;, &quot;&quot;);</span><br><span class="line">    return re;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>41.将数字转换为大写金额</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line">export const changeToChinese &#x3D; (Num) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F;判断如果传递进来的不是字符的话转换为字符</span><br><span class="line">    if (typeof Num &#x3D;&#x3D; &quot;number&quot;) &#123;</span><br><span class="line">        Num &#x3D; new String(Num);</span><br><span class="line">    &#125;;</span><br><span class="line">    Num &#x3D; Num.replace(&#x2F;,&#x2F;g, &quot;&quot;) &#x2F;&#x2F;替换tomoney()中的“,”</span><br><span class="line">    Num &#x3D; Num.replace(&#x2F; &#x2F;g, &quot;&quot;) &#x2F;&#x2F;替换tomoney()中的空格</span><br><span class="line">    Num &#x3D; Num.replace(&#x2F;￥&#x2F;g, &quot;&quot;) &#x2F;&#x2F;替换掉可能出现的￥字符</span><br><span class="line">    if (isNaN(Num)) &#123; &#x2F;&#x2F;验证输入的字符是否为数字</span><br><span class="line">        &#x2F;&#x2F;alert(&quot;请检查小写金额是否正确&quot;);</span><br><span class="line">        return &quot;&quot;;</span><br><span class="line">    &#125;;</span><br><span class="line">    &#x2F;&#x2F;字符处理完毕后开始转换，采用前后两部分分别转换</span><br><span class="line">    var part &#x3D; String(Num).split(&quot;.&quot;);</span><br><span class="line">    var newchar &#x3D; &quot;&quot;;</span><br><span class="line">    &#x2F;&#x2F;小数点前进行转化</span><br><span class="line">    for (var i &#x3D; part[0].length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">        if (part[0].length &gt; 10) &#123;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">            &#x2F;&#x2F;若数量超过拾亿单位，提示</span><br><span class="line">        &#125;</span><br><span class="line">        var tmpnewchar &#x3D; &quot;&quot;</span><br><span class="line">        var perchar &#x3D; part[0].charAt(i);</span><br><span class="line">        switch (perchar) &#123;</span><br><span class="line">            case &quot;0&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;零&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;1&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;壹&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;2&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;贰&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;3&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;叁&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;4&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;肆&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;5&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;伍&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;6&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;陆&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;7&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;柒&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;8&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;捌&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;9&quot;:</span><br><span class="line">                tmpnewchar &#x3D; &quot;玖&quot; + tmpnewchar;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        switch (part[0].length - i - 1) &#123;</span><br><span class="line">            case 0:</span><br><span class="line">                tmpnewchar &#x3D; tmpnewchar + &quot;元&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 1:</span><br><span class="line">                if (perchar !&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;拾&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 2:</span><br><span class="line">                if (perchar !&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;佰&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 3:</span><br><span class="line">                if (perchar !&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;仟&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 4:</span><br><span class="line">                tmpnewchar &#x3D; tmpnewchar + &quot;万&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 5:</span><br><span class="line">                if (perchar !&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;拾&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 6:</span><br><span class="line">                if (perchar !&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;佰&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 7:</span><br><span class="line">                if (perchar !&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;仟&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 8:</span><br><span class="line">                tmpnewchar &#x3D; tmpnewchar + &quot;亿&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 9:</span><br><span class="line">                tmpnewchar &#x3D; tmpnewchar + &quot;拾&quot;;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        var newchar &#x3D; tmpnewchar + newchar;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;小数点之后进行转化</span><br><span class="line">    if (Num.indexOf(&quot;.&quot;) !&#x3D; -1) &#123;</span><br><span class="line">        if (part[1].length &gt; 2) &#123;</span><br><span class="line">            &#x2F;&#x2F; alert(&quot;小数点之后只能保留两位,系统将自动截断&quot;);</span><br><span class="line">            part[1] &#x3D; part[1].substr(0, 2)</span><br><span class="line">        &#125;</span><br><span class="line">        for (i &#x3D; 0; i &lt; part[1].length; i++) &#123;</span><br><span class="line">            tmpnewchar &#x3D; &quot;&quot;</span><br><span class="line">            perchar &#x3D; part[1].charAt(i)</span><br><span class="line">            switch (perchar) &#123;</span><br><span class="line">                case &quot;0&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;零&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;1&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;壹&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;2&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;贰&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;3&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;叁&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;4&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;肆&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;5&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;伍&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;6&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;陆&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;7&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;柒&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;8&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;捌&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;9&quot;:</span><br><span class="line">                    tmpnewchar &#x3D; &quot;玖&quot; + tmpnewchar;</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if (i &#x3D;&#x3D; 0) tmpnewchar &#x3D; tmpnewchar + &quot;角&quot;;</span><br><span class="line">            if (i &#x3D;&#x3D; 1) tmpnewchar &#x3D; tmpnewchar + &quot;分&quot;;</span><br><span class="line">            newchar &#x3D; newchar + tmpnewchar;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;替换所有无用汉字</span><br><span class="line">    while (newchar.search(&quot;零零&quot;) !&#x3D; -1)</span><br><span class="line">        newchar &#x3D; newchar.replace(&quot;零零&quot;, &quot;零&quot;);</span><br><span class="line">    newchar &#x3D; newchar.replace(&quot;零亿&quot;, &quot;亿&quot;);</span><br><span class="line">    newchar &#x3D; newchar.replace(&quot;亿万&quot;, &quot;亿&quot;);</span><br><span class="line">    newchar &#x3D; newchar.replace(&quot;零万&quot;, &quot;万&quot;);</span><br><span class="line">    newchar &#x3D; newchar.replace(&quot;零元&quot;, &quot;元&quot;);</span><br><span class="line">    newchar &#x3D; newchar.replace(&quot;零角&quot;, &quot;&quot;);</span><br><span class="line">    newchar &#x3D; newchar.replace(&quot;零分&quot;, &quot;&quot;);</span><br><span class="line">    if (newchar.charAt(newchar.length - 1) &#x3D;&#x3D; &quot;元&quot;) &#123;</span><br><span class="line">        newchar &#x3D; newchar + &quot;整&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    return newchar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>42.判断一个元素是否在数组中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const contains &#x3D; (arr, val) &#x3D;&gt; &#123;</span><br><span class="line">    return arr.indexOf(val) &gt; -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>43.数组排序，<code>{type} 1：从小到大 2：从大到小 3：随机</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export const sort &#x3D; (arr, type &#x3D; 1) &#x3D;&gt; &#123;</span><br><span class="line">    return arr.sort((a, b) &#x3D;&gt; &#123;</span><br><span class="line">        switch (type) &#123;</span><br><span class="line">            case 1:</span><br><span class="line">                return a - b;</span><br><span class="line">            case 2:</span><br><span class="line">                return b - a;</span><br><span class="line">            case 3:</span><br><span class="line">                return Math.random() - 0.5;</span><br><span class="line">            default:</span><br><span class="line">                return arr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>44.去重</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export const unique &#x3D; (arr) &#x3D;&gt; &#123;</span><br><span class="line">    if (Array.hasOwnProperty(&#39;from&#39;)) &#123;</span><br><span class="line">        return Array.from(new Set(arr));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var n &#x3D; &#123;&#125;, r &#x3D; [];</span><br><span class="line">        for (var i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">            if (!n[arr[i]]) &#123;</span><br><span class="line">                n[arr[i]] &#x3D; true;</span><br><span class="line">                r.push(arr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>45.求两个集合的并集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export const union &#x3D; (a, b) &#x3D;&gt; &#123;</span><br><span class="line">    var newArr &#x3D; a.concat(b);</span><br><span class="line">    return this.unique(newArr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>46.求两个集合的交集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export const intersect &#x3D; (a, b) &#x3D;&gt; &#123;</span><br><span class="line">    var _this &#x3D; this;</span><br><span class="line">    a &#x3D; this.unique(a);</span><br><span class="line">    return this.map(a, function (o) &#123;</span><br><span class="line">        return _this.contains(b, o) ? o : null;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>47.删除其中一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export const remove &#x3D; (arr, ele) &#x3D;&gt; &#123;</span><br><span class="line">    var index &#x3D; arr.indexOf(ele);</span><br><span class="line">    if (index &gt; -1) &#123;</span><br><span class="line">        arr.splice(index, 1);</span><br><span class="line">    &#125;</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>48.将类数组转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">export const formArray &#x3D; (ary) &#x3D;&gt; &#123;</span><br><span class="line">    var arr &#x3D; [];</span><br><span class="line">    if (Array.isArray(ary)) &#123;</span><br><span class="line">        arr &#x3D; ary;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        arr &#x3D; Array.prototype.slice.call(ary);</span><br><span class="line">    &#125;;</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>49.最大值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const max &#x3D; (arr) &#x3D;&gt; &#123;</span><br><span class="line">    return Math.max.apply(null, arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>50.最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const min &#x3D; (arr) &#x3D;&gt; &#123;</span><br><span class="line">    return Math.min.apply(null, arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>51.求和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export const sum &#x3D; (arr) &#x3D;&gt; &#123;</span><br><span class="line">    return arr.reduce((pre, cur) &#x3D;&gt; &#123;</span><br><span class="line">        return pre + cur</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>52.平均值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const average &#x3D; (arr) &#x3D;&gt; &#123;</span><br><span class="line">    return this.sum(arr) &#x2F; arr.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>53.去除空格,<code>type: 1-所有空格 2-前后空格 3-前空格 4-后空格</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const trim &#x3D; (str, type) &#x3D;&gt; &#123;</span><br><span class="line">    type &#x3D; type || 1</span><br><span class="line">    switch (type) &#123;</span><br><span class="line">        case 1:</span><br><span class="line">            return str.replace(&#x2F;\s+&#x2F;g, &quot;&quot;);</span><br><span class="line">        case 2:</span><br><span class="line">            return str.replace(&#x2F;(^\s*)|(\s*$)&#x2F;g, &quot;&quot;);</span><br><span class="line">        case 3:</span><br><span class="line">            return str.replace(&#x2F;(^\s*)&#x2F;g, &quot;&quot;);</span><br><span class="line">        case 4:</span><br><span class="line">            return str.replace(&#x2F;(\s*$)&#x2F;g, &quot;&quot;);</span><br><span class="line">        default:</span><br><span class="line">            return str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>54.字符转换，<code>type: 1:首字母大写 2：首字母小写 3：大小写转换 4：全部大写 5：全部小写</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">export const changeCase &#x3D; (str, type) &#x3D;&gt; &#123;</span><br><span class="line">    type &#x3D; type || 4</span><br><span class="line">    switch (type) &#123;</span><br><span class="line">        case 1:</span><br><span class="line">            return str.replace(&#x2F;\b\w+\b&#x2F;g, function (word) &#123;</span><br><span class="line">                return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();</span><br><span class="line"></span><br><span class="line">            &#125;);</span><br><span class="line">        case 2:</span><br><span class="line">            return str.replace(&#x2F;\b\w+\b&#x2F;g, function (word) &#123;</span><br><span class="line">                return word.substring(0, 1).toLowerCase() + word.substring(1).toUpperCase();</span><br><span class="line">            &#125;);</span><br><span class="line">        case 3:</span><br><span class="line">            return str.split(&#39;&#39;).map(function (word) &#123;</span><br><span class="line">                if (&#x2F;[a-z]&#x2F;.test(word)) &#123;</span><br><span class="line">                    return word.toUpperCase();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    return word.toLowerCase()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).join(&#39;&#39;)</span><br><span class="line">        case 4:</span><br><span class="line">            return str.toUpperCase();</span><br><span class="line">        case 5:</span><br><span class="line">            return str.toLowerCase();</span><br><span class="line">        default:</span><br><span class="line">            return str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>55.检测密码强度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">export const checkPwd &#x3D; (str) &#x3D;&gt; &#123;</span><br><span class="line">    var Lv &#x3D; 0;</span><br><span class="line">    if (str.length &lt; 6) &#123;</span><br><span class="line">        return Lv</span><br><span class="line">    &#125;</span><br><span class="line">    if (&#x2F;[0-9]&#x2F;.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    if (&#x2F;[a-z]&#x2F;.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    if (&#x2F;[A-Z]&#x2F;.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    if (&#x2F;[\.|-|_]&#x2F;.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    return Lv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>56.函数节流器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export const debouncer &#x3D; (fn, time, interval &#x3D; 200) &#x3D;&gt; &#123;</span><br><span class="line">    if (time - (window.debounceTimestamp || 0) &gt; interval) &#123;</span><br><span class="line">        fn &amp;&amp; fn();</span><br><span class="line">        window.debounceTimestamp &#x3D; time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>57.在字符串中插入新字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export const insertStr &#x3D; (soure, index, newStr) &#x3D;&gt; &#123;</span><br><span class="line">    var str &#x3D; soure.slice(0, index) + newStr + soure.slice(index);</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>58.判断两个对象是否键值相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export const isObjectEqual &#x3D; (a, b) &#x3D;&gt; &#123;</span><br><span class="line">    var aProps &#x3D; Object.getOwnPropertyNames(a);</span><br><span class="line">    var bProps &#x3D; Object.getOwnPropertyNames(b);</span><br><span class="line"></span><br><span class="line">    if (aProps.length !&#x3D;&#x3D; bProps.length) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (var i &#x3D; 0; i &lt; aProps.length; i++) &#123;</span><br><span class="line">        var propName &#x3D; aProps[i];</span><br><span class="line"></span><br><span class="line">        if (a[propName] !&#x3D;&#x3D; b[propName]) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>59.16进制颜色转RGBRGBA字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export const colorToRGB &#x3D; (val, opa) &#x3D;&gt; &#123;</span><br><span class="line"></span><br><span class="line">    var pattern &#x3D; &#x2F;^(#?)[a-fA-F0-9]&#123;6&#125;$&#x2F;; &#x2F;&#x2F;16进制颜色值校验规则</span><br><span class="line">    var isOpa &#x3D; typeof opa &#x3D;&#x3D; &#39;number&#39;; &#x2F;&#x2F;判断是否有设置不透明度</span><br><span class="line"></span><br><span class="line">    if (!pattern.test(val)) &#123; &#x2F;&#x2F;如果值不符合规则返回空字符</span><br><span class="line">        return &#39;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var v &#x3D; val.replace(&#x2F;#&#x2F;, &#39;&#39;); &#x2F;&#x2F;如果有#号先去除#号</span><br><span class="line">    var rgbArr &#x3D; [];</span><br><span class="line">    var rgbStr &#x3D; &#39;&#39;;</span><br><span class="line"></span><br><span class="line">    for (var i &#x3D; 0; i &lt; 3; i++) &#123;</span><br><span class="line">        var item &#x3D; v.substring(i * 2, i * 2 + 2);</span><br><span class="line">        var num &#x3D; parseInt(item, 16);</span><br><span class="line">        rgbArr.push(num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rgbStr &#x3D; rgbArr.join();</span><br><span class="line">    rgbStr &#x3D; &#39;rgb&#39; + (isOpa ? &#39;a&#39; : &#39;&#39;) + &#39;(&#39; + rgbStr + (isOpa ? &#39;,&#39; + opa : &#39;&#39;) + &#39;)&#39;;</span><br><span class="line">    return rgbStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>60.追加url参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export const appendQuery &#x3D; (url, key, value) &#x3D;&gt; &#123;</span><br><span class="line">    var options &#x3D; key;</span><br><span class="line">    if (typeof options &#x3D;&#x3D; &#39;string&#39;) &#123;</span><br><span class="line">        options &#x3D; &#123;&#125;;</span><br><span class="line">        options[key] &#x3D; value;</span><br><span class="line">    &#125;</span><br><span class="line">    options &#x3D; $.param(options);</span><br><span class="line">    if (url.includes(&#39;?&#39;)) &#123;</span><br><span class="line">        url +&#x3D; &#39;&amp;&#39; + options</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        url +&#x3D; &#39;?&#39; + options</span><br><span class="line">    &#125;</span><br><span class="line">    return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/05/26/basic/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88/" title="前端工具方法集合" target="_blank" rel="external">http://yoursite.com/2020/05/26/basic/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/05/31/weeks/2020/202005-4/" title="前端周刊【202005-4】"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/05/26/basic/nodejs/KOA%E7%AC%94%E8%AE%B0/" title="KOA笔记"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

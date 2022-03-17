@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>VUE3核心源码 | Marong&#39;s Note</title>
+  <meta name="description" content="一、vue-next 源码结构目录lerna npm i lerna 管理包的工具 二、手写reactivity响应式模块 @vue&#x2F;reactivity响应式模块 reactive把对象变为响应式对象 effect 副作用 effect里的变量发生变化时默认重新执行 computed 计算属性 ref  使用模块 use reactivity1234567891011&#x2F;&#x2F; import &amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE3核心源码">
+<meta property="og:url" content="http://yoursite.com/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="一、vue-next 源码结构目录lerna npm i lerna 管理包的工具 二、手写reactivity响应式模块 @vue&#x2F;reactivity响应式模块 reactive把对象变为响应式对象 effect 副作用 effect里的变量发生变化时默认重新执行 computed 计算属性 ref  使用模块 use reactivity1234567891011&#x2F;&#x2F; import &amp;#12">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-15T06:42:04.000Z">
+<meta property="article:modified_time" content="2022-03-17T14:41:15.682Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="vue3">
+<meta property="article:tag" content="diff">
+<meta property="article:tag" content="proxy">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMDB/" rel="tag">CMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E4%B8%96%E7%95%8C/" rel="tag">CSS世界</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSX/" rel="tag">JSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/" rel="tag">K8S</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LoianeGroner/" rel="tag">LoianeGroner</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UED/" rel="tag">UED</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UX/" rel="tag">UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">WEB前端开发最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbs/" rel="tag">bbs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/" rel="tag">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diff/" rel="tag">diff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/egg/" rel="tag">egg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/" rel="tag">forum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gzip/" rel="tag">gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/" rel="tag">ie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qiankun/" rel="tag">qiankun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react-hooks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-redux/" rel="tag">react-redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactnative/" rel="tag">reactnative</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rollup/" rel="tag">rollup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-spa/" rel="tag">single-spa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snabbdom/" rel="tag">snabbdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/treeshaking/" rel="tag">treeshaking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vdom/" rel="tag">vdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualDom/" rel="tag">virtualDom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vite/" rel="tag">vite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/" rel="tag">webgl</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" rel="tag">你不知道的</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" rel="tag">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" rel="tag">大前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" rel="tag">张鑫旭</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag">敏捷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" rel="tag">数据平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" rel="tag">深入理解ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="tag">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" rel="tag">编写可维护的JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" rel="tag">节流防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A6%83%E8%B6%85/" rel="tag">覃超</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E7%AB%AF/" rel="tag">跨端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" rel="tag">阮一峰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" rel="tag">高性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%88/" rel="tag">高效</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CICD/" style="font-size: 13px;">CICD</a> <a href="/tags/CMDB/" style="font-size: 13px;">CMDB</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS%E4%B8%96%E7%95%8C/" style="font-size: 13px;">CSS世界</a> <a href="/tags/ES/" style="font-size: 13.2px;">ES</a> <a href="/tags/Flutter/" style="font-size: 13px;">Flutter</a> <a href="/tags/HTTP/" style="font-size: 13.1px;">HTTP</a> <a href="/tags/JAVA/" style="font-size: 13px;">JAVA</a> <a href="/tags/JSX/" style="font-size: 13px;">JSX</a> <a href="/tags/K8S/" style="font-size: 13px;">K8S</a> <a href="/tags/LoianeGroner/" style="font-size: 13px;">LoianeGroner</a> <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.1px;">TCP</a> <a href="/tags/UED/" style="font-size: 13px;">UED</a> <a href="/tags/UI/" style="font-size: 13px;">UI</a> <a href="/tags/UX/" style="font-size: 13px;">UX</a> <a href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">WEB前端开发最佳实践</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/bbs/" style="font-size: 13px;">bbs</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/css/" style="font-size: 13.1px;">css</a> <a href="/tags/curl/" style="font-size: 13px;">curl</a> <a href="/tags/diff/" style="font-size: 13px;">diff</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/egg/" style="font-size: 13px;">egg</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/forum/" style="font-size: 13px;">forum</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/go/" style="font-size: 13px;">go</a> <a href="/tags/gzip/" style="font-size: 13px;">gzip</a> <a href="/tags/http/" style="font-size: 13.1px;">http</a> <a href="/tags/https/" style="font-size: 13.1px;">https</a> <a href="/tags/ie/" style="font-size: 13px;">ie</a> <a href="/tags/java/" style="font-size: 13.5px;">java</a> <a href="/tags/javascript/" style="font-size: 13.8px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13.1px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13.1px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.3px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/proxy/" style="font-size: 13px;">proxy</a> <a href="/tags/qiankun/" style="font-size: 13px;">qiankun</a> <a href="/tags/react/" style="font-size: 13.6px;">react</a> <a href="/tags/react-hooks/" style="font-size: 13px;">react-hooks</a> <a href="/tags/react-redux/" style="font-size: 13px;">react-redux</a> <a href="/tags/reactnative/" style="font-size: 13.1px;">reactnative</a> <a href="/tags/redux/" style="font-size: 13px;">redux</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/rollup/" style="font-size: 13px;">rollup</a> <a href="/tags/rust/" style="font-size: 13.1px;">rust</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/single-spa/" style="font-size: 13px;">single-spa</a> <a href="/tags/snabbdom/" style="font-size: 13px;">snabbdom</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/treeshaking/" style="font-size: 13px;">treeshaking</a> <a href="/tags/typescript/" style="font-size: 13.7px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vdom/" style="font-size: 13px;">vdom</a> <a href="/tags/virtualDom/" style="font-size: 13px;">virtualDom</a> <a href="/tags/vite/" style="font-size: 13px;">vite</a> <a href="/tags/vue/" style="font-size: 13.3px;">vue</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/vue3/" style="font-size: 13.1px;">vue3</a> <a href="/tags/webgl/" style="font-size: 13.2px;">webgl</a> <a href="/tags/webpack/" style="font-size: 13.3px;">webpack</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/xlsx/" style="font-size: 13px;">xlsx</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 13.9px;">书籍</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.1px;">优化</a> <a href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" style="font-size: 13px;">你不知道的</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">修饰符</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13px;">分布式</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 13px;">响应式</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">基础</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">大前端</a> <a href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" style="font-size: 13px;">张鑫旭</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 13.3px;">微前端</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.1px;">性能</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 13px;">抓包</a> <a href="/tags/%E6%95%8F%E6%8D%B7/" style="font-size: 13px;">敏捷</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" style="font-size: 13px;">数据平台</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">架构</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" style="font-size: 13px;">深入理解ES6</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 13px;">移动端</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.3px;">算法</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 13px;">组件</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a> <a href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" style="font-size: 13px;">编写可维护的JS</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">自动化测试</a> <a href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" style="font-size: 13px;">节流防抖</a> <a href="/tags/%E8%A6%83%E8%B6%85/" style="font-size: 13px;">覃超</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">设计</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.2px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 13px;">跨端</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">运维</a> <a href="/tags/%E8%BF%9B%E9%98%B6/" style="font-size: 13px;">进阶</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 13.1px;">部署</a> <a href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" style="font-size: 13px;">阮一峰</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">领域模型</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 13px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 13.1px;">高效</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/30/weeks/2022/2022-03/" class="title">前端月刊【2022-03】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-30T01:00:00.000Z" itemprop="datePublished">2022-03-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/" class="title">构建高性能WEB站点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-10T02:00:00.000Z" itemprop="datePublished">2022-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/28/weeks/2022/2022-02/" class="title">前端月刊【2022-02】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-28T01:00:00.000Z" itemprop="datePublished">2022-02-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/01/30/weeks/2022/2022-01/" class="title">前端月刊【2022-01】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-01-30T01:00:00.000Z" itemprop="datePublished">2022-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/30/weeks/2021/2021-12/" class="title">前端月刊【2021-12】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-30T01:00:00.000Z" itemprop="datePublished">2021-12-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-book/video/202008VUE3核心源码" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VUE3核心源码
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/" class="article-date">
+	  <time datetime="2020-08-15T06:42:04.000Z" itemprop="datePublished">2020-08-15</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/diff/" rel="tag">diff</a>, <a class="article-tag-link" href="/tags/proxy/" rel="tag">proxy</a>, <a class="article-tag-link" href="/tags/vue3/" rel="tag">vue3</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="一、vue-next-源码"><a href="#一、vue-next-源码" class="headerlink" title="一、vue-next 源码"></a>一、vue-next 源码</h1><h4 id="结构目录"><a href="#结构目录" class="headerlink" title="结构目录"></a>结构目录</h4><p>lerna</p>
+<p>npm i lerna</p>
+<p>管理包的工具</p>
+<h1 id="二、手写reactivity响应式模块"><a href="#二、手写reactivity响应式模块" class="headerlink" title="二、手写reactivity响应式模块"></a>二、手写reactivity响应式模块</h1><ul>
+<li>@vue/reactivity响应式模块</li>
+<li>reactive把对象变为响应式对象</li>
+<li>effect 副作用 effect里的变量发生变化时默认重新执行</li>
+<li>computed 计算属性</li>
+<li>ref</li>
+</ul>
+<h4 id="使用模块-use-reactivity"><a href="#使用模块-use-reactivity" class="headerlink" title="使用模块 use reactivity"></a>使用模块 use reactivity</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import &#123; reactive, effect, computed, ref&#125; from '@vue/reactivity'</span></span><br><span class="line"><span class="comment">// 手写</span></span><br><span class="line"><span class="keyword">import</span> &#123; reactive, effect, computed, ref&#125; <span class="keyword">from</span> <span class="string">'./index.js'</span></span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123;<span class="attr">name</span>:<span class="string">'zf'</span>,<span class="attr">age</span>:<span class="string">'30'</span>&#125;);</span><br><span class="line">effect(<span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="comment">//默认执行一次 改变后又执行一次</span></span><br><span class="line">  <span class="built_in">console</span>.log(state.name);</span><br><span class="line">&#125;)</span><br><span class="line">state.name = <span class="string">'jw'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// watchEffect 基于effect （批量更新的策略）</span></span><br><span class="line"><span class="comment">// vue3兼容vue2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="手写reactive-js"><a href="#手写reactive-js" class="headerlink" title="手写reactive.js"></a>手写reactive.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">reactive</span>(<span class="params">target</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// 创建响应式对象 目标对象不一定是数组 或者 对象   </span></span><br><span class="line">  <span class="keyword">return</span> createReactiveObject(target,&#123;</span><br><span class="line">    <span class="keyword">get</span>(target,key,receiver)&#123; <span class="comment">// proxy + reflect  ES6 API</span></span><br><span class="line">      <span class="keyword">const</span> res = <span class="built_in">Reflect</span>.get(target,key,receiver);<span class="comment">// === target[key]</span></span><br><span class="line">      track(target,<span class="string">'get'</span>);</span><br><span class="line">      <span class="keyword">if</span>(isObject(res))&#123;</span><br><span class="line">        <span class="keyword">return</span> reactive(res);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>()&#123;</span><br><span class="line">      <span class="comment">// 需要判断修改的属性还是增加的属性  如果是原来的值则不做任何操作</span></span><br><span class="line">      <span class="keyword">const</span> hadKey = <span class="built_in">Object</span>.prototype.hasOwnPrototype.call(target,key);</span><br><span class="line">      <span class="keyword">const</span> oldValue = target[key];</span><br><span class="line">      <span class="keyword">const</span> res = <span class="built_in">Reflect</span>.set(target,key,receiver);<span class="comment">// === target[key]</span></span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span>(!hadKey)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'新增操作'</span>);</span><br><span class="line">        trigger(target,<span class="string">'add'</span>,key,value); <span class="comment">//触发依赖新增</span></span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(value !== oldValue)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'修改操作'</span>); </span><br><span class="line">        trigger(target,<span class="string">'set'</span>,key,value); <span class="comment">//触发依赖更新</span></span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> res;      </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 除了代理这些方法之外 可能还有很多逻辑</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReactiveObject</span>(<span class="params">target,baseHandler</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!isObject(target))&#123;</span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//是对象 根据当前对象进行代理</span></span><br><span class="line">  <span class="keyword">const</span> observed = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target,baseHanlder);</span><br><span class="line">  <span class="keyword">return</span> observed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="computed-js"><a href="#computed-js" class="headerlink" title="computed.js"></a>computed.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">computed</span>(<span class="params">getterOrOptions</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> getter;</span><br><span class="line">  <span class="keyword">let</span> setter;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(isFunction(getterOrOptions))&#123;</span><br><span class="line">    getter = getterOrOptions</span><br><span class="line">    setter = <span class="function"><span class="params">()</span> =&gt;</span>&#123;&#125;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    getter = getterOrOptions.get;</span><br><span class="line">    setter = getterOrOptions.get;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> dirty = <span class="literal">true</span>; <span class="comment">//默认第一次取值执行getter</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> computed;</span><br><span class="line">    <span class="comment">// 计算属性也是一个effect</span></span><br><span class="line">    <span class="keyword">let</span> value;</span><br><span class="line">    <span class="keyword">let</span> runner = effect(getter,&#123;</span><br><span class="line">      lazy:<span class="literal">true</span>,<span class="comment">// 懒加载</span></span><br><span class="line">      computed:<span class="literal">true</span>, <span class="comment">//仅仅是个标识是个计算属性而已</span></span><br><span class="line">      scheduler:<span class="function"><span class="params">()</span> =&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!dirty) &#123;</span><br><span class="line">          dirty = <span class="literal">true</span>; <span class="comment">// 等会就算属性依赖的值发生变化后 就会执行这个scheduler</span></span><br><span class="line">          trigger(computed,TriggerOpTypes.SET,<span class="string">'value'</span>)</span><br><span class="line">        &#125;        </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">let</span> value;</span><br><span class="line">    computed = &#123;</span><br><span class="line">      <span class="keyword">get</span> value()&#123;</span><br><span class="line">        <span class="keyword">if</span>(dirty) &#123; <span class="comment">//多次取值不会重新执行effect</span></span><br><span class="line">          value = runner();</span><br><span class="line">          dirty = <span class="literal">false</span>;</span><br><span class="line">          track(computed,TrackOpTypes.GET,<span class="string">'value'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="keyword">set</span> value(newValue)&#123;</span><br><span class="line">        setter(newValue);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> computed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="ref-js"><a href="#ref-js" class="headerlink" title="ref.js"></a>ref.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">ref</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="effect-js"><a href="#effect-js" class="headerlink" title="effect.js"></a>effect.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">effect</span>(<span class="params">fn,options = &#123;&#125;</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> effect = createReactiveEffect(fn,options);</span><br><span class="line">  <span class="keyword">if</span>(!optinos.lazy)&#123;</span><br><span class="line">    effect(); <span class="comment">//默认就要执行</span></span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">return</span> effect;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建响应式的方法</span></span><br><span class="line"><span class="keyword">let</span> uid = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> activeEffect;</span><br><span class="line"><span class="keyword">const</span> effectStack =[]; <span class="comment">// 栈结构</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReactiveEffect</span>(<span class="params">fn,options</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">const</span> effect = <span class="function"><span class="keyword">function</span> <span class="title">reactiveEffect</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!effectStack.includes(effect))&#123; <span class="comment">// 避免死循环</span></span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        effectStack.push(effect);</span><br><span class="line">        activeEffect = effect;<span class="comment">// 将effect放到activeEffect</span></span><br><span class="line">        <span class="keyword">return</span> fn();      </span><br><span class="line">      &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">        effectStack.pop();</span><br><span class="line">        activeEffect = effectStack[effectStack.length - <span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  effect.options = options;</span><br><span class="line">  effect.id = uid++;</span><br><span class="line">  effect.deps = [];</span><br><span class="line">  <span class="keyword">return</span> effect;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> targetMap = <span class="keyword">new</span> <span class="built_in">WeakMap</span>(); <span class="comment">// 用法和MAP一致 但弱引用 不会导致内存泄露</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">track</span>(<span class="params">target,type,key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(activeEffect === <span class="literal">undefined</span>)&#123;</span><br><span class="line">     <span class="keyword">return</span>; <span class="comment">//说明 取值的属性不依赖于effect</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> depsMap = targetMap.get(target);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(!depsMap)&#123;</span><br><span class="line">    targetMap.set(target,(depsMap = <span class="keyword">new</span> <span class="built_in">Map</span>()))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> dep = depsMap.get(key)</span><br><span class="line">  <span class="keyword">if</span>(!dep)&#123;</span><br><span class="line">    depsMap.set(key,(dep = <span class="keyword">new</span> <span class="built_in">Set</span>()))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!dep.has(activeEffect))&#123;</span><br><span class="line">    dep.add(activeEffect)</span><br><span class="line">    acctiveEffect.deps.push(dep)    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params">target,type,key,value,oldValue</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> depsMap = targetMap.get(target); <span class="comment">// 获取当前对应的map</span></span><br><span class="line">    </span><br><span class="line">  <span class="keyword">if</span>(!depsMap)&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 计算属性要优先于effect执行</span></span><br><span class="line">  <span class="keyword">const</span> effects = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">  <span class="keyword">const</span> computedRunners = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> add =<span class="function">(<span class="params">effectsToAdd</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(effectsToAdd)&#123;</span><br><span class="line">      effectsToAdd.forEach(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(res.options.computed)&#123;</span><br><span class="line">          computedRuners.push(effect);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          effects.add();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//const run = (effects)&#123;</span></span><br><span class="line">  <span class="comment">//  if(effects) effects.forEach(res =&gt; effect())</span></span><br><span class="line">  <span class="comment">//&#125;</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(key !== <span class="literal">null</span>)&#123;</span><br><span class="line">    add(depsMap.get(key))</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(key === <span class="string">'add'</span>)&#123;</span><br><span class="line">    <span class="comment">// 数组新增属性，会触发length 对应的依赖 在取值的时候回对length属性进行依赖收集</span></span><br><span class="line">    add(depsMap.get(<span class="built_in">Array</span>.isArray(target)?<span class="string">'length'</span>:<span class="string">''</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> run = <span class="function">(<span class="params">effect</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (effect.options.scheduler) &#123;</span><br><span class="line">    	effect.options.scheduler();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    	effect();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  computedRunners.forEach(run);</span><br><span class="line">  effects.forEach(run);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="index-js-整合以上模块"><a href="#index-js-整合以上模块" class="headerlink" title="index.js  整合以上模块"></a>index.js  整合以上模块</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123;computed&#125; <span class="keyword">from</span> <span class="string">'./computed'</span></span><br><span class="line"><span class="keyword">export</span> &#123;effect&#125; <span class="keyword">from</span> <span class="string">'./effect'</span></span><br><span class="line"><span class="keyword">export</span> &#123;ref&#125; <span class="keyword">from</span> <span class="string">'./ref'</span></span><br><span class="line"><span class="keyword">export</span> &#123;reactive&#125; <span class="keyword">from</span> <span class="string">'./reactive'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三、手写createApp"><a href="#三、手写createApp" class="headerlink" title="三、手写createApp()"></a>三、手写createApp()</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import &#123; createApp &#125; from 'vue';  // 高阶函数的使用 内部会自动传入dom操作的方法</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> &#123; createRenderer, createApp,nextTick &#125; <span class="keyword">from</span> <span class="string">'@vue/runtime-dom'</span>; <span class="comment">// 拿到创建渲染器的方法</span></span><br><span class="line"><span class="comment">// 原生vue3 中可以直接创建应用 ， 我希望底层变成小程序的</span></span><br><span class="line"><span class="comment">// vue3 的底层还是操作dom元素  setData()</span></span><br><span class="line"><span class="comment">// createApp(App).mount('#app')</span></span><br><span class="line"><span class="keyword">let</span> canvas;</span><br><span class="line"><span class="keyword">let</span> ctx;</span><br><span class="line"><span class="keyword">const</span> d2a = <span class="function">(<span class="params">n</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n * <span class="built_in">Math</span>.PI / <span class="number">180</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> drawCircle = <span class="function">(<span class="params">start,end,color,cx,cy,r</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// Math.cos  sin 他都是基于弧度来计算的</span></span><br><span class="line">    <span class="keyword">let</span> x = cx + <span class="built_in">Math</span>.cos(d2a(start)) * r; <span class="comment">// 已知 角度 和 斜边 求临边 cos</span></span><br><span class="line">    <span class="comment">// 将角度转化成弧度</span></span><br><span class="line">    <span class="keyword">let</span> y = cy + <span class="built_in">Math</span>.sin(d2a(start)) * r; <span class="comment">// 已知 角度 和 斜边 求对标 sin</span></span><br><span class="line">    ctx.beginPath(); <span class="comment">// 固定用法</span></span><br><span class="line">    ctx.moveTo(cx,cy);</span><br><span class="line">    ctx.lineTo(x,y);</span><br><span class="line">    ctx.arc(cx,cy,r,d2a(start),d2a(end));</span><br><span class="line">    ctx.fillStyle = color;</span><br><span class="line">    ctx.fill();</span><br><span class="line">    ctx.stroke(); <span class="comment">// 线条方式展示</span></span><br><span class="line">    ctx.closePath();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> draw = <span class="function">(<span class="params">el,noClear</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 要识别哪些我能渲染</span></span><br><span class="line">    <span class="comment">// div 我就不识别了 没有意义</span></span><br><span class="line">    <span class="keyword">if</span>(!noClear)&#123;</span><br><span class="line">        ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (el.tag == <span class="string">'circle'</span>) &#123;</span><br><span class="line">        <span class="comment">// 这是我要画个圆</span></span><br><span class="line">        <span class="keyword">let</span> &#123; data, x, y, r &#125; = el;</span><br><span class="line">        <span class="comment">// console.log(data, x, y, r); // 用canvas 来画饼图</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 饼图 总共数量 每个占比</span></span><br><span class="line">        <span class="keyword">let</span> total = data.reduce(<span class="function">(<span class="params">memo, current</span>) =&gt;</span> memo + current.count, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 一共360°  每个占多少°</span></span><br><span class="line">        <span class="keyword">let</span> start = <span class="number">0</span>,</span><br><span class="line">            end = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        data.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            end += item.count / total * <span class="number">360</span>;</span><br><span class="line">            drawCircle(start, end, item.color, x, y, r);</span><br><span class="line">            start = end; <span class="comment">// 不停的向下便宜</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (el.tag === <span class="string">'rect'</span>) &#123; <span class="comment">// 柱状图</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'开始绘制矩形'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    el.childs &amp;&amp; el.childs.forEach(<span class="function"><span class="params">child</span> =&gt;</span> &#123; <span class="comment">// 渲染儿子</span></span><br><span class="line">        draw(child,<span class="literal">true</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ops = &#123; <span class="comment">// 自己重新定义的方法 mpvue源码, 这里我可以增添自己的渲染逻辑</span></span><br><span class="line">    insert: <span class="function">(<span class="params">child, parent, anchor</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 插入的过程是由子及父 先将circle 插入到div 中 在将div中插入到canvas</span></span><br><span class="line">        <span class="comment">// 插入时 先创建父子关系</span></span><br><span class="line">        child.parent = parent;</span><br><span class="line">        <span class="comment">// dom元素的children只能读不能写, 树的操作 内部创建时会遍历节点，遍历的时候 我就可以创建父子关系，等会渲染的时候 我需要这个父子关系</span></span><br><span class="line">        <span class="keyword">if</span> (!parent.childs) &#123;</span><br><span class="line">            parent.childs = [child]</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            parent.childs.push(child);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (parent.nodeType == <span class="number">1</span>) &#123; <span class="comment">// 遇到canvas了，我就需要重新将这棵树渲染到canvas中</span></span><br><span class="line">            <span class="comment">// canvas  &gt;  div &gt;  circle</span></span><br><span class="line">            draw(child);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(child.onClick) &#123;</span><br><span class="line">                canvas.addEventListener(<span class="string">'click'</span>,()=&gt;&#123;</span><br><span class="line">                    child.onClick(); <span class="comment">// 触发定义的事件</span></span><br><span class="line">                    nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">                        draw(child); <span class="comment">// 重新绘制canvas</span></span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    remove: <span class="function"><span class="params">child</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">    createElement: <span class="function">(<span class="params">tag, isSVG, is</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 创建元素的过程 深度遍历的过程 有儿子 先创建儿子 将儿子绑定到父亲上</span></span><br><span class="line">        <span class="keyword">return</span> &#123; tag &#125;; <span class="comment">// 虚拟节点   这个&#123;&#125; 是对象</span></span><br><span class="line">    &#125;,</span><br><span class="line">    createText: <span class="function"><span class="params">text</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">    createComment: <span class="function"><span class="params">text</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">    setText: <span class="function">(<span class="params">node, text</span>) =&gt;</span> &#123;&#125;,</span><br><span class="line">    setElementText: <span class="function">(<span class="params">el, text</span>) =&gt;</span> &#123;&#125;,</span><br><span class="line">    parentNode: <span class="function"><span class="params">node</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">    nextSibling: <span class="function"><span class="params">node</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">    querySelector: <span class="function"><span class="params">selector</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">    setScopeId(el, id) &#123;&#125;,</span><br><span class="line">    cloneNode(el) &#123;&#125;,</span><br><span class="line">    insertStaticContent(content, parent, anchor, isSVG) &#123;&#125;,</span><br><span class="line">    patchProp(el, key, prevValue, nextValue) &#123;</span><br><span class="line">        <span class="comment">// 这里以前可能做的是 样式处理 事件处理</span></span><br><span class="line">        el[key] = nextValue; <span class="comment">// 相当于给自己自定义的对象添加了属性</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// draw() 方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> createCanvasApp = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 这里创建渲染器时可以传入底层你想操作的方法</span></span><br><span class="line">    <span class="keyword">let</span> app = createRenderer(ops).createApp(...args); <span class="comment">// app.mount</span></span><br><span class="line">    <span class="keyword">let</span> &#123; mount &#125; = app; <span class="comment">// 内部的mount方法</span></span><br><span class="line">    app.mount = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> el = <span class="built_in">document</span>.querySelector(selector);</span><br><span class="line">        <span class="comment">// todo...</span></span><br><span class="line">        <span class="comment">// 实现canvas 得有canavas的画布</span></span><br><span class="line">        canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</span><br><span class="line">        canvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">        canvas.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">        el.appendChild(canvas);</span><br><span class="line">        ctx = canvas.getContext(<span class="string">'2d'</span>)</span><br><span class="line">        mount(canvas);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> app;</span><br><span class="line">&#125;</span><br><span class="line">createCanvasApp(App).mount(<span class="string">'#app'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="四、手写vite"><a href="#四、手写vite" class="headerlink" title="四、手写vite"></a>四、手写vite</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 安装</span><br><span class="line">npm install create-vite-app -g </span><br><span class="line">create-vite-app projectName</span><br><span class="line">npm init vite-app projectName</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>默认采用的是es6原生模块 import语法会默认发送一个请求</li>
+<li>默认会给VUE的模块增加一个前缀/@modules</li>
+<li>把.vue文件在后端给解析成一个对象了 唯一就是编译了.vue文件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;serveStaticPlugin&#125; = <span class="built_in">require</span>(<span class="string">'./plugins/serverPluginServeStatic'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;moduleRewritePlugin&#125; = <span class="built_in">require</span>(<span class="string">'./plugins/serverPluginModuleRewrite.js'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;moduleResolvePlugin&#125; = <span class="built_in">require</span>(<span class="string">'./plugins/serverPluginModuleResolve.js'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;htmlRewritePlugin&#125; = <span class="built_in">require</span>(<span class="string">'./plugins/serverPluginHtml'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;vuePlugin&#125; = <span class="built_in">require</span>(<span class="string">'./plugins/serverPluginVue'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createServer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Koa(); <span class="comment">// 创建一个koa实例</span></span><br><span class="line">    <span class="keyword">const</span> root = process.cwd();</span><br><span class="line">    <span class="comment">// 当用户运行 npm run my-dev时 会创建服务</span></span><br><span class="line">    <span class="comment">// koa是基于中间件来运行的</span></span><br><span class="line">    <span class="keyword">const</span> context = &#123;</span><br><span class="line">        app,</span><br><span class="line">        root <span class="comment">// 当前的根的位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// koa的中间件的执行顺序  中间件的原理</span></span><br><span class="line">    <span class="keyword">const</span> resolvedPlugins = [ <span class="comment">// 插件的集合</span></span><br><span class="line">        htmlRewritePlugin,</span><br><span class="line">        <span class="comment">// 2) 解析import重写路径</span></span><br><span class="line">        moduleRewritePlugin, </span><br><span class="line">        <span class="comment">// 3) 解析 以/@modules文件开头的内容 找到对应的结果</span></span><br><span class="line">        moduleResolvePlugin,</span><br><span class="line">        <span class="comment">// 1) 要实现静态服务的功能</span></span><br><span class="line">        vuePlugin,</span><br><span class="line">        serveStaticPlugin  <span class="comment">// 功能是读取文件将文件的结果放到了ctx.body上</span></span><br><span class="line">    ];</span><br><span class="line">    </span><br><span class="line">    resolvedPlugins.forEach(<span class="function"><span class="params">plugin</span>=&gt;</span>plugin(context))</span><br><span class="line">    <span class="keyword">return</span> app; <span class="comment">// 返回app 中有listen方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = createServer;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/" title="VUE3核心源码" target="_blank" rel="external">http://yoursite.com/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/08/15/weeks/2020/202008-2/" title="前端周刊【202008-2】"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/08/15/book/video/202008%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4/" title="产品体验设计与实操"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

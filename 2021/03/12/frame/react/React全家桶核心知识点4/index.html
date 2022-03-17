@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>React全家桶核心知识点(四) - 扩展 | Marong&#39;s Note</title>
+  <meta name="description" content="一. setStatesetState更新状态的2种写法1234567891011121314	(1). setState(stateChange, [callback])------对象式的setState            1.stateChange为状态改变对象(该对象可以体现出状态的更改)            2.callback是可选的回调函数, 它在状态更新完毕、界面也更新后(r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React全家桶核心知识点(四) - 扩展">
+<meta property="og:url" content="http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="一. setStatesetState更新状态的2种写法1234567891011121314	(1). setState(stateChange, [callback])------对象式的setState            1.stateChange为状态改变对象(该对象可以体现出状态的更改)            2.callback是可选的回调函数, 它在状态更新完毕、界面也更新后(r">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-12T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-17T14:41:15.684Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMDB/" rel="tag">CMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E4%B8%96%E7%95%8C/" rel="tag">CSS世界</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSX/" rel="tag">JSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/" rel="tag">K8S</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LoianeGroner/" rel="tag">LoianeGroner</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UED/" rel="tag">UED</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UX/" rel="tag">UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">WEB前端开发最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbs/" rel="tag">bbs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/" rel="tag">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diff/" rel="tag">diff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/egg/" rel="tag">egg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/" rel="tag">forum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gzip/" rel="tag">gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/" rel="tag">ie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qiankun/" rel="tag">qiankun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react-hooks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-redux/" rel="tag">react-redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactnative/" rel="tag">reactnative</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rollup/" rel="tag">rollup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-spa/" rel="tag">single-spa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snabbdom/" rel="tag">snabbdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/treeshaking/" rel="tag">treeshaking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vdom/" rel="tag">vdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualDom/" rel="tag">virtualDom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vite/" rel="tag">vite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/" rel="tag">webgl</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" rel="tag">你不知道的</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" rel="tag">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" rel="tag">大前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" rel="tag">张鑫旭</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag">敏捷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" rel="tag">数据平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" rel="tag">深入理解ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="tag">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" rel="tag">编写可维护的JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" rel="tag">节流防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A6%83%E8%B6%85/" rel="tag">覃超</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E7%AB%AF/" rel="tag">跨端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" rel="tag">阮一峰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" rel="tag">高性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%88/" rel="tag">高效</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CICD/" style="font-size: 13px;">CICD</a> <a href="/tags/CMDB/" style="font-size: 13px;">CMDB</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS%E4%B8%96%E7%95%8C/" style="font-size: 13px;">CSS世界</a> <a href="/tags/ES/" style="font-size: 13.2px;">ES</a> <a href="/tags/Flutter/" style="font-size: 13px;">Flutter</a> <a href="/tags/HTTP/" style="font-size: 13.1px;">HTTP</a> <a href="/tags/JAVA/" style="font-size: 13px;">JAVA</a> <a href="/tags/JSX/" style="font-size: 13px;">JSX</a> <a href="/tags/K8S/" style="font-size: 13px;">K8S</a> <a href="/tags/LoianeGroner/" style="font-size: 13px;">LoianeGroner</a> <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.1px;">TCP</a> <a href="/tags/UED/" style="font-size: 13px;">UED</a> <a href="/tags/UI/" style="font-size: 13px;">UI</a> <a href="/tags/UX/" style="font-size: 13px;">UX</a> <a href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">WEB前端开发最佳实践</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/bbs/" style="font-size: 13px;">bbs</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/css/" style="font-size: 13.1px;">css</a> <a href="/tags/curl/" style="font-size: 13px;">curl</a> <a href="/tags/diff/" style="font-size: 13px;">diff</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/egg/" style="font-size: 13px;">egg</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/forum/" style="font-size: 13px;">forum</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/go/" style="font-size: 13px;">go</a> <a href="/tags/gzip/" style="font-size: 13px;">gzip</a> <a href="/tags/http/" style="font-size: 13.1px;">http</a> <a href="/tags/https/" style="font-size: 13.1px;">https</a> <a href="/tags/ie/" style="font-size: 13px;">ie</a> <a href="/tags/java/" style="font-size: 13.5px;">java</a> <a href="/tags/javascript/" style="font-size: 13.8px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13.1px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13.1px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.3px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/proxy/" style="font-size: 13px;">proxy</a> <a href="/tags/qiankun/" style="font-size: 13px;">qiankun</a> <a href="/tags/react/" style="font-size: 13.6px;">react</a> <a href="/tags/react-hooks/" style="font-size: 13px;">react-hooks</a> <a href="/tags/react-redux/" style="font-size: 13px;">react-redux</a> <a href="/tags/reactnative/" style="font-size: 13.1px;">reactnative</a> <a href="/tags/redux/" style="font-size: 13px;">redux</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/rollup/" style="font-size: 13px;">rollup</a> <a href="/tags/rust/" style="font-size: 13.1px;">rust</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/single-spa/" style="font-size: 13px;">single-spa</a> <a href="/tags/snabbdom/" style="font-size: 13px;">snabbdom</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/treeshaking/" style="font-size: 13px;">treeshaking</a> <a href="/tags/typescript/" style="font-size: 13.7px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vdom/" style="font-size: 13px;">vdom</a> <a href="/tags/virtualDom/" style="font-size: 13px;">virtualDom</a> <a href="/tags/vite/" style="font-size: 13px;">vite</a> <a href="/tags/vue/" style="font-size: 13.3px;">vue</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/vue3/" style="font-size: 13.1px;">vue3</a> <a href="/tags/webgl/" style="font-size: 13.2px;">webgl</a> <a href="/tags/webpack/" style="font-size: 13.3px;">webpack</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/xlsx/" style="font-size: 13px;">xlsx</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 13.9px;">书籍</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.1px;">优化</a> <a href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" style="font-size: 13px;">你不知道的</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">修饰符</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13px;">分布式</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 13px;">响应式</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">基础</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">大前端</a> <a href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" style="font-size: 13px;">张鑫旭</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 13.3px;">微前端</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.1px;">性能</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 13px;">抓包</a> <a href="/tags/%E6%95%8F%E6%8D%B7/" style="font-size: 13px;">敏捷</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" style="font-size: 13px;">数据平台</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">架构</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" style="font-size: 13px;">深入理解ES6</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 13px;">移动端</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.3px;">算法</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 13px;">组件</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a> <a href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" style="font-size: 13px;">编写可维护的JS</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">自动化测试</a> <a href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" style="font-size: 13px;">节流防抖</a> <a href="/tags/%E8%A6%83%E8%B6%85/" style="font-size: 13px;">覃超</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">设计</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.2px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 13px;">跨端</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">运维</a> <a href="/tags/%E8%BF%9B%E9%98%B6/" style="font-size: 13px;">进阶</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 13.1px;">部署</a> <a href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" style="font-size: 13px;">阮一峰</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">领域模型</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 13px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 13.1px;">高效</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/30/weeks/2022/2022-03/" class="title">前端月刊【2022-03】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-30T01:00:00.000Z" itemprop="datePublished">2022-03-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/" class="title">构建高性能WEB站点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-10T02:00:00.000Z" itemprop="datePublished">2022-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/28/weeks/2022/2022-02/" class="title">前端月刊【2022-02】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-28T01:00:00.000Z" itemprop="datePublished">2022-02-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/01/30/weeks/2022/2022-01/" class="title">前端月刊【2022-01】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-01-30T01:00:00.000Z" itemprop="datePublished">2022-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/30/weeks/2021/2021-12/" class="title">前端月刊【2021-12】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-30T01:00:00.000Z" itemprop="datePublished">2021-12-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-frame/react/React全家桶核心知识点4" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React全家桶核心知识点(四) - 扩展
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/" class="article-date">
+	  <time datetime="2021-03-12T01:00:00.000Z" itemprop="datePublished">2021-03-12</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/react/" rel="tag">react</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一-setState"><a href="#一-setState" class="headerlink" title="一. setState"></a>一. setState</h2><h3 id="setState更新状态的2种写法"><a href="#setState更新状态的2种写法" class="headerlink" title="setState更新状态的2种写法"></a>setState更新状态的2种写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	(1). setState(stateChange, [callback])------对象式的setState</span><br><span class="line">            1.stateChange为状态改变对象(该对象可以体现出状态的更改)</span><br><span class="line">            2.callback是可选的回调函数, 它在状态更新完毕、界面也更新后(render调用后)才被调用</span><br><span class="line">					</span><br><span class="line">	(2). setState(updater, [callback])------函数式的setState</span><br><span class="line">            1.updater为返回stateChange对象的函数。</span><br><span class="line">            2.updater可以接收到state和props。</span><br><span class="line">            4.callback是可选的回调函数, 它在状态更新、界面也更新后(render调用后)才被调用。</span><br><span class="line">总结:</span><br><span class="line">		1.对象式的setState是函数式的setState的简写方式(语法糖)</span><br><span class="line">		2.使用原则：</span><br><span class="line">				(1).如果新状态不依赖于原状态 &#x3D;&#x3D;&#x3D;&gt; 使用对象方式</span><br><span class="line">				(2).如果新状态依赖于原状态 &#x3D;&#x3D;&#x3D;&gt; 使用函数方式</span><br><span class="line">				(3).如果需要在setState()执行后获取最新的状态数据, 要在第二个callback函数中读取</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="二-lazyLoad"><a href="#二-lazyLoad" class="headerlink" title="二. lazyLoad"></a>二. lazyLoad</h2><h3 id="路由组件的lazyLoad"><a href="#路由组件的lazyLoad" class="headerlink" title="路由组件的lazyLoad"></a>路由组件的lazyLoad</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.通过React的lazy函数配合import()函数动态加载路由组件 ===&gt; 路由组件代码会被分开打包</span></span><br><span class="line"><span class="keyword">const</span> Login = lazy(<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">import</span>(<span class="string">'@/pages/Login'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.通过&lt;Suspense&gt;指定在加载得到路由打包文件前显示一个自定义loading界面</span></span><br><span class="line">&lt;Suspense fallback=&#123;&lt;h1&gt;loading.....&lt;<span class="regexp">/h1&gt;&#125;&gt;</span></span><br><span class="line"><span class="regexp">       &lt;Switch&gt;</span></span><br><span class="line"><span class="regexp">           &lt;Route path="/</span>xxx<span class="string">" component=&#123;Xxxx&#125;/&gt;</span></span><br><span class="line"><span class="string">           &lt;Redirect to="</span>/login<span class="string">"/&gt;</span></span><br><span class="line"><span class="string">       &lt;/Switch&gt;</span></span><br><span class="line"><span class="string">   &lt;/Suspense&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="三-Hooks"><a href="#三-Hooks" class="headerlink" title="三. Hooks"></a>三. Hooks</h2><h4 id="1-React-Hook-Hooks是什么"><a href="#1-React-Hook-Hooks是什么" class="headerlink" title="1. React Hook/Hooks是什么?"></a>1. React Hook/Hooks是什么?</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1). Hook是React 16.8.0版本增加的新特性&#x2F;新语法</span><br><span class="line">(2). 可以让你在函数组件中使用 state 以及其他的 React 特性</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-三个常用的Hook"><a href="#2-三个常用的Hook" class="headerlink" title="2. 三个常用的Hook"></a>2. 三个常用的Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1). State Hook: React.useState()</span><br><span class="line">(2). Effect Hook: React.useEffect()</span><br><span class="line">(3). Ref Hook: React.useRef()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-State-Hook"><a href="#3-State-Hook" class="headerlink" title="3. State Hook"></a>3. State Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(1). State Hook让函数组件也可以有state状态, 并进行状态数据的读写操作</span><br><span class="line">(2). 语法: const [xxx, setXxx] &#x3D; React.useState(initValue)  </span><br><span class="line">(3). useState()说明:</span><br><span class="line">        参数: 第一次初始化指定的值在内部作缓存</span><br><span class="line">        返回值: 包含2个元素的数组, 第1个为内部当前状态值, 第2个为更新状态值的函数</span><br><span class="line">(4). setXxx()2种写法:</span><br><span class="line">        setXxx(newValue): 参数为非函数值, 直接指定新的状态值, 内部用其覆盖原来的状态值</span><br><span class="line">        setXxx(value &#x3D;&gt; newValue): 参数为函数, 接收原本的状态值, 返回新的状态值, 内部用其覆盖原来的状态值</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-Effect-Hook"><a href="#4-Effect-Hook" class="headerlink" title="4. Effect Hook"></a>4. Effect Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(1). Effect Hook 可以让你在函数组件中执行副作用操作(用于模拟类组件中的生命周期钩子)</span><br><span class="line">(2). React中的副作用操作:</span><br><span class="line">        发ajax请求数据获取</span><br><span class="line">        设置订阅 &#x2F; 启动定时器</span><br><span class="line">        手动更改真实DOM</span><br><span class="line">(3). 语法和说明: </span><br><span class="line">        useEffect(() &#x3D;&gt; &#123; </span><br><span class="line">          &#x2F;&#x2F; 在此可以执行任何带副作用操作</span><br><span class="line">          return () &#x3D;&gt; &#123; &#x2F;&#x2F; 在组件卸载前执行</span><br><span class="line">            &#x2F;&#x2F; 在此做一些收尾工作, 比如清除定时器&#x2F;取消订阅等</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, [stateValue]) &#x2F;&#x2F; 如果指定的是[], 回调函数只会在第一次render()后执行</span><br><span class="line">    </span><br><span class="line">(4). 可以把 useEffect Hook 看做如下三个函数的组合</span><br><span class="line">        componentDidMount()</span><br><span class="line">        componentDidUpdate()</span><br><span class="line">    	  componentWillUnmount()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-Ref-Hook"><a href="#5-Ref-Hook" class="headerlink" title="5. Ref Hook"></a>5. Ref Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1). Ref Hook可以在函数组件中存储&#x2F;查找组件内的标签或任意其它数据</span><br><span class="line">(2). 语法: const refContainer &#x3D; useRef()</span><br><span class="line">(3). 作用:保存标签对象,功能与React.createRef()一样</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="四-Fragment"><a href="#四-Fragment" class="headerlink" title="四. Fragment"></a>四. Fragment</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>&lt;Fragment&gt;&lt;Fragment&gt;
+&lt;&gt;&lt;/&gt;</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><blockquote>
+<p>可以不用必须有一个真实的DOM根标签了</p>
+</blockquote>
+<hr/>
+
+<h2 id="五-Context"><a href="#五-Context" class="headerlink" title="五. Context"></a>五. Context</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><blockquote>
+<p>一种组件间通信方式, 常用于【祖组件】与【后代组件】间通信</p>
+</blockquote>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>) 创建Context容器对象：</span><br><span class="line">	<span class="keyword">const</span> XxxContext = React.createContext()  </span><br><span class="line">	</span><br><span class="line"><span class="number">2</span>) 渲染子组时，外面包裹xxxContext.Provider, 通过value属性给后代组件传递数据：</span><br><span class="line">	&lt;xxxContext.Provider value=&#123;数据&#125;&gt;</span><br><span class="line">		子组件</span><br><span class="line">    &lt;<span class="regexp">/xxxContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">3) 后代组件读取数据：</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">	/</span><span class="regexp">/第一种方式:仅适用于类组件 </span></span><br><span class="line"><span class="regexp">	  static contextType = xxxContext  /</span><span class="regexp">/ 声明接收context</span></span><br><span class="line"><span class="regexp">	  this.context /</span><span class="regexp">/ 读取context中的value数据</span></span><br><span class="line"><span class="regexp">	  </span></span><br><span class="line"><span class="regexp">	/</span><span class="regexp">/第二种方式: 函数组件与类组件都可以</span></span><br><span class="line"><span class="regexp">	  &lt;xxxContext.Consumer&gt;</span></span><br><span class="line"><span class="regexp">	    &#123;</span></span><br><span class="line"><span class="regexp">	      value =&gt; ( /</span><span class="regexp">/ value就是context中的value数据</span></span><br><span class="line"><span class="regexp">	        要显示的内容</span></span><br><span class="line"><span class="regexp">	      )</span></span><br><span class="line"><span class="regexp">	    &#125;</span></span><br><span class="line"><span class="regexp">	  &lt;/</span>xxxContext.Consumer&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><pre><code>在应用开发中一般不用context, 一般都它的封装react插件</code></pre><hr/>
+
+
+<h2 id="六-组件优化"><a href="#六-组件优化" class="headerlink" title="六. 组件优化"></a>六. 组件优化</h2><h3 id="Component的2个问题"><a href="#Component的2个问题" class="headerlink" title="Component的2个问题"></a>Component的2个问题</h3><blockquote>
+<ol>
+<li><p>只要执行setState(),即使不改变状态数据, 组件也会重新render()</p>
+</li>
+<li><p>只当前组件重新render(), 就会自动重新render子组件 ==&gt; 效率低</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="效率高的做法"><a href="#效率高的做法" class="headerlink" title="效率高的做法"></a>效率高的做法</h3><blockquote>
+<p> 只有当组件的state或props数据发生改变时才重新render()</p>
+</blockquote>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><blockquote>
+<p> Component中的shouldComponentUpdate()总是返回true</p>
+</blockquote>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><pre><code>办法1: 
+    重写shouldComponentUpdate()方法
+    比较新旧state或props数据, 如果有变化才返回true, 如果没有返回false
+办法2:  
+    使用PureComponent
+    PureComponent重写了shouldComponentUpdate(), 只有state或props数据有变化才返回true
+    注意: 
+        只是进行state和props数据的浅比较, 如果只是数据对象内部数据变了, 返回false  
+        不要直接修改state数据, 而是要产生新数据项目中一般使用PureComponent来优化</code></pre><hr/>
+
+
+<h2 id="七-render-props"><a href="#七-render-props" class="headerlink" title="七. render props"></a>七. render props</h2><h3 id="如何向组件内部动态传入带内容的结构-标签"><a href="#如何向组件内部动态传入带内容的结构-标签" class="headerlink" title="如何向组件内部动态传入带内容的结构(标签)?"></a>如何向组件内部动态传入带内容的结构(标签)?</h3><pre><code>Vue中: 
+    使用slot技术, 也就是通过组件标签体传入结构  &lt;AA&gt;&lt;BB/&gt;&lt;/AA&gt;
+React中:
+    使用children props: 通过组件标签体传入结构
+    使用render props: 通过组件标签属性传入结构, 一般用render函数属性</code></pre><h3 id="children-props"><a href="#children-props" class="headerlink" title="children props"></a>children props</h3><pre><code>&lt;A&gt;
+  &lt;B&gt;xxxx&lt;/B&gt;
+&lt;/A&gt;
+{this.props.children}
+问题: 如果B组件需要A组件内的数据, ==&gt; 做不到 </code></pre><h3 id="render-props"><a href="#render-props" class="headerlink" title="render props"></a>render props</h3><pre><code>&lt;A render={(data) =&gt; &lt;C data={data}&gt;&lt;/C&gt;}&gt;&lt;/A&gt;
+A组件: {this.props.render(内部state数据)}
+C组件: 读取A组件传入的数据显示 {this.props.data} </code></pre><hr/>
+
+<h2 id="八-错误边界"><a href="#八-错误边界" class="headerlink" title="八. 错误边界"></a>八. 错误边界</h2><h4 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h4><p>错误边界：用来捕获后代组件错误，渲染出备用页面</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>只能捕获后代组件生命周期产生的错误，不能捕获自己组件产生的错误和其他组件在合成事件、定时器中产生的错误</p>
+<h5 id="使用方式："><a href="#使用方式：" class="headerlink" title="使用方式："></a>使用方式：</h5><p>getDerivedStateFromError配合componentDidCatch</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生命周期函数，一旦后台组件报错，就会触发</span></span><br><span class="line"><span class="keyword">static</span> getDerivedStateFromError(error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">    <span class="comment">// 在render之前触发</span></span><br><span class="line">    <span class="comment">// 返回新的state</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        hasError: <span class="literal">true</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidCatch(error, info) &#123;</span><br><span class="line">    <span class="comment">// 统计页面的错误。发送请求发送到后台去</span></span><br><span class="line">    <span class="built_in">console</span>.log(error, info);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="九-组件通信方式总结"><a href="#九-组件通信方式总结" class="headerlink" title="九. 组件通信方式总结"></a>九. 组件通信方式总结</h2><h4 id="方式："><a href="#方式：" class="headerlink" title="方式："></a>方式：</h4><pre><code>props：
+    (1).children props
+    (2).render props
+消息订阅-发布：
+    pubs-sub、event等等
+集中式管理：
+    redux、dva等等
+conText:
+    生产者-消费者模式</code></pre><h4 id="组件间的关系"><a href="#组件间的关系" class="headerlink" title="组件间的关系"></a>组件间的关系</h4><pre><code>父子组件：props
+兄弟组件(非嵌套组件)：消息订阅-发布、集中式管理
+祖孙组件(跨级组件)：消息订阅-发布、集中式管理、conText(用的少)</code></pre>
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/" title="React全家桶核心知识点(四) - 扩展" target="_blank" rel="external">http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/03/30/weeks/2021/2021-03/" title="前端月刊【2021-03】"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/03/10/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B93/" title="React全家桶核心知识点(三) - redux"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

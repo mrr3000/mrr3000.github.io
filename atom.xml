@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Marong&#39;s Note</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2022-03-17T14:41:15.689Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Marong</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端月刊【2022-03】</title>
+    <link href="http://yoursite.com/2022/03/30/weeks/2022/2022-03/"/>
+    <id>http://yoursite.com/2022/03/30/weeks/2022/2022-03/</id>
+    <published>2022-03-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.689Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/hsxmYKSzZiURKmrq6Bo3jg" target="_blank" rel="noopener">深度：跨端技术的本质与现状</a></p><p><a href="https://mp.weixin.qq.com/s/H_uI_uuAOnjrmWuWDyQPCg" target="_blank" rel="noopener">重构知识的供给模式 ——《数据平台》从思考到落地</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/hsxmYKSzZiURKmrq6Bo3jg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;深度：跨端技术的本质与现状&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.w
+      
+    
+    </summary>
+    
+    
+    
+      <category term="跨端" scheme="http://yoursite.com/tags/%E8%B7%A8%E7%AB%AF/"/>
+    
+      <category term="数据平台" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>构建高性能WEB站点</title>
+    <link href="http://yoursite.com/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/"/>
+    <id>http://yoursite.com/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/</id>
+    <published>2022-03-10T02:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.682Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h1><p>了解等待的真相</p><p>查找瓶颈在哪里</p><p>增加带宽</p><p>减少网页中的HTTP请求数量</p><p>加快服务器脚本计算速度</p><p>使用动态内容缓存</p><p>将动态内容静态化</p><p>更换WEB服务器软件</p><p>页面组建分离</p><p>合理部署服务器</p><p>使用负载均衡</p><p>优化数据哭</p><p>考虑可扩展性</p><p>减少视觉等待</p><h1 id="二、数据的网络传输"><a href="#二、数据的网络传输" class="headerlink" title="二、数据的网络传输"></a>二、数据的网络传输</h1><p>增加带宽： bit/s 单位时间内的比特数</p><p>响应时间 = 发送时间 + 传输时间 + 处理时间</p><p>下载速度 = 数据量字节数/响应时间</p><p>互联互通：链接网络运营商</p><h1 id="三、服务器并发处理能力"><a href="#三、服务器并发处理能力" class="headerlink" title="三、服务器并发处理能力"></a>三、服务器并发处理能力</h1><p>吞吐率：前提条件 并发用户数、总请求数、请求资源描述，进行压力测试。</p><p>CPU并发计算：进程、线程、进程调度器、系统负载、进程切换、锁竞争。</p><p>系统调用：减少系统调用可以降低请求处理时间，提升吞吐率。</p><p>内存分配：Apache 内存池 、Nginx内存分配策略。</p><p>持久连接（长链接）：http 请求中长连接的声明 开启（ Connection:Keep-Alive）关闭（KeepAlive Off） 超时时间nginx（KeepAliveTimeout 30）</p><p>I/O模型：同步阻塞、同步非阻塞、多路I/O就绪通知、内存映射、直接I/O、异步I/O</p><p>服务器并发策略</p><h1 id="四、动态内容缓存"><a href="#四、动态内容缓存" class="headerlink" title="四、动态内容缓存"></a>四、动态内容缓存</h1><p>重复的开销</p><p>缓存与速度：整页、局部、数据缓存、代码解释器缓存、web服务器缓存。</p><p>缓存与缓冲：关系到命中率的问题，缓冲是视频中负责写入磁盘。</p><p>页面缓存：指MVC框架中动态网页的缓存。</p><p>缓存持久化与查找</p><p>过期检查：对缓存的动态内容存在重复计算，对有效时间外的缓存清理。</p><p>把缓存放到内存中：常规的缓存放到磁盘中会增加I/O操作。</p><p>把缓存放到缓存服务器：memcached通过TCP将缓存存储在独立的缓存服务器中。</p><p>局部无缓存：对于一些动态更新的区域无缓存。</p><p>静态化内容：</p><p>直接访问缓存</p><p>更新策略：在数据更新时重新生成静态化内容（由用户动态触发）；定时重新生成静态化内容。</p><p>局部静态化：SSI</p><h1 id="五、动态脚本加速"><a href="#五、动态脚本加速" class="headerlink" title="五、动态脚本加速"></a>五、动态脚本加速</h1><p>Oppose缓存：动态内容编译成二进制可执行文件，也就是目标代码。</p><p>解释器扩展模块：第三方的编译程序。</p><p>脚本跟踪与分析</p><p>代码段执行时间</p><p>上下文信息收集：配合代码跟踪收集信息，记录当前上下文信息，比如当前行号、哪里被调用。</p><p>代码覆盖范围</p><p>函数跟踪</p><p>瓶颈分析</p><h1 id="六、浏览器缓存"><a href="#六、浏览器缓存" class="headerlink" title="六、浏览器缓存"></a>六、浏览器缓存</h1><p>http缓存协商：WEB服务器和浏览器之间</p><p>彻底消灭请求：浏览器缓存截止期限；性能方面，没有发起请求，就进行不了压力测试。</p><h1 id="七、WEB服务器缓存"><a href="#七、WEB服务器缓存" class="headerlink" title="七、WEB服务器缓存"></a>七、WEB服务器缓存</h1><p>URL映射：增加了I/O开销。</p><p>缓存响应内容：将内容交给WEB服务器缓存，准备好缓存区；缓存静态内容；缓存动态内容；控制有效期；</p><h1 id="八、反向代理缓存"><a href="#八、反向代理缓存" class="headerlink" title="八、反向代理缓存"></a>八、反向代理缓存</h1><p>反向代理：WEB服务器隐藏在代理服务器之后。</p><p>在反向代理上创建缓存：修改缓存规则、清除缓存、监控缓存命中率、从缓存命中率中寻找答案、缓存命中率和后端吞吐率的理想计算模型、和动态内容缓存一起工作</p><p>小心穿过代理</p><p>流量分配</p><h1 id="九、WEB组件分离"><a href="#九、WEB组件分离" class="headerlink" title="九、WEB组件分离"></a>九、WEB组件分离</h1><p>拥有不同的域名</p><p>浏览器并发数</p><p>动态内容：开启opcode缓存、足够快的CPU、足够大的内存、多进程、与数据库保持高速连接、可靠的数据中心</p><p>静态网页：支持epoll、非阻塞I/O、异步I/O、使用sendfile()系统调用、单进程、使用高速磁盘、使用RAID分区、购买足够的带宽</p><p>图片：持久连接</p><p>样式表：有效期为一年</p><p>脚本</p><p>视频</p><h1 id="十、分布式缓存"><a href="#十、分布式缓存" class="headerlink" title="十、分布式缓存"></a>十、分布式缓存</h1><p>数据库的前端缓存区：读缓存区域、写缓存区域</p><p>使用memcached分布式缓存系统：使用key-value来存储数据、数据项设置过期时间、网络并发模型、对象序列化可将数据转化为二进制</p><p>读操作缓存：重复的身份验证、数据库索引、缓存用户登录状态</p><p>写操作缓存：直接更新、线程安全和锁竞争、原子加法</p><p>监控状态：空间使用率、缓存命中率、I/O流量</p><p>缓存扩展</p><h1 id="十一、数据库性能优化"><a href="#十一、数据库性能优化" class="headerlink" title="十一、数据库性能优化"></a>十一、数据库性能优化</h1><p>提供友好的状态报告</p><p>正确使用索引：使用组合索引、使用慢查询分析工具、索引缓存、索引的代价</p><p>锁定与等待：减少表锁定等待、行锁定带来了什么？真的好吗？</p><p>事务性表的性能</p><p>使用查询缓存</p><p>临时表</p><p>线程池</p><p>反规范化设计</p><p>放弃关系型数据库</p><h1 id="十二、WEB负载均衡"><a href="#十二、WEB负载均衡" class="headerlink" title="十二、WEB负载均衡"></a>十二、WEB负载均衡</h1><p>HTTP重定向</p><p>DNS负载均衡：多个A记录</p><p>反向代理负载均衡：转移和转发、按照权重分配任务、调度起的并发处理能力、扩展的制约、健康监测</p><p>IP负载均衡：DNAT反向NAT、用iptables来实现调度器、IPVS/ipvsadm、LVS-NAT、性能、动态调度策略、网关瓶颈、</p><p>直接路由：使用IP别名、将实际服务器接入外部网络、LVS-DR、转型到DNS-RR</p><p>IP隧道</p><p>考虑可用性</p><h1 id="十三、共享文件系统"><a href="#十三、共享文件系统" class="headerlink" title="十三、共享文件系统"></a>十三、共享文件系统</h1><p>网络共享：利用共享文件系统来实现图片共享、将集群中某台WEB服务器作为文件服务器</p><p>NFS：首选方案：基于RPC传输、统计I/O、延迟I/O、</p><p>局限性：有一定影响性能</p><h1 id="十四、内容分发和同步"><a href="#十四、内容分发和同步" class="headerlink" title="十四、内容分发和同步"></a>十四、内容分发和同步</h1><p>复制：图片服务器到多台WEB服务器到文件复制</p><p>SSH：SCP+SFTP、多级分发</p><p>WEBDAV：完全基于HTTP 与restful风格相似</p><p>HASH TREE</p><p>分发还是同步</p><p>反向代理</p><h1 id="十五、分布式文件系统"><a href="#十五、分布式文件系统" class="headerlink" title="十五、分布式文件系统"></a>十五、分布式文件系统</h1><p>文件系统：Hadoop</p><p>存储节点和追踪器</p><p>MogileFS: 开源的分布式文件系统</p><h1 id="十六、数据库扩展"><a href="#十六、数据库扩展" class="headerlink" title="十六、数据库扩展"></a>十六、数据库扩展</h1><p>复制和分离：主从复制、读写分离、使用数据库反向代理</p><p>垂直分区</p><p>水平分区：把数据放到不同分区中、分区和分表、分区扩展、分区反向代理、</p><h1 id="十七、分布式计算"><a href="#十七、分布式计算" class="headerlink" title="十七、分布式计算"></a>十七、分布式计算</h1><p>异步计算：分布式消息队列、Gearman、</p><p>并行计算：分而治之、MAP/REDUCE（分布式并行计算的开发框架）</p><h1 id="十八、性能监控"><a href="#十八、性能监控" class="headerlink" title="十八、性能监控"></a>十八、性能监控</h1><p>实时监控：Nmon、监控代理、系统监控、服务监控</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一、绪论&quot;&gt;&lt;a href=&quot;#一、绪论&quot; class=&quot;headerlink&quot; title=&quot;一、绪论&quot;&gt;&lt;/a&gt;一、绪论&lt;/h1&gt;&lt;p&gt;了解等待的真相&lt;/p&gt;
+&lt;p&gt;查找瓶颈在哪里&lt;/p&gt;
+&lt;p&gt;增加带宽&lt;/p&gt;
+&lt;p&gt;减少网页中的HTTP请求数量&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2022-02】</title>
+    <link href="http://yoursite.com/2022/02/28/weeks/2022/2022-02/"/>
+    <id>http://yoursite.com/2022/02/28/weeks/2022/2022-02/</id>
+    <published>2022-02-28T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.689Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/Gx2muPw2T9zYCdBPzIbzbg" target="_blank" rel="noopener">前端灰度发布落地方案</a></p><p><a href="https://my.oschina.net/youdaotech/blog/5440241" target="_blank" rel="noopener">前端技术分享：页面性能优化问题复盘</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/Gx2muPw2T9zYCdBPzIbzbg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前端灰度发布落地方案&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://my.osch
+      
+    
+    </summary>
+    
+    
+    
+      <category term="性能" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD/"/>
+    
+      <category term="部署" scheme="http://yoursite.com/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2022-01】</title>
+    <link href="http://yoursite.com/2022/01/30/weeks/2022/2022-01/"/>
+    <id>http://yoursite.com/2022/01/30/weeks/2022/2022-01/</id>
+    <published>2022-01-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.cn/post/7036162494573838367?utm_source=gold_browser_extension" target="_blank" rel="noopener">60+ 实用 React 工具库，助力你高效开发！</a></p><p><a href="https://www.infoq.cn/article/k1Qpf3FaxNHdb7yqQptg" target="_blank" rel="noopener">展望大前端的 2022：VR 大潮来袭，大前端迎来新机遇</a></p><p><a href="https://www.infoq.cn/article/PRfJpajWiffdE6CvDiJ6" target="_blank" rel="noopener">解读大前端的 2021 ：究竟“卷”出了什么名堂？</a></p><p><a href="https://cointelegraphcn.com/news/web30-future" target="_blank" rel="noopener">深度丨一文看懂 Web3.0 的昨天、今天与明天</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/7036162494573838367?utm_source=gold_browser_extension&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;60+ 实用 React 工具库，助力
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+      <category term="大前端" scheme="http://yoursite.com/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-12】</title>
+    <link href="http://yoursite.com/2021/12/30/weeks/2021/2021-12/"/>
+    <id>http://yoursite.com/2021/12/30/weeks/2021/2021-12/</id>
+    <published>2021-12-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://120.78.128.153/rustbook/ch00-00-introduction.html" target="_blank" rel="noopener">RUST 程序设计语言book</a></p><p>github:<a href="https://github.com/KaiserY/trpl-zh-cn" target="_blank" rel="noopener">https://github.com/KaiserY/trpl-zh-cn</a></p><p><a href="https://juejin.cn/post/7025868886914400293" target="_blank" rel="noopener">现代 Web 开发困局</a></p><p><a href="https://zhuanlan.zhihu.com/p/88616149" target="_blank" rel="noopener">现代 Web 开发的现状与未来（JSDC 2019 演讲全文）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://120.78.128.153/rustbook/ch00-00-introduction.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RUST 程序设计语言book&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;github:&lt;a hr
+      
+    
+    </summary>
+    
+    
+    
+      <category term="rust" scheme="http://yoursite.com/tags/rust/"/>
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rust程序设计语言 入门总结</title>
+    <link href="http://yoursite.com/2021/12/10/book/2021/Rust%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/"/>
+    <id>http://yoursite.com/2021/12/10/book/2021/Rust%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/</id>
+    <published>2021-12-10T02:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.682Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Cargo，内置的依赖管理器和构建工具，它能轻松增加、编译和管理依赖，并使其在 Rust 生态系统中保持一致。</li><li>Rustfmt 确保开发者遵循一致的代码风格。</li><li>Rust Language Server 为集成开发环境（IDE）提供了强大的代码补全和内联错误信息功能。</li></ul><h3 id="编译和运行是彼此独立的步骤"><a href="#编译和运行是彼此独立的步骤" class="headerlink" title="编译和运行是彼此独立的步骤"></a>编译和运行是彼此独立的步骤</h3><p>$ rustc main.rs</p><p>Rust 是一种 <strong>预编译静态类型</strong>（<em>ahead-of-time compiled</em>）语言，这意味着你可以编译程序，并将可执行文件送给其他人，他们甚至不需要安装 Rust 就可以运行。</p><h2 id="Cargo"><a href="#Cargo" class="headerlink" title="Cargo"></a>Cargo</h2><p>Cargo 是 Rust 的构建系统和包管理器。大多数 Rustacean 们使用 Cargo 来管理他们的 Rust 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。（我们把代码所需要的库叫做 <strong>依赖</strong>（<em>dependencies</em>））。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cargo new hello_cargo</span><br><span class="line">$ cargo build</span><br></pre></td></tr></table></figure><ul><li>可以使用 <code>cargo build</code> 或 <code>cargo check</code> 构建项目。</li><li>可以使用 <code>cargo run</code> 一步构建并运行项目。</li><li>有别于将构建结果放在与源码相同的目录，Cargo 会将其放到 <em>target/debug</em> 目录。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Cargo，内置的依赖管理器和构建工具，它能轻松增加、编译和管理依赖，并使其在 Rust 生态系统中保持一致。&lt;/li&gt;
+&lt;li&gt;Rustfmt 确保开发者遵循一致的代码风格。&lt;/li&gt;
+&lt;li&gt;Rust Language Server 为集成开发环境（IDE）
+      
+    
+    </summary>
+    
+    
+    
+      <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="rust" scheme="http://yoursite.com/tags/rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-11】</title>
+    <link href="http://yoursite.com/2021/11/30/weeks/2021/2021-11/"/>
+    <id>http://yoursite.com/2021/11/30/weeks/2021/2021-11/</id>
+    <published>2021-11-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.cn/post/7023623964110880782" target="_blank" rel="noopener">字节跳动Web Infra发起 Modern.js 开源项目</a></p><p><a href="https://juejin.cn/post/6844903828123320334" target="_blank" rel="noopener">使用JSDoc提高代码的可读性</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/7023623964110880782&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;字节跳动Web Infra发起 Modern.js 开源项目&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;ht
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="webgl" scheme="http://yoursite.com/tags/webgl/"/>
+    
+      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-10】</title>
+    <link href="http://yoursite.com/2021/10/30/weeks/2021/2021-10/"/>
+    <id>http://yoursite.com/2021/10/30/weeks/2021/2021-10/</id>
+    <published>2021-10-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/110543466" target="_blank" rel="noopener">MySQL 数据表设计规范</a><br><a href="https://juejin.cn/post/7002176233115123725" target="_blank" rel="noopener">Nest.js 实践总结</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/110543466&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MySQL 数据表设计规范&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://juejin.cn/post/7002
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="webgl" scheme="http://yoursite.com/tags/webgl/"/>
+    
+      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-09】</title>
+    <link href="http://yoursite.com/2021/09/30/weeks/2021/2021-09/"/>
+    <id>http://yoursite.com/2021/09/30/weeks/2021/2021-09/</id>
+    <published>2021-09-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/03VvGsJ2IUx9fcdpMxbqhQ" target="_blank" rel="noopener">WebGL 概念和基础入门</a></p><p><a href="https://juejin.cn/post/7004661323124441102#heading-0" target="_blank" rel="noopener">从零到一实现企业级微前端框架</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/03VvGsJ2IUx9fcdpMxbqhQ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WebGL 概念和基础入门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juej
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="webgl" scheme="http://yoursite.com/tags/webgl/"/>
+    
+      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-08】</title>
+    <link href="http://yoursite.com/2021/08/30/weeks/2021/2021-08/"/>
+    <id>http://yoursite.com/2021/08/30/weeks/2021/2021-08/</id>
+    <published>2021-08-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://jelly.jd.com/article/5e9d5ca110f7500156d48b42" target="_blank" rel="noopener">京喜前端自动化测试之路</a></p><p><a href="https://juejin.cn/post/6995334897065787422" target="_blank" rel="noopener">38个ES6-ES12的开发技巧</a></p><p><a href="https://zhuanlan.zhihu.com/p/269488323" target="_blank" rel="noopener">前端领域模型，重构前端研发模式</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://jelly.jd.com/article/5e9d5ca110f7500156d48b42&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;京喜前端自动化测试之路&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ju
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="ES" scheme="http://yoursite.com/tags/ES/"/>
+    
+      <category term="自动化测试" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="领域模型" scheme="http://yoursite.com/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端核心知识进阶</title>
+    <link href="http://yoursite.com/2021/08/10/book/2021/%E5%89%8D%E7%AB%AF%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E8%BF%9B%E9%98%B6/"/>
+    <id>http://yoursite.com/2021/08/10/book/2021/%E5%89%8D%E7%AB%AF%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E8%BF%9B%E9%98%B6/</id>
+    <published>2021-08-10T02:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.682Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><ul><li>在函数体中，非显式或隐式地简单调用函数时，严格模式下，函数类的this被绑定到underfined上。在非严格模式下会绑定到全局对象window/global。</li><li>一般使用new构造的函数，构造函数内的this会被指定到新创建的对象上</li><li>一般通过apply/call/bind方法显式调用函数时，函数体内this会被绑定到指定参数的对象上</li><li>一般通过上下文对象调用函数时，函数体内的this会被绑定到该对象上</li><li>在箭头函数中，this的指向是由外层作业域来决定的</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;this&quot;&gt;&lt;a href=&quot;#this&quot; class=&quot;headerlink&quot; title=&quot;this&quot;&gt;&lt;/a&gt;this&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;在函数体中，非显式或隐式地简单调用函数时，严格模式下，函数类的this被绑定到underfined上。在非严格模
+      
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-07】</title>
+    <link href="http://yoursite.com/2021/07/30/weeks/2021/2021-07/"/>
+    <id>http://yoursite.com/2021/07/30/weeks/2021/2021-07/</id>
+    <published>2021-07-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.cn/post/6979394726927532068" target="_blank" rel="noopener">源码浅析-Vue3中的13个全局Api</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6979394726927532068&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;源码浅析-Vue3中的13个全局Api&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-06】</title>
+    <link href="http://yoursite.com/2021/06/30/weeks/2021/2021-06/"/>
+    <id>http://yoursite.com/2021/06/30/weeks/2021/2021-06/</id>
+    <published>2021-06-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/3u1HHGjBaxzMoMkkVAqk-A" target="_blank" rel="noopener">轮子库</a></p><p><a href="https://www.infoq.cn/article/dT002EZ7BiXGtMeU49qo" target="_blank" rel="noopener">2021 年大前端技术趋势解读</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/3u1HHGjBaxzMoMkkVAqk-A&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;轮子库&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.infoq.cn/a
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="组件" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-05】</title>
+    <link href="http://yoursite.com/2021/05/30/weeks/2021/2021-05/"/>
+    <id>http://yoursite.com/2021/05/30/weeks/2021/2021-05/</id>
+    <published>2021-05-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/GXBWliuIGPe5LcZzKM2M8w" target="_blank" rel="noopener">前端开发者应该知道的 Centos/Docker/Nginx/Node/Jenkins 操作</a></p><p><a href="https://www.jianshu.com/p/2869d0306752/" target="_blank" rel="noopener">移动端适配</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/GXBWliuIGPe5LcZzKM2M8w&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前端开发者应该知道的 Centos/Docker/Nginx/Node/Jenkins 操作
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="部署" scheme="http://yoursite.com/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="移动端" scheme="http://yoursite.com/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用设计模式在前端项目中的应用</title>
+    <link href="http://yoursite.com/2021/05/07/basic/js/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>http://yoursite.com/2021/05/07/basic/js/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</id>
+    <published>2021-05-07T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.678Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="设计模式的种类"><a href="#设计模式的种类" class="headerlink" title="设计模式的种类"></a><strong>设计模式的种类</strong></h4><h5 id="1、-创建型模式"><a href="#1、-创建型模式" class="headerlink" title="1、 创建型模式"></a><strong>1、 创建型模式</strong></h5><p>一般用于创建对象。<br>包括：单例模式,工厂方法模式,抽象工厂模式,建造者模式,原型模式。</p><h5 id="2、结构型模式"><a href="#2、结构型模式" class="headerlink" title="2、结构型模式"></a><strong>2、结构型模式</strong></h5><p>重点为“继承”关系，有着一层继承关系，且一般都有“代理”。<br>包括：适配器模式,桥接模式,组合模式,装饰器模式,外观模式,享元模式,代理模式,过滤器模式。</p><h5 id="3、行为型模式"><a href="#3、行为型模式" class="headerlink" title="3、行为型模式"></a><strong>3、行为型模式</strong></h5><p>职责的划分，各自为政，减少外部的干扰。<br>包括：命令模式，解释器模式，迭代器模式，中介者模式，备忘录模式，观察者模式，状态模式，策略模式，模板方法模式，访问者模式，责任链模式。</p><h4 id="前端常用的计模式应用实例"><a href="#前端常用的计模式应用实例" class="headerlink" title="前端常用的计模式应用实例"></a><strong>前端常用的计模式应用实例</strong></h4><h5 id="1、单例模式"><a href="#1、单例模式" class="headerlink" title="1、单例模式"></a>1、单例模式</h5><p>单例模式又称为单体模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。一个极有可能重复出现的“实例”, 如果重复创建，将会产生性能消耗。如果借助第一次的实例，后续只是对该实例的重复使用，这样就达到了我们节省性能的目的。<br>全局弹窗是前端开发中一个比较常规的需求，一般情况下，同一时间只会存在一个全局弹窗，我们可以实现单例模式，保证每次实例化时返回的实际上是同一个方法。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageBox</span> </span>&#123;</span><br><span class="line">    show() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"show"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    hide() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> getInstance() &#123;</span><br><span class="line">        <span class="keyword">if</span> (!MessageBox.instance) &#123;</span><br><span class="line">            MessageBox.instance = <span class="keyword">new</span> MessageBox();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> MessageBox.instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> box3 = MessageBox.getInstance();</span><br><span class="line"><span class="keyword">let</span> box4 = MessageBox.getInstance();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(box3 === box4); <span class="comment">// true</span></span><br></pre></td></tr></table></figure><p>上面这种是比较常见的单例模式实现，但是这种方式存在一些弊端。因为它需要让调用方了解到通过Message.getInstance来获取单例。</p><p>又或者假设需求变更，可以通过存在二次弹窗，则需要改动不少地方，因为MessageBox除了实现常规的弹窗逻辑之外，还需要负责维护单例的逻辑。</p><p>因此，可以将初始化单例的逻辑单独维护，实现一个通用的、返回某个类对应单例的方法。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSingleton</span>(<span class="params">ClassName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> instance;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!instance) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> ClassName();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> createMessageBox = getSingleton(MessageBox);</span><br><span class="line"><span class="keyword">let</span> box5 = createMessageBox();</span><br><span class="line"><span class="keyword">let</span> box6 = createMessageBox();</span><br><span class="line"><span class="built_in">console</span>.log(box5 === box6);</span><br></pre></td></tr></table></figure><p>这样，通过createMessageBox返回的始终是同一个实例。如果在某些场景下需要生成另外的实例，则可以重新生成一个createMessageBox方法，或者直接调用new MessageBox()，这样就对之前的逻辑不会有任何影响。</p><h5 id="2、工厂模式"><a href="#2、工厂模式" class="headerlink" title="2、工厂模式"></a>2、工厂模式</h5><p>工厂模式提供了一种创建对象的方法，对使用方隐藏了对象的具体实现细节，并使用一个公共的接口来创建对象。</p><p>前端本地存储目前最常见的方案就是使用localStorage，为了避免在业务代码中各种getItem和setItem，我们可以做一下最简单的封装。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> themeModel = &#123;</span><br><span class="line">    name: <span class="string">"local_theme"</span>,</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">let</span> val = localStorage.getItem(<span class="keyword">this</span>.name);</span><br><span class="line">        <span class="keyword">return</span> val &amp;&amp; jsON.parse(val);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>(val) &#123;</span><br><span class="line">        localStorage.setItem(<span class="keyword">this</span>.name, jsON.stringify(val));</span><br><span class="line">    &#125;,</span><br><span class="line">    remove() &#123;</span><br><span class="line">        localStorage.removeItem(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">themeModel.get();</span><br><span class="line">themeModel.set(&#123; <span class="attr">darkMode</span>: <span class="literal">true</span> &#125;);</span><br></pre></td></tr></table></figure><p>这样，通过themeModel暴露的get、set接口，我们无需再维护local_theme。但上面的封装也存在一些可见的问题，如果需要新增多个 name，那么上面的模板代码需要重新写多遍吗？为了解决这个问题，我们可以创建Model对象的逻辑进行封装。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> storageMap = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStorageModel</span>(<span class="params">key, storage = localStorage</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 相同key返回单例</span></span><br><span class="line">    <span class="keyword">if</span> (storageMap.has(key)) &#123;</span><br><span class="line">        <span class="keyword">return</span> storageMap.get(key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> model = &#123;</span><br><span class="line">        key,</span><br><span class="line">        <span class="keyword">set</span>(val) &#123;</span><br><span class="line">            storage.setItem(<span class="keyword">this</span>.key, <span class="built_in">JSON</span>.stringify(val););</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">            <span class="keyword">let</span> val = storage.getItem(<span class="keyword">this</span>.key);</span><br><span class="line">            <span class="keyword">return</span> val &amp;&amp; <span class="built_in">JSON</span>.parse(val);</span><br><span class="line">        &#125;,</span><br><span class="line">        remove() &#123;</span><br><span class="line">            storage.removeItem(<span class="keyword">this</span>.key);</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    storageMap.set(key, model);</span><br><span class="line">    <span class="keyword">return</span> model;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> themeModel =  createStorageModel(<span class="string">'local_theme'</span>, localStorage)</span><br><span class="line"><span class="keyword">const</span> utmSourceModel = createStorageModel(<span class="string">'utm_source'</span>, sessionStorage)</span><br></pre></td></tr></table></figure><p>这样，我们就可以通过createStorageModel这个公共的接口来创建各种不同本地存储的对象，而无需关注创建对象的具体细节。</p><h5 id="3、策略模式"><a href="#3、策略模式" class="headerlink" title="3、策略模式"></a>3、策略模式</h5><p>策略模式，可以针对不同的状态，给出不同的算法或者结果。将层级相同的逻辑封装成可以组合和替换的策略方法，减少if…else代码，方便扩展后续功能。</p><p>表单校验是我们最常见的场景了，我们一般都会想到用if…else来判断。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onFormSubmit</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!params.name) &#123;</span><br><span class="line">        <span class="keyword">return</span> showError(<span class="string">"请填写昵称"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (params.name.length &gt; <span class="number">6</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> showError(<span class="string">"昵称最多6位字符"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="regexp">/^1\d&#123;10&#125;$/</span>.test(params.phone))</span><br><span class="line">        <span class="keyword">return</span> showError(<span class="string">"请填写正确的手机号"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    sendSubmit(params)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>将所有字段的校验规则都堆叠在一起，代码量大，排查问题也是一个大麻烦。在遇见错误时，直接通过 return 跳过了后面的判断；如果我们希望直接展示每个字段的错误呢，那么改动的工作量又不少。</p><p>不过，在antd、ELementUI等框架盛行的年代，我们已经不再需要写这些复杂的表单校验，但是对于他们的实现原理，我们可以简单模拟一下。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个校验的类，主要暴露了构造参数和validate两个接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Schema</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(descriptor) &#123;</span><br><span class="line">        <span class="keyword">this</span>.descriptor = descriptor; <span class="comment">// 传入定义的校验规则</span></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">// 拆分出一些更通用的规则，比如required(必填)、len(长度)、min/max(最值)等，可以尽可能地复用</span></span><br><span class="line">    handleRule(val, rule) &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; key, params, message &#125; = rule;</span><br><span class="line">        <span class="keyword">let</span> ruleMap = &#123;</span><br><span class="line">            required() &#123;</span><br><span class="line">                <span class="keyword">return</span> !val;</span><br><span class="line">            &#125;,</span><br><span class="line">            max() &#123;</span><br><span class="line">                <span class="keyword">return</span> val &gt; params;</span><br><span class="line">            &#125;,</span><br><span class="line">            validator() &#123;</span><br><span class="line">                <span class="keyword">return</span> params(val);</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> handler = ruleMap[key];</span><br><span class="line">        <span class="keyword">if</span> (handler &amp;&amp; handler()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> message;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    validate(data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> keys = <span class="built_in">Object</span>.keys(data);</span><br><span class="line">            <span class="keyword">let</span> errors = [];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> keys) &#123;</span><br><span class="line">                <span class="keyword">const</span> ruleList = <span class="keyword">this</span>.descriptor[key];</span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(ruleList) || !ruleList.length) <span class="keyword">continue</span>;</span><br><span class="line">    </span><br><span class="line">                <span class="keyword">const</span> val = data[key];</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> rule <span class="keyword">of</span> ruleList) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        <span class="keyword">this</span>.handleRule(val, rule);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                        errors.push(e.toString());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (errors.length) &#123;</span><br><span class="line">                reject(errors);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                resolve();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明每个字段的校验逻辑</span></span><br><span class="line"><span class="keyword">const</span> descriptor = &#123;</span><br><span class="line">    nickname: [</span><br><span class="line">        &#123; <span class="attr">key</span>: <span class="string">"required"</span>, <span class="attr">message</span>: <span class="string">"请填写昵称"</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">key</span>: <span class="string">"max"</span>, <span class="attr">params</span>: <span class="number">6</span>, <span class="attr">message</span>: <span class="string">"昵称最多6位字符"</span> &#125;,</span><br><span class="line">    ],</span><br><span class="line">    phone: [</span><br><span class="line">        &#123; <span class="attr">key</span>: <span class="string">"required"</span>, <span class="attr">message</span>: <span class="string">"请填写电话号码"</span> &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            key: <span class="string">"validator"</span>,</span><br><span class="line">            params(val) &#123;</span><br><span class="line">                <span class="keyword">return</span> !<span class="regexp">/^1\d&#123;10&#125;$/</span>.test(val);</span><br><span class="line">            &#125;,</span><br><span class="line">            message: <span class="string">"请填写正确的电话号码"</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始对数据进行校验</span></span><br><span class="line"><span class="keyword">const</span> validator = <span class="keyword">new</span> Schema(descriptor);</span><br><span class="line"><span class="keyword">const</span> params = &#123; <span class="attr">nickname</span>: <span class="string">""</span>, <span class="attr">phone</span>: <span class="string">"123000"</span> &#125;;</span><br><span class="line">validator.validate(params).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"success"</span>);</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>Schema主要暴露了构造参数和validate两个接口，是一个通用的工具类，而params是表单提交的数据源，因此主要的校验逻辑实际上是在descriptor中声明的。将常见的校验规则都放在ruleMap中，比之前各种不可复用的if..else判断更容易维护和迭代。</p><h5 id="4、状态模式"><a href="#4、状态模式" class="headerlink" title="4、状态模式"></a>4、状态模式</h5><p>状态模式允许一个对象在其内部状态改变的时候改变它的行为。状态模式的思路是：首先创建一个状态对象保存状态变量，然后封装好每种动作对应的状态，然后状态对象返回一个接口对象，它可以对内部的状态修改或者调用。</p><p>常见的使用场景，比如滚动加载，包含了初始化加载、加载成功、加载失败、滚动加载等状态，任意时间它只会处于一种状态。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个状态机</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rollingLoad</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>._currentState = <span class="string">'init'</span></span><br><span class="line">    <span class="keyword">this</span>.states = &#123;</span><br><span class="line">        init: &#123; <span class="attr">failed</span>: <span class="string">'error'</span> &#125;,</span><br><span class="line">        init: &#123; <span class="attr">complete</span>: <span class="string">'normal'</span> &#125;,</span><br><span class="line">        normal: &#123; <span class="attr">rolling</span>: <span class="string">'loading'</span> &#125;,</span><br><span class="line">        loading: &#123; <span class="attr">complete</span>: <span class="string">'normal'</span> &#125;,</span><br><span class="line">        loading: &#123; <span class="attr">failed</span>: <span class="string">'error'</span> &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.actions = &#123;</span><br><span class="line">        init() &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'初始化加载，大loading'</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        normal() &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'加载成功，正常展示'</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        error() &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'加载失败'</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        loading() &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'滚动加载'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// .....</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  change(state) &#123;</span><br><span class="line">    <span class="comment">// 更改当前状态</span></span><br><span class="line">    <span class="keyword">let</span> to = <span class="keyword">this</span>.states[<span class="keyword">this</span>._currentState][state]</span><br><span class="line">    <span class="keyword">if</span>(to)&#123;</span><br><span class="line">        <span class="keyword">this</span>._currentState = to</span><br><span class="line">        <span class="keyword">this</span>.go()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  go() &#123;</span><br><span class="line">    <span class="keyword">this</span>.actions[<span class="keyword">this</span>._currentState]()</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 状态更改的操作</span></span><br><span class="line"><span class="keyword">const</span> rollingLoad = <span class="keyword">new</span> rollingLoad()</span><br><span class="line">rollingLoad.go()</span><br><span class="line">rollingLoad.change(<span class="string">'complete'</span>)</span><br><span class="line">rollingLoad.change(<span class="string">'loading'</span>)</span><br></pre></td></tr></table></figure><p>这样，我们就可以通过状态变更，运行相应的函数，且状态之间存在联系。那么，看起来是不是和策略模式很像呢？其实不然，策略类的各个属性之间是平等平行的，它们之间没有任何联系。而状态机中的各个状态之间存在相互切换，且是被规定好了的。</p><h5 id="5、发布-订阅模式"><a href="#5、发布-订阅模式" class="headerlink" title="5、发布-订阅模式"></a>5、发布-订阅模式</h5><p>发布—订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。</p><p>发布订阅模式大概是前端同学最熟悉的设计模式之一了，常见的事件监听addEventListener，各种属性方法onload、onchange，vue响应式数据，组件通信redux、eventBus等。</p><p>常见的获取登录信息，假设我们开发一个商城网站，网站里有 header 头部、nav 导航、消息列表、购物车等模块。</p><p>这几个模块的渲染有一个共同的前提条件，就是必须先用 ajax 异步请求获取用户的登录信息。</p><p>比如用户的名字和头像要显示在 header 模块里，而这两个字段都来自用户登录后返回的信息。异步的问题通常也可以用回调函数来解决：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">login.succ(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"> header.setAvatar( data.avatar); <span class="comment">// 设置 header 模块的头像</span></span><br><span class="line"> nav.setAvatar( data.avatar ); <span class="comment">// 设置导航模块的头像</span></span><br><span class="line"> message.refresh(); <span class="comment">// 刷新消息列表</span></span><br><span class="line"> cart.refresh(); <span class="comment">// 刷新购物车列表</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>我们还必须了解 header 模块里设置头像的方法叫setAvatar、购物车模块里刷新的方法叫refresh，这种强耦合性会使程序变得不易拓展。</p><p>那么回头看看我们的发布—订阅模式，这种模式下，对用户信息感兴趣的业务模块可以自行订阅登录成功的消息事件。</p><p>当登录成功时，登录模块只需要发布登录成功的消息，而业务方接受到消息之后，就会开始进行各自的业务处理，登录模块并不关心业务方究竟要做什么。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发布登录成功的消息</span></span><br><span class="line">$.ajax( <span class="string">'http://xxx.com?login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123; <span class="comment">// 登录成功</span></span><br><span class="line"> login.trigger( <span class="string">'loginSucc'</span>, data); <span class="comment">// 发布登录成功的消息</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 各模块监听登录成功的消息</span></span><br><span class="line"><span class="keyword">var</span> header = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// header 模块</span></span><br><span class="line"> login.listen( <span class="string">'loginSucc'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">     header.setAvatar( data.avatar );</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> &#123;</span><br><span class="line">     setAvatar: <span class="function"><span class="keyword">function</span>(<span class="params"> data </span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log( <span class="string">'设置 header 模块的头像'</span> );</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">var</span> nav = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// nav 模块</span></span><br><span class="line"> login.listen( <span class="string">'loginSucc'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> data </span>)</span>&#123;</span><br><span class="line">     nav.setAvatar( data.avatar );</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> &#123;</span><br><span class="line">     setAvatar: <span class="function"><span class="keyword">function</span>(<span class="params"> avatar </span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log( <span class="string">'设置 nav 模块的头像'</span> );</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p>发布—订阅模式可以广泛应用于异步编程中，这是一种替代传递回调函数的方案。比如，我们可以订阅ajax请求的error、succ等事件。</p><p>或者如果想在动画的每一帧完成之后做一些事情，那我们可以订阅一个事件，然后在动画的每一帧完成之后发布这个事件。</p><p>在异步编程中使用发布—订阅模式，我们就无需过多关注对象在异步运行期间的内部状态，而只需要订阅感兴趣的事件发生点。</p><h5 id="6、迭代器模式"><a href="#6、迭代器模式" class="headerlink" title="6、迭代器模式"></a>6、迭代器模式</h5><p>迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素，而又不需要暴露该对象的内部表示。</p><p>迭代器模式可以把迭代的过程从业务逻辑中分离出来，在使用迭代器模式之后，即使不关心对象的内部构造，也可以按顺序访问其中的每个元素。</p><p>JS 也内置了多种遍历数组的方法如forEach、reduce等。对于数组的循环大家都轻车熟路了，在实际开发中，也可以通过循环来优化代码。</p><p>一个常见的开发场景是：通过 ua 判断当前页面的运行平台，方便执行不同的业务逻辑，最基本的写法当然是if…else。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PAGE_TYPE = &#123;</span><br><span class="line">    app: <span class="string">"app"</span>, <span class="comment">// app</span></span><br><span class="line">    wx: <span class="string">"wx"</span>, <span class="comment">// 微信</span></span><br><span class="line">    tiktok: <span class="string">"tiktok"</span>, <span class="comment">// 抖音</span></span><br><span class="line">    bili: <span class="string">"bili"</span>, <span class="comment">// B站</span></span><br><span class="line">    kwai: <span class="string">"kwai"</span>, <span class="comment">// 快手</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPageType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ua = navigator.userAgent;</span><br><span class="line">    <span class="keyword">let</span> pageType;</span><br><span class="line">    <span class="comment">// 移动端、桌面端微信浏览器</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/xxx_app/i</span>.test(ua)) &#123;</span><br><span class="line">        pageType = app;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/MicroMessenger/i</span>.test(ua)) &#123;</span><br><span class="line">        pageType = wx;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/aweme/i</span>.test(ua)) &#123;</span><br><span class="line">        pageType = tiktok;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/BiliApp/i</span>.test(ua)) &#123;</span><br><span class="line">        pageType = bili;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/Kwai/i</span>.test(ua)) &#123;</span><br><span class="line">        pageType = kwai;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pageType;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考策略模式的思路，我们可以减少分支判断的出现，将每个平台的判断拆分成单独的策略:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isApp</span>(<span class="params">ua</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/xxx_app/i</span>.test(ua);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isWx</span>(<span class="params">ua</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/MicroMessenger/i</span>.test(ua);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isTiktok</span>(<span class="params">ua</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/aweme/i</span>.test(ua);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBili</span>(<span class="params">ua</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/BiliApp/i</span>.test(ua);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isKwai</span>(<span class="params">ua</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/Kwai/i</span>.test(ua);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> platformList = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"app"</span>, <span class="attr">validator</span>: isApp &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"wx"</span>, <span class="attr">validator</span>: isWx &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"tiktok"</span>, <span class="attr">validator</span>: isTiktok &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"bili"</span>, <span class="attr">validator</span>: isBili &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"kwai"</span>, <span class="attr">validator</span>: isKwai &#125;,</span><br><span class="line">];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPageType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 每个平台的名称与检测方法</span></span><br><span class="line">    <span class="keyword">const</span> ua = navigator.userAgent;</span><br><span class="line">    <span class="comment">// 遍历</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> &#123; name, validator &#125; <span class="keyword">in</span> platformList) &#123;</span><br><span class="line">        <span class="keyword">if</span> (validator(ua)) &#123;</span><br><span class="line">            <span class="keyword">return</span> name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;设计模式的种类&quot;&gt;&lt;a href=&quot;#设计模式的种类&quot; class=&quot;headerlink&quot; title=&quot;设计模式的种类&quot;&gt;&lt;/a&gt;&lt;strong&gt;设计模式的种类&lt;/strong&gt;&lt;/h4&gt;&lt;h5 id=&quot;1、-创建型模式&quot;&gt;&lt;a href=&quot;#1、-创建型模式
+      
+    
+    </summary>
+    
+    
+    
+      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-04】</title>
+    <link href="http://yoursite.com/2021/04/30/weeks/2021/2021-04/"/>
+    <id>http://yoursite.com/2021/04/30/weeks/2021/2021-04/</id>
+    <published>2021-04-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://juejin.cn/post/6945023989555134494#heading-0" target="_blank" rel="noopener">CSS 实现优惠券的技巧</a></p><p><a href="https://www.cnblogs.com/qingchunshiguang/p/8011103.html" target="_blank" rel="noopener">前端布局神器display:flex</a></p><p><a href="https://juejin.cn/post/6844903993278201870" target="_blank" rel="noopener">React 开发必须知道的 34 个技巧</a></p><p><a href="https://juejin.cn/post/6944863057000529933" target="_blank" rel="noopener">「react进阶」一文吃透react-hooks原理</a></p><p><a href="https://juejin.cn/post/6932647134944886797" target="_blank" rel="noopener">前端优秀实践不完全指南</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6945023989555134494#heading-0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CSS 实现优惠券的技巧&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ww
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="react-hooks" scheme="http://yoursite.com/tags/react-hooks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端月刊【2021-03】</title>
+    <link href="http://yoursite.com/2021/03/30/weeks/2021/2021-03/"/>
+    <id>http://yoursite.com/2021/03/30/weeks/2021/2021-03/</id>
+    <published>2021-03-30T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.688Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s/ywsOPLQYTDke65EXqtsJhg" target="_blank" rel="noopener">快速使用Vue3最新的15个常用API</a></p><p><a href="https://mp.weixin.qq.com/s/nb3dI3hQxhzQsE9l0pd3mg" target="_blank" rel="noopener">15道ES6 Promise实战练习题，助你快速理解Promise</a></p><p><a href="https://juejin.cn/post/6941206439624966152" target="_blank" rel="noopener">1.5 万字 CSS 基础拾遗（核心知识、常见需求）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/ywsOPLQYTDke65EXqtsJhg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;快速使用Vue3最新的15个常用API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https:
+      
+    
+    </summary>
+    
+    
+    
+      <category term="weeks" scheme="http://yoursite.com/tags/weeks/"/>
+    
+      <category term="ES" scheme="http://yoursite.com/tags/ES/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React全家桶核心知识点(四) - 扩展</title>
+    <link href="http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/"/>
+    <id>http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/</id>
+    <published>2021-03-12T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.684Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一-setState"><a href="#一-setState" class="headerlink" title="一. setState"></a>一. setState</h2><h3 id="setState更新状态的2种写法"><a href="#setState更新状态的2种写法" class="headerlink" title="setState更新状态的2种写法"></a>setState更新状态的2种写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(1). setState(stateChange, [callback])------对象式的setState</span><br><span class="line">            1.stateChange为状态改变对象(该对象可以体现出状态的更改)</span><br><span class="line">            2.callback是可选的回调函数, 它在状态更新完毕、界面也更新后(render调用后)才被调用</span><br><span class="line"></span><br><span class="line">(2). setState(updater, [callback])------函数式的setState</span><br><span class="line">            1.updater为返回stateChange对象的函数。</span><br><span class="line">            2.updater可以接收到state和props。</span><br><span class="line">            4.callback是可选的回调函数, 它在状态更新、界面也更新后(render调用后)才被调用。</span><br><span class="line">总结:</span><br><span class="line">1.对象式的setState是函数式的setState的简写方式(语法糖)</span><br><span class="line">2.使用原则：</span><br><span class="line">(1).如果新状态不依赖于原状态 &#x3D;&#x3D;&#x3D;&gt; 使用对象方式</span><br><span class="line">(2).如果新状态依赖于原状态 &#x3D;&#x3D;&#x3D;&gt; 使用函数方式</span><br><span class="line">(3).如果需要在setState()执行后获取最新的状态数据, 要在第二个callback函数中读取</span><br></pre></td></tr></table></figure><hr><h2 id="二-lazyLoad"><a href="#二-lazyLoad" class="headerlink" title="二. lazyLoad"></a>二. lazyLoad</h2><h3 id="路由组件的lazyLoad"><a href="#路由组件的lazyLoad" class="headerlink" title="路由组件的lazyLoad"></a>路由组件的lazyLoad</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.通过React的lazy函数配合import()函数动态加载路由组件 ===&gt; 路由组件代码会被分开打包</span></span><br><span class="line"><span class="keyword">const</span> Login = lazy(<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">import</span>(<span class="string">'@/pages/Login'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.通过&lt;Suspense&gt;指定在加载得到路由打包文件前显示一个自定义loading界面</span></span><br><span class="line">&lt;Suspense fallback=&#123;&lt;h1&gt;loading.....&lt;<span class="regexp">/h1&gt;&#125;&gt;</span></span><br><span class="line"><span class="regexp">       &lt;Switch&gt;</span></span><br><span class="line"><span class="regexp">           &lt;Route path="/</span>xxx<span class="string">" component=&#123;Xxxx&#125;/&gt;</span></span><br><span class="line"><span class="string">           &lt;Redirect to="</span>/login<span class="string">"/&gt;</span></span><br><span class="line"><span class="string">       &lt;/Switch&gt;</span></span><br><span class="line"><span class="string">   &lt;/Suspense&gt;</span></span><br></pre></td></tr></table></figure><hr><h2 id="三-Hooks"><a href="#三-Hooks" class="headerlink" title="三. Hooks"></a>三. Hooks</h2><h4 id="1-React-Hook-Hooks是什么"><a href="#1-React-Hook-Hooks是什么" class="headerlink" title="1. React Hook/Hooks是什么?"></a>1. React Hook/Hooks是什么?</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1). Hook是React 16.8.0版本增加的新特性&#x2F;新语法</span><br><span class="line">(2). 可以让你在函数组件中使用 state 以及其他的 React 特性</span><br></pre></td></tr></table></figure><h4 id="2-三个常用的Hook"><a href="#2-三个常用的Hook" class="headerlink" title="2. 三个常用的Hook"></a>2. 三个常用的Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1). State Hook: React.useState()</span><br><span class="line">(2). Effect Hook: React.useEffect()</span><br><span class="line">(3). Ref Hook: React.useRef()</span><br></pre></td></tr></table></figure><h4 id="3-State-Hook"><a href="#3-State-Hook" class="headerlink" title="3. State Hook"></a>3. State Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(1). State Hook让函数组件也可以有state状态, 并进行状态数据的读写操作</span><br><span class="line">(2). 语法: const [xxx, setXxx] &#x3D; React.useState(initValue)  </span><br><span class="line">(3). useState()说明:</span><br><span class="line">        参数: 第一次初始化指定的值在内部作缓存</span><br><span class="line">        返回值: 包含2个元素的数组, 第1个为内部当前状态值, 第2个为更新状态值的函数</span><br><span class="line">(4). setXxx()2种写法:</span><br><span class="line">        setXxx(newValue): 参数为非函数值, 直接指定新的状态值, 内部用其覆盖原来的状态值</span><br><span class="line">        setXxx(value &#x3D;&gt; newValue): 参数为函数, 接收原本的状态值, 返回新的状态值, 内部用其覆盖原来的状态值</span><br></pre></td></tr></table></figure><h4 id="4-Effect-Hook"><a href="#4-Effect-Hook" class="headerlink" title="4. Effect Hook"></a>4. Effect Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(1). Effect Hook 可以让你在函数组件中执行副作用操作(用于模拟类组件中的生命周期钩子)</span><br><span class="line">(2). React中的副作用操作:</span><br><span class="line">        发ajax请求数据获取</span><br><span class="line">        设置订阅 &#x2F; 启动定时器</span><br><span class="line">        手动更改真实DOM</span><br><span class="line">(3). 语法和说明: </span><br><span class="line">        useEffect(() &#x3D;&gt; &#123; </span><br><span class="line">          &#x2F;&#x2F; 在此可以执行任何带副作用操作</span><br><span class="line">          return () &#x3D;&gt; &#123; &#x2F;&#x2F; 在组件卸载前执行</span><br><span class="line">            &#x2F;&#x2F; 在此做一些收尾工作, 比如清除定时器&#x2F;取消订阅等</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, [stateValue]) &#x2F;&#x2F; 如果指定的是[], 回调函数只会在第一次render()后执行</span><br><span class="line">    </span><br><span class="line">(4). 可以把 useEffect Hook 看做如下三个函数的组合</span><br><span class="line">        componentDidMount()</span><br><span class="line">        componentDidUpdate()</span><br><span class="line">      componentWillUnmount()</span><br></pre></td></tr></table></figure><h4 id="5-Ref-Hook"><a href="#5-Ref-Hook" class="headerlink" title="5. Ref Hook"></a>5. Ref Hook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1). Ref Hook可以在函数组件中存储&#x2F;查找组件内的标签或任意其它数据</span><br><span class="line">(2). 语法: const refContainer &#x3D; useRef()</span><br><span class="line">(3). 作用:保存标签对象,功能与React.createRef()一样</span><br></pre></td></tr></table></figure><hr><h2 id="四-Fragment"><a href="#四-Fragment" class="headerlink" title="四. Fragment"></a>四. Fragment</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>&lt;Fragment&gt;&lt;Fragment&gt;&lt;&gt;&lt;/&gt;</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><blockquote><p>可以不用必须有一个真实的DOM根标签了</p></blockquote><hr/><h2 id="五-Context"><a href="#五-Context" class="headerlink" title="五. Context"></a>五. Context</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><blockquote><p>一种组件间通信方式, 常用于【祖组件】与【后代组件】间通信</p></blockquote><h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>) 创建Context容器对象：</span><br><span class="line"><span class="keyword">const</span> XxxContext = React.createContext()  </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>) 渲染子组时，外面包裹xxxContext.Provider, 通过value属性给后代组件传递数据：</span><br><span class="line">&lt;xxxContext.Provider value=&#123;数据&#125;&gt;</span><br><span class="line">子组件</span><br><span class="line">    &lt;<span class="regexp">/xxxContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">3) 后代组件读取数据：</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/第一种方式:仅适用于类组件 </span></span><br><span class="line"><span class="regexp">  static contextType = xxxContext  /</span><span class="regexp">/ 声明接收context</span></span><br><span class="line"><span class="regexp">  this.context /</span><span class="regexp">/ 读取context中的value数据</span></span><br><span class="line"><span class="regexp">  </span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/第二种方式: 函数组件与类组件都可以</span></span><br><span class="line"><span class="regexp">  &lt;xxxContext.Consumer&gt;</span></span><br><span class="line"><span class="regexp">    &#123;</span></span><br><span class="line"><span class="regexp">      value =&gt; ( /</span><span class="regexp">/ value就是context中的value数据</span></span><br><span class="line"><span class="regexp">        要显示的内容</span></span><br><span class="line"><span class="regexp">      )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>xxxContext.Consumer&gt;</span><br></pre></td></tr></table></figure><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><pre><code>在应用开发中一般不用context, 一般都它的封装react插件</code></pre><hr/><h2 id="六-组件优化"><a href="#六-组件优化" class="headerlink" title="六. 组件优化"></a>六. 组件优化</h2><h3 id="Component的2个问题"><a href="#Component的2个问题" class="headerlink" title="Component的2个问题"></a>Component的2个问题</h3><blockquote><ol><li><p>只要执行setState(),即使不改变状态数据, 组件也会重新render()</p></li><li><p>只当前组件重新render(), 就会自动重新render子组件 ==&gt; 效率低</p></li></ol></blockquote><h3 id="效率高的做法"><a href="#效率高的做法" class="headerlink" title="效率高的做法"></a>效率高的做法</h3><blockquote><p> 只有当组件的state或props数据发生改变时才重新render()</p></blockquote><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><blockquote><p> Component中的shouldComponentUpdate()总是返回true</p></blockquote><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><pre><code>办法1:     重写shouldComponentUpdate()方法    比较新旧state或props数据, 如果有变化才返回true, 如果没有返回false办法2:      使用PureComponent    PureComponent重写了shouldComponentUpdate(), 只有state或props数据有变化才返回true    注意:         只是进行state和props数据的浅比较, 如果只是数据对象内部数据变了, 返回false          不要直接修改state数据, 而是要产生新数据项目中一般使用PureComponent来优化</code></pre><hr/><h2 id="七-render-props"><a href="#七-render-props" class="headerlink" title="七. render props"></a>七. render props</h2><h3 id="如何向组件内部动态传入带内容的结构-标签"><a href="#如何向组件内部动态传入带内容的结构-标签" class="headerlink" title="如何向组件内部动态传入带内容的结构(标签)?"></a>如何向组件内部动态传入带内容的结构(标签)?</h3><pre><code>Vue中:     使用slot技术, 也就是通过组件标签体传入结构  &lt;AA&gt;&lt;BB/&gt;&lt;/AA&gt;React中:    使用children props: 通过组件标签体传入结构    使用render props: 通过组件标签属性传入结构, 一般用render函数属性</code></pre><h3 id="children-props"><a href="#children-props" class="headerlink" title="children props"></a>children props</h3><pre><code>&lt;A&gt;  &lt;B&gt;xxxx&lt;/B&gt;&lt;/A&gt;{this.props.children}问题: 如果B组件需要A组件内的数据, ==&gt; 做不到 </code></pre><h3 id="render-props"><a href="#render-props" class="headerlink" title="render props"></a>render props</h3><pre><code>&lt;A render={(data) =&gt; &lt;C data={data}&gt;&lt;/C&gt;}&gt;&lt;/A&gt;A组件: {this.props.render(内部state数据)}C组件: 读取A组件传入的数据显示 {this.props.data} </code></pre><hr/><h2 id="八-错误边界"><a href="#八-错误边界" class="headerlink" title="八. 错误边界"></a>八. 错误边界</h2><h4 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h4><p>错误边界：用来捕获后代组件错误，渲染出备用页面</p><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>只能捕获后代组件生命周期产生的错误，不能捕获自己组件产生的错误和其他组件在合成事件、定时器中产生的错误</p><h5 id="使用方式："><a href="#使用方式：" class="headerlink" title="使用方式："></a>使用方式：</h5><p>getDerivedStateFromError配合componentDidCatch</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生命周期函数，一旦后台组件报错，就会触发</span></span><br><span class="line"><span class="keyword">static</span> getDerivedStateFromError(error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">    <span class="comment">// 在render之前触发</span></span><br><span class="line">    <span class="comment">// 返回新的state</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        hasError: <span class="literal">true</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidCatch(error, info) &#123;</span><br><span class="line">    <span class="comment">// 统计页面的错误。发送请求发送到后台去</span></span><br><span class="line">    <span class="built_in">console</span>.log(error, info);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="九-组件通信方式总结"><a href="#九-组件通信方式总结" class="headerlink" title="九. 组件通信方式总结"></a>九. 组件通信方式总结</h2><h4 id="方式："><a href="#方式：" class="headerlink" title="方式："></a>方式：</h4><pre><code>props：    (1).children props    (2).render props消息订阅-发布：    pubs-sub、event等等集中式管理：    redux、dva等等conText:    生产者-消费者模式</code></pre><h4 id="组件间的关系"><a href="#组件间的关系" class="headerlink" title="组件间的关系"></a>组件间的关系</h4><pre><code>父子组件：props兄弟组件(非嵌套组件)：消息订阅-发布、集中式管理祖孙组件(跨级组件)：消息订阅-发布、集中式管理、conText(用的少)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一-setState&quot;&gt;&lt;a href=&quot;#一-setState&quot; class=&quot;headerlink&quot; title=&quot;一. setState&quot;&gt;&lt;/a&gt;一. setState&lt;/h2&gt;&lt;h3 id=&quot;setState更新状态的2种写法&quot;&gt;&lt;a href=&quot;#se
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React全家桶核心知识点(三) - redux</title>
+    <link href="http://yoursite.com/2021/03/10/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B93/"/>
+    <id>http://yoursite.com/2021/03/10/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B93/</id>
+    <published>2021-03-10T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.684Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、redux是什么"><a href="#一、redux是什么" class="headerlink" title="一、redux是什么"></a>一、redux是什么</h2><h4 id="学习文档"><a href="#学习文档" class="headerlink" title="学习文档"></a>学习文档</h4><ol><li>英文文档: <a href="https://redux.js.org/" target="_blank" rel="noopener">https://redux.js.org/</a></li><li>中文文档: <a href="http://www.redux.org.cn/" target="_blank" rel="noopener">http://www.redux.org.cn/</a></li><li>Github: <a href="https://github.com/reactjs/redux" target="_blank" rel="noopener">https://github.com/reactjs/redux</a></li></ol><h4 id="redux是什么"><a href="#redux是什么" class="headerlink" title="redux是什么"></a>redux是什么</h4><ol><li>redux是一个专门用于做状态管理的JS库(不是react插件库)。</li><li>它可以用在react, angular, vue等项目中, 但基本与react配合使用。</li><li>作用: 集中式管理react应用中多个组件共享的状态。</li></ol><h4 id="什么情况下需要使用redux"><a href="#什么情况下需要使用redux" class="headerlink" title="什么情况下需要使用redux"></a>什么情况下需要使用redux</h4><ol><li>某个组件的状态，需要让其他组件可以随时拿到（共享）。</li><li>一个组件需要改变另一个组件的状态（通信）。</li><li>总体原则：能不用就不用, 如果不用比较吃力才考虑使用。</li></ol><h4 id="redux工作流程"><a href="#redux工作流程" class="headerlink" title="redux工作流程"></a>redux工作流程</h4><p><img src="https://mrr3000.github.io/images/blog/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt=""></p><h1 id="二、redux的三个核心概念"><a href="#二、redux的三个核心概念" class="headerlink" title="二、redux的三个核心概念"></a>二、redux的三个核心概念</h1><h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><ol><li>动作的对象</li><li>包含2个属性<ul><li>type：标识属性, 值为字符串, 唯一, 必要属性</li><li>data：数据属性, 值类型任意, 可选属性</li></ul></li><li>例子：{ type: ‘ADD_STUDENT’,data:{name: ‘tom’,age:18} }</li></ol><h4 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h4><ol><li>用于初始化状态、加工状态。</li><li>加工时，根据旧的state和action， 产生新的state的纯函数。</li></ol><h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><ol><li>将state、action、reducer联系在一起的对象</li><li>如何得到此对象?<br> 1) import {createStore} from ‘redux’<br> 2) import reducer from ‘./reducers’<br> 3) const store = createStore(reducer)</li><li>此对象的功能?<br> 1) getState(): 得到state<br> 2) dispatch(action): 分发action, 触发reducer调用, 产生新的state<br> 3) subscribe(listener): 注册监听, 当产生了新的state时, 自动调用</li></ol><h1 id="三、redux的核心API"><a href="#三、redux的核心API" class="headerlink" title="三、redux的核心API"></a>三、redux的核心API</h1><h4 id="createstore"><a href="#createstore" class="headerlink" title="createstore()"></a>createstore()</h4><p>作用：创建包含指定reducer的store对象</p><h4 id="store对象"><a href="#store对象" class="headerlink" title="store对象"></a>store对象</h4><ol><li>作用: redux库最核心的管理对象</li><li>它内部维护着:<br> 1) state<br> 2) reducer</li><li>核心方法:<br>1) getState()<br>2) dispatch(action)<br>3) subscribe(listener)</li><li>具体编码:<br>1) store.getState()<br>2) store.dispatch({type:’INCREMENT’, number})<br>3) store.subscribe(render)</li></ol><h4 id="applyMiddleware"><a href="#applyMiddleware" class="headerlink" title="applyMiddleware()"></a>applyMiddleware()</h4><p>作用：应用上基于redux的中间件(插件库)</p><h4 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers()"></a>combineReducers()</h4><p>作用：合并多个reducer函数</p><h1 id="四、react-reudx"><a href="#四、react-reudx" class="headerlink" title="四、react-reudx"></a>四、react-reudx</h1><h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><ol><li>一个react插件库</li><li>专门用来简化react应用中使用redux</li></ol><h4 id="react-Redux将所有组件分成两大类"><a href="#react-Redux将所有组件分成两大类" class="headerlink" title="react-Redux将所有组件分成两大类"></a>react-Redux将所有组件分成两大类</h4><ol><li>UI组件<br> 1)只负责 UI 的呈现，不带有任何业务逻辑<br> 2)通过props接收数据(一般数据和函数)<br> 3)不使用任何 Redux 的 API<br> 4)一般保存在components文件夹下</li><li>容器组件<br> 1)负责管理数据和业务逻辑，不负责UI的呈现<br> 2)使用 Redux 的 API<br> 3)一般保存在containers文件夹下</li></ol><h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>1、Provider：让所有组件都可以得到state数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Provider store&#x3D;&#123;store&#125;&gt;</span><br><span class="line">  &lt;App &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;Provider&gt;</span><br></pre></td></tr></table></figure><p>2、connect：用于包装 UI 组件生成容器组件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &#39;react-redux&#39;</span><br><span class="line">  connect(</span><br><span class="line">    mapStateToprops,</span><br><span class="line">    mapDispatchToProps</span><br><span class="line">  )(Counter)</span><br></pre></td></tr></table></figure><p>3、mapStateToprops：将外部的数据（即state对象）转换为UI组件的标签属性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToprops &#x3D; function (state) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    value: state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4、mapDispatchToProps：将分发action的函数转换为UI组件的标签属性</p><h1 id="五、纯函数和高阶函数"><a href="#五、纯函数和高阶函数" class="headerlink" title="五、纯函数和高阶函数"></a>五、纯函数和高阶函数</h1><h4 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h4><ol><li>一类特别的函数: 只要是同样的输入(实参)，必定得到同样的输出(返回)</li><li>必须遵守以下一些约束<br> 1)不得改写参数数据<br> 2)不会产生任何副作用，例如网络请求，输入和输出设备<br> 3)不能调用Date.now()或者Math.random()等不纯的方法  </li><li>redux的reducer函数必须是一个纯函数</li></ol><h4 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h4><ol><li>理解: 一类特别的函数<br> 1)情况1: 参数是函数<br> 2)情况2: 返回是函数</li><li>常见的高阶函数:<br> 1)定时器设置函数<br> 2)数组的forEach()/map()/filter()/reduce()/find()/bind()<br> 3)promise<br> 4)react-redux中的connect函数</li><li>作用: 能实现更加动态, 更加可扩展的功能</li></ol><h1 id="六、案例"><a href="#六、案例" class="headerlink" title="六、案例"></a>六、案例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">1.redux精简版</span><br><span class="line">(1).去除Count组件自身的状态</span><br><span class="line">(2).src下建立:</span><br><span class="line">-redux</span><br><span class="line">-store.js</span><br><span class="line">-count_reducer.js</span><br><span class="line"></span><br><span class="line">(3).store.js：</span><br><span class="line">1).引入redux中的createStore函数，创建一个store</span><br><span class="line">2).createStore调用时要传入一个为其服务的reducer</span><br><span class="line">3).记得暴露store对象</span><br><span class="line"></span><br><span class="line">(4).count_reducer.js：</span><br><span class="line">1).reducer的本质是一个函数，接收：preState,action，返回加工后的状态</span><br><span class="line">2).reducer有两个作用：初始化状态，加工状态</span><br><span class="line">3).reducer被第一次调用时，是store自动触发的，</span><br><span class="line">传递的preState是undefined,</span><br><span class="line">传递的action是:&#123;type:&#39;@@REDUX&#x2F;INIT_a.2.b.4&#125;</span><br><span class="line"></span><br><span class="line">(5).在index.js中监测store中状态的改变，一旦发生改变重新渲染&lt;App&#x2F;&gt;</span><br><span class="line">备注：redux只负责管理状态，至于状态的改变驱动着页面的展示，要靠我们自己写。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.redux完整版</span><br><span class="line">新增文件：</span><br><span class="line">1.count_action.js 专门用于创建action对象</span><br><span class="line">2.constant.js 放置容易写错的type值</span><br><span class="line"></span><br><span class="line">3.redux异步action版</span><br><span class="line"> (1).明确：延迟的动作不想交给组件自身，想交给action</span><br><span class="line"> (2).何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回。</span><br><span class="line"> (3).具体编码：</span><br><span class="line"> 1).yarn add redux-thunk，并配置在store中</span><br><span class="line"> 2).创建action的函数不再返回一般对象，而是一个函数，该函数中写异步任务。</span><br><span class="line"> 3).异步任务有结果后，分发一个同步的action去真正操作数据。</span><br><span class="line"> (4).备注：异步action不是必须要写的，完全可以自己等待异步任务的结果了再去分发同步action。</span><br><span class="line"></span><br><span class="line">4.react-redux基本使用</span><br><span class="line">(1).明确两个概念：</span><br><span class="line">1).UI组件:不能使用任何redux的api，只负责页面的呈现、交互等。</span><br><span class="line">2).容器组件：负责和redux通信，将结果交给UI组件。</span><br><span class="line">(2).如何创建一个容器组件————靠react-redux 的 connect函数</span><br><span class="line">connect(mapStateToProps,mapDispatchToProps)(UI组件)</span><br><span class="line">-mapStateToProps:映射状态，返回值是一个对象</span><br><span class="line">-mapDispatchToProps:映射操作状态的方法，返回值是一个对象</span><br><span class="line">(3).备注1：容器组件中的store是靠props传进去的，而不是在容器组件中直接引入</span><br><span class="line">(4).备注2：mapDispatchToProps，也可以是一个对象</span><br><span class="line"></span><br><span class="line">5.react-redux优化</span><br><span class="line">(1).容器组件和UI组件整合一个文件</span><br><span class="line">(2).无需自己给容器组件传递store，给&lt;App&#x2F;&gt;包裹一个&lt;Provider store&#x3D;&#123;store&#125;&gt;即可。</span><br><span class="line">(3).使用了react-redux后也不用再自己检测redux中状态的改变了，容器组件可以自动完成这个工作。</span><br><span class="line">(4).mapDispatchToProps也可以简单的写成一个对象</span><br><span class="line">(5).一个组件要和redux“打交道”要经过哪几步？</span><br><span class="line">(1).定义好UI组件---不暴露</span><br><span class="line">(2).引入connect生成一个容器组件，并暴露，写法如下：</span><br><span class="line">connect(</span><br><span class="line">state &#x3D;&gt; (&#123;key:value&#125;), &#x2F;&#x2F;映射状态</span><br><span class="line">&#123;key:xxxxxAction&#125; &#x2F;&#x2F;映射操作状态的方法</span><br><span class="line">)(UI组件)</span><br><span class="line">(4).在UI组件中通过this.props.xxxxxxx读取和操作状态</span><br><span class="line"></span><br><span class="line">6.react-redux数据共享版</span><br><span class="line">(1).定义一个Pserson组件，和Count组件通过redux共享数据。</span><br><span class="line">(2).为Person组件编写：reducer、action，配置constant常量。</span><br><span class="line">(3).重点：Person的reducer和Count的Reducer要使用combineReducers进行合并，</span><br><span class="line">合并后的总状态是一个对象！！！</span><br><span class="line">(4).交给store的是总reducer，最后注意在组件中取出状态的时候，记得“取到位”。</span><br><span class="line"></span><br><span class="line">7.react-redux开发者工具的使用</span><br><span class="line">(1).yarn add redux-devtools-extension</span><br><span class="line">(2).store中进行配置</span><br><span class="line">import &#123;composeWithDevTools&#125; from &#39;redux-devtools-extension&#39;</span><br><span class="line">const store &#x3D; createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))</span><br><span class="line"></span><br><span class="line">8.react-redux最终版</span><br><span class="line">(1).所有变量名字要规范，尽量触发对象的简写形式。</span><br><span class="line">(2).reducers文件夹中，编写index.js专门用于汇总并暴露所有的reducer</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、redux是什么&quot;&gt;&lt;a href=&quot;#一、redux是什么&quot; class=&quot;headerlink&quot; title=&quot;一、redux是什么&quot;&gt;&lt;/a&gt;一、redux是什么&lt;/h2&gt;&lt;h4 id=&quot;学习文档&quot;&gt;&lt;a href=&quot;#学习文档&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+      <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
+    
+      <category term="react-redux" scheme="http://yoursite.com/tags/react-redux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React全家桶核心知识点(二) - 框架开发技巧</title>
+    <link href="http://yoursite.com/2021/03/06/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B92/"/>
+    <id>http://yoursite.com/2021/03/06/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B92/</id>
+    <published>2021-03-06T01:00:00.000Z</published>
+    <updated>2022-03-17T14:41:15.684Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、组件相关知识点"><a href="#一、组件相关知识点" class="headerlink" title="一、组件相关知识点"></a>一、组件相关知识点</h2><ol><li>拆分组件、实现静态组件，注意：className、style的写法</li><li>动态初始化列表，如何确定将数据放在哪个组件的state中？<br> ——某个组件使用：放在其自身的state中<br> ——某些组件使用：放在他们共同的父组件state中（官方称此操作为：状态提升）</li><li>关于父子之间通信：<ol><li>【父组件】给【子组件】传递数据：通过props传递</li><li>【子组件】给【父组件】传递数据：通过props传递，要求父提前给子传递一个函数</li></ol></li><li>注意defaultChecked 和 checked的区别，类似的还有：defaultValue 和 value</li><li>状态在哪里，操作状态的方法就在哪里</li><li>设计状态时要考虑全面，例如带有网络请求的组件，要考虑请求失败怎么办。</li><li>ES6小知识点：解构赋值+重命名<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:&#123;<span class="attr">b</span>:<span class="number">1</span>&#125;&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;a&#125; = obj; <span class="comment">//传统解构赋值</span></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">a</span>:&#123;b&#125;&#125; = obj; <span class="comment">//连续解构赋值</span></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">a</span>:&#123;<span class="attr">b</span>:value&#125;&#125; = obj; <span class="comment">//连续解构赋值+重命名</span></span><br></pre></td></tr></table></figure></li><li>消息订阅与发布机制<ol><li>先订阅，再发布（理解：有一种隔空对话的感觉）</li><li>适用于任意组件间通信</li><li>要在组件的componentWillUnmount中取消订阅</li><li>fetch发送请求（关注分离的设计思想）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> response= <span class="keyword">await</span> fetch(<span class="string">`/api1/search/users2?q=<span class="subst">$&#123;keyWord&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json()</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'请求出错'</span>,error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol></li></ol><h2 id="二、路由的基本使用"><a href="#二、路由的基本使用" class="headerlink" title="二、路由的基本使用"></a>二、路由的基本使用</h2><ol><li>明确好界面中的导航区、展示区</li><li>导航区的a标签改为Link标签<Link to="/xxxxx">Demo</Link></li><li>展示区写Route标签进行路径的匹配<Route path='/xxxx' component={Demo}/></li><li><App>的最外侧包裹了一个<BrowserRouter>或<HashRouter></li></ol><h2 id="三、路由组件与一般组件"><a href="#三、路由组件与一般组件" class="headerlink" title="三、路由组件与一般组件"></a>三、路由组件与一般组件</h2><ol><li>写法不同：<br>一般组件：<Demo/><br>路由组件：<Route path="/demo" component={Demo}/></li><li>存放位置不同：<br>一般组件：components<br>路由组件：pages</li><li>接收到的props不同：<br>一般组件：写组件标签时传递了什么，就能收到什么<br>路由组件：接收到三个固定的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">history:</span><br><span class="line">  go: ƒ go(n)</span><br><span class="line">  goBack: ƒ goBack()</span><br><span class="line">  goForward: ƒ goForward()</span><br><span class="line">  push: ƒ push(path, state)</span><br><span class="line">  replace: ƒ replace(path, state)</span><br><span class="line">location:</span><br><span class="line">  pathname: &quot;&#x2F;about&quot;</span><br><span class="line">  search: &quot;&quot;</span><br><span class="line">  state: undefined</span><br><span class="line">match:</span><br><span class="line">  params: &#123;&#125;</span><br><span class="line">  path: &quot;&#x2F;about&quot;</span><br><span class="line">  url: &quot;&#x2F;about&quot;</span><br></pre></td></tr></table></figure></li></ol><h2 id="四、NavLink与封装NavLink"><a href="#四、NavLink与封装NavLink" class="headerlink" title="四、NavLink与封装NavLink"></a>四、NavLink与封装NavLink</h2><p>NavLink可以实现路由链接的高亮，通过activeClassName指定样式名</p><h2 id="五、Switch的使用"><a href="#五、Switch的使用" class="headerlink" title="五、Switch的使用"></a>五、Switch的使用</h2><ol><li>通常情况下，path和component是一一对应的关系。</li><li>Switch可以提高路由匹配效率(单一匹配)。</li></ol><h2 id="六、解决多级路径刷新页面样式丢失的问题"><a href="#六、解决多级路径刷新页面样式丢失的问题" class="headerlink" title="六、解决多级路径刷新页面样式丢失的问题"></a>六、解决多级路径刷新页面样式丢失的问题</h2><ol><li><p>public/index.html 中 引入样式时不写 ./ 写 / （常用）</p></li><li><p>public/index.html 中 引入样式时不写 ./ 写 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%PUBLIC_URL%（常用）</span><br></pre></td></tr></table></figure></li><li><p>使用HashRouter</p></li></ol><h2 id="七、路由的严格匹配与模糊匹配"><a href="#七、路由的严格匹配与模糊匹配" class="headerlink" title="七、路由的严格匹配与模糊匹配"></a>七、路由的严格匹配与模糊匹配</h2><p>1 .默认使用的是模糊匹配（简单记：【输入的路径】必须包含要【匹配的路径】，且顺序要一致）<br>2. 开启严格匹配：<Route exact={true} path="/about" component={About}/><br>3. 严格匹配不要随便开启，需要再开，有些时候开启会导致无法继续匹配二级路由</p><h2 id="八、Redirect的使用"><a href="#八、Redirect的使用" class="headerlink" title="八、Redirect的使用"></a>八、Redirect的使用</h2><ol><li>一般写在所有路由注册的最下方，当所有路由都无法匹配时，跳转到Redirect指定的路由</li><li>具体编码：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Switch&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/home"</span> component=&#123;Home&#125;/&gt;</span><br><span class="line">  &lt;Redirect to=<span class="string">"/about"</span>/&gt;</span><br><span class="line">&lt;<span class="regexp">/Switch&gt;</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="九、嵌套路由"><a href="#九、嵌套路由" class="headerlink" title="九、嵌套路由"></a>九、嵌套路由</h2><ol><li>注册子路由时要写上父路由的path值</li><li>路由的匹配是按照注册路由的顺序进行的</li></ol><h2 id="十、向路由组件传递参数"><a href="#十、向路由组件传递参数" class="headerlink" title="十、向路由组件传递参数"></a>十、向路由组件传递参数</h2><ol><li><p>params参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">路由链接(携带参数)：&lt;Link to&#x3D;&#39;&#x2F;demo&#x2F;test&#x2F;tom&#x2F;18&#39;&#125;&gt;详情&lt;&#x2F;Link&gt;</span><br><span class="line">注册路由(声明接收)：&lt;Route path&#x3D;&quot;&#x2F;demo&#x2F;test&#x2F;:name&#x2F;:age&quot; component&#x3D;&#123;Test&#125;&#x2F;&gt;</span><br><span class="line">接收参数：this.props.match.params</span><br></pre></td></tr></table></figure></li></ol><ol start="2"><li><p>search参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">路由链接(携带参数)：&lt;Link to&#x3D;&#39;&#x2F;demo&#x2F;test?name&#x3D;tom&amp;age&#x3D;18&#39;&#125;&gt;详情&lt;&#x2F;Link&gt;</span><br><span class="line">注册路由(无需声明，正常注册即可)：&lt;Route path&#x3D;&quot;&#x2F;demo&#x2F;test&quot; component&#x3D;&#123;Test&#125;&#x2F;&gt;</span><br><span class="line">接收参数：this.props.location.search</span><br><span class="line">备注：获取到的search是urlencoded编码字符串，需要借助querystring解析</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>state参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">路由链接(携带参数)：&lt;Link to&#x3D;&#123;&#123;pathname:&#39;&#x2F;demo&#x2F;test&#39;,state:&#123;name:&#39;tom&#39;,age:18&#125;&#125;&#125;&gt;详情&lt;&#x2F;Link&gt;</span><br><span class="line">注册路由(无需声明，正常注册即可)：&lt;Route path&#x3D;&quot;&#x2F;demo&#x2F;test&quot; component&#x3D;&#123;Test&#125;&#x2F;&gt;</span><br><span class="line">接收参数：this.props.location.state</span><br><span class="line">备注：刷新也可以保留住参数</span><br></pre></td></tr></table></figure></li></ol><h2 id="十一、编程式路由导航"><a href="#十一、编程式路由导航" class="headerlink" title="十一、编程式路由导航"></a>十一、编程式路由导航</h2><p>借助this.prosp.history对象上的API对操作路由跳转、前进、后退<br>  -this.prosp.history.push()<br>  -this.prosp.history.replace()<br>  -this.prosp.history.goBack()<br>  -this.prosp.history.goForward()<br>  -this.prosp.history.go()</p><h2 id="十二、BrowserRouter与HashRouter的区别"><a href="#十二、BrowserRouter与HashRouter的区别" class="headerlink" title="十二、BrowserRouter与HashRouter的区别"></a>十二、BrowserRouter与HashRouter的区别</h2><ol><li><p>底层原理不一样：<br> BrowserRouter使用的是H5的history API，不兼容IE9及以下版本。<br> HashRouter使用的是URL的哈希值。</p></li><li><p>path表现形式不一样<br> BrowserRouter的路径中没有#,例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:3000&#x2F;demo&#x2F;test</span><br></pre></td></tr></table></figure></li><li><p>HashRouter的路径包含#,例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:3000&#x2F;#&#x2F;demo&#x2F;test</span><br></pre></td></tr></table></figure></li><li><p>刷新后对路由state参数的影响<br> (1).BrowserRouter没有任何影响，因为state保存在history对象中。<br> (2).HashRouter刷新后会导致路由state参数的丢失！！！</p></li><li><p>备注：HashRouter可以用于解决一些路径错误相关的问题。</p></li></ol><h2 id="十三、antd的按需引入-自定主题"><a href="#十三、antd的按需引入-自定主题" class="headerlink" title="十三、antd的按需引入+自定主题"></a>十三、antd的按需引入+自定主题</h2><ol><li><p>安装依赖：yarn add react-app-rewired customize-cra babel-plugin-import less less-loader</p></li><li><p>修改package.json</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"react-app-rewired start"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"react-app-rewired build"</span>,</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"react-app-rewired test"</span>,</span><br><span class="line">  <span class="string">"eject"</span>: <span class="string">"react-scripts eject"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>根目录下创建config-overrides.js</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//配置具体的修改规则</span></span><br><span class="line"><span class="keyword">const</span> &#123; override, fixBabelImports,addLessLoader&#125; = <span class="built_in">require</span>(<span class="string">'customize-cra'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = override(</span><br><span class="line">  fixBabelImports(<span class="string">'import'</span>, &#123;</span><br><span class="line">  libraryName: <span class="string">'antd'</span>,</span><br><span class="line">  libraryDirectory: <span class="string">'es'</span>,</span><br><span class="line">  style: <span class="literal">true</span>,</span><br><span class="line">&#125;),</span><br><span class="line">addLessLoader(&#123;</span><br><span class="line">  lessOptions:&#123;</span><br><span class="line">    javascriptEnabled: <span class="literal">true</span>,</span><br><span class="line">    modifyVars: &#123; <span class="string">'@primary-color'</span>: <span class="string">'green'</span> &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;),</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li><li><p>备注：不用在组件里亲自引入样式了，即：import ‘antd/dist/antd.css’应该删掉</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、组件相关知识点&quot;&gt;&lt;a href=&quot;#一、组件相关知识点&quot; class=&quot;headerlink&quot; title=&quot;一、组件相关知识点&quot;&gt;&lt;/a&gt;一、组件相关知识点&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;拆分组件、实现静态组件，注意：className、style的写法&lt;/l
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
+  
+</feed>

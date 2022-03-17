@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>HTTP抓包实战 | Marong&#39;s Note</title>
+  <meta name="description" content="一、Http 协议请求方法和状态码get post方法到区别 get提交到数据会放在url之后，以问号分割url和传输数据。参数之间以&amp;相连，post方法是把提交的数据放在http包的body中 get提交的数据大小有限制url长度限制，而post方法提交数据没有大小限制 get方式需要使用request.querystring来取得变量的值，而post方法提交的数据大小没有限制 get方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP抓包实战">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/book/2019/http%E6%8A%93%E5%8C%85%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="一、Http 协议请求方法和状态码get post方法到区别 get提交到数据会放在url之后，以问号分割url和传输数据。参数之间以&amp;相连，post方法是把提交的数据放在http包的body中 get提交的数据大小有限制url长度限制，而post方法提交数据没有大小限制 get方式需要使用request.querystring来取得变量的值，而post方法提交的数据大小没有限制 get方">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://qiniu.marongrong.com/blog/http01.png">
+<meta property="article:published_time" content="2019-04-15T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-17T14:41:15.680Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="书籍">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="抓包">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniu.marongrong.com/blog/http01.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/book/2019/http%E6%8A%93%E5%8C%85%E5%AE%9E%E6%88%98/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMDB/" rel="tag">CMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E4%B8%96%E7%95%8C/" rel="tag">CSS世界</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSX/" rel="tag">JSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/" rel="tag">K8S</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LoianeGroner/" rel="tag">LoianeGroner</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UED/" rel="tag">UED</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UX/" rel="tag">UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">WEB前端开发最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbs/" rel="tag">bbs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/" rel="tag">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diff/" rel="tag">diff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/egg/" rel="tag">egg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/" rel="tag">forum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gzip/" rel="tag">gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/" rel="tag">ie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qiankun/" rel="tag">qiankun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react-hooks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-redux/" rel="tag">react-redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactnative/" rel="tag">reactnative</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rollup/" rel="tag">rollup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-spa/" rel="tag">single-spa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snabbdom/" rel="tag">snabbdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/treeshaking/" rel="tag">treeshaking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vdom/" rel="tag">vdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualDom/" rel="tag">virtualDom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vite/" rel="tag">vite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/" rel="tag">webgl</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" rel="tag">你不知道的</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" rel="tag">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" rel="tag">大前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" rel="tag">张鑫旭</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag">敏捷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" rel="tag">数据平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" rel="tag">深入理解ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="tag">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" rel="tag">编写可维护的JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" rel="tag">节流防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A6%83%E8%B6%85/" rel="tag">覃超</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E7%AB%AF/" rel="tag">跨端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" rel="tag">阮一峰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" rel="tag">高性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%88/" rel="tag">高效</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CICD/" style="font-size: 13px;">CICD</a> <a href="/tags/CMDB/" style="font-size: 13px;">CMDB</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS%E4%B8%96%E7%95%8C/" style="font-size: 13px;">CSS世界</a> <a href="/tags/ES/" style="font-size: 13.2px;">ES</a> <a href="/tags/Flutter/" style="font-size: 13px;">Flutter</a> <a href="/tags/HTTP/" style="font-size: 13.1px;">HTTP</a> <a href="/tags/JAVA/" style="font-size: 13px;">JAVA</a> <a href="/tags/JSX/" style="font-size: 13px;">JSX</a> <a href="/tags/K8S/" style="font-size: 13px;">K8S</a> <a href="/tags/LoianeGroner/" style="font-size: 13px;">LoianeGroner</a> <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.1px;">TCP</a> <a href="/tags/UED/" style="font-size: 13px;">UED</a> <a href="/tags/UI/" style="font-size: 13px;">UI</a> <a href="/tags/UX/" style="font-size: 13px;">UX</a> <a href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">WEB前端开发最佳实践</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/bbs/" style="font-size: 13px;">bbs</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/css/" style="font-size: 13.1px;">css</a> <a href="/tags/curl/" style="font-size: 13px;">curl</a> <a href="/tags/diff/" style="font-size: 13px;">diff</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/egg/" style="font-size: 13px;">egg</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/forum/" style="font-size: 13px;">forum</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/go/" style="font-size: 13px;">go</a> <a href="/tags/gzip/" style="font-size: 13px;">gzip</a> <a href="/tags/http/" style="font-size: 13.1px;">http</a> <a href="/tags/https/" style="font-size: 13.1px;">https</a> <a href="/tags/ie/" style="font-size: 13px;">ie</a> <a href="/tags/java/" style="font-size: 13.5px;">java</a> <a href="/tags/javascript/" style="font-size: 13.8px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13.1px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13.1px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.3px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/proxy/" style="font-size: 13px;">proxy</a> <a href="/tags/qiankun/" style="font-size: 13px;">qiankun</a> <a href="/tags/react/" style="font-size: 13.6px;">react</a> <a href="/tags/react-hooks/" style="font-size: 13px;">react-hooks</a> <a href="/tags/react-redux/" style="font-size: 13px;">react-redux</a> <a href="/tags/reactnative/" style="font-size: 13.1px;">reactnative</a> <a href="/tags/redux/" style="font-size: 13px;">redux</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/rollup/" style="font-size: 13px;">rollup</a> <a href="/tags/rust/" style="font-size: 13.1px;">rust</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/single-spa/" style="font-size: 13px;">single-spa</a> <a href="/tags/snabbdom/" style="font-size: 13px;">snabbdom</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/treeshaking/" style="font-size: 13px;">treeshaking</a> <a href="/tags/typescript/" style="font-size: 13.7px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vdom/" style="font-size: 13px;">vdom</a> <a href="/tags/virtualDom/" style="font-size: 13px;">virtualDom</a> <a href="/tags/vite/" style="font-size: 13px;">vite</a> <a href="/tags/vue/" style="font-size: 13.3px;">vue</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/vue3/" style="font-size: 13.1px;">vue3</a> <a href="/tags/webgl/" style="font-size: 13.2px;">webgl</a> <a href="/tags/webpack/" style="font-size: 13.3px;">webpack</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/xlsx/" style="font-size: 13px;">xlsx</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 13.9px;">书籍</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.1px;">优化</a> <a href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" style="font-size: 13px;">你不知道的</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">修饰符</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13px;">分布式</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 13px;">响应式</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">基础</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">大前端</a> <a href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" style="font-size: 13px;">张鑫旭</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 13.3px;">微前端</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.1px;">性能</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 13px;">抓包</a> <a href="/tags/%E6%95%8F%E6%8D%B7/" style="font-size: 13px;">敏捷</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" style="font-size: 13px;">数据平台</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">架构</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" style="font-size: 13px;">深入理解ES6</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 13px;">移动端</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.3px;">算法</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 13px;">组件</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a> <a href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" style="font-size: 13px;">编写可维护的JS</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">自动化测试</a> <a href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" style="font-size: 13px;">节流防抖</a> <a href="/tags/%E8%A6%83%E8%B6%85/" style="font-size: 13px;">覃超</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">设计</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.2px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 13px;">跨端</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">运维</a> <a href="/tags/%E8%BF%9B%E9%98%B6/" style="font-size: 13px;">进阶</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 13.1px;">部署</a> <a href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" style="font-size: 13px;">阮一峰</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">领域模型</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 13px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 13.1px;">高效</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/30/weeks/2022/2022-03/" class="title">前端月刊【2022-03】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-30T01:00:00.000Z" itemprop="datePublished">2022-03-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/" class="title">构建高性能WEB站点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-10T02:00:00.000Z" itemprop="datePublished">2022-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/28/weeks/2022/2022-02/" class="title">前端月刊【2022-02】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-28T01:00:00.000Z" itemprop="datePublished">2022-02-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/01/30/weeks/2022/2022-01/" class="title">前端月刊【2022-01】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-01-30T01:00:00.000Z" itemprop="datePublished">2022-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/30/weeks/2021/2021-12/" class="title">前端月刊【2021-12】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-30T01:00:00.000Z" itemprop="datePublished">2021-12-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-book/2019/http抓包实战" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTTP抓包实战
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/04/15/book/2019/http%E6%8A%93%E5%8C%85%E5%AE%9E%E6%88%98/" class="article-date">
+	  <time datetime="2019-04-15T01:00:00.000Z" itemprop="datePublished">2019-04-15</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/HTTP/" rel="tag">HTTP</a>, <a class="article-tag-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a>, <a class="article-tag-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/04/15/book/2019/http%E6%8A%93%E5%8C%85%E5%AE%9E%E6%88%98/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="一、Http-协议请求方法和状态码"><a href="#一、Http-协议请求方法和状态码" class="headerlink" title="一、Http 协议请求方法和状态码"></a>一、Http 协议请求方法和状态码</h1><h2 id="get-post方法到区别"><a href="#get-post方法到区别" class="headerlink" title="get post方法到区别"></a>get post方法到区别</h2><ul>
+<li>get提交到数据会放在url之后，以问号分割url和传输数据。参数之间以&amp;相连，post方法是把提交的数据放在http包的body中</li>
+<li>get提交的数据大小有限制url长度限制，而post方法提交数据没有大小限制</li>
+<li>get方式需要使用request.querystring来取得变量的值，而post方法提交的数据大小没有限制</li>
+<li>get方式提交数据会带来安全问题</li>
+</ul>
+<h2 id="200-服务器成功处理了请求"><a href="#200-服务器成功处理了请求" class="headerlink" title="200 服务器成功处理了请求"></a>200 服务器成功处理了请求</h2><h2 id="204-no-content-没有内容"><a href="#204-no-content-没有内容" class="headerlink" title="204 no content 没有内容"></a>204 no content 没有内容</h2><ul>
+<li>在不获取资源的情况下了解资源的情况</li>
+<li>通过查看http响应中状态码看某个对象是否存在</li>
+<li>通过查看header测试资源是否被修改</li>
+</ul>
+<h2 id="206-partial-content-部分内容"><a href="#206-partial-content-部分内容" class="headerlink" title="206 partial content 部分内容"></a>206 partial content 部分内容</h2><ul>
+<li>ftp 使用206状态码来实现断点续传的</li>
+<li>将一个大文档分解为多个下载段同时下载，比如在线视频 流媒体</li>
+</ul>
+<h2 id="301-moved-permanently-表示请求的网页已经永久性转移到另一个地址"><a href="#301-moved-permanently-表示请求的网页已经永久性转移到另一个地址" class="headerlink" title="301 moved permanently  表示请求的网页已经永久性转移到另一个地址"></a>301 moved permanently  表示请求的网页已经永久性转移到另一个地址</h2><ul>
+<li>防止用户输错域名</li>
+<li>网站更换域名</li>
+<li>有多个权重不错的域名，需要把所有的权重都传递到新域名，这就需要301重定向</li>
+</ul>
+<h2 id="302-found"><a href="#302-found" class="headerlink" title="302 found"></a>302 found</h2><p>在未登陆状态下，直接访问需要登录才能访问的页面，会被服务器返回302，跳转到的登录页面。</p>
+<h2 id="301-302区别"><a href="#301-302区别" class="headerlink" title="301 302区别"></a>301 302区别</h2><ul>
+<li>语法上是一模一样，都是在location中返回新的url，区别在于：</li>
+<li>301 表示旧地址的资源已经被永久地移除了，这个资源不可访问了，搜索引擎会把权重算到新地址</li>
+<li>302 表示旧地址的资源还在，仍然可以访问，这个重定向只是临时地从旧地址跳转到新地址，搜索引擎会把权重算到旧地址</li>
+</ul>
+<h2 id="304-not-modified"><a href="#304-not-modified" class="headerlink" title="304 not modified"></a>304 not modified</h2><p>表示上次到文档已经被缓存了，还可以继续使用。</p>
+<h2 id="400-bad-request"><a href="#400-bad-request" class="headerlink" title="400 bad request"></a>400 bad request</h2><p>表示客户端请求有语法错误，发送到http请求中的数据有错误，不能被服务器所理解。</p>
+<h2 id="401-unauthorized"><a href="#401-unauthorized" class="headerlink" title="401 unauthorized"></a>401 unauthorized</h2><p>是指未授权错误。有些网页采用的是http基本认证，需要在http请求中带上authorization header，否则服务器会返回状态码401</p>
+<h2 id="403-forbidden"><a href="#403-forbidden" class="headerlink" title="403 forbidden"></a>403 forbidden</h2><p>表示web客户端发送的请求被web服务器拒绝了</p>
+<h2 id="404-not-found"><a href="#404-not-found" class="headerlink" title="404 not found"></a>404 not found</h2><p>访问url，域名是正确的，但是资源不存在，服务器就会返回404，告诉浏览器资源不存在</p>
+<h2 id="500-internal-server-error"><a href="#500-internal-server-error" class="headerlink" title="500 internal server error"></a>500 internal server error</h2><p>表示服务器内部错误，出现错误的原因很多，比如代码的错误，数据库连接错误，陈旭内部抛出异常 空指针错误等</p>
+<h2 id="503-server-unavailable"><a href="#503-server-unavailable" class="headerlink" title="503 server unavailable"></a>503 server unavailable</h2><p>表示服务器暂时不可用。由于服务器维护或者过载，服务器当前无法处理请求：这个状态是临时的，并且将在一段时间以后恢复</p>
+<h1 id="二、Http协议"><a href="#二、Http协议" class="headerlink" title="二、Http协议"></a>二、Http协议</h1><h2 id="第4章-header介绍"><a href="#第4章-header介绍" class="headerlink" title="第4章 header介绍"></a>第4章 header介绍</h2><p>http请求和http响应中有很多header</p>
+<ul>
+<li>cache 请求和响应中都有用于缓存的header </li>
+<li>cookies 请求 cookie:header 响应 set-cookie:headers</li>
+<li>accept 表示浏览器客户端可以接受的媒体类型</li>
+<li>accept-encoding 压缩有关 告诉服务器支持什么压缩</li>
+<li>accept-language 声明自己接受的语言</li>
+<li>user-agent 告诉服务器，客户端使用的操作系统及版本…  伪装客户端fiddle / rules -&gt; usera-gents</li>
+<li>referer 让服务器判断来源页面，可做防盗链，不是在范围内，否则就不显示</li>
+<li>connerction 系统默认开启connection:keep-alive保持连接特性（不会永久保持连接）</li>
+<li>host 必须的，指定被请求的主机和端口号</li>
+</ul>
+<h2 id="第5章-web抓包和fiddler修改包"><a href="#第5章-web抓包和fiddler修改包" class="headerlink" title="第5章 web抓包和fiddler修改包"></a>第5章 web抓包和fiddler修改包</h2><h4 id="网页如何打开"><a href="#网页如何打开" class="headerlink" title="网页如何打开"></a>网页如何打开</h4><ul>
+<li>浏览器会发送第一个请求 去获取页面布局的html,叫做父请求，然后响应返回浏览器</li>
+<li>浏览器分析http响应中的html，自动再次发送很多http请求去获取图片样式脚本等，这些http请求叫做子请求</li>
+</ul>
+<p>fiddler 父请求右键select-&gt;child requests 选择所有子请求；子请求右键select-&gt;parent requests选择父请求；选择一个请求右键duplicate requests 就能选择相同请求了。</p>
+<blockquote>
+<p>加载速度</p>
+</blockquote>
+<ul>
+<li>子请求出现404 500之类等错误或子请求响应速度慢</li>
+<li>通过statistics（详情和数据统计）面板查看响应时间</li>
+</ul>
+<blockquote>
+<p>查看响应</p>
+</blockquote>
+<ul>
+<li>RAW查看完整的http响应</li>
+<li>响应的是http文档 用webview选项卡来查看</li>
+<li>图片，用imageview选项卡来查看</li>
+<li>json,用json tab选项卡来查看</li>
+</ul>
+<blockquote>
+<p>设置断点来修改http请求</p>
+</blockquote>
+<ul>
+<li>全局断点 rules - automatic breakpoint -  before requests  F11 // 取消 shift+F11</li>
+<li>单个断点 Quickexec命令行输入命令 bqu <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a>  //  bpu</li>
+</ul>
+<blockquote>
+<p>设置断点来修改http响应</p>
+</blockquote>
+<ul>
+<li>全局断点 rules - automatic breakpoint - after response // disabled</li>
+<li>单个断点 quickexec命令行输入命令 bpafter <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a> // bpafter</li>
+</ul>
+<blockquote>
+<p>run to completion 按钮放行 // break on response 按钮继续拦截</p>
+</blockquote>
+<h2 id="第6章-http协议中的缓存-cache"><a href="#第6章-http协议中的缓存-cache" class="headerlink" title="第6章 http协议中的缓存 cache"></a>第6章 http协议中的缓存 cache</h2><p>http 具有缓存功能的是浏览器缓存和代理服务器缓存</p>
+<blockquote>
+<p>判断缓存的新鲜度</p>
+</blockquote>
+<ul>
+<li>浏览器把缓存文件的最后修改时间通过header ‘if-modified-since’告诉web服务器</li>
+<li>浏览器吧缓存文件的etag通过header ‘if-none-match’告诉web服务器</li>
+</ul>
+<p>浏览器通过if-modified-since发送个web服务器，web服务器收到后对比，如果没有改变，返回304，告诉客户端继续使用缓存。若已经改变，则返回200，web服务器将发送最新的文档给浏览器。</p>
+<blockquote>
+<p>浏览器不使用缓存 header cache-control:no-cache // public 说明可以公有缓存</p>
+</blockquote>
+<h2 id="第7章-http协议压缩和URLENCODE"><a href="#第7章-http协议压缩和URLENCODE" class="headerlink" title="第7章 http协议压缩和URLENCODE"></a>第7章 http协议压缩和URLENCODE</h2><h4 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h4><p>http压缩是指web服务器和浏览器之间压缩传输文本内容的方法。比如用gzip来压缩html js css文件,对图片压缩效果不好。<br>fiddler中Decode按钮可以自动解压。<br>http定义了一些标准的内容编码类型：content-encoding gzip(zip) compress(UNIX) deflate(zlib) identity</p>
+<h4 id="URL-Encode"><a href="#URL-Encode" class="headerlink" title="URL Encode"></a>URL Encode</h4><p>只能用英文字母数字或者某些标点符号，不能使用其他文字和符号。<br>fiddler中对textwizard可以进行 encode deconde</p>
+<h2 id="第9章-前端快速调试-autoResponder-功能"><a href="#第9章-前端快速调试-autoResponder-功能" class="headerlink" title="第9章 前端快速调试 autoResponder 功能"></a>第9章 前端快速调试 autoResponder 功能</h2><ul>
+<li>调试文件保存到本地调试</li>
+<li>伪造的http响应</li>
+<li>调试js 图片</li>
+</ul>
+<h2 id="第10章-script用法"><a href="#第10章-script用法" class="headerlink" title="第10章 script用法"></a>第10章 script用法</h2><p>可以自动修改http请求和http响应的脚本文件。</p>
+<ul>
+<li>修改session</li>
+<li>修改http请求 host header cookie</li>
+<li>修改http请求中的body</li>
+<li>修改http响应</li>
+<li>读写txt</li>
+<li>可以使用正则表达式</li>
+<li>保存session</li>
+<li>读取session 并且可以发送</li>
+</ul>
+<h2 id="第11-12-章-深入Cookie"><a href="#第11-12-章-深入Cookie" class="headerlink" title="第11 -12 章 深入Cookie"></a>第11 -12 章 深入Cookie</h2><ul>
+<li>http协议是无状态的，每一次请求，服务器都会独立处理。</li>
+<li>会话机制，浏览器第一次请求，服务器创建一个会话，浏览器储存会话ID，并在第二三次请求中带上会话ID，服务器就知道是不是同一个用户了。</li>
+</ul>
+<h4 id="cookie机制是一种会话机制。"><a href="#cookie机制是一种会话机制。" class="headerlink" title="cookie机制是一种会话机制。"></a>cookie机制是一种会话机制。</h4><ul>
+<li>是浏览器用来存储少量数据的一种机制，数据以key=val形式存储，浏览器发送http请求时，自动附带cookie信息</li>
+<li>cookie时一小段文本信息</li>
+<li>主要用来做用户认证，还可以用于保存用户的一些其他信息。</li>
+</ul>
+<h4 id="cookie属性"><a href="#cookie属性" class="headerlink" title="cookie属性"></a>cookie属性</h4><ul>
+<li>expire属性：过期时间，过了此时间cookie就失效;若不指定此时间，关闭浏览器就会被删除</li>
+<li>path属性：所属路径</li>
+<li>HttpOnly属性：安全方面的属性，将cookie设置为httponly后，通过js脚本无法读取cookie信息，有效防止xss攻击。例如登录相关的cookie</li>
+</ul>
+<h4 id="cookie类型"><a href="#cookie类型" class="headerlink" title="cookie类型"></a>cookie类型</h4><ul>
+<li>会话cookie 是一种临时cookie，记录了用户访问时的设置和偏好，关闭浏览器，就会被删除。</li>
+<li>持久cookie存储在硬盘上，不管浏览器退出或电脑重启，都会存在，有过期时间。</li>
+</ul>
+<h4 id="cookie-保存的位置-根据浏览器不一样保存的地址也不一样"><a href="#cookie-保存的位置-根据浏览器不一样保存的地址也不一样" class="headerlink" title="cookie 保存的位置 根据浏览器不一样保存的地址也不一样"></a>cookie 保存的位置 根据浏览器不一样保存的地址也不一样</h4><h4 id="cookie-和缓存的区别：完全不一样的东西，相同点都存在硬盘上和存在同一个文件夹下"><a href="#cookie-和缓存的区别：完全不一样的东西，相同点都存在硬盘上和存在同一个文件夹下" class="headerlink" title="cookie 和缓存的区别：完全不一样的东西，相同点都存在硬盘上和存在同一个文件夹下"></a>cookie 和缓存的区别：完全不一样的东西，相同点都存在硬盘上和存在同一个文件夹下</h4><h4 id="获取cookie冒充别人-cookie欺骗或者会话劫持"><a href="#获取cookie冒充别人-cookie欺骗或者会话劫持" class="headerlink" title="获取cookie冒充别人 cookie欺骗或者会话劫持"></a>获取cookie冒充别人 cookie欺骗或者会话劫持</h4><ul>
+<li>通过跨站脚本攻击xss获取他人的cookie</li>
+<li>想办法获取别人电脑上保存的cookie文件</li>
+</ul>
+<blockquote>
+<p>cookie是非常重要的，网站登录后都会有一个退出的登录，是告诉服务器立即删除服务器端端session对象，这样客户端登录的cookie就失效了</p>
+</blockquote>
+<h2 id="第13章-HTTP基本认证"><a href="#第13章-HTTP基本认证" class="headerlink" title="第13章 HTTP基本认证"></a>第13章 HTTP基本认证</h2><ul>
+<li>两种认证方式：基本认证和摘要认证</li>
+<li>基本认证：桌面程序不会使用COOKIE，而是把用户名冒号密码用BASE64编码放在HTTP请求中的Header Authorization中发送给服务器。</li>
+<li>基本认证优点：简单明了。缺点：一定要用HTTPS稍微安全一点。BASE64编码是可逆编码，容易破解，相当于明文传输。除非关闭浏览器或清除历史记录，否则将无法登出。无法防止重放攻击(通过拦截获取帐密修改后重复多次重放给原始服务器，以获得访问权)。</li>
+<li>摘要认证：是针对基本认证的一种改良方案。对用户名密码摘要算法，来解决明文传输的问题。通过服务器产生随机娄nonce防止重放的握手过程 cnonce支持客户端对服务器的认证。对内容也加入摘要计算的方式，可以有选择地防止 对报文内容的篡改。</li>
+</ul>
+<h2 id="第14章-手机抓包"><a href="#第14章-手机抓包" class="headerlink" title="第14章 手机抓包"></a>第14章 手机抓包</h2><ul>
+<li>作用：开发调试程序；做接口和安全测试；可以下载请求和响应。</li>
+<li>设置“允许远程连接connections allow remote computers to connect”；手机设置代理IP；HTTPS需要手机安装证书。</li>
+</ul>
+<h2 id="第15章-发送HTTP请求"><a href="#第15章-发送HTTP请求" class="headerlink" title="第15章 发送HTTP请求"></a>第15章 发送HTTP请求</h2><h4 id="composer-可以发送HTTP请求"><a href="#composer-可以发送HTTP请求" class="headerlink" title="composer 可以发送HTTP请求"></a>composer 可以发送HTTP请求</h4><h4 id="重放攻击"><a href="#重放攻击" class="headerlink" title="重放攻击"></a>重放攻击</h4><ul>
+<li>有一种安全测试叫做重放攻击 replay attacks 重播攻击 回放攻击</li>
+<li>重复地向服务器发送请求的行为</li>
+<li>解决方案：添加时间戳 stamp （保证时效）和数据签名sign(确保有效性是经过加密的或者KEY，第三方模拟不了)</li>
+</ul>
+<h2 id="第16章-实现弱网模式"><a href="#第16章-实现弱网模式" class="headerlink" title="第16章 实现弱网模式"></a>第16章 实现弱网模式</h2><ul>
+<li><p>网速慢和网络中断的情况称之为弱网</p>
+</li>
+<li><p>带来的问题：操作时间慢；用户体验不好；非正常情况下BUG会可能会存在。</p>
+</li>
+<li><p>目的：让程序在任何情况下都能表现自如。</p>
+</li>
+<li><p>场景：网络慢或延迟，导致加载时间长；网络中断，返回500；网络超时，请求发出后没有响应。</p>
+</li>
+<li><p>fiddler 模拟网络延迟 simulate modem speeds</p>
+</li>
+<li><p>fiddler 模拟网络中断 返回 500 503 </p>
+</li>
+<li><p>fiddler 模拟网络超时 拦截请求，设置断点等</p>
+</li>
+</ul>
+<h1 id="三、自动化测试"><a href="#三、自动化测试" class="headerlink" title="三、自动化测试"></a>三、自动化测试</h1><p>JMeter的使用</p>
+<p>web 自动化测试：用自动化工具把自己伪装成一个浏览器，发送HTTP请求给WEB服务器</p>
+<p>性能测试：通过工具模拟出很多虚拟用户，同时发送HTTP请求给WEB服务器</p>
+<p><img src="http://qiniu.marongrong.com/blog/http01.png" alt=""></p>
+
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/04/15/book/2019/http%E6%8A%93%E5%8C%85%E5%AE%9E%E6%88%98/" title="HTTP抓包实战" target="_blank" rel="external">http://yoursite.com/2019/04/15/book/2019/http%E6%8A%93%E5%8C%85%E5%AE%9E%E6%88%98/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/05/09/book/2019/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" title="你不知道的Javascript 上-[未完]"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/04/05/book/2019/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84javascript/" title="编写可维护的javascript"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>前端进阶知识 | Marong&#39;s Note</title>
+  <meta name="description" content="一、你不知道的HTML标签meta 标签：自动刷新&#x2F;跳转12&lt;meta http-equiv&#x3D;&quot;Refresh&quot; content&#x3D;&quot;5; URL&#x3D;page2.html&quot;&gt;&lt;meta http-equiv&#x3D;&quot;Refresh&quot; content&#x3D;&quot;60&quot;&gt;  title 标签与 Hack 手段：消息提醒12345678910111213let msgNum &#x3D; 1 &#x2F;&#x2F; 消息条数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端进阶知识">
+<meta property="og:url" content="http://yoursite.com/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Marong&#39;s Note">
+<meta property="og:description" content="一、你不知道的HTML标签meta 标签：自动刷新&#x2F;跳转12&lt;meta http-equiv&#x3D;&quot;Refresh&quot; content&#x3D;&quot;5; URL&#x3D;page2.html&quot;&gt;&lt;meta http-equiv&#x3D;&quot;Refresh&quot; content&#x3D;&quot;60&quot;&gt;  title 标签与 Hack 手段：消息提醒12345678910111213let msgNum &#x3D; 1 &#x2F;&#x2F; 消息条数">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-30T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-17T14:41:15.682Z">
+<meta property="article:author" content="Marong">
+<meta property="article:tag" content="进阶">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/index.html">
+  
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Marong's Note" type="application/atom+xml">
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/mrr3000" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Marong</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Kunming, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎您的光临！</p><p>言论、作品无论是好是坏， 望请指教。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMDB/" rel="tag">CMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E4%B8%96%E7%95%8C/" rel="tag">CSS世界</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSX/" rel="tag">JSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/" rel="tag">K8S</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LoianeGroner/" rel="tag">LoianeGroner</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UED/" rel="tag">UED</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UX/" rel="tag">UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">WEB前端开发最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbs/" rel="tag">bbs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/" rel="tag">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diff/" rel="tag">diff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/egg/" rel="tag">egg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forum/" rel="tag">forum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gzip/" rel="tag">gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/" rel="tag">ie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsencrypt/" rel="tag">jsencrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nimg/" rel="tag">nimg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postcss/" rel="tag">postcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qiankun/" rel="tag">qiankun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react-hooks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-redux/" rel="tag">react-redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactnative/" rel="tag">reactnative</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resloader/" rel="tag">resloader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rollup/" rel="tag">rollup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-spa/" rel="tag">single-spa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snabbdom/" rel="tag">snabbdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/treeshaking/" rel="tag">treeshaking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni/" rel="tag">uni</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vdom/" rel="tag">vdom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualDom/" rel="tag">virtualDom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vite/" rel="tag">vite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/" rel="tag">webgl</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weeks/" rel="tag">weeks</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/" rel="tag">yum</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" rel="tag">你不知道的</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" rel="tag">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" rel="tag">大前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" rel="tag">张鑫旭</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag">敏捷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" rel="tag">数据平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" rel="tag">深入理解ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="tag">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" rel="tag">编写可维护的JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" rel="tag">节流防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A6%83%E8%B6%85/" rel="tag">覃超</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" rel="tag">资源预加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E7%AB%AF/" rel="tag">跨端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" rel="tag">阮一峰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" rel="tag">高性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%88/" rel="tag">高效</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CICD/" style="font-size: 13px;">CICD</a> <a href="/tags/CMDB/" style="font-size: 13px;">CMDB</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS%E4%B8%96%E7%95%8C/" style="font-size: 13px;">CSS世界</a> <a href="/tags/ES/" style="font-size: 13.2px;">ES</a> <a href="/tags/Flutter/" style="font-size: 13px;">Flutter</a> <a href="/tags/HTTP/" style="font-size: 13.1px;">HTTP</a> <a href="/tags/JAVA/" style="font-size: 13px;">JAVA</a> <a href="/tags/JSX/" style="font-size: 13px;">JSX</a> <a href="/tags/K8S/" style="font-size: 13px;">K8S</a> <a href="/tags/LoianeGroner/" style="font-size: 13px;">LoianeGroner</a> <a href="/tags/RSA/" style="font-size: 13px;">RSA</a> <a href="/tags/TCP/" style="font-size: 13.1px;">TCP</a> <a href="/tags/UED/" style="font-size: 13px;">UED</a> <a href="/tags/UI/" style="font-size: 13px;">UI</a> <a href="/tags/UX/" style="font-size: 13px;">UX</a> <a href="/tags/WEB%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">WEB前端开发最佳实践</a> <a href="/tags/aliyun/" style="font-size: 13px;">aliyun</a> <a href="/tags/bbs/" style="font-size: 13px;">bbs</a> <a href="/tags/canvas/" style="font-size: 13px;">canvas</a> <a href="/tags/css/" style="font-size: 13.1px;">css</a> <a href="/tags/curl/" style="font-size: 13px;">curl</a> <a href="/tags/diff/" style="font-size: 13px;">diff</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/egg/" style="font-size: 13px;">egg</a> <a href="/tags/excel/" style="font-size: 13px;">excel</a> <a href="/tags/forum/" style="font-size: 13px;">forum</a> <a href="/tags/function/" style="font-size: 13px;">function</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/go/" style="font-size: 13px;">go</a> <a href="/tags/gzip/" style="font-size: 13px;">gzip</a> <a href="/tags/http/" style="font-size: 13.1px;">http</a> <a href="/tags/https/" style="font-size: 13.1px;">https</a> <a href="/tags/ie/" style="font-size: 13px;">ie</a> <a href="/tags/java/" style="font-size: 13.5px;">java</a> <a href="/tags/javascript/" style="font-size: 13.8px;">javascript</a> <a href="/tags/jsencrypt/" style="font-size: 13px;">jsencrypt</a> <a href="/tags/koa/" style="font-size: 13.1px;">koa</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.4px;">nginx</a> <a href="/tags/nimg/" style="font-size: 13px;">nimg</a> <a href="/tags/node/" style="font-size: 13.1px;">node</a> <a href="/tags/nodejs/" style="font-size: 13.3px;">nodejs</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/pm2/" style="font-size: 13px;">pm2</a> <a href="/tags/postcss/" style="font-size: 13px;">postcss</a> <a href="/tags/proxy/" style="font-size: 13px;">proxy</a> <a href="/tags/qiankun/" style="font-size: 13px;">qiankun</a> <a href="/tags/react/" style="font-size: 13.6px;">react</a> <a href="/tags/react-hooks/" style="font-size: 13px;">react-hooks</a> <a href="/tags/react-redux/" style="font-size: 13px;">react-redux</a> <a href="/tags/reactnative/" style="font-size: 13.1px;">reactnative</a> <a href="/tags/redux/" style="font-size: 13px;">redux</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/resloader/" style="font-size: 13px;">resloader</a> <a href="/tags/rollup/" style="font-size: 13px;">rollup</a> <a href="/tags/rust/" style="font-size: 13.1px;">rust</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/single-spa/" style="font-size: 13px;">single-spa</a> <a href="/tags/snabbdom/" style="font-size: 13px;">snabbdom</a> <a href="/tags/tool/" style="font-size: 13px;">tool</a> <a href="/tags/treeshaking/" style="font-size: 13px;">treeshaking</a> <a href="/tags/typescript/" style="font-size: 13.7px;">typescript</a> <a href="/tags/uni/" style="font-size: 13px;">uni</a> <a href="/tags/vdom/" style="font-size: 13px;">vdom</a> <a href="/tags/virtualDom/" style="font-size: 13px;">virtualDom</a> <a href="/tags/vite/" style="font-size: 13px;">vite</a> <a href="/tags/vue/" style="font-size: 13.3px;">vue</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/vue3/" style="font-size: 13.1px;">vue3</a> <a href="/tags/webgl/" style="font-size: 13.2px;">webgl</a> <a href="/tags/webpack/" style="font-size: 13.3px;">webpack</a> <a href="/tags/weeks/" style="font-size: 14px;">weeks</a> <a href="/tags/xlsx/" style="font-size: 13px;">xlsx</a> <a href="/tags/yum/" style="font-size: 13px;">yum</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 13.9px;">书籍</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.1px;">优化</a> <a href="/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84/" style="font-size: 13px;">你不知道的</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">修饰符</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13px;">分布式</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 13px;">响应式</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">基础</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">大前端</a> <a href="/tags/%E5%BC%A0%E9%91%AB%E6%97%AD/" style="font-size: 13px;">张鑫旭</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 13.3px;">微前端</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.1px;">性能</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 13px;">抓包</a> <a href="/tags/%E6%95%8F%E6%8D%B7/" style="font-size: 13px;">敏捷</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/" style="font-size: 13px;">数据平台</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">架构</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" style="font-size: 13px;">深入理解ES6</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 13px;">移动端</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.3px;">算法</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 13px;">组件</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a> <a href="/tags/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JS/" style="font-size: 13px;">编写可维护的JS</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">自动化测试</a> <a href="/tags/%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" style="font-size: 13px;">节流防抖</a> <a href="/tags/%E8%A6%83%E8%B6%85/" style="font-size: 13px;">覃超</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">设计</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.2px;">设计模式</a> <a href="/tags/%E8%B5%84%E6%BA%90%E9%A2%84%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">资源预加载</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 13px;">跨端</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">运维</a> <a href="/tags/%E8%BF%9B%E9%98%B6/" style="font-size: 13px;">进阶</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 13.1px;">部署</a> <a href="/tags/%E9%98%AE%E4%B8%80%E5%B3%B0/" style="font-size: 13px;">阮一峰</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">领域模型</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 13px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 13.1px;">高效</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/30/weeks/2022/2022-03/" class="title">前端月刊【2022-03】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-30T01:00:00.000Z" itemprop="datePublished">2022-03-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/" class="title">构建高性能WEB站点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-10T02:00:00.000Z" itemprop="datePublished">2022-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/28/weeks/2022/2022-02/" class="title">前端月刊【2022-02】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-28T01:00:00.000Z" itemprop="datePublished">2022-02-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/01/30/weeks/2022/2022-01/" class="title">前端月刊【2022-01】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-01-30T01:00:00.000Z" itemprop="datePublished">2022-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/30/weeks/2021/2021-12/" class="title">前端月刊【2021-12】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-30T01:00:00.000Z" itemprop="datePublished">2021-12-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-book/video/202008前端进阶基础" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端进阶知识
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/" class="article-date">
+	  <time datetime="2020-08-30T01:00:00.000Z" itemprop="datePublished">2020-08-30</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag">进阶</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/#comments" class="article-comment-link">Comments</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一、你不知道的HTML标签"><a href="#一、你不知道的HTML标签" class="headerlink" title="一、你不知道的HTML标签"></a>一、你不知道的HTML标签</h2><h3 id="meta-标签：自动刷新-跳转"><a href="#meta-标签：自动刷新-跳转" class="headerlink" title="meta 标签：自动刷新/跳转"></a>meta 标签：自动刷新/跳转</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Refresh"</span> <span class="attr">content</span>=<span class="string">"5; URL=page2.html"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Refresh"</span> <span class="attr">content</span>=<span class="string">"60"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="title-标签与-Hack-手段：消息提醒"><a href="#title-标签与-Hack-手段：消息提醒" class="headerlink" title="title 标签与 Hack 手段：消息提醒"></a>title 标签与 Hack 手段：消息提醒</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> msgNum = <span class="number">1</span> <span class="comment">// 消息条数</span></span><br><span class="line"><span class="keyword">let</span> cnt = <span class="number">0</span> <span class="comment">// 计数器</span></span><br><span class="line"><span class="keyword">const</span> inerval = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  cnt = (cnt + <span class="number">1</span>) % <span class="number">2</span></span><br><span class="line">  <span class="keyword">if</span>(msgNum===<span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 通过DOM修改title</span></span><br><span class="line">    <span class="built_in">document</span>.title += <span class="string">`聊天页面`</span></span><br><span class="line">    clearInterval(interval)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> prefix = cnt % <span class="number">2</span> ? <span class="string">`新消息(<span class="subst">$&#123;msgNum&#125;</span>)`</span> : <span class="string">''</span></span><br><span class="line">  <span class="built_in">document</span>.title = <span class="string">`<span class="subst">$&#123;prefix&#125;</span>聊天页面`</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="性能优化：script-标签：调整加载顺序提升渲染速度"><a href="#性能优化：script-标签：调整加载顺序提升渲染速度" class="headerlink" title="性能优化：script 标签：调整加载顺序提升渲染速度"></a>性能优化：script 标签：调整加载顺序提升渲染速度</h3><ul>
+<li>async 属性。立即请求文件，但不阻塞渲染引擎，而是文件加载完毕后阻塞渲染引擎并立即执行文件内容。</li>
+<li>defer 属性。立即请求文件，但不阻塞渲染引擎，等到解析完 HTML 之后再执行文件内容。</li>
+<li>HTML5 标准 type 属性，对应值为“module”。让浏览器按照 ECMA Script 6 标准将文件当作模块进行解析，默认阻塞效果同 defer，也可以配合 async 在请求完成后立即执行。</li>
+</ul>
+<h3 id="性能优化：link-标签：通过预处理提升渲染速度"><a href="#性能优化：link-标签：通过预处理提升渲染速度" class="headerlink" title="性能优化：link 标签：通过预处理提升渲染速度"></a>性能优化：link 标签：通过预处理提升渲染速度</h3><ul>
+<li>dns-prefetch。当 link 标签的 rel 属性值为“dns-prefetch”时，浏览器会对某个域名预先进行 DNS 解析并缓存。这样，当浏览器在请求同域名资源的时候，能省去从域名查询 IP 的过程，从而减少时间损耗。下图是淘宝网设置的 DNS 预解析。</li>
+<li>preconnect。让浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，这包括 DNS 解析、TLS 协商、TCP 握手，通过消除往返延迟来为用户节省时间。</li>
+<li>prefetch/preload。两个值都是让浏览器预先下载并缓存某个资源，但不同的是，prefetch 可能会在浏览器忙时被忽略，而 preload 则是一定会被预先下载。</li>
+<li>prerender。浏览器不仅会加载资源，还会解析执行页面，进行预渲染。</li>
+</ul>
+<h3 id="搜索优化：meta-标签：提取关键信息"><a href="#搜索优化：meta-标签：提取关键信息" class="headerlink" title="搜索优化：meta 标签：提取关键信息"></a>搜索优化：meta 标签：提取关键信息</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"拉勾,拉勾网,拉勾招聘,拉钩, 拉钩网 ,互联网招聘,拉勾互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 拉勾官网, 拉勾百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招"</span> <span class="attr">name</span>=<span class="string">"keywords"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="搜索优化：link-标签：减少重复"><a href="#搜索优化：link-标签：减少重复" class="headerlink" title="搜索优化：link 标签：减少重复"></a>搜索优化：link 标签：减少重复</h3><p>有时候为了用户访问方便或者出于历史原因，对于同一个页面会有多个网址，又或者存在某些重定向页面，比如：<a href="https://lagou.com/a.html" target="_blank" rel="noopener">https://lagou.com/a.html</a>  <a href="https://lagou.com/detail?id=%22abcd%22" target="_blank" rel="noopener">https://lagou.com/detail?id=%22abcd%22</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://lagou.com/a.html"</span> <span class="attr">rel</span>=<span class="string">"canonical"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="二、如何高效操作-DOM-元素？"><a href="#二、如何高效操作-DOM-元素？" class="headerlink" title="二、如何高效操作 DOM 元素？"></a>二、如何高效操作 DOM 元素？</h2><h3 id="在循环外操作元素"><a href="#在循环外操作元素" class="headerlink" title="在循环外操作元素"></a>在循环外操作元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> times = <span class="number">10000</span>;</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'switch'</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body === <span class="number">1</span> ? <span class="built_in">console</span>.log(<span class="number">1</span>) : <span class="keyword">void</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'switch'</span>) <span class="comment">// 1.873046875ms</span></span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">JSON</span>.stringify(<span class="built_in">document</span>.body)</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'batch'</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">  body === <span class="number">1</span> ? <span class="built_in">console</span>.log(<span class="number">1</span>) : <span class="keyword">void</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'batch'</span>) <span class="comment">// 0.846923828125ms</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="批量操作元素"><a href="#批量操作元素" class="headerlink" title="批量操作元素"></a>批量操作元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> times = <span class="number">10000</span>;</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'createElement'</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(div)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'createElement'</span>)<span class="comment">// 54.964111328125ms</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'innerHTML'</span>)</span><br><span class="line"><span class="keyword">let</span> html=<span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">  html+=<span class="string">'&lt;div&gt;&lt;/div&gt;'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.body.innerHTML += html <span class="comment">// 31.919921875ms</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'innerHTML'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> times = <span class="number">20000</span>;</span><br><span class="line"><span class="keyword">let</span> html = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">  html = <span class="string">`&lt;div&gt;<span class="subst">$&#123;i&#125;</span><span class="subst">$&#123;html&#125;</span>&lt;/div&gt;`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.body.innerHTML += html</span><br><span class="line"><span class="keyword">const</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">  div.style.fontSize = (i % <span class="number">12</span>) + <span class="number">12</span> + <span class="string">'px'</span></span><br><span class="line">  div.style.color = i % <span class="number">2</span> ? <span class="string">'red'</span> : <span class="string">'green'</span></span><br><span class="line">  div.style.margin = (i % <span class="number">12</span>) + <span class="number">12</span> + <span class="string">'px'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="缓存元素集合"><a href="#缓存元素集合" class="headerlink" title="缓存元素集合"></a>缓存元素集合</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>).length; i++) &#123;</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">`div`</span>)[i].innerText = i</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果能够将元素集合赋值给 JavaScript 变量，每次通过变量去修改元素，那么性能将会得到不小的提升。</span></span><br><span class="line"><span class="keyword">const</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; divs.length; i++) &#123;</span><br><span class="line">  divs[i].innerText = i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>尽量不要使用复杂的匹配规则和复杂的样式，从而减少渲染引擎计算样式规则生成 CSSOM 树的时间；</li>
+<li>尽量减少重排和重绘影响的区域；</li>
+<li>使用 CSS3 特性来实现动画效果。</li>
+</ul>
+<h2 id="三、3-个使用场景助你用好-DOM-事件"><a href="#三、3-个使用场景助你用好-DOM-事件" class="headerlink" title="三、3 个使用场景助你用好 DOM 事件"></a>三、3 个使用场景助你用好 DOM 事件</h2><h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>有一个搜索输入框，为了提升用户体验，希望在用户输入后可以立即展现搜索结果，而不是每次输入完后还要点击搜索按钮。最基本的实现方式应该很容易想到，那就是绑定 input 元素的键盘事件，然后在监听函数中发送 AJAX 请求。</p>
+<p>l la lag lago 前面进行了 4 次无效查询</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码2</span></span><br><span class="line"><span class="keyword">const</span> debounce = <span class="function">(<span class="params">func, wait = <span class="number">0</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timeout = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> args</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">debounced</span>(<span class="params">...arg</span>) </span>&#123;</span><br><span class="line">    args = arg</span><br><span class="line">    <span class="keyword">if</span>(timeout) &#123;</span><br><span class="line">      clearTimeout(timeout)</span><br><span class="line">      timeout = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 以Promise的形式返回函数执行结果</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">      timeout = setTimeout(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> result = <span class="keyword">await</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">          res(result)</span><br><span class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">          rej(e)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, wait)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许取消</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">cancel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timeout)</span><br><span class="line">    timeout = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许立即执行</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">flush</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    cancel()</span><br><span class="line">    <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">  &#125;</span><br><span class="line">  debounced.cancel = cancel</span><br><span class="line">  debounced.flush = flush</span><br><span class="line">  <span class="keyword">return</span> debounced</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>实现节流函数的过程和防抖函数有些类似，只是对于节流函数而言，有两种执行方式，在调用函数时执行最先一次调用还是最近一次调用，所以需要设置时间戳加以判断。</p>
+<p>节流与防抖都是通过延迟执行，减少调用次数，来优化频繁调用函数时的性能。不同的是，对于一段时间内的频繁调用，防抖是延迟执行后一次调用，节流是延迟定时多次调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="function">(<span class="params">func, wait = <span class="number">0</span>, execFirstCall</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timeout = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> args</span><br><span class="line">  <span class="keyword">let</span> firstCallTimestamp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">throttled</span>(<span class="params">...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!firstCallTimestamp) firstCallTimestamp = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line">    <span class="keyword">if</span> (!execFirstCall || !args) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'set args:'</span>, arg)</span><br><span class="line">      args = arg</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (timeout) &#123;</span><br><span class="line">      clearTimeout(timeout)</span><br><span class="line">      timeout = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 以Promise的形式返回函数执行结果</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="keyword">async</span>(res, rej) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - firstCallTimestamp &gt;= wait) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> result = <span class="keyword">await</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">          res(result)</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          rej(e)</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">          cancel()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        timeout = setTimeout(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> result = <span class="keyword">await</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">            res(result)</span><br><span class="line">          &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            rej(e)</span><br><span class="line">          &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            cancel()</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, firstCallTimestamp + wait - <span class="keyword">new</span> <span class="built_in">Date</span>().getTime())</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许取消</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">cancel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timeout)</span><br><span class="line">    args = <span class="literal">null</span></span><br><span class="line">    timeout = <span class="literal">null</span></span><br><span class="line">    firstCallTimestamp = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许立即执行</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">flush</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    cancel()</span><br><span class="line">    <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">  &#125;</span><br><span class="line">  throttled.cancel = cancel</span><br><span class="line">  throttled.flush = flush</span><br><span class="line">  <span class="keyword">return</span> throttled</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>事件代理的实现原理就是利用上述 DOM 事件的触发流程来对一类事件进行统一处理。比如对于上面的列表，我们在 ul 元素上绑定事件统一处理，通过得到的事件对象来获取参数，调用对应的函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'.list'</span>)</span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>, e =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> t = e.target || e.srcElement</span><br><span class="line">  <span class="keyword">if</span> (t.classList.contains(<span class="string">'item'</span>)) &#123;</span><br><span class="line">    getInfo(t.id)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    id = t.parentElement.id</span><br><span class="line">    <span class="keyword">if</span> (t.classList.contains(<span class="string">'edit'</span>)) &#123;</span><br><span class="line">      edit(id)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t.classList.contains(<span class="string">'delete'</span>)) &#123;</span><br><span class="line">      del(id)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、掌握-CSS-精髓：布局"><a href="#四、掌握-CSS-精髓：布局" class="headerlink" title="四、掌握 CSS 精髓：布局"></a>四、掌握 CSS 精髓：布局</h2><p>单列布局<br>单列布局是最常用的一种布局，它的实现效果就是将一个元素作为布局容器，通常设置一个较小的（最大）宽度来保证不同像素宽度屏幕下显示一致。</p>
+<p>2 列布局<br>2 列布局使用频率也非常的高，实现效果就是将页面分割成左右宽度不等的两列，宽度较小的列设置为固定宽度，剩余宽度由另一列撑满。为了描述方便，我们暂且称宽度较小的列父元素为次要布局容器，宽度较大的列父元素为主要布局容器。</p>
+<p>3 列布局<br>3 列布局按照左中右的顺序进行排列，通常中间列最宽，左右两列次之。</p>
+<h2 id="五、如何管理你的-CSS-代码？"><a href="#五、如何管理你的-CSS-代码？" class="headerlink" title="五、如何管理你的 CSS 代码？"></a>五、如何管理你的 CSS 代码？</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">base/，模板代码，比如默认标签样式重置；</span><br><span class="line">components/，组件相关样式；</span><br><span class="line">layout/，布局相关，包括头部、尾部、导航栏、侧边栏等；</span><br><span class="line">pages/，页面相关样式；</span><br><span class="line">themes/，主题样式，即使有的项目没有多个主题，也可以进行预留；</span><br><span class="line">abstracts/，其他样式文件生成的依赖函数及 mixin，不能直接生成 css 样式；</span><br><span class="line">vendors/，第三方样式文件。</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、浏览器如何渲染页面？"><a href="#六、浏览器如何渲染页面？" class="headerlink" title="六、浏览器如何渲染页面？"></a>六、浏览器如何渲染页面？</h2><ol>
+<li>字节流解码</li>
+<li>输入流预处理</li>
+<li>令牌化</li>
+<li>构建 DOM 树</li>
+<li>构建渲染树</li>
+<li>布局</li>
+<li>绘制</li>
+</ol>
+<h2 id="七、JavaScript-的数据类型，你知多少？"><a href="#七、JavaScript-的数据类型，你知多少？" class="headerlink" title="七、JavaScript 的数据类型，你知多少？"></a>七、JavaScript 的数据类型，你知多少？</h2><p>JavaScript 的数据类型可以分为 7 种：空（Null）、未定义（Undefined）、数字（Number）、字符串（String）、布尔值（Boolean）、符号（Symbol）、对象（Object）。</p>
+<h3 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h3><p>Undefined 是一个很特殊的数据类型，它只有一个值，也就是 undefined。可以通过下面几种方式来得到 undefined：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> key === <span class="string">'undefined'</span>)&#123;&#125; <span class="comment">// 判断正解</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h3><p>Null 数据类型和 Undefined 类似，只有唯一的一个值 null，都可以表示空值，甚至我们通过 “==” 来比较它们是否相等的时候得到的结果都是 true，但 null 是 JavaScript 保留关键字，而 undefined 只是一个常量。</p>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>两个重要值<br>Number 是数值类型，有 2 个特殊数值得注意一下，即 NaN 和 Infinity。</p>
+<ul>
+<li>NaN（Not a Number）通常在计算失败的时候会得到该值。要判断一个变量是否为 NaN，则可以通过 Number.isNaN 函数进行判断。</li>
+<li>Infinity 是无穷大，加上负号 “-” 会变成无穷小，在某些场景下比较有用，比如通过数值来表示权重或者优先级，Infinity 可以表示最高优先级或最大权重。</li>
+</ul>
+<h2 id="八、一等公民"><a href="#八、一等公民" class="headerlink" title="八、一等公民"></a>八、一等公民</h2><h4 id="this-关键字"><a href="#this-关键字" class="headerlink" title="this 关键字"></a>this 关键字</h4><p>this 是 JavaScript 的一个关键字，一般指向调用它的对象。</p>
+<p>这句话其实有两层意思，首先 this 指向的应该是一个对象，更具体地说是函数执行的“上下文对象”。其次这个对象指向的是“调用它”的对象，如果调用它的不是对象或对象不存在，则会指向全局对象（严格模式下为 undefined）。</p>
+<blockquote>
+<p> 箭头函数和普通函数相比，有以下几个区别，在开发中应特别注意：</p>
+</blockquote>
+<ul>
+<li>不绑定 arguments 对象，也就是说在箭头函数内访问 arguments 对象会报错</li>
+<li>不能用作构造器，也就是说不能通过关键字 new 来创建实例；</li>
+<li>默认不会创建 prototype 原型属性；</li>
+<li>不能用作 Generator() 函数，不能使用 yeild 关键字。</li>
+</ul>
+<h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><p>原型是 JavaScript 的重要特性之一，可以让对象从其他对象继承功能特性，所以 JavaScript 也被称为“基于原型的语言”。</p>
+<p>什么是原型和原型链？<br>简单地理解，原型就是对象的属性，包括被称为隐式原型的 proto 属性和被称为显式原型的 prototype 属性。</p>
+<p>隐式原型通常在创建实例的时候就会自动指向构造函数的显式原型。例如，在下面的示例代码中，当创建对象 a 时，a 的隐式原型会指向构造函数 Object() 的显式原型。</p>
+<h4 id="new-操作符实现了什么？"><a href="#new-操作符实现了什么？" class="headerlink" title="new 操作符实现了什么？"></a>new 操作符实现了什么？</h4><ul>
+<li>创建一个临时的空对象，为了表述方便，我们命名为 fn，让对象 fn 的隐式原型指向函数 F 的显式原型</li>
+<li>执行函数 F()，将 this 指向对象 fn，并传入参数 args，得到执行结果 result</li>
+<li>判断上一步的执行结果 result，如果 result 为非空对象，则返回 result，否则返回 fn。</li>
+</ul>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>作用域是指赋值、取值操作的执行范围，通过作用域机制可以有效地防止变量、函数的重复定义，以及控制它们的可访问性。</p>
+<h4 id="命名提升"><a href="#命名提升" class="headerlink" title="命名提升"></a>命名提升</h4><p>对于使用 var 关键字声明的变量以及创建命名函数的时候，JavaScript 在解释执行的时候都会将其声明内容提升到作用域顶部，这种机制称为“命名提升”。</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>在函数内部访问外部函数作用域时就会产生闭包。闭包很有用，因为它允许将函数与其所操作的某些数据（环境）关联起来。这种关联不只是跨作用域引用，也可以实现数据与函数的隔离。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过闭包来实现单例模式</span></span><br><span class="line"><span class="keyword">var</span> SingleStudent = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    <span class="keyword">var</span> _student; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_student) <span class="keyword">return</span> _student;</span><br><span class="line">        _student = <span class="keyword">new</span> Student()</span><br><span class="line">        <span class="keyword">return</span> _student;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;())</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> SingleStudent()</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> SingleStudent()</span><br><span class="line">s === s2 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="九、执行顺序"><a href="#九、执行顺序" class="headerlink" title="九、执行顺序"></a>九、执行顺序</h2><h3 id="异步和同步"><a href="#异步和同步" class="headerlink" title="异步和同步"></a>异步和同步</h3><p>同步:程序在同步调用函数的时候，会立即执行操作并等待得到返回结果后再继续运行，也就是说同步执行是阻塞的。</p>
+<p>异步:而异步会将操作和结果在时间上分隔开来，在当下执行操作，在未来某个时刻返回结果，在这个等待返回结果的过程中，程序将继续执行后面的代码。也就是说异步执行是非阻塞的。</p>
+<blockquote>
+<p>异步与回调</p>
+</blockquote>
+<p>异步操作都采用回调函数的形式</p>
+<h3 id="异步原理"><a href="#异步原理" class="headerlink" title="异步原理"></a>异步原理</h3><blockquote>
+<p>事件循环</p>
+</blockquote>
+<p>对于大多数语言而言，实现异步会通过启动额外的进程、线程或协程来实现，而我们在前面已经提到过，JavaScript 是单线程的。</p>
+<blockquote>
+<p>事件队列</p>
+</blockquote>
+<p>数组 eventLoop 表示事件队列（也有称作“任务队列”），用来存放需要执行的任务事件（可以理解为回调函数），对象 event 变量表示当前需要执行的任务事件。</p>
+<h3 id="处理异步"><a href="#处理异步" class="headerlink" title="处理异步"></a>处理异步</h3><blockquote>
+<p>异步串行</p>
+</blockquote>
+<p>将异步转化为串行执行是非常常见的操作，先通过一个简单的例子来回顾基本实现方式。</p>
+<blockquote>
+<p>异步并行</p>
+</blockquote>
+<p>（1）Promise.all([promise1 …… promiseN])</p>
+<p>调用函数 Promise.all 会返回一个新的 Promise 实例，该实例在参数内所有的 promise 都完成 (resolved) 时回调完成 (resolve)；如果参数中  promise 有一个失败（rejected），那么此实例返回第一个失败 promise 的结果。</p>
+<p>当执行的异步函数具有强一致性时可以使用它，比如要更新一个较大的表单数据，会发送多个请求分别更新不同的数据，如果一个请求更新失败则放弃本次提交。</p>
+<p>（2）Promise.allSettled([promise1……promiseN])</p>
+<p>调用函数 Promise.allsellted 会返回一个新的 Promise 实例，该实例会在所有给定的 promise 已经执行完成时返回一个对象数组，每个对象表示对应的 promise 结果。</p>
+<p>这个函数适用于需要并发执行多个异步函数，这些异步函数的执行结果相互独立。比如同时发送多个 AJAX 请求来分别更新多条数据。</p>
+<p>（3）Promise.race([promise1……promiseN])</p>
+<p>调用函数 Promise.race 会返回一个新的 promise 实例，一旦参数中的某个 promise 执行完成，新的 promise 实例就会返回对应 promise 的执行结果。</p>
+<p>这个函数会让多个并发函数产生“竞争”，从而挑选出最先执行完成的。比如尝试从多个网址加载图片资源。</p>
+<blockquote>
+<p>异常处理</p>
+</blockquote>
+<p>Promise 有一个隐藏的“坑”，那就是内部的异常不能在外部通过 try/catch 所捕获，当内部发生异常时，会自动进入失败状态（rejected）。</p>
+<h2 id="十、区分浏览器中进程与线程"><a href="#十、区分浏览器中进程与线程" class="headerlink" title="十、区分浏览器中进程与线程"></a>十、区分浏览器中进程与线程</h2><ul>
+<li>进程是操作系统进行资源分配和调度的基本单位</li>
+<li>线程是操作系统进行运算的最小单位</li>
+<li>一个程序至少有一个进程，一个进程至少有一个线程</li>
+<li>线程需要由进程来启动和管理</li>
+</ul>
+<h2 id="十一、TCP-是怎样建立-断开连接的"><a href="#十一、TCP-是怎样建立-断开连接的" class="headerlink" title="十一、TCP 是怎样建立/断开连接的"></a>十一、TCP 是怎样建立/断开连接的</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>在建立 TCP 连接之前，客户端和服务器之间会发送三次数据，以确认双方的接收和发送能力，这个过程称为三次握手（Three-way Handshake）。</p>
+<p>三次握手的具体过程如下所示。</p>
+<h3 id="第一次握手："><a href="#第一次握手：" class="headerlink" title="第一次握手："></a>第一次握手：</h3><p>刚开始客户端处于 CLOSED 的状态，服务端处于 LISTEN 状态。客户端给服务端发送一个 SYN 报文，并指明客户端的初始化序列号 ISN，此时客户端处于 SYN_SEND 状态。</p>
+<h3 id="第二次握手："><a href="#第二次握手：" class="headerlink" title="第二次握手："></a>第二次握手：</h3><p>当服务器收到客户端的 SYN 报文之后，会以自己的 SYN 报文作为应答，并且也指定了自己的初始化序列号 ISN。同时会把客户端的 ISN + 1 作为 ACK 的值，表示自己已经收到了客户端的 SYN，此时服务器处于 SYN_REVD 的状态。</p>
+<h3 id="第三次握手："><a href="#第三次握手：" class="headerlink" title="第三次握手："></a>第三次握手：</h3><p>当客户端收到 SYN 报文之后，会发送一个 ACK 报文，当然，也同样把服务器的 ISN + 1 作为 ACK 的值，表示已经收到了服务端的 SYN 报文，此时客户端处于 ESTABLISHED 状态。服务器收到 ACK 报文之后，也处于 ESTABLISHED 状态，此时，双方成功建立起了连接。</p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p>当客户端和服务端断开连接时要发送四次数据，这个过程称之为四次挥手。</p>
+<p>四次挥手的具体过程如下所示。</p>
+<h3 id="第一次挥手："><a href="#第一次挥手：" class="headerlink" title="第一次挥手："></a>第一次挥手：</h3><p>在挥手之前服务端与客户端都处于 ESTABLISHED 状态。客户端发送一个 FIN 报文，用来关闭客户端到服务器的数据传输，此时客户端处于 FIN_WAIT_1 状态。</p>
+<h3 id="第二次挥手："><a href="#第二次挥手：" class="headerlink" title="第二次挥手："></a>第二次挥手：</h3><p>当服务端收到 FIN 之后，会发送 ACK 报文，并且把客户端的序列号值加 1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT 状态。</p>
+<h3 id="第三次挥手："><a href="#第三次挥手：" class="headerlink" title="第三次挥手："></a>第三次挥手：</h3><p>如果服务端同意关闭连接，则会向客户端发送一个 FIN 报文，并且指定一个序列号，此时服务端处于 LAST_ACK 的状态。</p>
+<h3 id="第四次挥手："><a href="#第四次挥手：" class="headerlink" title="第四次挥手："></a>第四次挥手：</h3><p>当客户端收到 ACK 之后，处于 FIN_WAIT_2 状态。待收到 FIN 报文时发送一个 ACK 报文作为应答，并且把服务端的序列号值 +1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT 状态。等待一段时间后会进入 CLOSED 状态，当服务端收到 ACK 报文之后，也会变为 CLOSED 状态，此时连接正式关闭。</p>
+<h2 id="十二、multirepo-amp-amp-monorepo"><a href="#十二、multirepo-amp-amp-monorepo" class="headerlink" title="十二、multirepo  &amp;&amp; monorepo"></a>十二、multirepo  &amp;&amp; monorepo</h2><p>multirepo<br>multirepo 就是将项目中的模块拆分出来，放在不同的仓库中进行独立管理。例如，用于 Node.js 的 Web 框架 Koa，它依赖的模块 koa-convert 和 koa-compose 分别拆分成了两个仓库进行管理。</p>
+<p>这种方式的好处是保证仓库的独立性，方便不同团队维护对应的仓库代码，可以根据团队情况选择擅长的工具、工作流等。</p>
+<p>但这种方式也会存在一些问题，具体如下。</p>
+<p>开发调试及版本更新效率低下。比如在仓库 A 用到的仓库 B 中发现了一个 bug，就必须到仓库 B 里修复它、打包、发版本，然后再回到仓库 A 继续工作。在不同的仓库间，你不仅需要处理不同的代码、工具，甚至是不同的工作流程；还有，你只能去问维护这个仓库的人，能不能为你做出改变，然后等着他们去解决。</p>
+<p>团队技术选型分散。不同的库实现风格可能存在较大差异（比如有的库依赖 Vue，有的依赖 React），还有可能会采用不同的测试库及校验规则，维护起来比较困难。</p>
+<p>而 monorepo 方式恰好就能解决这些问题。</p>
+<p>monorepo<br>monorepo 就是将所有相关的模块放在同一个项目仓库中。这种方式在管理上会更加方便，项目所有代码可以使用统一的规范及构建、测试、发布流程。</p>
+<p>很多著名的开源项目都采取了这种管理方式，比如开源项目 babel，它依赖的模块都放在了 packages 目录下。</p>
+<h2 id="十三、前端性能优化思路"><a href="#十三、前端性能优化思路" class="headerlink" title="十三、前端性能优化思路"></a>十三、前端性能优化思路</h2><blockquote>
+<p>以从两个方向入手：加载性能优化和渲染性能优化。</p>
+</blockquote>
+<p>虽然不同方向的优化手段不同，但大体上都遵循两个思路：做减法和做除法。做减法是直接减少耗时操作或资源体积，做除法是在耗时操作和资源体积无法减少的情况下，对其进行拆分处理或者对不可拆分的内容进行顺序调换。</p>
+<h3 id="下面来进行举例分析。加载性能的优化手段中，做减法的有："><a href="#下面来进行举例分析。加载性能的优化手段中，做减法的有：" class="headerlink" title="下面来进行举例分析。加载性能的优化手段中，做减法的有："></a>下面来进行举例分析。加载性能的优化手段中，做减法的有：</h3><ul>
+<li>采用 gzip 压缩，典型的减少资源的传输体积；</li>
+<li>使用缓存，强制缓存可以减少浏览器请求次数，而协商缓存可以减少传输体积；</li>
+<li>使用雪碧图，减少浏览器请求次数。</li>
+</ul>
+<h3 id="做除法的有："><a href="#做除法的有：" class="headerlink" title="做除法的有："></a>做除法的有：</h3><ul>
+<li><p>HTTP2 多路复用，把多个请求拆分成二进制帧，并发传输；</p>
+</li>
+<li><p>懒加载，将 Web 应用拆分成不同的模块或文件，按需加载；</p>
+</li>
+<li><p>把 script 标签放到 body 底部，通过调整顺序来控制渲染时间。</p>
+</li>
+</ul>
+<h3 id="而在渲染性能优化的手段中，做减法的有："><a href="#而在渲染性能优化的手段中，做减法的有：" class="headerlink" title="而在渲染性能优化的手段中，做减法的有："></a>而在渲染性能优化的手段中，做减法的有：</h3><ul>
+<li><p>避免重排与重绘，减少渲染引擎的绘制；</p>
+</li>
+<li><p>防抖操作，减少函数调用或请求次数；</p>
+</li>
+<li><p>减少 DOM 操作，减少渲染引擎和脚本引擎的切换，同时也减少渲染引擎绘制。</p>
+</li>
+</ul>
+<h3 id="做除法的有：-1"><a href="#做除法的有：-1" class="headerlink" title="做除法的有："></a>做除法的有：</h3><ul>
+<li><p>骨架屏，将页面内容进行拆分，调整不同部分的显示顺序；</p>
+</li>
+<li><p>使用 Web Worker，将一些长任务拆分出来，放到 Web Worker 中执行；</p>
+</li>
+<li><p>React Fiber，将同步视图的任务进行拆分，可调换顺序，可暂停。</p>
+</li>
+</ul>
+<h2 id="十四、安全"><a href="#十四、安全" class="headerlink" title="十四、安全"></a>十四、安全</h2><h3 id="跨站脚本（Cross-Site-Scripting，XSS）"><a href="#跨站脚本（Cross-Site-Scripting，XSS）" class="headerlink" title="跨站脚本（Cross Site Scripting，XSS）"></a>跨站脚本（Cross Site Scripting，XSS）</h3><p>XSS 攻击示例<br>一般我们把 XSS 分为反射型、存储型、DOM 型 3 种类型。反射型 XSS 也叫非持久型 XSS，是指攻击者将恶意代码拼写在 URL 中提交给服务端，服务端返回的内容，也带上了这段 XSS 代码，最后导致浏览器执行了这段恶意代码。</p>
+<h4 id="XSS-防御手段"><a href="#XSS-防御手段" class="headerlink" title="XSS 防御手段"></a>XSS 防御手段</h4><ul>
+<li><p>参数校验。对于 HTTP 请求的 URL 参数和请求体 payload 的数据进行校验，比如我们接收的数据是用户年龄，那么在后端，需要判断一下数据是否是 Number，对于不符合校验规则的数据及时抛出错误。</p>
+</li>
+<li><p>字符转义。对于一些特殊符号，比如“&lt;”“&gt;”“&amp;”“””“’”“/”，我们需要对其进行转义，后端接收这些代码时候的转义存储，前端在显示的时候，再把它们转成原来的字符串进行显示。</p>
+</li>
+</ul>
+<h3 id="跨站请求伪造（Cross-site-Request-Forgery，CSRF-XSRF）"><a href="#跨站请求伪造（Cross-site-Request-Forgery，CSRF-XSRF）" class="headerlink" title="跨站请求伪造（Cross-site Request Forgery，CSRF/XSRF）"></a>跨站请求伪造（Cross-site Request Forgery，CSRF/XSRF）</h3><p>CSRF 攻击就是在受害者毫不知情的情况下以受害者名义伪造请求发送给受攻击站点，从而在并未授权的情况下执行在权限保护之下的操作。和 XSS 攻击方式相比，CSRF 并不需要直接获取用户信息，只需要“借用”用户的登录信息相关操作即可，隐蔽性更强。</p>
+<h4 id="CSRF-防御手段"><a href="#CSRF-防御手段" class="headerlink" title="CSRF 防御手段"></a>CSRF 防御手段</h4><p>通过前面的例子可以看到 CSRF 大多来自第三方网站，所以浏览器会在请求头带上 Refer 字段，服务器可以判断 Refer 来拒绝不受信任的源发出的请求。</p>
+<p>由于攻击者在大多数情况下利用 cookie 来通过验证，所以可以在请求地址中添加其他头部字段，比如 token，服务端只有接收到正确的 token 后才响应正确的内容。</p>
+<p>攻击者是在不知情的情况下，自动发起恶意的请求，那么可以通过用户确认来防御攻击，比如加入图形或短信验证码让用户输入，确认该操作是用户本人发起的。但是加入验证码会影响用户的体验，所以验证码不能频繁使用。</p>
+<h3 id="点击劫持（C-lickJacking-）"><a href="#点击劫持（C-lickJacking-）" class="headerlink" title="点击劫持（C lickJacking ）"></a>点击劫持（C lickJacking ）</h3><p>攻击者创建一个网页利用 iframe 包含目标网站，然后通过设置透明度等方式隐藏目标网站，使用户无法察觉目标网站的存在，并且把它遮罩在网页上。在网页中诱导用户点击特定的按钮，而这个按钮的位置和目标网站的某个按钮重合，当用户点击网页上的按钮时，实际上是点击目标网站的按钮。</p>
+<h4 id="ClickJacking-防御"><a href="#ClickJacking-防御" class="headerlink" title="ClickJacking 防御"></a>ClickJacking 防御</h4><p>通过例子可以看到 ClickJacking 的攻击原理主要是利用了 iframe，所以可以通过设置响应头部字段 X-Frame-Options HTTP 来告诉浏览器允许哪些域名引用当前页面。X-Frame-Options 的值有 3 个，具体如下。</p>
+<ul>
+<li><p>DENY：表示页面不允许在 iframe 中引用，即便是在相同域名的页面中嵌套也不允许，GitHub 首页响应头部使用的就是这个值。</p>
+</li>
+<li><p>SAMEORIGIN：表示该页面可以在相同域名页面的 iframe 中引用，知乎网站首页响应头部使用的就是这个值。</p>
+</li>
+<li><p>ALLOW-FROM [URL]：表示该页面可以在指定来源的 iframe 中引用。</p>
+</li>
+</ul>
+<h2 id="十五、综合能力"><a href="#十五、综合能力" class="headerlink" title="十五、综合能力"></a>十五、综合能力</h2><ul>
+<li>数据结构</li>
+<li>算法</li>
+<li>编程方式</li>
+<li>设计模式</li>
+<li>Serverless</li>
+</ul>
+
+      
+    </div>
+    <!-- <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/" title="前端进阶知识" target="_blank" rel="external">http://yoursite.com/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mrr3000" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mrr3000" target="_blank"><span class="text-dark">Marong</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div> -->
+  </article>
+  <!-- 
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+   -->
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/08/30/book/video/202008%E6%95%8F%E6%8D%B7%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="敏捷项目管理入门"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/08/30/weeks/2020/202008-4/" title="前端周刊【202008-4】"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  <!-- 
+ -->
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
