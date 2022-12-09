@@ -65,9 +65,9 @@
     
       <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -92,9 +92,9 @@
     
     
     
-      <category term="计算机专业" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A/"/>
-    
       <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+    
+      <category term="计算机专业" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A/"/>
     
   </entry>
   
@@ -201,9 +201,9 @@
     
     
     
-      <category term="TCP" scheme="http://yoursite.com/tags/TCP/"/>
-    
       <category term="HTTP" scheme="http://yoursite.com/tags/HTTP/"/>
+    
+      <category term="TCP" scheme="http://yoursite.com/tags/TCP/"/>
     
       <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
     
@@ -507,9 +507,9 @@
     
     
     
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
       <category term="书籍" scheme="http://yoursite.com/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -560,9 +560,9 @@
     
     
     
-      <category term="大前端" scheme="http://yoursite.com/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+      <category term="大前端" scheme="http://yoursite.com/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
