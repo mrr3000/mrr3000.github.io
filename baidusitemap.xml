@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2022/10/30/weeks/2022/2022-10/</loc>
+    <loc>http://yoursite.com/2022/12/10/book/2022/%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2022-12-09</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2022/12/10/book/2022/%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/</loc>
+    <loc>http://yoursite.com/2022/10/30/weeks/2022/2022-10/</loc>
     <lastmod>2022-12-09</lastmod>
   </url>
   <url>
@@ -85,11 +85,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/07/30/weeks/2021/2021-07/</loc>
+    <loc>http://yoursite.com/2021/09/30/weeks/2021/2021-09/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/09/30/weeks/2021/2021-09/</loc>
+    <loc>http://yoursite.com/2021/07/30/weeks/2021/2021-07/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -97,11 +97,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/12/20/weeks/2020/202012-3/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/12/27/weeks/2020/202012-4/</loc>
+    <loc>http://yoursite.com/2021/01/30/weeks/2021/2021-01/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -109,7 +105,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/01/30/weeks/2021/2021-01/</loc>
+    <loc>http://yoursite.com/2021/03/30/weeks/2021/2021-03/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -121,11 +117,19 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/03/30/weeks/2021/2021-03/</loc>
+    <loc>http://yoursite.com/2021/05/30/weeks/2021/2021-05/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/05/30/weeks/2021/2021-05/</loc>
+    <loc>http://yoursite.com/2020/12/20/weeks/2020/202012-3/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/12/27/weeks/2020/202012-4/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/09/20/weeks/2020/202009-3/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -137,19 +141,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/09/20/weeks/2020/202009-3/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/11/15/weeks/2020/202011-2/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/11/20/weeks/2020/202011-3/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2020/11/28/weeks/2020/202011-4/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/12/06/weeks/2020/202012-1/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -157,7 +153,19 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/12/06/weeks/2020/202012-1/</loc>
+    <loc>http://yoursite.com/2020/11/20/weeks/2020/202011-3/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/11/15/weeks/2020/202011-2/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/07/26/weeks/2020/202007-4/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/07/31/weeks/2020/202007-5/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -169,11 +177,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/31/weeks/2020/202007-5/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/07/26/weeks/2020/202007-4/</loc>
+    <loc>http://yoursite.com/2020/08/30/weeks/2020/202008-4/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -181,15 +185,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/09/06/weeks/2020/202009-1/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2020/09/13/weeks/2020/202009-2/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/30/weeks/2020/202008-4/</loc>
+    <loc>http://yoursite.com/2020/09/06/weeks/2020/202009-1/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -205,7 +205,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/06/21/weeks/2020/202006-3/</loc>
+    <loc>http://yoursite.com/2020/07/05/weeks/2020/202007-1/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -213,7 +213,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/05/weeks/2020/202007-1/</loc>
+    <loc>http://yoursite.com/2020/06/21/weeks/2020/202006-3/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/07/12/weeks/2020/202007-2/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -221,7 +225,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/12/weeks/2020/202007-2/</loc>
+    <loc>http://yoursite.com/2020/08/04/frame/react/ToyReact/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -233,15 +237,19 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/31/frame/vue/vue3%E9%80%A0%E8%BD%AE%E5%AD%90/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2020/09/03/frame/vue/Webpack%20%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E4%B9%8B%E9%80%9F%E5%BA%A6%E7%AF%87/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/04/frame/react/ToyReact/</loc>
+    <loc>http://yoursite.com/2020/07/31/frame/vue/vue3%E9%80%A0%E8%BD%AE%E5%AD%90/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2021/03/10/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B93/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -250,14 +258,6 @@
   </url>
   <url>
     <loc>http://yoursite.com/2021/03/06/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B92/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2021/03/10/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B93/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2021/03/12/frame/react/React%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B94/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -301,19 +301,15 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/17/book/video/202008%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2020/08/16/book/video/202008%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8%E4%BF%AE%E7%82%BC/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/</loc>
+    <loc>http://yoursite.com/2020/08/17/book/video/202008%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/</loc>
+    <loc>http://yoursite.com/2020/08/15/book/video/202008%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -321,7 +317,15 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/15/book/video/202008%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4/</loc>
+    <loc>http://yoursite.com/2020/08/30/book/video/202008%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/08/15/book/video/202008VUE3%E6%A0%B8%E5%BF%83%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/01/15/book/video/202001Typescript%E5%9F%BA%E7%A1%80&%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -330,14 +334,6 @@
   </url>
   <url>
     <loc>http://yoursite.com/2022/03/10/book/2022/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDWEB%E7%AB%99%E7%82%B9/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/01/15/book/video/202001Typescript%E5%9F%BA%E7%A1%80&%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/08/20/book/2020/%E6%BC%AB%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -353,6 +349,10 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
+    <loc>http://yoursite.com/2020/08/20/book/2020/%E6%BC%AB%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite.com/2020/01/09/book/2020/%E9%AB%98%E6%80%A7%E8%83%BD%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
@@ -361,11 +361,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/24/book/2020/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95JS%E6%8F%8F%E8%BF%B0/</loc>
+    <loc>http://yoursite.com/2020/04/05/book/2020/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BANODEJS/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/04/05/book/2020/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BANODEJS/</loc>
+    <loc>http://yoursite.com/2020/07/24/book/2020/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95JS%E6%8F%8F%E8%BF%B0/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -381,11 +381,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2019/07/05/book/2019/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAwebpack/</loc>
+    <loc>http://yoursite.com/2019/04/05/book/2019/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84javascript/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2019/04/05/book/2019/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84javascript/</loc>
+    <loc>http://yoursite.com/2019/07/05/book/2019/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAwebpack/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -417,7 +417,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2019/06/17/book/2019/Flutter/</loc>
+    <loc>http://yoursite.com/2019/03/17/book/2019/Javascript%E9%AB%98%E6%80%A7%E8%83%BD/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -425,7 +425,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2019/03/17/book/2019/Javascript%E9%AB%98%E6%80%A7%E8%83%BD/</loc>
+    <loc>http://yoursite.com/2019/06/17/book/2019/Flutter/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -441,7 +441,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/11/basic/nodejs/EGG%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://yoursite.com/2020/05/26/basic/nodejs/KOA%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -449,7 +449,7 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/05/26/basic/nodejs/KOA%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://yoursite.com/2020/07/11/basic/nodejs/EGG%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -457,11 +457,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/05/07/basic/js/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</loc>
+    <loc>http://yoursite.com/2020/08/03/basic/js/%E8%90%BD%E5%9C%B0%E5%BE%AE%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/03/basic/js/%E8%90%BD%E5%9C%B0%E5%BE%AE%E5%89%8D%E7%AB%AF/</loc>
+    <loc>http://yoursite.com/2021/05/07/basic/js/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -481,11 +481,11 @@
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/</loc>
+    <loc>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/21/basic/htmlcss/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</loc>
+    <loc>http://yoursite.com/2020/08/21/basic/htmlcss/IE%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%85%E6%9E%90/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -493,23 +493,7 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/05/23/frame/vue/uni-app%20%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/05/10/frame/vue/vue%20excel%E5%AF%BC%E5%87%BA/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2020/05/31/weeks/2020/202005-4/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/05/24/weeks/2020/202005-3/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/05/10/weeks/2020/202005-2/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
@@ -517,7 +501,23 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
+    <loc>http://yoursite.com/2020/05/10/weeks/2020/202005-2/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/05/24/weeks/2020/202005-3/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite.com/2020/06/06/weeks/2020/202006-1/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/05/10/frame/vue/vue%20excel%E5%AF%BC%E5%87%BA/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/05/23/frame/vue/uni-app%20%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
@@ -533,15 +533,23 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/03/10/book/2020/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2020/05/14/build/http/HTML%E7%8A%B6%E6%80%81%E7%A0%81%E5%B8%B8%E8%A7%84%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/2020/05/10/build/http/TCP%20%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%20%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/03/10/book/2020/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/06/13/basic/typescript/03-%E7%B1%BBclass/</loc>
+    <lastmod>2022-03-17</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/06/13/basic/typescript/04-%E6%8E%A5%E5%8F%A3interface/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
@@ -553,19 +561,11 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/06/13/basic/typescript/03-%E7%B1%BBclass/</loc>
+    <loc>http://yoursite.com/2020/06/13/basic/typescript/05-%E6%B3%9B%E5%9E%8B%3CT%3E/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/2020/06/13/basic/typescript/06-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4namespace/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/06/13/basic/typescript/04-%E6%8E%A5%E5%8F%A3interface/</loc>
-    <lastmod>2022-03-17</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/06/13/basic/typescript/05-%E6%B3%9B%E5%9E%8B%3CT%3E/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
